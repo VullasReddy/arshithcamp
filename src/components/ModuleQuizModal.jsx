@@ -105,6 +105,7 @@ export default function ModuleQuizModal({
       const res = await api.submitModuleQuiz(module.id, {
         userId,
         studentName,
+        courseId: courseId || module?.courseId || 'python-programming',
         answers
       });
 

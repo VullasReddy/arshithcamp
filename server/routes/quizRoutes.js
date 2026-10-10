@@ -106,11 +106,15 @@ router.post('/quizzes/module/:moduleId/submit', (req, res) => {
   );
   const attemptNumber = previousAttempts.length + 1;
 
+  const targetCourseId = req.body.courseId || 
+    (db.courses || []).find(c => (c.modules || []).some(m => m.id === moduleId))?.id || 
+    'python-programming';
+
   const newAttempt = {
     id: `attempt-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
     userId,
     studentName,
-    courseId: 'sql-data-analysis',
+    courseId: targetCourseId,
     moduleId,
     score,
     totalQuestions,
@@ -123,17 +127,17 @@ router.post('/quizzes/module/:moduleId/submit', (req, res) => {
 
   db.quizAttempts.unshift(newAttempt);
 
-  // If passed, mark module as completed in sql course
-  const sqlCourse = (db.courses || []).find(c => c.id === 'sql-data-analysis');
-  if (sqlCourse && passed) {
-    const targetModule = sqlCourse.modules?.find(m => m.id === moduleId);
+  // If passed, mark module as completed in the corresponding course
+  const targetCourse = (db.courses || []).find(c => c.id === targetCourseId || (c.modules || []).some(m => m.id === moduleId));
+  if (targetCourse && passed) {
+    const targetModule = targetCourse.modules?.find(m => m.id === moduleId);
     if (targetModule) {
       targetModule.completed = true;
 
       // Recalculate course progress
-      const totalMods = sqlCourse.modules.length;
-      const doneMods = sqlCourse.modules.filter(m => m.completed).length;
-      sqlCourse.progress = Math.round((doneMods / totalMods) * 100);
+      const totalMods = targetCourse.modules.length;
+      const doneMods = targetCourse.modules.filter(m => m.completed).length;
+      targetCourse.progress = Math.round((doneMods / totalMods) * 100);
     }
   }
 
@@ -354,11 +358,13 @@ router.post('/final-test/submit', (req, res) => {
   if (!db.finalTestAttempts) db.finalTestAttempts = [];
   const previousAttempts = db.finalTestAttempts.filter(a => a.userId === userId);
 
+  const targetCourseId = req.body.courseId || courseId || 'python-programming';
+
   const attempt = {
     id: `ftest-attempt-${Date.now()}`,
     userId,
     studentName,
-    courseId: 'sql-data-analysis',
+    courseId: targetCourseId,
     score,
     totalQuestions,
     percentage,
@@ -379,12 +385,12 @@ router.post('/final-test/submit', (req, res) => {
     session.submitted = true;
   }
 
-  // Update SQL course completion status if passed
-  const sqlCourse = (db.courses || []).find(c => c.id === 'sql-data-analysis');
-  if (sqlCourse && passed) {
-    sqlCourse.progress = 100;
-    sqlCourse.isCompleted = true;
-    sqlCourse.completedAt = new Date().toISOString();
+  // Update course completion status if passed
+  const targetCourse = (db.courses || []).find(c => c.id === targetCourseId || c.id === courseId);
+  if (targetCourse && passed) {
+    targetCourse.progress = 100;
+    targetCourse.isCompleted = true;
+    targetCourse.completedAt = new Date().toISOString();
   }
 
   saveDb(db);

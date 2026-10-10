@@ -11,7 +11,7 @@ export const INITIAL_COURSES = [
     "price": 999,
     "isFree": false,
     "bestseller": true,
-    "progress": 47,
+    "progress": 0,
     "iconBg": "bg-blue-50 border 2 border-blue-200 text-blue-600",
     "iconType": "python",
     "introVideoUrl": "https://www.youtube.com/embed/kqtD5dpn9C8",
@@ -40,7 +40,7 @@ export const INITIAL_COURSES = [
         "id": "py-mod-1",
         "title": "Module 01 — Introduction to Python",
         "description": "This module introduces Python programming from the ground up. You will learn what Python is, why it is widely used, how to install and run Python, the basic structure of a Python program, and the core concepts needed before moving into variables, data types, operators, and control flow.",
-        "completed": true,
+        "completed": false,
         "readingMaterial": {
           "introduction": "This module introduces Python programming from the ground up. You will learn what Python is, why it is widely used, how to install and run Python, the basic structure of a Python program, and the core concepts needed before moving into variables, data types, operators, and control flow.\n\nLearning Level: Beginner | Module Type: Theory + Practical\nPrerequisite: No prior programming experience is required.",
           "objectives": [
@@ -484,7 +484,7 @@ export const INITIAL_COURSES = [
         "id": "py-mod-2",
         "title": "Module 02 — Variables, Expressions and Statements",
         "description": "Variables and data types are fundamental concepts in Python programming. Learn variable assignment, naming rules, dynamic typing, built-in numeric/string/collection types, mutability, type conversion, and practice programs.",
-        "completed": true,
+        "completed": false,
         "readingMaterial": {
           "introduction": "Variables and data types are fundamental concepts in Python programming.\n\nA variable is a name that refers to a value or object stored in memory. Variables allow us to store information and use that information later in a program.\n\nA data type tells us what kind of value an object represents and what operations can be performed with that value.\n\nPython is dynamically typed, which means you do not have to explicitly declare the type of a variable before assigning a value to it. The same variable name can refer to objects of different types at different times.",
           "objectives": [
@@ -1056,7 +1056,7 @@ export const INITIAL_COURSES = [
         "id": "py-mod-3",
         "title": "Module 03 — Operators, Expressions & Precedence",
         "description": "Operators and expressions are fundamental building blocks of Python programs. Master arithmetic, assignment, comparison, logical, bitwise, membership, and identity operators, operator precedence (PEMDAS), short-circuiting, ternary expressions, and hands-on coding practice.",
-        "completed": true,
+        "completed": false,
         "readingMaterial": {
           "introduction": "Operators and expressions are fundamental building blocks of Python programs.\n\nAn operator is a symbol or keyword that tells Python to perform an operation.\nAn operand is a value or object on which an operator performs an operation.\nAn expression is a combination of values, variables, operators, function calls, or other elements that Python can evaluate to produce a value.\n\nFor example:\na = 10\nb = 20\nresult = a + b\n\nHere:\n• a and b are operands.\n• + is an operator.\n• a + b is an expression.\n• 30 is the value produced by the expression.\n\nOperators allow us to perform essential tasks such as:\n• Mathematical calculations\n• Comparing values\n• Assigning and updating values\n• Performing logical decision-making\n• Working with binary bits\n• Checking membership within sequences and mappings\n• Comparing object memory identity",
           "objectives": [
@@ -1783,7 +1783,7 @@ export const INITIAL_COURSES = [
         "id": "py-mod-4",
         "title": "Module 04 — Conditional Execution & Exception Handling",
         "description": "A practical Python study guide. Master Boolean expressions, comparison and logical operators, if/elif/else decision structures, nested conditionals, try/except error handling, input validation, and real-world worked exercises.",
-        "completed": true,
+        "completed": false,
         "readingMaterial": {
           "introduction": "Conditional Execution & Exception Handling: A practical Python study guide.\n\nPython normally runs statements sequentially from top to bottom. Conditional execution allows programs to select alternative execution paths based on whether a condition evaluates to True or False.\n\nMeanwhile, runtime errors (exceptions) can unexpectedly halt program execution when unexpected inputs occur (such as non-numeric text input or division by zero). The try/except construct provides an essential mechanism to catch anticipated errors, validate inputs, and produce helpful user feedback without crashing.",
           "objectives": [
@@ -2245,7 +2245,7 @@ export const INITIAL_COURSES = [
         "id": "py-mod-5",
         "title": "Module 05 — Iteration & Loops",
         "description": "Updating variables, while statements, infinite loops, break & continue, for loops, counting, summing, and min/max search patterns.",
-        "completed": true,
+        "completed": false,
         "readingMaterial": {
           "introduction": "Loops let a program repeat instructions. Repetition is useful when processing a list, asking for input until it is valid, counting items, adding values, or searching for the smallest or largest value.\n\nThis module covers updating variables, while and for loops, infinite loops, break and continue, counting, summing, and min/max search patterns. Examples use Python 3.",
           "objectives": [
@@ -2678,7 +2678,7 @@ export const INITIAL_COURSES = [
         "id": "py-mod-6",
         "title": "Module 06 — Functions & Modular Code",
         "description": "Built-in functions, type conversion, math & random modules, defining custom functions (def), parameters, arguments, fruitful vs void functions, and scope.",
-        "completed": true,
+        "completed": false,
         "readingMaterial": {
           "introduction": "Functions help programmers organize instructions into named, reusable units. As a program grows, placing every instruction in one long sequence makes it difficult to understand and maintain. Functions provide a way to divide a program into smaller tasks. A function can accept information, perform work, and return a result to the part of the program that called it.\n\nPython also provides built-in functions and an extensive standard library. Built-ins handle everyday tasks such as displaying output, counting items, and finding totals. Modules group related tools; for example, math provides mathematical functions and constants, while random provides pseudo-random choices for simulations and games.",
           "objectives": [
@@ -3096,7 +3096,7 @@ export const INITIAL_COURSES = [
         "id": "py-mod-7",
         "title": "Module 07 — Data Structures: Lists, Dictionaries & Tuples",
         "description": "Sequences, mutability, lists, dictionaries as key-value mappings & counters, tuples immutability, DSU sorting pattern, and list comprehensions.",
-        "completed": true,
+        "completed": false,
         "readingMaterial": {
           "introduction": "Python data structures store and organize related values. Lists and tuples are ordered sequences accessed by position, while dictionaries map unique keys to values, and sets store unique, unordered elements.\n\nPrograms often need to work with groups of related information: a set of quiz scores, a record of a person's details, a collection of product names, or unique user permissions. A data structure stores that information in a useful form. The choice of structure affects how values are accessed, updated, searched, and processed.\n\nPython's core collection types include lists, dictionaries, tuples, and sets. Lists are ordered and mutable. Dictionaries store key-value mappings and allow values to be retrieved by key in O(1) average time. Tuples are ordered sequences that cannot be structurally changed after creation. Sets store unique elements with ultra-fast mathematical set operations. This comprehensive module covers sequence operations, mutability, multi-dimensional lists, shallow vs deep copying, dictionary counters, dictionary comprehensions, modern merge operators, tuple immutability, namedtuples, sets & set theory, the collections module (Counter, defaultdict, deque), the Decorate-Sort-Undecorate (DSU) pattern, Big-O computational complexity, and list comprehensions.",
           "objectives": [
@@ -3637,7 +3637,7 @@ export const INITIAL_COURSES = [
         "id": "py-mod-8",
         "title": "Module 08 — Strings, Slicing & Text Parsing",
         "description": "Strings as immutable sequences, indexing, slicing with step, string methods (find, strip, split, join, replace), parsing patterns, and f-string formatting.",
-        "completed": true,
+        "completed": false,
         "readingMaterial": {
           "introduction": "Strings are among the most versatile and ubiquitous data structures in Python programming. A string is an immutable, ordered sequence of characters representing textual data. From parsing server logs and extracting API parameters to validating email addresses and generating formatted invoices, text processing is a core pillar of software development.\n\nIn Python, every character in a string is represented internally using Unicode (UTF-8 by default), allowing programs to manipulate characters, symbols, and emojis across all written languages seamlessly. Because strings are sequences, they share fundamental behaviors with lists and tuples—such as zero-based indexing, slicing, iteration, and membership testing—while enforcing strict immutability.\n\nThis comprehensive module covers the full anatomy of Python strings: character indexing, step-based slicing, immutability and memory interning, frequency analysis, case normalization, searching and validation methods, delimiter tokenization with split() and join(), regex-free text extraction patterns, modern f-string interpolation, computational complexity, and 8 real-world practice programs.",
           "objectives": [
@@ -4153,7 +4153,7 @@ export const INITIAL_COURSES = [
         "id": "py-mod-9",
         "title": "Module 09 — File Handling & Persistence",
         "description": "Secondary memory persistence, file handles (open), line-by-line streaming, searching & filtering log files, safe writing/appending, context managers (with open), and pathlib integration.",
-        "completed": true,
+        "completed": false,
         "readingMaterial": {
           "introduction": "All computer programs operate across two primary memory tiers: volatile Main Memory (RAM), which is fast but instantly erased when a script finishes or power cuts out, and non-volatile Secondary Memory (Solid-State Drives, Hard Drives, and Cloud Storage), where information persists indefinitely. In modern software engineering—from web applications logging user transactions to data science pipelines processing multi-gigabyte telemetry datasets—reading and writing files is the fundamental bridge between transient computation and permanent data persistence.\n\nIn Python, file handling is engineered around an elegant, stream-based abstraction known as a 'File Handle'. Rather than attempting to copy an entire massive file directly into system RAM, Python establishes a lightweight pointer to the operating system's disk buffer. This stream architecture enables programmers to iterate line-by-line across files of arbitrary size—even those exceeding physical computer memory—with constant O(1) space complexity.\n\nBased on Chapter 7 of Dr. Charles Severance's 'Python for Everybody' and modern Python 3 best practices, this module provides an exhaustive, production-grade guide to text and structured file manipulation: understanding character encoding standards (UTF-8 vs ASCII vs Latin-1), mastering open modes ('r', 'w', 'a', 'x'), avoiding resource leaks via context managers (with open), filtering server log streams (mbox format), sanitizing whitespace and newlines, implementing atomic write operations, and navigating modern object-oriented file systems using pathlib.",
           "objectives": [
@@ -4664,7 +4664,7 @@ export const INITIAL_COURSES = [
         "id": "py-mod-10",
         "title": "Module 10 — Exception Handling & Debugging Strategies",
         "description": "Advanced exception hierarchies, try/except/else/finally control flow, custom domain exceptions, exception chaining, traceback diagnostics, the logging module, and scientific debugging by bisection.",
-        "completed": true,
+        "completed": false,
         "readingMaterial": {
           "introduction": "In software engineering, the distinction between novice scripting and production-grade programming lies in how a system handles the unexpected. Novice programs operate under the 'happy path' assumption—trusting that inputs are always clean, network connections never timeout, files always exist, and disk space is limitless. When real-world conditions violate these assumptions, unhandled exceptions trigger catastrophic process termination, leaving users with cryptic tracebacks and corrupted application state.\n\nProfessional software development treats exceptions not as disastrous failures, but as expected, normal execution branches. Python's exception handling system is engineered around the principle of 'Easier to Ask for Forgiveness than Permission' (EAFP), contrasting with the 'Look Before You Leap' (LBYL) style common in C and Java. Rather than evaluating dozens of defensive boolean conditions prior to every operation, Python encourages attempting the action inside a protected try block and handling domain-specific anomalies cleanly through explicit except handlers.\n\nBased on Chapters 3, 7, and 14 of Dr. Charles Severance's 'Python for Everybody' and enterprise Python reliability standards, this module delivers an exhaustive masterclass in building resilient, fault-tolerant Python applications: mastering the complete four-part try/except/else/finally lifecycle, building custom application exception hierarchies, tracing call stacks with the traceback module, replacing ad-hoc print statements with industrial-grade logging, applying scientific debugging by bisection (O(log N) defect isolation), and utilizing modern interactive debugging with breakpoint() and pdb.",
           "objectives": [
@@ -5163,7 +5163,7 @@ export const INITIAL_COURSES = [
         "id": "py-mod-11",
         "title": "Module 11 — Object-Oriented Programming (OOP)",
         "description": "Classes and instances (the cookie cutter analogy), attributes and methods, self mechanics, constructor lifecycle (__init__), encapsulation, inheritance, method overriding, and magic dunder methods.",
-        "completed": true,
+        "completed": false,
         "readingMaterial": {
           "introduction": "As software applications grow beyond simple scripts, managing hundreds of isolated variables and functions becomes unwieldy. Procedural programming organizes code around sequential actions, but as data structures expand, tracking which function modifies which global variable creates tightly coupled, fragile codebases. Object-Oriented Programming (OOP) solves this architectural challenge by bundling related state (attributes) and behavior (methods) into self-contained, reusable conceptual entities called 'Objects'.\n\nBased on Chapter 14 of Dr. Charles Severance's 'Python for Everybody' and enterprise Python software design patterns, this module introduces the foundational pillars of object-oriented architecture. Rather than treating code as a continuous series of instructions, OOP models software after real-world domains: bank accounts encapsulate balances and transaction histories; web servers encapsulate request dispatchers and session pools; graphical interfaces encapsulate windows, buttons, and event listeners.\n\nIn Python, everything is an object—from simple integers and strings to complex machine learning models. This module provides a rigorous, deep dive into designing robust classes: understanding the class blueprint vs. instance memory allocation, mastering the self parameter and object lifecycle (__init__ constructor and __del__ destructor), implementing clean encapsulation and private attribute protection, leveraging inheritance and super() hierarchies, achieving dynamic polymorphism, and harnessing Python's rich suite of special 'dunder' (double-underscore) magic methods (__str__, __repr__, __eq__, __len__).",
           "objectives": [
@@ -5601,7 +5601,7 @@ export const INITIAL_COURSES = [
         "id": "py-mod-12",
         "title": "Module 12 — Regular Expressions (re module)",
         "description": "Pattern matching with the re module, character classes, greedy vs non-greedy quantifiers, capture groups, search/findall/sub/split, and real-world email/log extraction.",
-        "completed": true,
+        "completed": false,
         "readingMaterial": {
           "introduction": "In earlier modules, text parsing required intricate combinations of string methods: find(), split(), strip(), and multi-step slice arithmetic. While suitable for simple delimiter separation, real-world data is rarely uniform. Server logs contain varying whitespace; user input includes erratic phone number formatting; email addresses have dynamic subdomains; and security audits require matching hexadecimal hashes or IPv4 addresses. Solving these complex text patterns using standard procedural string methods requires dozens of fragile, nested conditional statements.\n\nRegular Expressions (commonly abbreviated as 'Regex') provide a concise, declarative domain-specific language for searching, validating, extracting, and replacing text patterns. Rather than specifying algorithmic step-by-step extraction instructions, you describe the shape and constraints of the target data: 'find a line starting with From:, followed by whitespace, followed by a sequence of non-whitespace characters containing an @ symbol.'\n\nBased on Chapter 11 of Dr. Charles Severance's 'Python for Everybody' and production Python text-processing standards, this module delivers an exhaustive guide to Python's built-in re engine: mastering raw string notation (r'...'), character classes and meta-characters, greedy versus non-greedy quantifiers, capture groups and named groups, high-performance precompiled regex objects (re.compile), search-and-replace transformations (re.sub), and defensive pattern design to prevent catastrophic backtracking.",
           "objectives": [
@@ -6083,7 +6083,7 @@ export const INITIAL_COURSES = [
         "id": "py-mod-13",
         "title": "Module 13 — Networked Programs, Sockets & Web Scraping",
         "description": "TCP/IP socket communication, HTTP protocol specifications, urllib URL streaming, web scraping with BeautifulSoup, HTML DOM tree navigation, and SSL/TLS security contexts.",
-        "completed": true,
+        "completed": false,
         "readingMaterial": {
           "introduction": "In traditional standalone computing, software operates strictly within the confines of local memory and local disk drives. However, the true power of modern programming emerges when Python reaches across the global Internet to communicate with remote servers, retrieve real-time data feeds, automate browser workflows, and harvest knowledge from unstructured web pages.\n\nTo write networked Python programs, you must understand the underlying communication architecture: the Transport Control Protocol (TCP) and Internet Protocol (IP). A network connection is established across a 'Socket'—a two-way communication channel between two programs running across the network, uniquely identified by an IP address and a Port number. Atop TCP sockets runs the World Wide Web's foundational application protocol: the HyperText Transfer Protocol (HTTP).\n\nBased on Chapter 12 of Dr. Charles Severance's 'Python for Everybody' and enterprise web scraping engineering standards, this module bridges the gap between low-level network mechanics and high-level data harvesting: constructing raw socket connections to send manual HTTP GET commands, utilizing Python's urllib module to treat global URLs as simple file streams, respecting web scraping ethics and robots.txt protocols, mastering the BeautifulSoup (bs4) HTML parser to navigate complex DOM trees, following hyperlink trails programmatically, and downloading binary media assets via chunked network streams.",
           "objectives": [
@@ -6466,7 +6466,7 @@ export const INITIAL_COURSES = [
         "id": "py-mod-14",
         "title": "Module 14 — Web Services: XML, JSON & REST APIs",
         "description": "Machine-to-machine data exchange, XML tree parsing with ElementTree, JSON serialization/deserialization, REST architecture principles, API authentication, and consuming external web services.",
-        "completed": true,
+        "completed": false,
         "readingMaterial": {
           "introduction": "In Module 13, we explored web scraping—extracting data from HTML designed primarily for human visual consumption. While scraping is valuable when no alternative exists, HTML is inherently fragile: a minor redesign of a website's CSS classes or tag structure immediately breaks scraper pipelines. To build robust, enterprise-grade distributed systems, modern software relies on 'Web Services'—structured machine-to-machine application programming interfaces (APIs) where systems exchange raw data over standardized network protocols without presentation markup.\n\nTwo dominant data interchange standards power the modern web: eXtensible Markup Language (XML), a hierarchical tag-based format historically dominant in enterprise banking and SOAP architectures; and JavaScript Object Notation (JSON), a lightweight, key-value format that has become the ubiquitous standard for modern RESTful web APIs and microservices.\n\nBased on Chapter 13 of Dr. Charles Severance's 'Python for Everybody' and enterprise API engineering standards, this module provides a complete, professional masterclass in consuming and architecting web services: parsing nested XML trees using the standard xml.etree.ElementTree library, serializing and deserializing JSON payloads using Python's json module, mastering RESTful API design principles (resource endpoints, HTTP verbs, status codes), parameterizing queries with urllib.parse, implementing API Key and Bearer Token authentication, and building defensive clients that handle rate limiting (HTTP 429) and network timeouts gracefully.",
           "objectives": [
@@ -6850,7 +6850,7 @@ export const INITIAL_COURSES = [
         "id": "py-mod-15",
         "title": "Module 15 — Database Connectivity (SQLite) & Data Visualization",
         "description": "Relational database modeling, SQLite integration with sqlite3, SQL queries, parameterized statements preventing SQL injection, multi-table JOINs, many-to-many junction tables, and exporting data for interactive web visualization.",
-        "completed": true,
+        "completed": false,
         "readingMaterial": {
           "introduction": "Throughout the previous fourteen modules of this boot camp, we have progressed from basic syntax, variables, and loops to object-oriented programming, regular expressions, and networked web services. Yet every application we have built faced a fundamental data storage limitation: flat text files and JSON documents are linear. As dataset sizes grow to hundreds of thousands or millions of records, searching a flat file requires scanning every byte sequentially ($O(N)$ linear time), and updating a single record requires rewriting the entire file to disk.\n\nRelational Database Management Systems (RDBMS) solve these performance and scalability limits. Databases store structured tables indexed with balanced B-trees, enabling instant $O(log N)$ lookups across billions of rows. Furthermore, databases enforce ACID guarantees (Atomicity, Consistency, Isolation, Durability), ensuring that financial transactions and multi-user updates never leave data partially written or corrupted.\n\nBased on Chapters 15 and 16 of Dr. Charles Severance's 'Python for Everybody', this capstone module unites every skill acquired in this boot camp into a complete, enterprise-grade data engineering pipeline. You will master Python's built-in sqlite3 engine: modeling normalized relational schemas (1-to-many and many-to-many relationships), executing parameterized SQL queries to eliminate SQL injection vulnerabilities, joining tables across Primary and Foreign Keys, managing transaction rollbacks and commits, and building the complete Capstone Project: an automated pipeline that ingests data from external sources, structures it inside SQLite, and exports it for high-impact interactive web visualization.",
           "objectives": [

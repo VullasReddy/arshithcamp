@@ -98,7 +98,7 @@ export default function FinalTestModal({
     setAutoSubmitMessage(null);
 
     // Restore saved answers from localStorage if available
-    const savedAnswers = localStorage.getItem(`sql_final_answers_${userId}`);
+    const savedAnswers = localStorage.getItem(`${course?.id || 'course'}_final_answers_${userId}`);
     if (savedAnswers) {
       try {
         setAnswers(JSON.parse(savedAnswers));
@@ -151,7 +151,7 @@ export default function FinalTestModal({
       [currentQId]: optionIndex
     };
     setAnswers(updated);
-    localStorage.setItem(`sql_final_answers_${userId}`, JSON.stringify(updated));
+    localStorage.setItem(`${course?.id || 'course'}_final_answers_${userId}`, JSON.stringify(updated));
   };
 
   const handleAutoSubmit = () => {
@@ -176,7 +176,7 @@ export default function FinalTestModal({
       if (res.success && res.result) {
         setResultData(res.result);
         setTestState('result');
-        localStorage.removeItem(`sql_final_answers_${userId}`);
+        localStorage.removeItem(`${course?.id || 'course'}_final_answers_${userId}`);
 
         if (res.result.passed) {
           confetti({
