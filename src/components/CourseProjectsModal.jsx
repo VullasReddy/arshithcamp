@@ -6,7 +6,7 @@ import {
 
 export default function CourseProjectsModal({ isOpen, onClose, course }) {
   const projects = course?.projects || [];
-  const [activeProjectId, setActiveProjectId] = useState(projects[0]?.id || 'py-proj-1');
+  const [activeProjectId, setActiveProjectId] = useState(projects[0]?.id || '');
   const [copiedCode, setCopiedCode] = useState(false);
   const [submissions, setSubmissions] = useState({});
   const [githubUrlInput, setGithubUrlInput] = useState('');
@@ -292,7 +292,7 @@ export default function CourseProjectsModal({ isOpen, onClose, course }) {
                   <form onSubmit={handleSaveSubmission} className="flex flex-col sm:flex-row gap-2">
                     <input
                       type="url"
-                      placeholder="https://github.com/username/python-mini-project"
+                      placeholder={`https://github.com/username/${course?.id || 'course'}-mini-project`}
                       value={githubUrlInput}
                       onChange={(e) => setGithubUrlInput(e.target.value)}
                       required

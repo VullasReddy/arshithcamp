@@ -6,6 +6,7 @@ import {
   Code, Sparkles, AlertTriangle, CheckSquare, HelpCircle, Clock, Briefcase
 } from 'lucide-react';
 import { generateCoursePDF } from '../utils/pdfGenerator';
+import { cleanText } from '../utils/textUtils';
 import ModuleQuizModal from '../components/ModuleQuizModal';
 import FinalTestModal from '../components/FinalTestModal';
 import CourseProjectsModal from '../components/CourseProjectsModal';
@@ -122,9 +123,9 @@ export default function LearningPage({
           <div className="h-4 w-px bg-slate-800 hidden sm:block" />
 
           <div>
-            <span className="text-[10px] font-black text-emerald-400 uppercase tracking-wider">{course.title}</span>
+            <span className="text-[10px] font-black text-emerald-400 uppercase tracking-wider">{cleanText(course.title)}</span>
             <h2 className="text-sm font-black text-white truncate max-w-xs sm:max-w-md">
-              {currentModule?.title}
+              {cleanText(currentModule?.title)}
             </h2>
           </div>
         </div>
@@ -224,14 +225,14 @@ export default function LearningPage({
                       : 'bg-slate-900/40 text-slate-300 border-slate-800/60 hover:bg-slate-800'
                   }`}
                 >
-                  <div className="flex items-center gap-3 min-w-0">
+                  <div className="flex items-center gap-3 min-w-0 flex-1">
                     {mod.completed ? (
                       <CheckCircle className={`w-4.5 h-4.5 shrink-0 ${isSelected ? 'text-white' : 'text-emerald-400'}`} />
                     ) : (
                       <Circle className={`w-4.5 h-4.5 shrink-0 ${isSelected ? 'text-white' : 'text-slate-500'}`} />
                     )}
-                    <span className="text-xs font-bold truncate">
-                      {mod.title}
+                    <span className="text-xs font-bold leading-snug break-words">
+                      {cleanText(mod.title)}
                     </span>
                   </div>
 
@@ -259,7 +260,7 @@ export default function LearningPage({
                   <span>Course Projects (1-2 Pages)</span>
                 </h4>
                 <p className="text-[11px] text-slate-300 font-medium pt-1 leading-relaxed">
-                  Fast, small, real-world Python mini projects covering file processing, OOP grade tracker, and SQLite database.
+                  Fast, small, real-world {course?.title || 'course'} mini projects designed to apply your learning with starter code & GitHub submission.
                 </p>
               </div>
 
@@ -315,8 +316,8 @@ export default function LearningPage({
               </span>
               <span className="text-xs font-bold text-slate-400">Course Progress: {course.progress}%</span>
             </div>
-            <h1 className="text-2xl sm:text-3xl font-black text-white">{currentModule?.title}</h1>
-            <p className="text-xs text-slate-400 font-medium">{currentModule?.description}</p>
+            <h1 className="text-2xl sm:text-3xl font-black text-white leading-tight break-words">{cleanText(currentModule?.title)}</h1>
+            <p className="text-xs sm:text-sm text-slate-300 font-medium leading-relaxed break-words">{cleanText(currentModule?.description)}</p>
           </div>
 
           {/* Completed Celebration Banner */}
@@ -362,7 +363,7 @@ export default function LearningPage({
                     <span>1. Introduction</span>
                   </h3>
                   <p className="text-sm leading-relaxed text-slate-300 font-normal">
-                    {rm.introduction}
+                    {cleanText(rm.introduction)}
                   </p>
                 </div>
               )}
@@ -378,7 +379,7 @@ export default function LearningPage({
                     {rm.objectives.map((obj, i) => (
                       <li key={i} className="flex items-start gap-2 bg-slate-950 p-3 rounded-xl border border-slate-800">
                         <span className="text-emerald-400 font-bold">•</span>
-                        <span>{obj}</span>
+                        <span>{cleanText(obj)}</span>
                       </li>
                     ))}
                   </ul>
@@ -389,14 +390,14 @@ export default function LearningPage({
               {rm.sections && rm.sections.map((sec, idx) => (
                 <div key={idx} className="space-y-3">
                   <h4 className="text-base font-bold text-white border-b border-slate-800 pb-1">
-                    {sec.heading}
+                    {cleanText(sec.heading)}
                   </h4>
-                  <p className="text-sm leading-relaxed text-slate-300">{sec.text}</p>
+                  <p className="text-sm leading-relaxed text-slate-300">{cleanText(sec.text)}</p>
                   
                   {sec.bulletPoints && (
                     <ul className="space-y-1.5 text-xs text-slate-300 pl-4 list-disc">
                       {sec.bulletPoints.map((bp, bIdx) => (
-                        <li key={bIdx}>{bp}</li>
+                        <li key={bIdx}>{cleanText(bp)}</li>
                       ))}
                     </ul>
                   )}
@@ -407,7 +408,7 @@ export default function LearningPage({
                         <thead>
                           <tr className="bg-slate-950 text-emerald-400">
                             {sec.table.headers.map((h, hIdx) => (
-                              <th key={hIdx} className="p-2 border border-slate-800">{h}</th>
+                              <th key={hIdx} className="p-2 border border-slate-800">{cleanText(h)}</th>
                             ))}
                           </tr>
                         </thead>
@@ -415,7 +416,7 @@ export default function LearningPage({
                           {sec.table.rows.map((r, rIdx) => (
                             <tr key={rIdx} className="hover:bg-slate-800/40">
                               {r.map((c, cIdx) => (
-                                <td key={cIdx} className="p-2 border border-slate-800 text-slate-300">{c}</td>
+                                <td key={cIdx} className="p-2 border border-slate-800 text-slate-300">{cleanText(c)}</td>
                               ))}
                             </tr>
                           ))}
@@ -432,7 +433,7 @@ export default function LearningPage({
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-bold text-emerald-400 flex items-center gap-1.5">
                       <Code className="w-4 h-4" />
-                      <span>{ex.title}</span>
+                      <span>{cleanText(ex.title)}</span>
                     </span>
                     <span className="text-[10px] text-slate-400">Python 3 / SQL</span>
                   </div>
@@ -441,7 +442,7 @@ export default function LearningPage({
                     <pre>{ex.code}</pre>
                   </div>
                   {ex.explanation && (
-                    <p className="text-xs text-slate-400 italic">Note: {ex.explanation}</p>
+                    <p className="text-xs text-slate-400 italic">Note: {cleanText(ex.explanation)}</p>
                   )}
                 </div>
               ))}
@@ -451,9 +452,9 @@ export default function LearningPage({
                 <div className="bg-slate-950 p-5 rounded-2xl border border-amber-500/40 space-y-3">
                   <div className="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase">
                     <Sparkles className="w-4 h-4" />
-                    <span>Practice Challenge: {rm.practiceExercise.title}</span>
+                    <span>Practice Challenge: {cleanText(rm.practiceExercise.title)}</span>
                   </div>
-                  <p className="text-xs text-slate-300 font-medium">{rm.practiceExercise.problem}</p>
+                  <p className="text-xs text-slate-300 font-medium">{cleanText(rm.practiceExercise.problem)}</p>
 
                   <button
                     onClick={() => setShowSolution(!showSolution)}

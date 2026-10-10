@@ -34,24 +34,38 @@ export default function CourseDetailsPage({ course, onBack, onStartLearning }) {
           {/* Main Course Info (Left 8 Cols) */}
           <div className="lg:col-span-8 space-y-8">
             
-            {/* Single Course Overview Video Player Banner */}
+            {/* Single Course Overview Hero Cover Image Banner */}
             <div className="bg-white rounded-3xl dark-bezel p-6 sm:p-8 space-y-6">
               
-              <div className="relative aspect-video rounded-2xl overflow-hidden bg-slate-950 border-2 border-brand-900 shadow-xl">
-                {course.introVideoUrl ? (
-                  <iframe
-                    className="w-full h-full"
-                    src={`${course.introVideoUrl}?autoplay=0`}
-                    title={`${course.title} Intro Video`}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                ) : (
-                  <div className="flex flex-col items-center justify-center h-full text-slate-400 font-bold p-6 text-center">
-                    <PlayCircle className="w-16 h-16 text-emerald-400 mb-2 animate-bounce" />
-                    <p className="text-sm">Course Intro & Overview Video</p>
+              <div className="relative h-64 sm:h-80 md:h-96 rounded-2xl overflow-hidden bg-slate-950 border-2 border-brand-900 shadow-xl group">
+                <img
+                  src={
+                    course.id?.includes('python')
+                      ? 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80'
+                      : course.id?.includes('sql')
+                      ? 'https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=1200&q=80'
+                      : course.id?.includes('data')
+                      ? 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80'
+                      : course.thumbnail || 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80'
+                  }
+                  alt={course.title}
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
+
+                <div className="absolute bottom-5 left-5 right-5 flex flex-wrap items-end justify-between gap-3">
+                  <div className="space-y-1 text-white">
+                    <span className="px-3.5 py-1 bg-brand-600 text-white text-xs font-black rounded-full uppercase tracking-wider border border-brand-400">
+                      {course.category}
+                    </span>
+                    <h2 className="text-xl sm:text-2xl font-black drop-shadow-md text-white">
+                      {course.title}
+                    </h2>
                   </div>
-                )}
+                  <div className="px-3.5 py-1.5 bg-white/95 backdrop-blur-md rounded-xl border border-white text-slate-900 text-xs font-black shadow-lg">
+                    15 Total Modules • Certified Course
+                  </div>
+                </div>
               </div>
 
               <div className="space-y-4">
@@ -79,12 +93,6 @@ export default function CourseDetailsPage({ course, onBack, onStartLearning }) {
 
                 {/* Stats Meta */}
                 <div className="flex flex-wrap items-center gap-6 pt-2 text-xs sm:text-sm font-bold text-slate-600 border-t border-slate-100">
-                  <div className="flex items-center gap-1.5 text-amber-500 font-black">
-                    <Star className="w-4 h-4 fill-amber-400 stroke-amber-500" />
-                    <span className="text-slate-900">{course.rating}</span>
-                    <span className="text-slate-400 font-semibold">({course.studentsCount} enrolled)</span>
-                  </div>
-
                   <div className="flex items-center gap-1.5 text-slate-600">
                     <Clock className="w-4 h-4 text-brand-700" />
                     <span>{course.duration}</span>
@@ -93,20 +101,6 @@ export default function CourseDetailsPage({ course, onBack, onStartLearning }) {
                   <div className="flex items-center gap-1.5 text-brand-700 font-extrabold">
                     <BookOpen className="w-4 h-4" />
                     <span>{totalModulesCount} Total Modules</span>
-                  </div>
-                </div>
-
-                {/* Instructor Profile */}
-                <div className="flex items-center gap-4 pt-4 border-t border-slate-100">
-                  <img
-                    src={course.instructor.avatar}
-                    alt={course.instructor.name}
-                    className="w-12 h-12 rounded-full object-cover ring-2 ring-brand-900"
-                  />
-                  <div>
-                    <p className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider">Lead Instructor</p>
-                    <p className="text-sm font-extrabold text-slate-900">{course.instructor.name}</p>
-                    <p className="text-xs text-slate-500 font-semibold">{course.instructor.role}</p>
                   </div>
                 </div>
               </div>

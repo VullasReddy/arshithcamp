@@ -1,26 +1,44 @@
+export const CATEGORIES = [
+  "All Categories",
+  "Programming",
+  "SQL",
+  "Data Science",
+  "Cloud & DevOps",
+  "Cybersecurity"
+];
+
 export const INITIAL_COURSES = [
   {
     "id": "python-programming",
     "title": "Python Programming",
+    "slug": "python-programming",
     "category": "Programming",
     "level": "Beginner to Intermediate",
-    "duration": "40 hours",
+    "duration": "30 hours",
     "rating": 4.9,
     "studentsCount": "14.2k",
     "studentsNumeric": 14200,
-    "price": 999,
-    "isFree": false,
+    "price": 0,
+    "isFree": true,
     "bestseller": true,
     "progress": 0,
-    "iconBg": "bg-blue-50 border 2 border-blue-200 text-blue-600",
+    "status": "published",
+    "featured": false,
+    "certificateAvailable": true,
+    "sequentialLearning": true,
+    "iconBg": "bg-blue-50 border-2 border-blue-200 text-blue-600",
     "iconType": "python",
     "introVideoUrl": "https://www.youtube.com/embed/kqtD5dpn9C8",
+    "thumbnail": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80",
+    "shortDescription": "Master Python from absolute scratch based on Python for Everybody curriculum.",
     "description": "Master Python from absolute scratch! Based on the world-renowned 'Python for Everybody' curriculum by Dr. Charles Severance, cover variables, conditionals, loops, functions, data structures, files, regex, web services, OOP, and databases.",
     "instructor": {
       "name": "Dr. Ananya Sharma & Dr. Charles Severance",
       "role": "Lead Educators @ Arshith Boot Camp & Authors of Python for Everybody",
       "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80"
     },
+    "prerequisites": null,
+    "skills": [],
     "whatYouWillLearn": [
       "Computer hardware architecture, interpreter vs compiler, and Python syntax foundations",
       "Variables, expressions, PEMDAS order of operations, and input handling",
@@ -38,8 +56,8 @@ export const INITIAL_COURSES = [
     "modules": [
       {
         "id": "py-mod-1",
-        "title": "Module 01 — Introduction to Python",
-        "description": "This module introduces Python programming from the ground up. You will learn what Python is, why it is widely used, how to install and run Python, the basic structure of a Python program, and the core concepts needed before moving into variables, data types, operators, and control flow.",
+        "title": "Module 01  -  Introduction to Python & Computer Architecture",
+        "description": "Overview of Python language, computer hardware architecture (CPU, Main vs Secondary Memory), interpreter vs compiler, reserved words, and writing your first program.",
         "completed": false,
         "readingMaterial": {
           "introduction": "This module introduces Python programming from the ground up. You will learn what Python is, why it is widely used, how to install and run Python, the basic structure of a Python program, and the core concepts needed before moving into variables, data types, operators, and control flow.\n\nLearning Level: Beginner | Module Type: Theory + Practical\nPrerequisite: No prior programming experience is required.",
@@ -189,7 +207,7 @@ export const INITIAL_COURSES = [
           ],
           "codeExamples": [
             {
-              "title": "1. What is Python? — Example & Output",
+              "title": "1. What is Python?  -  Example & Output",
               "code": "print(\"Hello, Python!\")\n\n# Output:\n# Hello, Python!",
               "explanation": "print() sends output to the standard console."
             },
@@ -401,7 +419,7 @@ export const INITIAL_COURSES = [
         },
         "quiz": {
           "id": "quiz-py-mod-1",
-          "title": "Module 01 Quiz — Architecture & Foundations",
+          "title": "Module 01 Quiz  -  Architecture & Foundations",
           "passingScore": 70,
           "timeLimitMinutes": 15,
           "maxAttempts": 3,
@@ -482,7 +500,7 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "py-mod-2",
-        "title": "Module 02 — Variables, Expressions and Statements",
+        "title": "Module 02  -  Variables, Expressions and Statements",
         "description": "Variables and data types are fundamental concepts in Python programming. Learn variable assignment, naming rules, dynamic typing, built-in numeric/string/collection types, mutability, type conversion, and practice programs.",
         "completed": false,
         "readingMaterial": {
@@ -651,7 +669,7 @@ export const INITIAL_COURSES = [
             },
             {
               "heading": "15. Sets (set)",
-              "text": "A set is an unordered collection of unique elements enclosed in curly braces {}.\n\n• Duplicate Removal: Sets automatically eliminate duplicate entries (e.g., {10, 20, 30, 20, 10} becomes {10, 20, 30}).\n• Important — Empty Set: An empty set must be created using set(). Writing {} creates an empty dictionary!\n• Set Operations: Supports Union (a | b), Intersection (a & b), and Difference (a - b)."
+              "text": "A set is an unordered collection of unique elements enclosed in curly braces {}.\n\n• Duplicate Removal: Sets automatically eliminate duplicate entries (e.g., {10, 20, 30, 20, 10} becomes {10, 20, 30}).\n• Important  -  Empty Set: An empty set must be created using set(). Writing {} creates an empty dictionary!\n• Set Operations: Supports Union (a | b), Intersection (a & b), and Difference (a - b)."
             },
             {
               "heading": "16. Dictionaries (dict)",
@@ -973,7 +991,7 @@ export const INITIAL_COURSES = [
         },
         "quiz": {
           "id": "quiz-py-mod-2",
-          "title": "Module 02 Quiz — Variables & Expressions",
+          "title": "Module 02 Quiz  -  Variables & Expressions",
           "passingScore": 70,
           "timeLimitMinutes": 15,
           "maxAttempts": 3,
@@ -1054,7 +1072,7 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "py-mod-3",
-        "title": "Module 03 — Operators, Expressions & Precedence",
+        "title": "Module 03  -  Operators, Expressions & Precedence",
         "description": "Operators and expressions are fundamental building blocks of Python programs. Master arithmetic, assignment, comparison, logical, bitwise, membership, and identity operators, operator precedence (PEMDAS), short-circuiting, ternary expressions, and hands-on coding practice.",
         "completed": false,
         "readingMaterial": {
@@ -1455,7 +1473,7 @@ export const INITIAL_COURSES = [
             },
             {
               "heading": "62 to 64. Expressions with Sequences & Operator Overloading",
-              "text": "Operators in Python are polymorphic—their behavior adapts to operand types:\n\n• String Concatenation & Repetition:\n  first = \"Hello\"; second = \"Python\"\n  result = first + \" \" + second   # \"Hello Python\"\n  message = \"Hi \" * 3             # \"Hi Hi Hi \"\n\n• List Concatenation & Repetition:\n  a = [1, 2]; b = [3, 4]\n  print(a + b)                    # [1, 2, 3, 4]\n  print(a * 3)                    # [1, 2, 1, 2, 1, 2]\n\n• Operator Overloading:\nPython objects can define custom operator behavior using special dunder methods (e.g. __add__, __mul__). The same '+' operator performs numeric addition on integers, concatenation on strings, and merging on lists."
+              "text": "Operators in Python are polymorphic - their behavior adapts to operand types:\n\n• String Concatenation & Repetition:\n  first = \"Hello\"; second = \"Python\"\n  result = first + \" \" + second   # \"Hello Python\"\n  message = \"Hi \" * 3             # \"Hi Hi Hi \"\n\n• List Concatenation & Repetition:\n  a = [1, 2]; b = [3, 4]\n  print(a + b)                    # [1, 2, 3, 4]\n  print(a * 3)                    # [1, 2, 1, 2, 1, 2]\n\n• Operator Overloading:\nPython objects can define custom operator behavior using special dunder methods (e.g. __add__, __mul__). The same '+' operator performs numeric addition on integers, concatenation on strings, and merging on lists."
             },
             {
               "heading": "80. Summary of Differences Between Operator Categories",
@@ -1700,7 +1718,7 @@ export const INITIAL_COURSES = [
         },
         "quiz": {
           "id": "quiz-py-mod-3",
-          "title": "Module 03 Quiz — Operators, Expressions & Precedence",
+          "title": "Module 03 Quiz  -  Operators, Expressions & Precedence",
           "passingScore": 70,
           "timeLimitMinutes": 15,
           "maxAttempts": 3,
@@ -1781,7 +1799,7 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "py-mod-4",
-        "title": "Module 04 — Conditional Execution & Exception Handling",
+        "title": "Module 04  -  Conditional Execution & Exception Handling",
         "description": "A practical Python study guide. Master Boolean expressions, comparison and logical operators, if/elif/else decision structures, nested conditionals, try/except error handling, input validation, and real-world worked exercises.",
         "completed": false,
         "readingMaterial": {
@@ -2045,7 +2063,7 @@ export const INITIAL_COURSES = [
                 "\"0\" (string containing character '0')"
               ],
               "correctAnswer": 3,
-              "explanation": "Any non-empty string—including \"0\" or \" \"—has a length > 0 and evaluates to True in boolean contexts."
+              "explanation": "Any non-empty string - including \"0\" or \" \" - has a length > 0 and evaluates to True in boolean contexts."
             },
             {
               "id": 3,
@@ -2162,7 +2180,7 @@ export const INITIAL_COURSES = [
         },
         "quiz": {
           "id": "quiz-py-mod-4",
-          "title": "Module 04 Quiz — Conditionals & Exceptions",
+          "title": "Module 04 Quiz  -  Conditionals & Exceptions",
           "passingScore": 70,
           "timeLimitMinutes": 15,
           "maxAttempts": 3,
@@ -2243,7 +2261,7 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "py-mod-5",
-        "title": "Module 05 — Iteration & Loops",
+        "title": "Module 05  -  Iteration & Loops",
         "description": "Updating variables, while statements, infinite loops, break & continue, for loops, counting, summing, and min/max search patterns.",
         "completed": false,
         "readingMaterial": {
@@ -2595,7 +2613,7 @@ export const INITIAL_COURSES = [
         },
         "quiz": {
           "id": "quiz-py-mod-5",
-          "title": "Module 05 Quiz — Iteration & Loops",
+          "title": "Module 05 Quiz  -  Iteration & Loops",
           "passingScore": 70,
           "timeLimitMinutes": 15,
           "maxAttempts": 3,
@@ -2676,7 +2694,7 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "py-mod-6",
-        "title": "Module 06 — Functions & Modular Code",
+        "title": "Module 06  -  Functions & Modular Code",
         "description": "Built-in functions, type conversion, math & random modules, defining custom functions (def), parameters, arguments, fruitful vs void functions, and scope.",
         "completed": false,
         "readingMaterial": {
@@ -3013,7 +3031,7 @@ export const INITIAL_COURSES = [
         },
         "quiz": {
           "id": "quiz-py-mod-6",
-          "title": "Module 06 Quiz — Functions & Modular Code",
+          "title": "Module 06 Quiz  -  Functions & Modular Code",
           "passingScore": 70,
           "timeLimitMinutes": 15,
           "maxAttempts": 3,
@@ -3094,7 +3112,7 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "py-mod-7",
-        "title": "Module 07 — Data Structures: Lists, Dictionaries & Tuples",
+        "title": "Module 07  -  Data Structures: Lists, Dictionaries & Tuples",
         "description": "Sequences, mutability, lists, dictionaries as key-value mappings & counters, tuples immutability, DSU sorting pattern, and list comprehensions.",
         "completed": false,
         "readingMaterial": {
@@ -3554,7 +3572,7 @@ export const INITIAL_COURSES = [
         },
         "quiz": {
           "id": "quiz-py-mod-7",
-          "title": "Module 07 Quiz — Data Structures: Lists, Dictionaries & Tuples",
+          "title": "Module 07 Quiz  -  Data Structures: Lists, Dictionaries & Tuples",
           "passingScore": 70,
           "timeLimitMinutes": 15,
           "maxAttempts": 3,
@@ -3635,11 +3653,11 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "py-mod-8",
-        "title": "Module 08 — Strings, Slicing & Text Parsing",
+        "title": "Module 08  -  Strings, Slicing & Text Parsing",
         "description": "Strings as immutable sequences, indexing, slicing with step, string methods (find, strip, split, join, replace), parsing patterns, and f-string formatting.",
         "completed": false,
         "readingMaterial": {
-          "introduction": "Strings are among the most versatile and ubiquitous data structures in Python programming. A string is an immutable, ordered sequence of characters representing textual data. From parsing server logs and extracting API parameters to validating email addresses and generating formatted invoices, text processing is a core pillar of software development.\n\nIn Python, every character in a string is represented internally using Unicode (UTF-8 by default), allowing programs to manipulate characters, symbols, and emojis across all written languages seamlessly. Because strings are sequences, they share fundamental behaviors with lists and tuples—such as zero-based indexing, slicing, iteration, and membership testing—while enforcing strict immutability.\n\nThis comprehensive module covers the full anatomy of Python strings: character indexing, step-based slicing, immutability and memory interning, frequency analysis, case normalization, searching and validation methods, delimiter tokenization with split() and join(), regex-free text extraction patterns, modern f-string interpolation, computational complexity, and 8 real-world practice programs.",
+          "introduction": "Strings are among the most versatile and ubiquitous data structures in Python programming. A string is an immutable, ordered sequence of characters representing textual data. From parsing server logs and extracting API parameters to validating email addresses and generating formatted invoices, text processing is a core pillar of software development.\n\nIn Python, every character in a string is represented internally using Unicode (UTF-8 by default), allowing programs to manipulate characters, symbols, and emojis across all written languages seamlessly. Because strings are sequences, they share fundamental behaviors with lists and tuples - such as zero-based indexing, slicing, iteration, and membership testing - while enforcing strict immutability.\n\nThis comprehensive module covers the full anatomy of Python strings: character indexing, step-based slicing, immutability and memory interning, frequency analysis, case normalization, searching and validation methods, delimiter tokenization with split() and join(), regex-free text extraction patterns, modern f-string interpolation, computational complexity, and 8 real-world practice programs.",
           "objectives": [
             "Access individual characters using zero-based positive indexing s[0] and negative indexing s[-1].",
             "Extract substrings with flexible slice notation s[start:stop:step] and reverse sequences using s[::-1].",
@@ -3900,7 +3918,7 @@ export const INITIAL_COURSES = [
           "practiceExercise": {
             "title": "Hands-On Coding Practice: Advanced String Processing & Parsing Suite (8 Programs)",
             "problem": "Complete the following 8 practical Python string processing and parsing programs:\n\nProgram 1: Email Header & Domain Host Extractor\nGiven an unformatted email log header, use find() and slicing to extract both the username and domain host name.\n\nProgram 2: Clean Palindrome & Anagram Verifier\nWrite functions to determine if a string is a palindrome (ignoring casing, punctuation, and spaces) and whether two strings are anagrams.\n\nProgram 3: CamelCase to snake_case and Reverse Converter\nConvert a variable name from CamelCase ('userRegistrationDate') to snake_case ('user_registration_date') and back.\n\nProgram 4: Web Server Access Log Entry Parser\nGiven a Common Log Format string, parse and extract the client IP address, timestamp, HTTP request method, resource path, and status code.\n\nProgram 5: Financial Invoice Receipt Formatter\nGiven a list of purchased products (name, quantity, price), generate an aligned ASCII receipt with subtotal, tax (8.5%), and total using f-strings.\n\nProgram 6: URL Component & Query String Parser\nGiven a full web URL, extract the protocol, host domain, resource path, and parse query parameters into a structured dictionary.\n\nProgram 7: Sensitive Data Masker (Credit Cards & Emails)\nMask sensitive payment card numbers (leaving only the last 4 digits visible) and email addresses (e.g. 'j***e@domain.com').\n\nProgram 8: Tokenizer & Character Frequency Histogram\nTokenize a paragraph into unique words, clean punctuation, and output an ASCII bar-chart frequency histogram for the top words.",
-            "solutionCode": "log_line = \"From: arshith.kumar@technology-labs.org Sat Oct 03 12:30:00 2026\"\nat_pos = log_line.find(\"@\")\nspace_after = log_line.find(\" \", at_pos)\nfrom_prefix_pos = log_line.find(\"From: \") + len(\"From: \")\n\nemail = log_line[from_prefix_pos:space_after]\nusername = email[: email.find(\"@\")]\ndomain = email[email.find(\"@\") + 1 :]\n\nprint(\"--- Program 1: Email Header Extractor ---\")\nprint(f\"Extracted Email: {email}\")\nprint(f\"Username: {username}\")\nprint(f\"Domain Host: {domain}\")\n\n# Program 2: Clean Palindrome & Anagram Verifier\ndef is_palindrome(s):\n    cleaned = \"\".join(char.lower() for char in s if char.isalnum())\n    return cleaned == cleaned[::-1]\n\ndef are_anagrams(s1, s2):\n    clean1 = sorted(char.lower() for char in s1 if char.isalnum())\n    clean2 = sorted(char.lower() for char in s2 if char.isalnum())\n    return clean1 == clean2\n\nprint(\"\\n--- Program 2: Palindrome & Anagram ---\")\ntest_phrase = \"A man, a plan, a canal: Panama!\"\nprint(f\"'{test_phrase}' is palindrome?\", is_palindrome(test_phrase))\nprint(\"'listen' and 'silent' are anagrams?\", are_anagrams(\"listen\", \"silent\"))\n\n# Program 3: CamelCase to snake_case\ndef camel_to_snake(name):\n    result = []\n    for char in name:\n        if char.isupper():\n            result.append(\"_\" + char.lower())\n        else:\n            result.append(char)\n    return \"\".join(result).lstrip(\"_\")\n\ndef snake_to_camel(name):\n    parts = name.split(\"_\")\n    return parts[0] + \"\".join(p.capitalize() for p in parts[1:])\n\nprint(\"\\n--- Program 3: Case Conversion ---\")\ncamel = \"userRegistrationDate\"\nsnake = camel_to_snake(camel)\nprint(f\"Camel to Snake: {camel} -> {snake}\")\nprint(f\"Snake to Camel: {snake} -> {snake_to_camel(snake)}\")\n\n# Program 4: Server Access Log Entry Parser\nlog_entry = '192.168.1.45 - - [03/Oct/2026:12:34:56 +0000] \"GET /api/v1/courses/python HTTP/1.1\" 200 4521'\nip = log_entry.split()[0]\ntime_start = log_entry.find(\"[\") + 1\ntime_end = log_entry.find(\"]\")\ntimestamp = log_entry[time_start:time_end]\n\nrequest_start = log_entry.find('\"') + 1\nrequest_end = log_entry.find('\"', request_start)\nrequest_line = log_entry[request_start:request_end]\nmethod, path, protocol = request_line.split()\n\nafter_request = log_entry[request_end + 1:].strip()\nstatus_code = after_request.split()[0]\n\nprint(\"\\n--- Program 4: Log Entry Parser ---\")\nprint(f\"IP: {ip} | Time: {timestamp} | Method: {method} | Path: {path} | Status: {status_code}\")\n\n# Program 5: Financial Invoice Receipt Formatter\nitems = [\n    (\"Python Bootcamp Handbook\", 1, 49.99),\n    (\"USB-C Development Hub\", 2, 29.50),\n    (\"Ergonomic Keyboard\", 1, 129.00)\n]\ntax_rate = 0.085\n\nprint(\"\\n--- Program 5: Invoice Receipt ---\")\nprint(\"=\" * 48)\nprint(f\"{'Item Description':<26} {'Qty':>4} {'Price':>8} {'Total':>8}\")\nprint(\"-\" * 48)\nsubtotal = 0.0\nfor desc, qty, unit_price in items:\n    line_total = qty * unit_price\n    subtotal += line_total\n    print(f\"{desc:<26} {qty:>4} $\" + f\"{unit_price:>7.2f} $\" + f\"{line_total:>7.2f}\")\n\ntax = subtotal * tax_rate\ngrand_total = subtotal + tax\nprint(\"-\" * 48)\nprint(f\"{'Subtotal:':<39} $\" + f\"{subtotal:>7.2f}\")\nprint(f\"{'Tax (8.5%):':<39} $\" + f\"{tax:>7.2f}\")\nprint(f\"{'Grand Total:':<39} $\" + f\"{grand_total:>7.2f}\")\nprint(\"=\" * 48)\n\n# Program 6: URL Component & Query String Parser\nurl = \"https://learn.arshithgroup.com/courses/python?module=8&mode=dark&ref=dashboard\"\nprotocol, rest = url.split(\"://\")\nhost_and_path, query_string = rest.split(\"?\") if \"?\" in rest else (rest, \"\")\nhost = host_and_path.split(\"/\")[0]\npath = \"/\" + \"/\".join(host_and_path.split(\"/\")[1:])\n\nquery_params = {}\nif query_string:\n    for pair in query_string.split(\"&\"):\n        if \"=\" in pair:\n            k, v = pair.split(\"=\", 1)\n            query_params[k] = v\n\nprint(\"\\n--- Program 6: URL Parser ---\")\nprint(f\"Protocol: {protocol} | Host: {host} | Path: {path}\")\nprint(\"Query Parameters:\", query_params)\n\n# Program 7: Sensitive Data Masker\ndef mask_credit_card(card_num):\n    cleaned = \"\".join(c for c in card_num if c.isdigit())\n    if len(cleaned) < 4:\n        return card_num\n    return \"*\" * (len(cleaned) - 4) + cleaned[-4:]\n\ndef mask_email(email):\n    user, sep, domain = email.partition(\"@\")\n    if len(user) <= 2:\n        masked_user = user[0] + \"*\"\n    else:\n        masked_user = user[0] + \"*\" * (len(user) - 2) + user[-1]\n    return f\"{masked_user}@{domain}\"\n\nprint(\"\\n--- Program 7: Sensitive Data Masking ---\")\nprint(\"Masked Card:\", mask_credit_card(\"4532-7592-8819-1024\"))\nprint(\"Masked Email:\", mask_email(\"arshith.developer@company.org\"))\n\n# Program 8: Tokenizer & Character Frequency Histogram\npassage = \"Strings are immutable sequences of Unicode characters. Strings support slicing and string methods.\"\nwords = passage.lower().replace(\".\", \"\").replace(\",\", \"\").split()\nfrequency = {}\nfor w in words:\n    frequency[w] = frequency.get(w, 0) + 1\n\nprint(\"\\n--- Program 8: Frequency Histogram ---\")\nfor word, count in sorted(frequency.items(), key=lambda item: item[1], reverse=True)[:5]:\n    bar = \"█\" * (count * 3)\n    print(f\"{word:<12} | {bar} ({count})\")"
+            "solutionCode": "log_line = \"From: arshith.kumar@technology-labs.org Sat Oct 03 12:30:00 2026\"\nat_pos = log_line.find(\"@\")\nspace_after = log_line.find(\" \", at_pos)\nfrom_prefix_pos = log_line.find(\"From: \") + len(\"From: \")\n\nemail = log_line[from_prefix_pos:space_after]\nusername = email[: email.find(\"@\")]\ndomain = email[email.find(\"@\") + 1 :]\n\nprint(\"--- Program 1: Email Header Extractor ---\")\nprint(f\"Extracted Email: {email}\")\nprint(f\"Username: {username}\")\nprint(f\"Domain Host: {domain}\")\n\n# Program 2: Clean Palindrome & Anagram Verifier\ndef is_palindrome(s):\n    cleaned = \"\".join(char.lower() for char in s if char.isalnum())\n    return cleaned == cleaned[::-1]\n\ndef are_anagrams(s1, s2):\n    clean1 = sorted(char.lower() for char in s1 if char.isalnum())\n    clean2 = sorted(char.lower() for char in s2 if char.isalnum())\n    return clean1 == clean2\n\nprint(\"\\n--- Program 2: Palindrome & Anagram ---\")\ntest_phrase = \"A man, a plan, a canal: Panama!\"\nprint(f\"'{test_phrase}' is palindrome?\", is_palindrome(test_phrase))\nprint(\"'listen' and 'silent' are anagrams?\", are_anagrams(\"listen\", \"silent\"))\n\n# Program 3: CamelCase to snake_case\ndef camel_to_snake(name):\n    result = []\n    for char in name:\n        if char.isupper():\n            result.append(\"_\" + char.lower())\n        else:\n            result.append(char)\n    return \"\".join(result).lstrip(\"_\")\n\ndef snake_to_camel(name):\n    parts = name.split(\"_\")\n    return parts[0] + \"\".join(p.capitalize() for p in parts[1:])\n\nprint(\"\\n--- Program 3: Case Conversion ---\")\ncamel = \"userRegistrationDate\"\nsnake = camel_to_snake(camel)\nprint(f\"Camel to Snake: {camel} -> {snake}\")\nprint(f\"Snake to Camel: {snake} -> {snake_to_camel(snake)}\")\n\n# Program 4: Server Access Log Entry Parser\nlog_entry = '192.168.1.45 - [03/Oct/2026:12:34:56 +0000] \"GET /api/v1/courses/python HTTP/1.1\" 200 4521'\nip = log_entry.split()[0]\ntime_start = log_entry.find(\"[\") + 1\ntime_end = log_entry.find(\"]\")\ntimestamp = log_entry[time_start:time_end]\n\nrequest_start = log_entry.find('\"') + 1\nrequest_end = log_entry.find('\"', request_start)\nrequest_line = log_entry[request_start:request_end]\nmethod, path, protocol = request_line.split()\n\nafter_request = log_entry[request_end + 1:].strip()\nstatus_code = after_request.split()[0]\n\nprint(\"\\n--- Program 4: Log Entry Parser ---\")\nprint(f\"IP: {ip} | Time: {timestamp} | Method: {method} | Path: {path} | Status: {status_code}\")\n\n# Program 5: Financial Invoice Receipt Formatter\nitems = [\n    (\"Python Bootcamp Handbook\", 1, 49.99),\n    (\"USB-C Development Hub\", 2, 29.50),\n    (\"Ergonomic Keyboard\", 1, 129.00)\n]\ntax_rate = 0.085\n\nprint(\"\\n--- Program 5: Invoice Receipt ---\")\nprint(\"=\" * 48)\nprint(f\"{'Item Description':<26} {'Qty':>4} {'Price':>8} {'Total':>8}\")\nprint(\"-\" * 48)\nsubtotal = 0.0\nfor desc, qty, unit_price in items:\n    line_total = qty * unit_price\n    subtotal += line_total\n    print(f\"{desc:<26} {qty:>4} $\" + f\"{unit_price:>7.2f} $\" + f\"{line_total:>7.2f}\")\n\ntax = subtotal * tax_rate\ngrand_total = subtotal + tax\nprint(\"-\" * 48)\nprint(f\"{'Subtotal:':<39} $\" + f\"{subtotal:>7.2f}\")\nprint(f\"{'Tax (8.5%):':<39} $\" + f\"{tax:>7.2f}\")\nprint(f\"{'Grand Total:':<39} $\" + f\"{grand_total:>7.2f}\")\nprint(\"=\" * 48)\n\n# Program 6: URL Component & Query String Parser\nurl = \"https://learn.arshithgroup.com/courses/python?module=8&mode=dark&ref=dashboard\"\nprotocol, rest = url.split(\"://\")\nhost_and_path, query_string = rest.split(\"?\") if \"?\" in rest else (rest, \"\")\nhost = host_and_path.split(\"/\")[0]\npath = \"/\" + \"/\".join(host_and_path.split(\"/\")[1:])\n\nquery_params = {}\nif query_string:\n    for pair in query_string.split(\"&\"):\n        if \"=\" in pair:\n            k, v = pair.split(\"=\", 1)\n            query_params[k] = v\n\nprint(\"\\n--- Program 6: URL Parser ---\")\nprint(f\"Protocol: {protocol} | Host: {host} | Path: {path}\")\nprint(\"Query Parameters:\", query_params)\n\n# Program 7: Sensitive Data Masker\ndef mask_credit_card(card_num):\n    cleaned = \"\".join(c for c in card_num if c.isdigit())\n    if len(cleaned) < 4:\n        return card_num\n    return \"*\" * (len(cleaned) - 4) + cleaned[-4:]\n\ndef mask_email(email):\n    user, sep, domain = email.partition(\"@\")\n    if len(user) <= 2:\n        masked_user = user[0] + \"*\"\n    else:\n        masked_user = user[0] + \"*\" * (len(user) - 2) + user[-1]\n    return f\"{masked_user}@{domain}\"\n\nprint(\"\\n--- Program 7: Sensitive Data Masking ---\")\nprint(\"Masked Card:\", mask_credit_card(\"4532-7592-8819-1024\"))\nprint(\"Masked Email:\", mask_email(\"arshith.developer@company.org\"))\n\n# Program 8: Tokenizer & Character Frequency Histogram\npassage = \"Strings are immutable sequences of Unicode characters. Strings support slicing and string methods.\"\nwords = passage.lower().replace(\".\", \"\").replace(\",\", \"\").split()\nfrequency = {}\nfor w in words:\n    frequency[w] = frequency.get(w, 0) + 1\n\nprint(\"\\n--- Program 8: Frequency Histogram ---\")\nfor word, count in sorted(frequency.items(), key=lambda item: item[1], reverse=True)[:5]:\n    bar = \"█\" * (count * 3)\n    print(f\"{word:<12} | {bar} ({count})\")"
           },
           "keyTakeaways": [
             "Strings are immutable ordered sequences of Unicode characters accessed via zero-based indexing.",
@@ -3914,7 +3932,7 @@ export const INITIAL_COURSES = [
           ],
           "references": [
             {
-              "title": "Python Documentation: Text Sequence Type — str",
+              "title": "Python Documentation: Text Sequence Type  -  str",
               "url": "https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str"
             },
             {
@@ -3926,7 +3944,7 @@ export const INITIAL_COURSES = [
               "url": "https://docs.python.org/3/library/string.html"
             },
             {
-              "title": "Python for Everybody: Chapter 6 — Strings",
+              "title": "Python for Everybody: Chapter 6  -  Strings",
               "url": "https://www.py4e.com/html3/06-strings"
             }
           ],
@@ -4070,7 +4088,7 @@ export const INITIAL_COURSES = [
         },
         "quiz": {
           "id": "quiz-py-mod-8",
-          "title": "Module 08 Quiz — Strings, Slicing & Text Parsing",
+          "title": "Module 08 Quiz  -  Strings, Slicing & Text Parsing",
           "passingScore": 70,
           "timeLimitMinutes": 15,
           "maxAttempts": 3,
@@ -4151,11 +4169,11 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "py-mod-9",
-        "title": "Module 09 — File Handling & Persistence",
+        "title": "Module 09  -  File Handling & Persistence",
         "description": "Secondary memory persistence, file handles (open), line-by-line streaming, searching & filtering log files, safe writing/appending, context managers (with open), and pathlib integration.",
         "completed": false,
         "readingMaterial": {
-          "introduction": "All computer programs operate across two primary memory tiers: volatile Main Memory (RAM), which is fast but instantly erased when a script finishes or power cuts out, and non-volatile Secondary Memory (Solid-State Drives, Hard Drives, and Cloud Storage), where information persists indefinitely. In modern software engineering—from web applications logging user transactions to data science pipelines processing multi-gigabyte telemetry datasets—reading and writing files is the fundamental bridge between transient computation and permanent data persistence.\n\nIn Python, file handling is engineered around an elegant, stream-based abstraction known as a 'File Handle'. Rather than attempting to copy an entire massive file directly into system RAM, Python establishes a lightweight pointer to the operating system's disk buffer. This stream architecture enables programmers to iterate line-by-line across files of arbitrary size—even those exceeding physical computer memory—with constant O(1) space complexity.\n\nBased on Chapter 7 of Dr. Charles Severance's 'Python for Everybody' and modern Python 3 best practices, this module provides an exhaustive, production-grade guide to text and structured file manipulation: understanding character encoding standards (UTF-8 vs ASCII vs Latin-1), mastering open modes ('r', 'w', 'a', 'x'), avoiding resource leaks via context managers (with open), filtering server log streams (mbox format), sanitizing whitespace and newlines, implementing atomic write operations, and navigating modern object-oriented file systems using pathlib.",
+          "introduction": "All computer programs operate across two primary memory tiers: volatile Main Memory (RAM), which is fast but instantly erased when a script finishes or power cuts out, and non-volatile Secondary Memory (Solid-State Drives, Hard Drives, and Cloud Storage), where information persists indefinitely. In modern software engineering - from web applications logging user transactions to data science pipelines processing multi-gigabyte telemetry datasets - reading and writing files is the fundamental bridge between transient computation and permanent data persistence.\n\nIn Python, file handling is engineered around an elegant, stream-based abstraction known as a 'File Handle'. Rather than attempting to copy an entire massive file directly into system RAM, Python establishes a lightweight pointer to the operating system's disk buffer. This stream architecture enables programmers to iterate line-by-line across files of arbitrary size - even those exceeding physical computer memory - with constant O(1) space complexity.\n\nBased on Chapter 7 of Dr. Charles Severance's 'Python for Everybody' and modern Python 3 best practices, this module provides an exhaustive, production-grade guide to text and structured file manipulation: understanding character encoding standards (UTF-8 vs ASCII vs Latin-1), mastering open modes ('r', 'w', 'a', 'x'), avoiding resource leaks via context managers (with open), filtering server log streams (mbox format), sanitizing whitespace and newlines, implementing atomic write operations, and navigating modern object-oriented file systems using pathlib.",
           "objectives": [
             "Distinguish between volatile main memory (RAM) and non-volatile secondary storage (disk persistence).",
             "Explain the role of file handles as operating system stream cursors with constant O(1) memory overhead.",
@@ -4258,7 +4276,7 @@ export const INITIAL_COURSES = [
             },
             {
               "heading": "6. Whitespace Sanitation & The Double Newline Trap",
-              "text": "One of the most frequent beginner bugs in file handling is accidental double-spaced terminal output.\n\nWhy Double Spacing Occurs:\nWhen Python reads a file line-by-line, each string already includes the invisible trailing newline character (\n) stored on disk.\nWhen you pass that line to print():\nprint(line)\nThe print() function automatically appends its own newline character at the end (end='\n' by default). Consequently, your terminal displays two consecutive newlines: one from the file, and one from print().\n\nThe Solution: line.rstrip()\nThe string method rstrip() strips whitespace—including spaces, tabs, and newlines—from the right-hand tail of the string:\n\nfor line in fhand:\n    clean_line = line.rstrip()\n    print(clean_line)\n\nAlternative:\nprint(line, end='')"
+              "text": "One of the most frequent beginner bugs in file handling is accidental double-spaced terminal output.\n\nWhy Double Spacing Occurs:\nWhen Python reads a file line-by-line, each string already includes the invisible trailing newline character (\n) stored on disk.\nWhen you pass that line to print():\nprint(line)\nThe print() function automatically appends its own newline character at the end (end='\n' by default). Consequently, your terminal displays two consecutive newlines: one from the file, and one from print().\n\nThe Solution: line.rstrip()\nThe string method rstrip() strips whitespace - including spaces, tabs, and newlines - from the right-hand tail of the string:\n\nfor line in fhand:\n    clean_line = line.rstrip()\n    print(clean_line)\n\nAlternative:\nprint(line, end='')"
             },
             {
               "heading": "7. Searching, Filtering & Log Parsing Patterns (MBOX Protocol)",
@@ -4270,7 +4288,7 @@ export const INITIAL_COURSES = [
             },
             {
               "heading": "9. Deterministic Resource Management: The 'with open' Context Manager",
-              "text": "Operating systems enforce strict limits on the number of simultaneous open file descriptors (typically 1024 or 4096 per process). If a program repeatedly opens files without closing them (a 'file descriptor leak'), the operating system eventually blocks the program from opening any more files, causing server outages.\n\nThe Old Way (Error-Prone):\nf = open('data.txt', 'r')\ndata = f.read()\n# If an exception occurs here, f.close() is NEVER reached!\nf.close()\n\nThe Robust Production Standard: The with Statement\nPython 2.5 introduced the 'with' statement (Context Manager protocol). A context manager guarantees that regardless of how execution leaves the block—whether through normal completion, a return statement, or an unexpected exception—Python automatically calls the file's __exit__() method and cleanly closes the file handle.\n\nSyntax:\nwith open('data.txt', 'r', encoding='utf-8') as f:\n    for line in f:\n        print(line.rstrip())\n\n# Outside the block: f.closed is guaranteed to be True!"
+              "text": "Operating systems enforce strict limits on the number of simultaneous open file descriptors (typically 1024 or 4096 per process). If a program repeatedly opens files without closing them (a 'file descriptor leak'), the operating system eventually blocks the program from opening any more files, causing server outages.\n\nThe Old Way (Error-Prone):\nf = open('data.txt', 'r')\ndata = f.read()\n# If an exception occurs here, f.close() is NEVER reached!\nf.close()\n\nThe Robust Production Standard: The with Statement\nPython 2.5 introduced the 'with' statement (Context Manager protocol). A context manager guarantees that regardless of how execution leaves the block - whether through normal completion, a return statement, or an unexpected exception - Python automatically calls the file's __exit__() method and cleanly closes the file handle.\n\nSyntax:\nwith open('data.txt', 'r', encoding='utf-8') as f:\n    for line in f:\n        print(line.rstrip())\n\n# Outside the block: f.closed is guaranteed to be True!"
             },
             {
               "heading": "10. Robust Exception Handling for File Operations",
@@ -4421,7 +4439,7 @@ export const INITIAL_COURSES = [
           ],
           "references": [
             {
-              "title": "Python for Everybody: Chapter 7 — Files",
+              "title": "Python for Everybody: Chapter 7  -  Files",
               "url": "https://www.py4e.com/html3/07-files"
             },
             {
@@ -4429,15 +4447,15 @@ export const INITIAL_COURSES = [
               "url": "https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files"
             },
             {
-              "title": "Python Documentation: pathlib — Object-oriented filesystem paths",
+              "title": "Python Documentation: pathlib  -  Object-oriented filesystem paths",
               "url": "https://docs.python.org/3/library/pathlib.html"
             },
             {
-              "title": "Python Documentation: csv — CSV File Reading and Writing",
+              "title": "Python Documentation: csv  -  CSV File Reading and Writing",
               "url": "https://docs.python.org/3/library/csv.html"
             },
             {
-              "title": "Python Documentation: io — Core tools for working with streams",
+              "title": "Python Documentation: io  -  Core tools for working with streams",
               "url": "https://docs.python.org/3/library/io.html"
             }
           ],
@@ -4581,7 +4599,7 @@ export const INITIAL_COURSES = [
         },
         "quiz": {
           "id": "quiz-py-mod-9",
-          "title": "Module 09 Quiz — File Handling & Persistence",
+          "title": "Module 09 Quiz  -  File Handling & Persistence",
           "passingScore": 70,
           "timeLimitMinutes": 15,
           "maxAttempts": 3,
@@ -4662,11 +4680,11 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "py-mod-10",
-        "title": "Module 10 — Exception Handling & Debugging Strategies",
+        "title": "Module 10  -  Exception Handling & Debugging Strategies",
         "description": "Advanced exception hierarchies, try/except/else/finally control flow, custom domain exceptions, exception chaining, traceback diagnostics, the logging module, and scientific debugging by bisection.",
         "completed": false,
         "readingMaterial": {
-          "introduction": "In software engineering, the distinction between novice scripting and production-grade programming lies in how a system handles the unexpected. Novice programs operate under the 'happy path' assumption—trusting that inputs are always clean, network connections never timeout, files always exist, and disk space is limitless. When real-world conditions violate these assumptions, unhandled exceptions trigger catastrophic process termination, leaving users with cryptic tracebacks and corrupted application state.\n\nProfessional software development treats exceptions not as disastrous failures, but as expected, normal execution branches. Python's exception handling system is engineered around the principle of 'Easier to Ask for Forgiveness than Permission' (EAFP), contrasting with the 'Look Before You Leap' (LBYL) style common in C and Java. Rather than evaluating dozens of defensive boolean conditions prior to every operation, Python encourages attempting the action inside a protected try block and handling domain-specific anomalies cleanly through explicit except handlers.\n\nBased on Chapters 3, 7, and 14 of Dr. Charles Severance's 'Python for Everybody' and enterprise Python reliability standards, this module delivers an exhaustive masterclass in building resilient, fault-tolerant Python applications: mastering the complete four-part try/except/else/finally lifecycle, building custom application exception hierarchies, tracing call stacks with the traceback module, replacing ad-hoc print statements with industrial-grade logging, applying scientific debugging by bisection (O(log N) defect isolation), and utilizing modern interactive debugging with breakpoint() and pdb.",
+          "introduction": "In software engineering, the distinction between novice scripting and production-grade programming lies in how a system handles the unexpected. Novice programs operate under the 'happy path' assumption - trusting that inputs are always clean, network connections never timeout, files always exist, and disk space is limitless. When real-world conditions violate these assumptions, unhandled exceptions trigger catastrophic process termination, leaving users with cryptic tracebacks and corrupted application state.\n\nProfessional software development treats exceptions not as disastrous failures, but as expected, normal execution branches. Python's exception handling system is engineered around the principle of 'Easier to Ask for Forgiveness than Permission' (EAFP), contrasting with the 'Look Before You Leap' (LBYL) style common in C and Java. Rather than evaluating dozens of defensive boolean conditions prior to every operation, Python encourages attempting the action inside a protected try block and handling domain-specific anomalies cleanly through explicit except handlers.\n\nBased on Chapters 3, 7, and 14 of Dr. Charles Severance's 'Python for Everybody' and enterprise Python reliability standards, this module delivers an exhaustive masterclass in building resilient, fault-tolerant Python applications: mastering the complete four-part try/except/else/finally lifecycle, building custom application exception hierarchies, tracing call stacks with the traceback module, replacing ad-hoc print statements with industrial-grade logging, applying scientific debugging by bisection (O(log N) defect isolation), and utilizing modern interactive debugging with breakpoint() and pdb.",
           "objectives": [
             "Distinguish between compile-time Syntax Errors, runtime Exceptions, and silent Semantic Logic Bugs.",
             "Navigate the Python BaseException and Exception class hierarchy and avoid catastrophic exception swallowing.",
@@ -4774,7 +4792,7 @@ export const INITIAL_COURSES = [
             },
             {
               "heading": "11. Scientific Debugging by Bisection: Finding Defects in O(log N) Steps",
-              "text": "When hunting a logic flaw across a 1,000-line script or a large pipeline:\n\nThe Inefficient Approach (Linear Search):\nReading line-by-line from line 1 to line 1,000 requires O(N) effort and is mentally exhausting.\n\nThe Scientific Bisection Strategy (Binary Search):\n1. Place a diagnostic breakpoint or logging probe at the midpoint (Line 500).\n2. Inspect whether the program state (all variables and data structures) is 100% correct at line 500:\n   • If State is VALID at Line 500: The bug CANNOT be in lines 1–500! It must reside in lines 501–1000.\n   • If State is CORRUPTED at Line 500: The bug has ALREADY occurred! It must reside in lines 1–500.\n3. Bisect the remaining half by testing line 250 or line 750.\n4. Mathematical Efficiency: In a 1,000-line program, bisection isolates the exact defective line in approximately log2(1000) ≈ 10 checks!"
+              "text": "When hunting a logic flaw across a 1,000-line script or a large pipeline:\n\nThe Inefficient Approach (Linear Search):\nReading line-by-line from line 1 to line 1,000 requires O(N) effort and is mentally exhausting.\n\nThe Scientific Bisection Strategy (Binary Search):\n1. Place a diagnostic breakpoint or logging probe at the midpoint (Line 500).\n2. Inspect whether the program state (all variables and data structures) is 100% correct at line 500:\n   • If State is VALID at Line 500: The bug CANNOT be in lines 1 - 500! It must reside in lines 501 - 1000.\n   • If State is CORRUPTED at Line 500: The bug has ALREADY occurred! It must reside in lines 1 - 500.\n3. Bisect the remaining half by testing line 250 or line 750.\n4. Mathematical Efficiency: In a 1,000-line program, bisection isolates the exact defective line in approximately log2(1000) ≈ 10 checks!"
             },
             {
               "heading": "12. Interactive Debugging with breakpoint() and pdb",
@@ -4928,15 +4946,15 @@ export const INITIAL_COURSES = [
               "url": "https://docs.python.org/3/library/exceptions.html"
             },
             {
-              "title": "Python Documentation: logging — Logging facility for Python",
+              "title": "Python Documentation: logging  -  Logging facility for Python",
               "url": "https://docs.python.org/3/library/logging.html"
             },
             {
-              "title": "Python Documentation: pdb — The Python Debugger",
+              "title": "Python Documentation: pdb  -  The Python Debugger",
               "url": "https://docs.python.org/3/library/pdb.html"
             },
             {
-              "title": "Python Documentation: traceback — Print or retrieve stack tracebacks",
+              "title": "Python Documentation: traceback  -  Print or retrieve stack tracebacks",
               "url": "https://docs.python.org/3/library/traceback.html"
             }
           ],
@@ -5080,7 +5098,7 @@ export const INITIAL_COURSES = [
         },
         "quiz": {
           "id": "quiz-py-mod-10",
-          "title": "Module 10 Quiz — Exception Handling & Debugging Strategies",
+          "title": "Module 10 Quiz  -  Exception Handling & Debugging Strategies",
           "passingScore": 70,
           "timeLimitMinutes": 15,
           "maxAttempts": 3,
@@ -5161,11 +5179,11 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "py-mod-11",
-        "title": "Module 11 — Object-Oriented Programming (OOP)",
+        "title": "Module 11  -  Object-Oriented Programming (OOP)",
         "description": "Classes and instances (the cookie cutter analogy), attributes and methods, self mechanics, constructor lifecycle (__init__), encapsulation, inheritance, method overriding, and magic dunder methods.",
         "completed": false,
         "readingMaterial": {
-          "introduction": "As software applications grow beyond simple scripts, managing hundreds of isolated variables and functions becomes unwieldy. Procedural programming organizes code around sequential actions, but as data structures expand, tracking which function modifies which global variable creates tightly coupled, fragile codebases. Object-Oriented Programming (OOP) solves this architectural challenge by bundling related state (attributes) and behavior (methods) into self-contained, reusable conceptual entities called 'Objects'.\n\nBased on Chapter 14 of Dr. Charles Severance's 'Python for Everybody' and enterprise Python software design patterns, this module introduces the foundational pillars of object-oriented architecture. Rather than treating code as a continuous series of instructions, OOP models software after real-world domains: bank accounts encapsulate balances and transaction histories; web servers encapsulate request dispatchers and session pools; graphical interfaces encapsulate windows, buttons, and event listeners.\n\nIn Python, everything is an object—from simple integers and strings to complex machine learning models. This module provides a rigorous, deep dive into designing robust classes: understanding the class blueprint vs. instance memory allocation, mastering the self parameter and object lifecycle (__init__ constructor and __del__ destructor), implementing clean encapsulation and private attribute protection, leveraging inheritance and super() hierarchies, achieving dynamic polymorphism, and harnessing Python's rich suite of special 'dunder' (double-underscore) magic methods (__str__, __repr__, __eq__, __len__).",
+          "introduction": "As software applications grow beyond simple scripts, managing hundreds of isolated variables and functions becomes unwieldy. Procedural programming organizes code around sequential actions, but as data structures expand, tracking which function modifies which global variable creates tightly coupled, fragile codebases. Object-Oriented Programming (OOP) solves this architectural challenge by bundling related state (attributes) and behavior (methods) into self-contained, reusable conceptual entities called 'Objects'.\n\nBased on Chapter 14 of Dr. Charles Severance's 'Python for Everybody' and enterprise Python software design patterns, this module introduces the foundational pillars of object-oriented architecture. Rather than treating code as a continuous series of instructions, OOP models software after real-world domains: bank accounts encapsulate balances and transaction histories; web servers encapsulate request dispatchers and session pools; graphical interfaces encapsulate windows, buttons, and event listeners.\n\nIn Python, everything is an object - from simple integers and strings to complex machine learning models. This module provides a rigorous, deep dive into designing robust classes: understanding the class blueprint vs. instance memory allocation, mastering the self parameter and object lifecycle (__init__ constructor and __del__ destructor), implementing clean encapsulation and private attribute protection, leveraging inheritance and super() hierarchies, achieving dynamic polymorphism, and harnessing Python's rich suite of special 'dunder' (double-underscore) magic methods (__str__, __repr__, __eq__, __len__).",
           "objectives": [
             "Explain the paradigm shift from procedural scripting to object-oriented system modeling.",
             "Distinguish between a Class (the reusable blueprint) and an Object / Instance (the instantiated entity in RAM).",
@@ -5366,7 +5384,7 @@ export const INITIAL_COURSES = [
           ],
           "references": [
             {
-              "title": "Python for Everybody: Chapter 14 — Object-Oriented Programming",
+              "title": "Python for Everybody: Chapter 14  -  Object-Oriented Programming",
               "url": "https://www.py4e.com/html3/14-objects"
             },
             {
@@ -5518,7 +5536,7 @@ export const INITIAL_COURSES = [
         },
         "quiz": {
           "id": "quiz-py-mod-11",
-          "title": "Module 11 Quiz — Object-Oriented Programming (OOP)",
+          "title": "Module 11 Quiz  -  Object-Oriented Programming (OOP)",
           "passingScore": 70,
           "timeLimitMinutes": 15,
           "maxAttempts": 3,
@@ -5599,7 +5617,7 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "py-mod-12",
-        "title": "Module 12 — Regular Expressions (re module)",
+        "title": "Module 12  -  Regular Expressions (re module)",
         "description": "Pattern matching with the re module, character classes, greedy vs non-greedy quantifiers, capture groups, search/findall/sub/split, and real-world email/log extraction.",
         "completed": false,
         "readingMaterial": {
@@ -5713,7 +5731,7 @@ export const INITIAL_COURSES = [
             },
             {
               "heading": "7. Named Capture Groups: Self-Documenting Pattern Parsing",
-              "text": "In complex regular expressions containing 5 or more capture groups, accessing matches by numeric index (group(1), group(2)) becomes fragile and unreadable.\n\nSyntax: (?P<name>pattern)\nPython allows assigning explicit semantic identifiers to capture groups:\nlog_pattern = r'(?P<ip>d{1,3}(?:.d{1,3}){3}) - - [(?P<timestamp>[^]]+)] \"(?P<method>[A-Z]+) (?P<endpoint>[^ ]+) HTTP/d.d\" (?P<status>d{3})'\n\nMatch Dictionary Access:\nmatch = re.search(log_pattern, log_line)\nif match:\n    data = match.groupdict()\n    print(data['ip'])        # '192.168.1.1'\n    print(data['endpoint'])  # '/api/v1/courses'\n    print(data['status'])    # '200'"
+              "text": "In complex regular expressions containing 5 or more capture groups, accessing matches by numeric index (group(1), group(2)) becomes fragile and unreadable.\n\nSyntax: (?P<name>pattern)\nPython allows assigning explicit semantic identifiers to capture groups:\nlog_pattern = r'(?P<ip>d{1,3}(?:.d{1,3}){3}) - [(?P<timestamp>[^]]+)] \"(?P<method>[A-Z]+) (?P<endpoint>[^ ]+) HTTP/d.d\" (?P<status>d{3})'\n\nMatch Dictionary Access:\nmatch = re.search(log_pattern, log_line)\nif match:\n    data = match.groupdict()\n    print(data['ip'])        # '192.168.1.1'\n    print(data['endpoint'])  # '/api/v1/courses'\n    print(data['status'])    # '200'"
             },
             {
               "heading": "8. The Core 're' Function Suite Reference",
@@ -5834,7 +5852,7 @@ export const INITIAL_COURSES = [
           "practiceExercise": {
             "title": "Module 12 Hands-On Laboratory: Advanced Pattern Recognition & Text Extraction",
             "problem": "Implement the following 6 comprehensive regular expression challenges:\n\n1. Strict Email Validator & Component Extractor:\nWrite a function validate_and_parse_email(email_str) that returns a dictionary with 'username', 'domain', and 'tld' if the email is strictly valid, or None if invalid.\n\n2. Comprehensive Phone Number Normalizer:\nGiven raw phone inputs in various formats ('(555) 123-4567', '555.123.4567', '5551234567', '+1 555-123-4567'), normalize all valid 10-digit numbers into standard '(555) 123-4567' format using re.sub().\n\n3. Web Log IP and Response Status Aggregator:\nStream through Apache-style log lines, extract the client IP address and HTTP status code using named groups, and return the count of 200 (OK) vs 404 (Not Found) responses.\n\n4. Markdown Link Extractor:\nExtract all Markdown hyperlinks in the format [Link Text](https://target.url) from a markdown document, returning a list of tuples: (text, url).\n\n5. Password Complexity Policy Validator:\nValidate passwords ensuring they meet security rules: at least 8 characters, at least 1 uppercase letter, at least 1 lowercase letter, at least 1 number, and at least 1 special character (@#$%^&*).\n\n6. Code Comment Stripper:\nWrite a function that strips all Python single-line comments (# ...) from code lines while preserving string literals containing '#' characters.",
-            "solutionCode": "import re\nfrom collections import Counter\n\n# ==============================================================================\n# Challenge 1: Strict Email Validator & Component Extractor\n# ==============================================================================\nEMAIL_STRICT = re.compile(r'^(?P<user>[a-zA-Z0-9_.+-]+)@(?P<domain>[a-zA-Z0-9-]+.(?P<tld>[a-zA-Z]{2,}))$')\n\ndef validate_and_parse_email(email):\n    match = EMAIL_STRICT.fullmatch(email.strip())\n    if match:\n        return match.groupdict()\n    return None\n\ntest_emails = [\"student@arshithbootcamp.com\", \"invalid-email@\", \"ananya.sharma@research.org\", \"bad@domain\"]\nprint(\"Challenge 1 - Strict Email Parsing:\")\nfor e in test_emails:\n    res = validate_and_parse_email(e)\n    status = f\"Valid: User='{res['user']}', Domain='{res['domain']}', TLD='{res['tld']}'\" if res else \"INVALID\"\n    print(f\"  {e:<32} -> {status}\")\n\n\n# ==============================================================================\n# Challenge 2: Comprehensive Phone Number Normalizer\n# ==============================================================================\nPHONE_PATTERN = re.compile(r'^(?:+?1[-.s]?)?(?([2-9]d{2}))?[-.s]?(d{3})[-.s]?(d{4})$')\n\ndef normalize_phone_number(raw_phone):\n    match = PHONE_PATTERN.search(raw_phone.strip())\n    if match:\n        area, prefix, line = match.groups()\n        return f\"({area}) {prefix}-{line}\"\n    return None\n\nsamples = [\"(555) 123-4567\", \"555.234.5678\", \"+1 555-345-6789\", \"5554567890\", \"123-bad-phone\"]\nprint(\"\nChallenge 2 - Phone Normalization:\")\nfor s in samples:\n    norm = normalize_phone_number(s)\n    print(f\"  {s:<20} -> {norm if norm else 'REJECTED'}\")\n\n\n# ==============================================================================\n# Challenge 3: Web Log IP and Status Aggregator\n# ==============================================================================\nsample_logs = \"\"\"192.168.1.1 - - [03/Oct/2026] \"GET /index.html HTTP/1.1\" 200 4500\n10.0.0.15 - - [03/Oct/2026] \"POST /api/login HTTP/1.1\" 404 120\n172.16.0.4 - - [03/Oct/2026] \"GET /about HTTP/1.1\" 200 3200\n192.168.1.1 - - [03/Oct/2026] \"GET /favicon.ico HTTP/1.1\" 404 80\"\"\"\n\nLOG_REGEX = re.compile(r'^(?P<ip>S+).+\"(?P<method>[A-Z]+)s(?P<path>S+)s.+\"s(?P<status>d{3})')\n\nstatus_counts = Counter()\nfor line in sample_logs.strip().split('\n'):\n    m = LOG_REGEX.search(line)\n    if m:\n        status_counts[m.group('status')] += 1\n\nprint(\"\nChallenge 3 - HTTP Status Distribution:\")\nfor status, cnt in status_counts.items():\n    print(f\"  HTTP Status {status}: {cnt} requests\")\n\n\n# ==============================================================================\n# Challenge 4: Markdown Link Extractor\n# ==============================================================================\nmd_doc = \"\"\"Explore our [Python Boot Camp](https://arshithbootcamp.com/python) and check our\n[Official Documentation](https://docs.python.org/3/) or read [Python for Everybody](https://py4e.com).\"\"\"\n\nMD_LINK_REGEX = re.compile(r'[(?P<text>[^]]+)]((?P<url>https?://[^)]+))')\n\nlinks = MD_LINK_REGEX.findall(md_doc)\nprint(\"\nChallenge 4 - Markdown Hyperlinks Extracted:\")\nfor text, url in links:\n    print(f\"  • Link Label: '{text}' -> URL: {url}\")\n\n\n# ==============================================================================\n# Challenge 5: Password Complexity Policy Validator\n# ==============================================================================\ndef validate_password_security(password):\n    if len(password) < 8: return False, \"Must be at least 8 characters long.\"\n    if not re.search(r'[A-Z]', password): return False, \"Must contain at least 1 uppercase letter.\"\n    if not re.search(r'[a-z]', password): return False, \"Must contain at least 1 lowercase letter.\"\n    if not re.search(r'd', password): return False, \"Must contain at least 1 digit.\"\n    if not re.search(r'[@#$%^&*!_-]', password): return False, \"Must contain at least 1 special character (@#$%^&*!_-).\"\n    return True, \"Strong password verified.\"\n\npasswords_to_test = [\"weak\", \"Password123\", \"Arshith@2026\", \"alllowercase!1\"]\nprint(\"\nChallenge 5 - Password Policy Validation:\")\nfor p in passwords_to_test:\n    valid, reason = validate_password_security(p)\n    print(f\"  '{p}': {'PASS' if valid else 'FAIL'} ({reason})\")\n\n\n# ==============================================================================\n# Challenge 6: Code Comment Stripper\n# ==============================================================================\npython_code = \"\"\"x = 100 # Initialize x\nname = \"Dr. Ananya # Lead Educator\" # Name attribute\ntotal = x * 2 # Calculate total\"\"\"\n\ndef strip_code_comments(code_str):\n    cleaned_lines = []\n    for line in code_str.split('\n'):\n        # Match '#' that is not inside quotes\n        parts = re.split(r'(?<![\"'])s*#.*$', line, maxsplit=1)\n        cleaned_lines.append(parts[0])\n    return '\n'.join(cleaned_lines)\n\nclean_code = strip_code_comments(python_code)\nprint(\"\nChallenge 6 - Stripped Comments (Preserving In-String '#' Symbols):\")\nprint(clean_code)"
+            "solutionCode": "import re\nfrom collections import Counter\n\n# ==============================================================================\n# Challenge 1: Strict Email Validator & Component Extractor\n# ==============================================================================\nEMAIL_STRICT = re.compile(r'^(?P<user>[a-zA-Z0-9_.+-]+)@(?P<domain>[a-zA-Z0-9-]+.(?P<tld>[a-zA-Z]{2,}))$')\n\ndef validate_and_parse_email(email):\n    match = EMAIL_STRICT.fullmatch(email.strip())\n    if match:\n        return match.groupdict()\n    return None\n\ntest_emails = [\"student@arshithbootcamp.com\", \"invalid-email@\", \"ananya.sharma@research.org\", \"bad@domain\"]\nprint(\"Challenge 1 - Strict Email Parsing:\")\nfor e in test_emails:\n    res = validate_and_parse_email(e)\n    status = f\"Valid: User='{res['user']}', Domain='{res['domain']}', TLD='{res['tld']}'\" if res else \"INVALID\"\n    print(f\"  {e:<32} -> {status}\")\n\n\n# ==============================================================================\n# Challenge 2: Comprehensive Phone Number Normalizer\n# ==============================================================================\nPHONE_PATTERN = re.compile(r'^(?:+?1[-.s]?)?(?([2-9]d{2}))?[-.s]?(d{3})[-.s]?(d{4})$')\n\ndef normalize_phone_number(raw_phone):\n    match = PHONE_PATTERN.search(raw_phone.strip())\n    if match:\n        area, prefix, line = match.groups()\n        return f\"({area}) {prefix}-{line}\"\n    return None\n\nsamples = [\"(555) 123-4567\", \"555.234.5678\", \"+1 555-345-6789\", \"5554567890\", \"123-bad-phone\"]\nprint(\"\nChallenge 2 - Phone Normalization:\")\nfor s in samples:\n    norm = normalize_phone_number(s)\n    print(f\"  {s:<20} -> {norm if norm else 'REJECTED'}\")\n\n\n# ==============================================================================\n# Challenge 3: Web Log IP and Status Aggregator\n# ==============================================================================\nsample_logs = \"\"\"192.168.1.1 - [03/Oct/2026] \"GET /index.html HTTP/1.1\" 200 4500\n10.0.0.15 - [03/Oct/2026] \"POST /api/login HTTP/1.1\" 404 120\n172.16.0.4 - [03/Oct/2026] \"GET /about HTTP/1.1\" 200 3200\n192.168.1.1 - [03/Oct/2026] \"GET /favicon.ico HTTP/1.1\" 404 80\"\"\"\n\nLOG_REGEX = re.compile(r'^(?P<ip>S+).+\"(?P<method>[A-Z]+)s(?P<path>S+)s.+\"s(?P<status>d{3})')\n\nstatus_counts = Counter()\nfor line in sample_logs.strip().split('\n'):\n    m = LOG_REGEX.search(line)\n    if m:\n        status_counts[m.group('status')] += 1\n\nprint(\"\nChallenge 3 - HTTP Status Distribution:\")\nfor status, cnt in status_counts.items():\n    print(f\"  HTTP Status {status}: {cnt} requests\")\n\n\n# ==============================================================================\n# Challenge 4: Markdown Link Extractor\n# ==============================================================================\nmd_doc = \"\"\"Explore our [Python Boot Camp](https://arshithbootcamp.com/python) and check our\n[Official Documentation](https://docs.python.org/3/) or read [Python for Everybody](https://py4e.com).\"\"\"\n\nMD_LINK_REGEX = re.compile(r'[(?P<text>[^]]+)]((?P<url>https?://[^)]+))')\n\nlinks = MD_LINK_REGEX.findall(md_doc)\nprint(\"\nChallenge 4 - Markdown Hyperlinks Extracted:\")\nfor text, url in links:\n    print(f\"  • Link Label: '{text}' -> URL: {url}\")\n\n\n# ==============================================================================\n# Challenge 5: Password Complexity Policy Validator\n# ==============================================================================\ndef validate_password_security(password):\n    if len(password) < 8: return False, \"Must be at least 8 characters long.\"\n    if not re.search(r'[A-Z]', password): return False, \"Must contain at least 1 uppercase letter.\"\n    if not re.search(r'[a-z]', password): return False, \"Must contain at least 1 lowercase letter.\"\n    if not re.search(r'd', password): return False, \"Must contain at least 1 digit.\"\n    if not re.search(r'[@#$%^&*!_-]', password): return False, \"Must contain at least 1 special character (@#$%^&*!_-).\"\n    return True, \"Strong password verified.\"\n\npasswords_to_test = [\"weak\", \"Password123\", \"Arshith@2026\", \"alllowercase!1\"]\nprint(\"\nChallenge 5 - Password Policy Validation:\")\nfor p in passwords_to_test:\n    valid, reason = validate_password_security(p)\n    print(f\"  '{p}': {'PASS' if valid else 'FAIL'} ({reason})\")\n\n\n# ==============================================================================\n# Challenge 6: Code Comment Stripper\n# ==============================================================================\npython_code = \"\"\"x = 100 # Initialize x\nname = \"Dr. Ananya # Lead Educator\" # Name attribute\ntotal = x * 2 # Calculate total\"\"\"\n\ndef strip_code_comments(code_str):\n    cleaned_lines = []\n    for line in code_str.split('\n'):\n        # Match '#' that is not inside quotes\n        parts = re.split(r'(?<![\"'])s*#.*$', line, maxsplit=1)\n        cleaned_lines.append(parts[0])\n    return '\n'.join(cleaned_lines)\n\nclean_code = strip_code_comments(python_code)\nprint(\"\nChallenge 6 - Stripped Comments (Preserving In-String '#' Symbols):\")\nprint(clean_code)"
           },
           "keyTakeaways": [
             "Regular expressions provide a declarative syntax for searching, validating, extracting, and replacing text.",
@@ -5848,11 +5866,11 @@ export const INITIAL_COURSES = [
           ],
           "references": [
             {
-              "title": "Python for Everybody: Chapter 11 — Regular Expressions",
+              "title": "Python for Everybody: Chapter 11  -  Regular Expressions",
               "url": "https://www.py4e.com/html3/11-regex"
             },
             {
-              "title": "Python Documentation: re — Regular Expression Operations",
+              "title": "Python Documentation: re  -  Regular Expression Operations",
               "url": "https://docs.python.org/3/library/re.html"
             },
             {
@@ -6000,7 +6018,7 @@ export const INITIAL_COURSES = [
         },
         "quiz": {
           "id": "quiz-py-mod-12",
-          "title": "Module 12 Quiz — Regular Expressions (re module)",
+          "title": "Module 12 Quiz  -  Regular Expressions (re module)",
           "passingScore": 70,
           "timeLimitMinutes": 15,
           "maxAttempts": 3,
@@ -6081,11 +6099,11 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "py-mod-13",
-        "title": "Module 13 — Networked Programs, Sockets & Web Scraping",
+        "title": "Module 13  -  Networked Programs, Sockets & Web Scraping",
         "description": "TCP/IP socket communication, HTTP protocol specifications, urllib URL streaming, web scraping with BeautifulSoup, HTML DOM tree navigation, and SSL/TLS security contexts.",
         "completed": false,
         "readingMaterial": {
-          "introduction": "In traditional standalone computing, software operates strictly within the confines of local memory and local disk drives. However, the true power of modern programming emerges when Python reaches across the global Internet to communicate with remote servers, retrieve real-time data feeds, automate browser workflows, and harvest knowledge from unstructured web pages.\n\nTo write networked Python programs, you must understand the underlying communication architecture: the Transport Control Protocol (TCP) and Internet Protocol (IP). A network connection is established across a 'Socket'—a two-way communication channel between two programs running across the network, uniquely identified by an IP address and a Port number. Atop TCP sockets runs the World Wide Web's foundational application protocol: the HyperText Transfer Protocol (HTTP).\n\nBased on Chapter 12 of Dr. Charles Severance's 'Python for Everybody' and enterprise web scraping engineering standards, this module bridges the gap between low-level network mechanics and high-level data harvesting: constructing raw socket connections to send manual HTTP GET commands, utilizing Python's urllib module to treat global URLs as simple file streams, respecting web scraping ethics and robots.txt protocols, mastering the BeautifulSoup (bs4) HTML parser to navigate complex DOM trees, following hyperlink trails programmatically, and downloading binary media assets via chunked network streams.",
+          "introduction": "In traditional standalone computing, software operates strictly within the confines of local memory and local disk drives. However, the true power of modern programming emerges when Python reaches across the global Internet to communicate with remote servers, retrieve real-time data feeds, automate browser workflows, and harvest knowledge from unstructured web pages.\n\nTo write networked Python programs, you must understand the underlying communication architecture: the Transport Control Protocol (TCP) and Internet Protocol (IP). A network connection is established across a 'Socket' - a two-way communication channel between two programs running across the network, uniquely identified by an IP address and a Port number. Atop TCP sockets runs the World Wide Web's foundational application protocol: the HyperText Transfer Protocol (HTTP).\n\nBased on Chapter 12 of Dr. Charles Severance's 'Python for Everybody' and enterprise web scraping engineering standards, this module bridges the gap between low-level network mechanics and high-level data harvesting: constructing raw socket connections to send manual HTTP GET commands, utilizing Python's urllib module to treat global URLs as simple file streams, respecting web scraping ethics and robots.txt protocols, mastering the BeautifulSoup (bs4) HTML parser to navigate complex DOM trees, following hyperlink trails programmatically, and downloading binary media assets via chunked network streams.",
           "objectives": [
             "Understand the TCP/IP network protocol stack, IP addressing, and port multiplexing (Port 80 HTTP, 443 HTTPS).",
             "Explain the client-server architecture and the anatomy of HTTP 1.1 Request and Response envelopes.",
@@ -6231,15 +6249,15 @@ export const INITIAL_COURSES = [
           ],
           "references": [
             {
-              "title": "Python for Everybody: Chapter 12 — Networked Programs",
+              "title": "Python for Everybody: Chapter 12  -  Networked Programs",
               "url": "https://www.py4e.com/html3/12-network"
             },
             {
-              "title": "Python Documentation: socket — Low-level networking interface",
+              "title": "Python Documentation: socket  -  Low-level networking interface",
               "url": "https://docs.python.org/3/library/socket.html"
             },
             {
-              "title": "Python Documentation: urllib.request — Extensible library for opening URLs",
+              "title": "Python Documentation: urllib.request  -  Extensible library for opening URLs",
               "url": "https://docs.python.org/3/library/urllib.request.html"
             }
           ],
@@ -6383,7 +6401,7 @@ export const INITIAL_COURSES = [
         },
         "quiz": {
           "id": "quiz-py-mod-13",
-          "title": "Module 13 Quiz — Networked Programs, Sockets & Web Scraping",
+          "title": "Module 13 Quiz  -  Networked Programs, Sockets & Web Scraping",
           "passingScore": 70,
           "timeLimitMinutes": 15,
           "maxAttempts": 3,
@@ -6464,11 +6482,11 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "py-mod-14",
-        "title": "Module 14 — Web Services: XML, JSON & REST APIs",
+        "title": "Module 14  -  Web Services: XML, JSON & REST APIs",
         "description": "Machine-to-machine data exchange, XML tree parsing with ElementTree, JSON serialization/deserialization, REST architecture principles, API authentication, and consuming external web services.",
         "completed": false,
         "readingMaterial": {
-          "introduction": "In Module 13, we explored web scraping—extracting data from HTML designed primarily for human visual consumption. While scraping is valuable when no alternative exists, HTML is inherently fragile: a minor redesign of a website's CSS classes or tag structure immediately breaks scraper pipelines. To build robust, enterprise-grade distributed systems, modern software relies on 'Web Services'—structured machine-to-machine application programming interfaces (APIs) where systems exchange raw data over standardized network protocols without presentation markup.\n\nTwo dominant data interchange standards power the modern web: eXtensible Markup Language (XML), a hierarchical tag-based format historically dominant in enterprise banking and SOAP architectures; and JavaScript Object Notation (JSON), a lightweight, key-value format that has become the ubiquitous standard for modern RESTful web APIs and microservices.\n\nBased on Chapter 13 of Dr. Charles Severance's 'Python for Everybody' and enterprise API engineering standards, this module provides a complete, professional masterclass in consuming and architecting web services: parsing nested XML trees using the standard xml.etree.ElementTree library, serializing and deserializing JSON payloads using Python's json module, mastering RESTful API design principles (resource endpoints, HTTP verbs, status codes), parameterizing queries with urllib.parse, implementing API Key and Bearer Token authentication, and building defensive clients that handle rate limiting (HTTP 429) and network timeouts gracefully.",
+          "introduction": "In Module 13, we explored web scraping - extracting data from HTML designed primarily for human visual consumption. While scraping is valuable when no alternative exists, HTML is inherently fragile: a minor redesign of a website's CSS classes or tag structure immediately breaks scraper pipelines. To build robust, enterprise-grade distributed systems, modern software relies on 'Web Services' - structured machine-to-machine application programming interfaces (APIs) where systems exchange raw data over standardized network protocols without presentation markup.\n\nTwo dominant data interchange standards power the modern web: eXtensible Markup Language (XML), a hierarchical tag-based format historically dominant in enterprise banking and SOAP architectures; and JavaScript Object Notation (JSON), a lightweight, key-value format that has become the ubiquitous standard for modern RESTful web APIs and microservices.\n\nBased on Chapter 13 of Dr. Charles Severance's 'Python for Everybody' and enterprise API engineering standards, this module provides a complete, professional masterclass in consuming and architecting web services: parsing nested XML trees using the standard xml.etree.ElementTree library, serializing and deserializing JSON payloads using Python's json module, mastering RESTful API design principles (resource endpoints, HTTP verbs, status codes), parameterizing queries with urllib.parse, implementing API Key and Bearer Token authentication, and building defensive clients that handle rate limiting (HTTP 429) and network timeouts gracefully.",
           "objectives": [
             "Explain the fundamental difference between human-oriented HTML scraping and machine-oriented API communication.",
             "Compare and contrast the architectural trade-offs between XML and JSON data interchange formats.",
@@ -6615,15 +6633,15 @@ export const INITIAL_COURSES = [
           ],
           "references": [
             {
-              "title": "Python for Everybody: Chapter 13 — Web Services",
+              "title": "Python for Everybody: Chapter 13  -  Web Services",
               "url": "https://www.py4e.com/html3/13-web"
             },
             {
-              "title": "Python Documentation: json — JSON encoder and decoder",
+              "title": "Python Documentation: json  -  JSON encoder and decoder",
               "url": "https://docs.python.org/3/library/json.html"
             },
             {
-              "title": "Python Documentation: xml.etree.ElementTree — The ElementTree XML API",
+              "title": "Python Documentation: xml.etree.ElementTree  -  The ElementTree XML API",
               "url": "https://docs.python.org/3/library/xml.etree.elementtree.html"
             }
           ],
@@ -6767,7 +6785,7 @@ export const INITIAL_COURSES = [
         },
         "quiz": {
           "id": "quiz-py-mod-14",
-          "title": "Module 14 Quiz — Web Services: XML, JSON & REST APIs",
+          "title": "Module 14 Quiz  -  Web Services: XML, JSON & REST APIs",
           "passingScore": 70,
           "timeLimitMinutes": 15,
           "maxAttempts": 3,
@@ -6848,7 +6866,7 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "py-mod-15",
-        "title": "Module 15 — Database Connectivity (SQLite) & Data Visualization",
+        "title": "Module 15  -  Database Connectivity (SQLite) & Data Visualization",
         "description": "Relational database modeling, SQLite integration with sqlite3, SQL queries, parameterized statements preventing SQL injection, multi-table JOINs, many-to-many junction tables, and exporting data for interactive web visualization.",
         "completed": false,
         "readingMaterial": {
@@ -6872,7 +6890,7 @@ export const INITIAL_COURSES = [
             },
             {
               "heading": "2. The SQLite Architecture: Python's Embedded Engine",
-              "text": "Unlike enterprise client-server databases (such as PostgreSQL, MySQL, or Oracle) which require separate server daemons, port configurations, and user permission setups:\n\nSQLite is Serverless and Embedded:\n• The entire database engine is compiled directly into Python via the sqlite3 C library.\n• The entire database—including tables, indexes, schemas, and millions of rows—lives inside a single cross-platform disk file (e.g. bootcamp.sqlite).\n• Zero configuration: You can create, populate, and query a database in three lines of Python without installing external database software."
+              "text": "Unlike enterprise client-server databases (such as PostgreSQL, MySQL, or Oracle) which require separate server daemons, port configurations, and user permission setups:\n\nSQLite is Serverless and Embedded:\n• The entire database engine is compiled directly into Python via the sqlite3 C library.\n• The entire database - including tables, indexes, schemas, and millions of rows - lives inside a single cross-platform disk file (e.g. bootcamp.sqlite).\n• Zero configuration: You can create, populate, and query a database in three lines of Python without installing external database software."
             },
             {
               "heading": "3. The Python sqlite3 Lifecycle & Cursor Mechanics",
@@ -6988,15 +7006,15 @@ export const INITIAL_COURSES = [
           ],
           "references": [
             {
-              "title": "Python for Everybody: Chapter 15 — Using Databases and SQL",
+              "title": "Python for Everybody: Chapter 15  -  Using Databases and SQL",
               "url": "https://www.py4e.com/html3/15-database"
             },
             {
-              "title": "Python for Everybody: Chapter 16 — Visualizing Data",
+              "title": "Python for Everybody: Chapter 16  -  Visualizing Data",
               "url": "https://www.py4e.com/html3/16-tasks"
             },
             {
-              "title": "Python Documentation: sqlite3 — DB-API 2.0 interface for SQLite databases",
+              "title": "Python Documentation: sqlite3  -  DB-API 2.0 interface for SQLite databases",
               "url": "https://docs.python.org/3/library/sqlite3.html"
             }
           ],
@@ -7140,7 +7158,7 @@ export const INITIAL_COURSES = [
         },
         "quiz": {
           "id": "quiz-py-mod-15",
-          "title": "Module 15 Quiz — Database Connectivity (SQLite) & Data Visualization",
+          "title": "Module 15 Quiz  -  Database Connectivity (SQLite) & Data Visualization",
           "passingScore": 70,
           "timeLimitMinutes": 15,
           "maxAttempts": 3,
@@ -7232,10 +7250,10 @@ export const INITIAL_COURSES = [
         {
           "id": "qp-py-set-a",
           "paperCode": "PY-QP-SETA",
-          "groupName": "Alphabetical Group A–F",
+          "groupName": "Alphabetical Group A - F",
           "letterRange": "A-F",
           "studentNamePattern": "Candidate first name starting with A, B, C, D, E, or F",
-          "studentName": "Arshith Kumar (Candidate Group A–F)",
+          "studentName": "Arshith Kumar (Candidate Group A - F)",
           "rollNo": "2026-PY-SETA",
           "title": "Paper 1 (Set A): Python Architecture, Core Syntax & Data Structures",
           "subtitle": "CPython Execution Model, Memory References, Compound Expressions & Sequences",
@@ -7547,16 +7565,91 @@ export const INITIAL_COURSES = [
               ],
               "correctAnswer": 2,
               "explanation": "Operator precedence evaluates 'not', then 'and', then 'or'. (1) '[] and \"python\"' short-circuits to []. (2) 'not 0' is True; 'True and {}' returns {}. (3) The remaining 'or' chain is '0 or [] or {} or 42'. (4) However, notice: 'not 0 and {}' evaluates to {}. Since {} is falsy, the evaluation proceeds to 'or 42', returning 42. Wait, let's trace: 0 (falsy) -> [] (falsy) -> {} (falsy) -> 42 is truthy, so the final result is 42!"
+            },
+            {
+              "id": "py-set-a-21",
+              "questionNumber": 21,
+              "topic": "Decorators & Metadata Preservation",
+              "questionText": "When decorating a target function with a custom wrapper function, which tool from Python's standard library should be applied to the wrapper to preserve the original function's name, docstring, and parameter signature?",
+              "codeSnippet": "from functools import wraps\n\ndef my_decorator(func):\n    @wraps(func)\n    def wrapper(*args, **kwargs):\n        print(\"Before execution\")\n        return func(*args, **kwargs)\n    return wrapper",
+              "options": [
+                "functools.lru_cache(func)",
+                "functools.wraps(func)",
+                "sys.settrace(func)",
+                "inspect.signature(func)"
+              ],
+              "correctAnswer": 1,
+              "explanation": "@functools.wraps(func) copies the __name__, __doc__, and module metadata from the decorated target function to the wrapper function, preventing reflection tools and debuggers from losing function identity."
+            },
+            {
+              "id": "py-set-a-22",
+              "questionNumber": 22,
+              "topic": "Context Managers & Exception Handling",
+              "questionText": "In a custom class implementing Python's Context Manager protocol (__enter__ and __exit__), how can __exit__ explicitly suppress an exception raised inside the 'with' block?",
+              "codeSnippet": "class SuppressErrorContext:\n    def __enter__(self):\n        return self\n\n    def __exit__(self, exc_type, exc_val, exc_tb):\n        if exc_type is ValueError:\n            return True  # Suppress ValueError\n        return False",
+              "options": [
+                "By returning True (or any truthy value) from the __exit__ method",
+                "By raising StopIteration inside __exit__",
+                "By returning None from __enter__",
+                "Exceptions inside a 'with' block cannot be suppressed by __exit__"
+              ],
+              "correctAnswer": 0,
+              "explanation": "If __exit__() returns True (or a truthy value), Python catches and suppresses the exception raised inside the 'with' block, allowing code execution to proceed immediately after the block."
+            },
+            {
+              "id": "py-set-a-23",
+              "questionNumber": 23,
+              "topic": "Generators & Memory Management",
+              "questionText": "What is the primary memory advantage of returning a generator expression using the yield keyword compared to returning a full list from a function processing 10 million records?",
+              "codeSnippet": "def stream_records():\n    for i in range(10_000_000):\n        yield f\"Record_{i}\"",
+              "options": [
+                "Generators compile the records into C machine code to execute 100x faster",
+                "Generators evaluate items lazily one at a time on-demand, maintaining a constant O(1) memory footprint regardless of dataset size",
+                "Generators automatically store records in RAM cache to eliminate garbage collection overhead",
+                "Generators allow multi-threaded parallel execution across all CPU cores"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Generators produce values on-demand using lazy evaluation. Instead of allocating memory for all 10 million items simultaneously (O(N) RAM), a generator requires constant O(1) memory space."
+            },
+            {
+              "id": "py-set-a-24",
+              "questionNumber": 24,
+              "topic": "Metaclasses & Class Construction",
+              "questionText": "In Python's Object Model, what is a metaclass and which special method is invoked when creating a new class definition?",
+              "codeSnippet": "class MetaSingleton(type):\n    def __call__(cls, *args, **kwargs):\n        if not hasattr(cls, '_instance'):\n            cls._instance = super().__call__(*args, **kwargs)\n        return cls._instance",
+              "options": [
+                "A metaclass is a class decorator; it invokes __init__ when an instance is deleted",
+                "A metaclass is the class of a class (such as 'type'); its __new__ or __call__ method constructs the class object itself",
+                "A metaclass is an abstract base class that prevents subclasses from using inheritance",
+                "A metaclass is a C-extension module built into the standard garbage collector"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Classes in Python are instances of metaclasses (default is 'type'). A metaclass defines how class objects are constructed, validated, and initialized when the class statement is evaluated."
+            },
+            {
+              "id": "py-set-a-25",
+              "questionNumber": 25,
+              "topic": "Concurrency: Threading vs Multiprocessing",
+              "questionText": "Due to CPython's Global Interpreter Lock (GIL), which module should be chosen to maximize performance for CPU-heavy tasks like image processing or matrix multiplication across multiple CPU cores?",
+              "codeSnippet": "from concurrent.futures import ProcessPoolExecutor\n\ndef compute_heavy_task(data):\n    return sum(i * i for i in data)\n\nif __name__ == '__main__':\n    with ProcessPoolExecutor() as executor:\n        results = list(executor.map(compute_heavy_task, chunks))",
+              "options": [
+                "threading module with ThreadPoolExecutor",
+                "multiprocessing module or ProcessPoolExecutor",
+                "asyncio module with event loops",
+                "queue module with ThreadQueue"
+              ],
+              "correctAnswer": 1,
+              "explanation": "CPython's GIL permits only one thread to execute Python bytecode at a time per process. For CPU-bound tasks, multiprocessing/ProcessPoolExecutor spawns separate OS processes with independent GIL instances across all CPU cores."
             }
           ]
         },
         {
           "id": "qp-py-set-b",
           "paperCode": "PY-QP-SETB",
-          "groupName": "Alphabetical Group G–L",
+          "groupName": "Alphabetical Group G - L",
           "letterRange": "G-L",
           "studentNamePattern": "Candidate first name starting with G, H, I, J, K, or L",
-          "studentName": "Geetha Lakshmi (Candidate Group G–L)",
+          "studentName": "Geetha Lakshmi (Candidate Group G - L)",
           "rollNo": "2026-PY-SETB",
           "title": "Paper 2 (Set B): Control Flow, Functions, Closures & Scope",
           "subtitle": "Short-Circuit Logic, Recursion, First-Class Functions, Generators & Namespaces",
@@ -7868,16 +7961,91 @@ export const INITIAL_COURSES = [
               ],
               "correctAnswer": 1,
               "explanation": "TCP guarantees reliable ordered byte delivery but provides no record framing. A 3KB payload may be split by the network MTU into several smaller segments, requiring the application to loop recv() until an agreed-upon length or sentinel delimiter is received."
+            },
+            {
+              "id": "py-set-b-21",
+              "questionNumber": 21,
+              "topic": "List Comprehensions & Flattening",
+              "questionText": "What is the correct syntax for a list comprehension that flattens a 2D matrix `[[1, 2], [3, 4], [5, 6]]` into a 1D list `[1, 2, 3, 4, 5, 6]`?",
+              "codeSnippet": "matrix = [[1, 2], [3, 4], [5, 6]]\nflat = [num for row in matrix for num in row]",
+              "options": [
+                "[num for num in row for row in matrix]",
+                "[num for row in matrix for num in row]",
+                "[row for num in matrix for num in row]",
+                "[num for row in matrix if num in row]"
+              ],
+              "correctAnswer": 1,
+              "explanation": "In nested list comprehensions, the 'for' loops follow the exact same order as traditional nested for-loops: 'for row in matrix:' followed by 'for num in row:'."
+            },
+            {
+              "id": "py-set-b-22",
+              "questionNumber": 22,
+              "topic": "Memory Optimization with __slots__",
+              "questionText": "What is the primary benefit of declaring `__slots__` inside a Python class definition when instantiating millions of small objects?",
+              "codeSnippet": "class Point:\n    __slots__ = ('x', 'y')\n    def __init__(self, x, y):\n        self.x = x\n        self.y = y",
+              "options": [
+                "It suppresses all AttributeError exceptions raised when accessing invalid properties",
+                "It prevents Python from creating a dynamic __dict__ per instance, significantly reducing memory consumption",
+                "It automatically converts instance attributes into thread-safe atomic variables",
+                "It serializes class instances into SQLite binary database records"
+              ],
+              "correctAnswer": 1,
+              "explanation": "By default, Python instances store attributes in a dynamic instance dictionary (__dict__). Defining __slots__ allocates a fixed array space instead, saving substantial memory for millions of instances."
+            },
+            {
+              "id": "py-set-b-23",
+              "questionNumber": 23,
+              "topic": "Exception Chaining & Tracebacks",
+              "questionText": "In Python 3, how do you re-raise a custom exception while explicitly linking it to the original caught exception to maintain clean cause tracking?",
+              "codeSnippet": "try:\n    connect_to_database()\nexcept ConnectionError as err:\n    raise DatabaseException(\"Service unavailable\") from err",
+              "options": [
+                "raise DatabaseException() with err",
+                "raise DatabaseException() from err",
+                "raise DatabaseException() cause err",
+                "raise DatabaseException() using err"
+              ],
+              "correctAnswer": 1,
+              "explanation": "The 'raise NewException() from original_err' syntax sets the __cause__ attribute on the new exception, producing an explicit 'The above exception was the direct cause of the following exception' traceback message."
+            },
+            {
+              "id": "py-set-b-24",
+              "questionNumber": 24,
+              "topic": "Structural Pattern Matching (match / case)",
+              "questionText": "Introduced in Python 3.10, which statement describes how structural pattern matching evaluates data structures?",
+              "codeSnippet": "def handle_command(cmd):\n    match cmd.split():\n        case [\"quit\"]:\n            return \"Exiting\"\n        case [\"move\", (\"left\" | \"right\" | \"up\" | \"down\") as direction]:\n            return f\"Moving {direction}\"\n        case _:\n            return \"Unknown command\"",
+              "options": [
+                "It is a simple replacement for C-style switch statements that only evaluates integer constants",
+                "It inspects data shape, sequences, dynamic patterns, and binding variables with guards and wildcards (_)",
+                "It compiles Python statements into regular expressions before runtime matching",
+                "It runs only inside asynchronous event loops"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Python 3.10 match/case supports structural pattern matching, destructuring tuples/lists, binding dynamic variables, matching dict keys, applying guards ('if'), and wildcards ('_')."
+            },
+            {
+              "id": "py-set-b-25",
+              "questionNumber": 25,
+              "topic": "Asynchronous IO & Event Loops",
+              "questionText": "In Python's `asyncio` framework, how do you execute multiple asynchronous coroutines concurrently and await all their completed results simultaneously?",
+              "codeSnippet": "import asyncio\n\nasync def fetch_api(endpoint):\n    await asyncio.sleep(1)\n    return f\"Data from {endpoint}\"\n\nasync def main():\n    results = await asyncio.gather(\n        fetch_api(\"/users\"),\n        fetch_api(\"/orders\"),\n        fetch_api(\"/products\")\n    )",
+              "options": [
+                "asyncio.run_parallel()",
+                "asyncio.gather()",
+                "asyncio.thread_wait()",
+                "asyncio.join_all()"
+              ],
+              "correctAnswer": 1,
+              "explanation": "`asyncio.gather(*aws)` takes multiple asynchronous awaitables/coroutines, schedules them concurrently on the active event loop, and returns an ordered list of their return values."
             }
           ]
         },
         {
           "id": "qp-py-set-c",
           "paperCode": "PY-QP-SETC",
-          "groupName": "Alphabetical Group M–R",
+          "groupName": "Alphabetical Group M - R",
           "letterRange": "M-R",
           "studentNamePattern": "Candidate first name starting with M, N, O, P, Q, or R",
-          "studentName": "Manoj Rao / Priya Sharma (Candidate Group M–R)",
+          "studentName": "Manoj Rao / Priya Sharma (Candidate Group M - R)",
           "rollNo": "2026-PY-SETC",
           "title": "Paper 3 (Set C): OOP, Exception Architecture & File I/O",
           "subtitle": "Classes, Dunder Protocols, MRO Linearization, Custom Exceptions & File Buffering",
@@ -8189,16 +8357,91 @@ export const INITIAL_COURSES = [
               ],
               "correctAnswer": 1,
               "explanation": "A tuple is only hashable if every element inside it is also hashable. Because [30, 40] is a mutable list, the tuple containing it cannot produce a fixed hash value and raises 'TypeError: unhashable type: list'."
+            },
+            {
+              "id": "py-set-c-21",
+              "questionNumber": 21,
+              "topic": "Dictionary Union Operators",
+              "questionText": "In Python 3.9+, what is the result of applying the dictionary merge operator `d1 | d2` when both dictionaries contain overlapping keys?",
+              "codeSnippet": "d1 = {'a': 1, 'b': 2}\nd2 = {'b': 99, 'c': 3}\nresult = d1 | d2",
+              "options": [
+                "{'a': 1, 'b': 2, 'c': 3} (left operand d1 takes priority)",
+                "{'a': 1, 'b': 99, 'c': 3} (right operand d2 overrides overlapping keys)",
+                "A KeyError is raised due to duplicate key collision",
+                "{'a': 1, 'b': [2, 99], 'c': 3} (values are merged into lists)"
+              ],
+              "correctAnswer": 1,
+              "explanation": "The dictionary union operator `|` merges two dictionaries. If there are duplicate keys, the right-hand dictionary (`d2`) overwrites the values of the left-hand dictionary (`d1`)."
+            },
+            {
+              "id": "py-set-c-22",
+              "questionNumber": 22,
+              "topic": "Object Copying: Shallow vs Deep",
+              "questionText": "What distinguishes `copy.deepcopy()` from `copy.copy()` when duplicating a nested object structure containing lists inside dictionaries?",
+              "codeSnippet": "import copy\noriginal = {'items': [1, 2, 3]}\nshallow = copy.copy(original)\ndeep = copy.deepcopy(original)",
+              "options": [
+                "copy.copy() creates a new outer object and recursively copies all nested child objects",
+                "copy.deepcopy() creates a completely independent recursive copy of both outer and all nested mutable objects",
+                "copy.deepcopy() converts all list elements into immutable tuples automatically",
+                "copy.copy() only works on primitive integers and strings"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Shallow copy (`copy.copy`) creates a new outer object but inserts references to the nested objects. Deep copy (`copy.deepcopy`) recursively duplicates every nested child object."
+            },
+            {
+              "id": "py-set-c-23",
+              "questionNumber": 23,
+              "topic": "LRU Caching & Memoization",
+              "questionText": "Which requirement must function arguments satisfy to be compatible with `@functools.lru_cache` memoization?",
+              "codeSnippet": "from functools import lru_cache\n\n@lru_cache(maxsize=128)\ndef compute_factorial(n):\n    return 1 if n <= 1 else n * compute_factorial(n - 1)",
+              "options": [
+                "All arguments passed to the function must be mutable data structures like lists or dicts",
+                "All arguments passed to the function must be hashable (immutable data types like int, str, tuple)",
+                "The function must be defined inside a class inheriting from dict",
+                "The function must be declared with the async keyword"
+              ],
+              "correctAnswer": 1,
+              "explanation": "`@lru_cache` stores cached results in an internal dictionary indexed by function arguments. Therefore, all positional and keyword arguments must be hashable."
+            },
+            {
+              "id": "py-set-c-24",
+              "questionNumber": 24,
+              "topic": "Custom Iterator Protocol",
+              "questionText": "To build a custom Iterator class in Python, which two special dunder methods must be implemented?",
+              "codeSnippet": "class NumberCounter:\n    def __init__(self, low, high):\n        self.current = low\n        self.high = high\n\n    def __iter__(self):\n        return self\n\n    def __next__(self):\n        if self.current > self.high:\n            raise StopIteration\n        self.current += 1\n        return self.current - 1",
+              "options": [
+                "__init__ and __del__",
+                "__iter__ and __next__",
+                "__enter__ and __exit__",
+                "__getitem__ and __setitem__"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Python's Iterator Protocol requires `__iter__()` (which returns the iterator object itself) and `__next__()` (which returns the next item or raises `StopIteration`)."
+            },
+            {
+              "id": "py-set-c-25",
+              "questionNumber": 25,
+              "topic": "Dataclasses & Default Factories",
+              "questionText": "In Python's `@dataclass` decorator, why is setting a mutable default argument like `tags: list = []` invalid, and how should it be declared?",
+              "codeSnippet": "from dataclasses import dataclass, field\n\n@dataclass\nclass UserProfile:\n    username: str\n    tags: list = field(default_factory=list)",
+              "options": [
+                "Dataclasses do not allow list attributes under any circumstances",
+                "Mutable default arguments are shared across all class instances; `field(default_factory=list)` creates a fresh list instance per object",
+                "default_factory is used exclusively for serializing objects to JSON",
+                "tags must be declared as a tuple instead of a list"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Python prevents mutable defaults in dataclass definitions to avoid sharing the same list reference across all class instances. `field(default_factory=list)` calls the factory function to produce a new list for each instance."
             }
           ]
         },
         {
           "id": "qp-py-set-d",
           "paperCode": "PY-QP-SETD",
-          "groupName": "Alphabetical Group S–Z",
+          "groupName": "Alphabetical Group S - Z",
           "letterRange": "S-Z",
           "studentNamePattern": "Candidate first name starting with S, T, U, V, W, X, Y, or Z",
-          "studentName": "Suresh Kumar / Varun Adithya (Candidate Group S–Z)",
+          "studentName": "Suresh Kumar / Varun Adithya (Candidate Group S - Z)",
           "rollNo": "2026-PY-SETD",
           "title": "Paper 4 (Set D): Regex, Sockets, Web Services & SQLite Persistence",
           "subtitle": "Pattern Matching, Network Protocols, JSON/XML APIs & Relational Integrity",
@@ -8510,6 +8753,81 @@ export const INITIAL_COURSES = [
               ],
               "correctAnswer": 1,
               "explanation": "__new__ is the constructor that actually allocates and returns a new instance of the class (cls). Once the instance exists, __init__(self, ...) is invoked to configure its attributes."
+            },
+            {
+              "id": "py-set-d-21",
+              "questionNumber": 21,
+              "topic": "Scope & Nonlocal Keyword",
+              "questionText": "Inside an inner nested function, which keyword allows you to modify a variable bound in the outer enclosing function's scope (without making it global)?",
+              "codeSnippet": "def outer_counter():\n    count = 0\n    def inner_increment():\n        nonlocal count\n        count += 1\n        return count\n    return inner_increment",
+              "options": [
+                "global",
+                "nonlocal",
+                "outer",
+                "self"
+              ],
+              "correctAnswer": 1,
+              "explanation": "The `nonlocal` keyword allows a nested function to modify variables defined in its outer (enclosing) scope rather than creating a new local variable."
+            },
+            {
+              "id": "py-set-d-22",
+              "questionNumber": 22,
+              "topic": "Default Mutable Arguments Idiom",
+              "questionText": "What occurs when calling a function multiple times if default parameter values are initialized with mutable objects like `def append_to(element, target=[])`?",
+              "codeSnippet": "def append_to(element, target=[]):\n    target.append(element)\n    return target\n\nprint(append_to(1))  # [1]\nprint(append_to(2))  # Expected [2], but output is [1, 2]!",
+              "options": [
+                "Python creates a new empty list on every function call",
+                "The default list is created once when the function is defined, causing state to persist across successive calls",
+                "A TypeError is raised during module import",
+                "The list is automatically cleared when the function returns"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Default parameter values are evaluated once when the function definition is executed. Passing a mutable default retains modifications across subsequent function calls."
+            },
+            {
+              "id": "py-set-d-23",
+              "questionNumber": 23,
+              "topic": "Weak References & Memory Leaks",
+              "questionText": "Which standard library module allows you to create references to objects without preventing the garbage collector from reclaiming their memory space?",
+              "codeSnippet": "import weakref\n\nclass LargeCache:\n    pass\n\nobj = LargeCache()\nref = weakref.ref(obj)  # Does not increment refcount",
+              "options": [
+                "sys.memref",
+                "weakref",
+                "gc.collect",
+                "ctypes.pointer"
+              ],
+              "correctAnswer": 1,
+              "explanation": "The `weakref` module enables weak references to objects. A weak reference does not keep the target object alive if its strong reference count drops to zero."
+            },
+            {
+              "id": "py-set-d-24",
+              "questionNumber": 24,
+              "topic": "Subprocess Command Execution",
+              "questionText": "When executing system shell commands using `subprocess.run()`, which options capture standard output as text and raise CalledProcessError on non-zero exit status?",
+              "codeSnippet": "import subprocess\n\nresult = subprocess.run(\n    [\"git\", \"status\"],\n    capture_output=True,\n    text=True,\n    check=True\n)",
+              "options": [
+                "shell=True, debug=True",
+                "capture_output=True, text=True, check=True",
+                "stdout=PIPE, async=True",
+                "raise_on_error=True, format='string'"
+              ],
+              "correctAnswer": 1,
+              "explanation": "`capture_output=True` captures stdout/stderr, `text=True` decodes bytes into UTF-8 strings, and `check=True` raises a CalledProcessError if the command fails."
+            },
+            {
+              "id": "py-set-d-25",
+              "questionNumber": 25,
+              "topic": "Type Hinting & Generics",
+              "questionText": "In Python's `typing` module, what does `Optional[str]` represent?",
+              "codeSnippet": "from typing import Optional\n\ndef get_user_name(user_id: int) -> Optional[str]:\n    if user_id == 1:\n        return \"Arshith\"\n    return None",
+              "options": [
+                "A string that is automatically converted to lower case",
+                "Shorthand for Union[str, None], indicating the return value can be either a string or None",
+                "A string that is optional to pass as an argument but required as a return value",
+                "A thread-safe string wrapper"
+              ],
+              "correctAnswer": 1,
+              "explanation": "`Optional[T]` is equivalent to `Union[T, None]`. It signals to static type checkers (like mypy) that the variable can hold a value of type T or None."
             }
           ]
         }
@@ -8819,18 +9137,117 @@ export const INITIAL_COURSES = [
           ],
           "correctAnswer": 2,
           "explanation": "Operator precedence evaluates 'not', then 'and', then 'or'. (1) '[] and \"python\"' short-circuits to []. (2) 'not 0' is True; 'True and {}' returns {}. (3) The remaining 'or' chain is '0 or [] or {} or 42'. (4) However, notice: 'not 0 and {}' evaluates to {}. Since {} is falsy, the evaluation proceeds to 'or 42', returning 42. Wait, let's trace: 0 (falsy) -> [] (falsy) -> {} (falsy) -> 42 is truthy, so the final result is 42!"
+        },
+        {
+          "id": "py-set-a-21",
+          "questionNumber": 21,
+          "topic": "Decorators & Metadata Preservation",
+          "questionText": "When decorating a target function with a custom wrapper function, which tool from Python's standard library should be applied to the wrapper to preserve the original function's name, docstring, and parameter signature?",
+          "codeSnippet": "from functools import wraps\n\ndef my_decorator(func):\n    @wraps(func)\n    def wrapper(*args, **kwargs):\n        print(\"Before execution\")\n        return func(*args, **kwargs)\n    return wrapper",
+          "options": [
+            "functools.lru_cache(func)",
+            "functools.wraps(func)",
+            "sys.settrace(func)",
+            "inspect.signature(func)"
+          ],
+          "correctAnswer": 1,
+          "explanation": "@functools.wraps(func) copies the __name__, __doc__, and module metadata from the decorated target function to the wrapper function, preventing reflection tools and debuggers from losing function identity."
+        },
+        {
+          "id": "py-set-a-22",
+          "questionNumber": 22,
+          "topic": "Context Managers & Exception Handling",
+          "questionText": "In a custom class implementing Python's Context Manager protocol (__enter__ and __exit__), how can __exit__ explicitly suppress an exception raised inside the 'with' block?",
+          "codeSnippet": "class SuppressErrorContext:\n    def __enter__(self):\n        return self\n\n    def __exit__(self, exc_type, exc_val, exc_tb):\n        if exc_type is ValueError:\n            return True  # Suppress ValueError\n        return False",
+          "options": [
+            "By returning True (or any truthy value) from the __exit__ method",
+            "By raising StopIteration inside __exit__",
+            "By returning None from __enter__",
+            "Exceptions inside a 'with' block cannot be suppressed by __exit__"
+          ],
+          "correctAnswer": 0,
+          "explanation": "If __exit__() returns True (or a truthy value), Python catches and suppresses the exception raised inside the 'with' block, allowing code execution to proceed immediately after the block."
+        },
+        {
+          "id": "py-set-a-23",
+          "questionNumber": 23,
+          "topic": "Generators & Memory Management",
+          "questionText": "What is the primary memory advantage of returning a generator expression using the yield keyword compared to returning a full list from a function processing 10 million records?",
+          "codeSnippet": "def stream_records():\n    for i in range(10_000_000):\n        yield f\"Record_{i}\"",
+          "options": [
+            "Generators compile the records into C machine code to execute 100x faster",
+            "Generators evaluate items lazily one at a time on-demand, maintaining a constant O(1) memory footprint regardless of dataset size",
+            "Generators automatically store records in RAM cache to eliminate garbage collection overhead",
+            "Generators allow multi-threaded parallel execution across all CPU cores"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Generators produce values on-demand using lazy evaluation. Instead of allocating memory for all 10 million items simultaneously (O(N) RAM), a generator requires constant O(1) memory space."
+        },
+        {
+          "id": "py-set-a-24",
+          "questionNumber": 24,
+          "topic": "Metaclasses & Class Construction",
+          "questionText": "In Python's Object Model, what is a metaclass and which special method is invoked when creating a new class definition?",
+          "codeSnippet": "class MetaSingleton(type):\n    def __call__(cls, *args, **kwargs):\n        if not hasattr(cls, '_instance'):\n            cls._instance = super().__call__(*args, **kwargs)\n        return cls._instance",
+          "options": [
+            "A metaclass is a class decorator; it invokes __init__ when an instance is deleted",
+            "A metaclass is the class of a class (such as 'type'); its __new__ or __call__ method constructs the class object itself",
+            "A metaclass is an abstract base class that prevents subclasses from using inheritance",
+            "A metaclass is a C-extension module built into the standard garbage collector"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Classes in Python are instances of metaclasses (default is 'type'). A metaclass defines how class objects are constructed, validated, and initialized when the class statement is evaluated."
+        },
+        {
+          "id": "py-set-a-25",
+          "questionNumber": 25,
+          "topic": "Concurrency: Threading vs Multiprocessing",
+          "questionText": "Due to CPython's Global Interpreter Lock (GIL), which module should be chosen to maximize performance for CPU-heavy tasks like image processing or matrix multiplication across multiple CPU cores?",
+          "codeSnippet": "from concurrent.futures import ProcessPoolExecutor\n\ndef compute_heavy_task(data):\n    return sum(i * i for i in data)\n\nif __name__ == '__main__':\n    with ProcessPoolExecutor() as executor:\n        results = list(executor.map(compute_heavy_task, chunks))",
+          "options": [
+            "threading module with ThreadPoolExecutor",
+            "multiprocessing module or ProcessPoolExecutor",
+            "asyncio module with event loops",
+            "queue module with ThreadQueue"
+          ],
+          "correctAnswer": 1,
+          "explanation": "CPython's GIL permits only one thread to execute Python bytecode at a time per process. For CPU-bound tasks, multiprocessing/ProcessPoolExecutor spawns separate OS processes with independent GIL instances across all CPU cores."
         }
       ]
     },
+    "finalProject": {
+      "id": "py-final-project",
+      "title": "Automated Log Parser & Database Analytics Suite",
+      "description": "Build an automated CLI tool in Python that reads server log files, extracts IP addresses and user agents using regular expressions, calculates frequency statistics, and persists data into SQLite.",
+      "requirements": [
+        "Read log files from disk using try/except file error handling",
+        "Use regular expressions (re module) to extract IP addresses and timestamps",
+        "Store word and IP frequency distributions using Python dictionaries",
+        "Create an SQLite database schema with tables for Logs and Analytics",
+        "Export final report summary as JSON and text format"
+      ],
+      "instructions": "Upload your Python script (.py), sample dataset, and SQLite database file or submit GitHub Repository URL and video demo link.",
+      "allowedFileTypes": [
+        ".zip",
+        ".py",
+        ".pdf"
+      ],
+      "maxFileSizeMb": 50,
+      "githubUrlAllowed": true,
+      "liveProjectUrlAllowed": true,
+      "passingScore": 75,
+      "published": true
+    },
+    "updatedAt": "2026-10-01T11:13:24.675Z",
     "projects": [
       {
         "id": "py-proj-1",
         "projectNumber": 1,
         "title": "Project 1: Automated Server Log Analyzer & Summary Report",
-        "subtitle": "Module 08 & 09 — Strings, File I/O & Dictionaries",
+        "subtitle": "Module 08 & 09  -  Strings, File I/O & Dictionaries",
         "difficulty": "Beginner",
-        "estimatedTime": "1 – 2 Hours",
-        "pageLength": "1 – 2 Pages",
+        "estimatedTime": "1  -  2 Hours",
+        "pageLength": "1  -  2 Pages",
         "description": "Build a lightweight Python script that opens a web server log file (access.log), parses HTTP status codes and IP addresses, computes error statistics, and writes a clean executive summary report (log_summary.txt).",
         "objectives": [
           "Open and read files safely using context managers ('with open')",
@@ -8851,10 +9268,10 @@ export const INITIAL_COURSES = [
         "id": "py-proj-2",
         "projectNumber": 2,
         "title": "Project 2: Student Grade Tracker & CGPA Calculator",
-        "subtitle": "Module 06, 07 & 11 — Functions, Dictionaries & OOP",
+        "subtitle": "Module 06, 07 & 11  -  Functions, Dictionaries & OOP",
         "difficulty": "Beginner to Intermediate",
         "estimatedTime": "2 Hours",
-        "pageLength": "1 – 2 Pages",
+        "pageLength": "1  -  2 Pages",
         "description": "Design an Object-Oriented student grading system. Define a Student class that models candidates, stores subject scores, calculates percentage and CGPA, and outputs a formatted terminal grade sheet.",
         "objectives": [
           "Construct a clean Student class with __init__ and instance methods",
@@ -8875,10 +9292,10 @@ export const INITIAL_COURSES = [
         "id": "py-proj-3",
         "projectNumber": 3,
         "title": "Project 3: SQLite Contact Book & Search Utility",
-        "subtitle": "Module 10 & 15 — Exceptions & SQLite Database Connectivity",
+        "subtitle": "Module 10 & 15  -  Exceptions & SQLite Database Connectivity",
         "difficulty": "Intermediate",
-        "estimatedTime": "2 – 3 Hours",
-        "pageLength": "1 – 2 Pages",
+        "estimatedTime": "2  -  3 Hours",
+        "pageLength": "1  -  2 Pages",
         "description": "Develop a persistent command-line address book backed by SQLite. Create a contacts table, insert and validate candidate entries, query records using parameterized search filters, and handle duplicate errors gracefully.",
         "objectives": [
           "Establish SQLite database connection and cursor lifecycle with sqlite3",
@@ -8895,30 +9312,40 @@ export const INITIAL_COURSES = [
         "starterCode": "# Project 3: SQLite Contact Book & Search Utility\n# File: contacts_app.py\n\nimport sqlite3\n\nclass ContactBook:\n    def __init__(self, db_file=\"contacts.db\"):\n        self.conn = sqlite3.connect(db_file)\n        self.cursor = self.conn.cursor()\n        self.setup_table()\n\n    def setup_table(self):\n        self.cursor.execute('''\n            CREATE TABLE IF NOT EXISTS contacts (\n                id INTEGER PRIMARY KEY AUTOINCREMENT,\n                name TEXT NOT NULL,\n                email TEXT UNIQUE NOT NULL,\n                phone TEXT NOT NULL\n            )\n        ''')\n        self.conn.commit()\n\n    def add_contact(self, name, email, phone):\n        try:\n            self.cursor.execute('''\n                INSERT INTO contacts (name, email, phone)\n                VALUES (?, ?, ?)\n            ''', (name, email, phone))\n            self.conn.commit()\n            print(f\"✓ Contact '{name}' added successfully.\")\n            return True\n        except sqlite3.IntegrityError:\n            print(f\"✗ Error: Email '{email}' already exists in database.\")\n            return False\n\n    def search_contacts(self, keyword):\n        query = \"%\" + keyword.strip() + \"%\"\n        self.cursor.execute('''\n            SELECT id, name, email, phone FROM contacts\n            WHERE name LIKE ? OR email LIKE ?\n            ORDER BY name ASC\n        ''', (query, query))\n        rows = self.cursor.fetchall()\n        \n        print(f\"\\nSearch results for '{keyword}' ({len(rows)} found):\")\n        print(\"-\" * 50)\n        for r in rows:\n            print(f\"ID: {r[0]} | Name: {r[1]} | Email: {r[2]} | Phone: {r[3]}\")\n        print(\"-\" * 50)\n        return rows\n\n    def close(self):\n        self.conn.close()\n\nif __name__ == '__main__':\n    cb = ContactBook()\n    cb.add_contact(\"Arshith Kumar\", \"arshith@example.com\", \"+91-9876543210\")\n    cb.add_contact(\"Bhavana Kolla\", \"bhavana@example.com\", \"+91-9876543211\")\n    cb.add_contact(\"Chandan Verma\", \"chandan@example.com\", \"+91-9876543212\")\n    cb.search_contacts(\"Arshith\")\n    cb.close()\n",
         "expectedOutput": "✓ Contact 'Arshith Kumar' added successfully.\n✓ Contact 'Bhavana Kolla' added successfully.\n✓ Contact 'Chandan Verma' added successfully.\n\nSearch results for 'Arshith' (1 found):\n--------------------------------------------------\nID: 1 | Name: Arshith Kumar | Email: arshith@example.com | Phone: +91-9876543210\n--------------------------------------------------"
       }
-    ]
+    ],
+    "isCompleted": false
   },
   {
-    "id": "sql-data-analysis",
+    "id": "sql-mastery",
     "title": "SQL & Relational Databases",
+    "slug": "sql-mastery",
     "category": "SQL",
     "level": "All Levels",
     "duration": "35 hours",
-    "rating": 4.9,
-    "studentsCount": "14.8k",
-    "studentsNumeric": 14800,
+    "rating": 4.8,
+    "studentsCount": "11.5k",
+    "studentsNumeric": 11500,
     "price": 0,
     "isFree": true,
-    "bestseller": true,
+    "bestseller": false,
     "progress": 0,
-    "iconBg": "bg-cyan-50 border-2 border-cyan-200 text-cyan-600",
+    "status": "published",
+    "featured": false,
+    "certificateAvailable": true,
+    "sequentialLearning": true,
+    "iconBg": "bg-emerald-50 border-2 border-emerald-200 text-emerald-600",
     "iconType": "database",
     "introVideoUrl": "https://www.youtube.com/embed/HXV3zeQKqGY",
-    "description": "Master Relational Databases & SQL with our comprehensive 15-module curriculum based on the complete SQL manual. Covers DDL, DML, filtering, aggregation, Joins, Subqueries, CTEs, Views, Indexes, Transactions, DCL security, Python integration, AI-assisted SQL, and Capstone E-Commerce Project.",
+    "thumbnail": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=600&q=80",
+    "shortDescription": "Master SQL queries, table joins, aggregations, database design, indexing, and normalization.",
+    "description": "Master SQL & Relational Databases with our 15-module curriculum covering DDL, DML, WHERE filtering, ORDER BY, aggregate functions, GROUP BY, HAVING, JOINS, Subqueries, CTEs, Views, Indexes, Transactions (TCL), DCL security, Python integration, and AI-assisted SQL.",
     "instructor": {
-      "name": "Siddharth Nair & Dr. Ananya Sharma",
-      "role": "Principal Data Architect @ Arshith Boot Camp",
+      "name": "Rohan Varma",
+      "role": "Senior Database Architect @ Arshith Boot Camp",
       "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
     },
+    "prerequisites": null,
+    "skills": [],
     "whatYouWillLearn": [
       "Introduction to SQL, Databases, RDBMS, and Data Types",
       "Data Definition Language (DDL): CREATE, ALTER, DROP, TRUNCATE",
@@ -8937,7 +9364,7 @@ export const INITIAL_COURSES = [
     "modules": [
       {
         "id": "sql-mod-1",
-        "title": "Module 01 — Introduction to SQL & Databases",
+        "title": "Module 01  -  Introduction to SQL & Databases",
         "description": "Master foundational relational database engineering: Dr. Edgar F. Codd's Relational Theory, RDBMS vs Flat Files vs NoSQL, deep RDBMS Engine Architecture (Parser, AST, Cost-Based Optimizer, Execution Engine, WAL, Buffer Pool), Localhost (127.0.0.1) vs Enterprise Cloud Servers, Connection Strings, DBA Security Roles, and complete breakdown of the 5 SQL Sub-Languages (DDL, DML, DQL, DCL, TCL).",
         "completed": false,
         "order": 1,
@@ -9155,7 +9582,7 @@ export const INITIAL_COURSES = [
             },
             {
               "title": "Full Workflow: Schema Definition (DDL), Data Insert (DML) & Privilege Control (DCL)",
-              "code": "-- Step 1: DDL — Create a secure production schema and table\nCREATE TABLE enterprise_employees (\n    employee_id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,\n    full_name VARCHAR(100) NOT NULL,\n    email VARCHAR(150) UNIQUE NOT NULL,\n    department VARCHAR(50) NOT NULL,\n    salary NUMERIC(10, 2) CHECK (salary > 0),\n    hire_date DATE DEFAULT CURRENT_DATE\n);\n\n-- Step 2: DML — Insert initial seed records inside a transaction\nBEGIN TRANSACTION;\n\nINSERT INTO enterprise_employees (full_name, email, department, salary)\nVALUES \n    ('Dr. Edgar Codd', 'edgar.codd@ibm.research.com', 'Research', 145000.00),\n    ('Ada Lovelace', 'ada.lovelace@analytics.org', 'Engineering', 160000.00);\n\nCOMMIT; -- TCL: Commit changes permanently to disk\n\n-- Step 3: DQL — Query inserted records\nSELECT employee_id, full_name, department, salary \nFROM enterprise_employees \nWHERE department = 'Engineering';\n\n-- Step 4: DCL — Create read-only role and grant SELECT privileges\nCREATE ROLE analyst_read_only WITH LOGIN PASSWORD 'SecurePass123!';\nGRANT SELECT ON enterprise_employees TO analyst_read_only;",
+              "code": "-- Step 1: DDL  -  Create a secure production schema and table\nCREATE TABLE enterprise_employees (\n    employee_id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,\n    full_name VARCHAR(100) NOT NULL,\n    email VARCHAR(150) UNIQUE NOT NULL,\n    department VARCHAR(50) NOT NULL,\n    salary NUMERIC(10, 2) CHECK (salary > 0),\n    hire_date DATE DEFAULT CURRENT_DATE\n);\n\n-- Step 2: DML  -  Insert initial seed records inside a transaction\nBEGIN TRANSACTION;\n\nINSERT INTO enterprise_employees (full_name, email, department, salary)\nVALUES \n    ('Dr. Edgar Codd', 'edgar.codd@ibm.research.com', 'Research', 145000.00),\n    ('Ada Lovelace', 'ada.lovelace@analytics.org', 'Engineering', 160000.00);\n\nCOMMIT; -- TCL: Commit changes permanently to disk\n\n-- Step 3: DQL  -  Query inserted records\nSELECT employee_id, full_name, department, salary \nFROM enterprise_employees \nWHERE department = 'Engineering';\n\n-- Step 4: DCL  -  Create read-only role and grant SELECT privileges\nCREATE ROLE analyst_read_only WITH LOGIN PASSWORD 'SecurePass123!';\nGRANT SELECT ON enterprise_employees TO analyst_read_only;",
               "explanation": "Demonstrates an end-to-end relational database workflow combining DDL table creation, DML data population, TCL transaction commit, DQL querying, and DCL role-based access control."
             }
           ],
@@ -9186,7 +9613,7 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "sql-mod-2",
-        "title": "Module 02 — SQL Syntax, Keywords & Data Types",
+        "title": "Module 02  -  SQL Syntax, Keywords & Data Types",
         "description": "Master SQL lexical rules, uppercase keyword conventions, single/multi-line comments, identifier quoting rules, and the complete relational Data Type System: Integers (SMALLINT, INT, BIGINT), Financial Fixed-Point Decimals (NUMERIC/DECIMAL), Floating-Point (REAL, DOUBLE PRECISION), Strings (CHAR, VARCHAR, TEXT), Timestamps (TIMESTAMP, TIMESTAMPTZ, INTERVAL), Booleans, JSONB, UUIDs, and Type Casting (CAST, ::).",
         "completed": false,
         "order": 2,
@@ -9280,11 +9707,11 @@ export const INITIAL_COURSES = [
                 "• INT / INTEGER (4 Bytes): Range ~-2.14 Billion to +2.14 Billion. Standard default for surrogate keys and counts.",
                 "• BIGINT (8 Bytes): Range ~-9 Quintillion to +9 Quintillion. Required for high-volume primary keys (e.g. global transactions, log event IDs).",
                 "• Auto-Increment Sequences: SERIAL (PostgreSQL), AUTO_INCREMENT (MySQL), or IDENTITY (MS SQL) automatically generate incrementing integer keys.",
-                "Fixed-Point Exact Decimals — DECIMAL(p, s) / NUMERIC(p, s):",
+                "Fixed-Point Exact Decimals  -  DECIMAL(p, s) / NUMERIC(p, s):",
                 "• Precision (p): Total count of significant digits across the entire number (both left and right of the decimal point).",
                 "• Scale (s): Count of digits to the right of the decimal point (e.g. NUMERIC(10, 2) stores up to $99,999,999.99).",
                 "• MANDATORY FOR MONEY: Always use NUMERIC/DECIMAL for financial calculations, account balances, and pricing. It guarantees exact decimal precision with zero rounding error.",
-                "Approximate Floating-Point — REAL (4 Bytes) & DOUBLE PRECISION (8 Bytes):",
+                "Approximate Floating-Point  -  REAL (4 Bytes) & DOUBLE PRECISION (8 Bytes):",
                 "• Stores floating-point numbers according to IEEE 754 binary floating-point standards.",
                 "• FORBIDDEN FOR CURRENCY: Floating-point math exhibits binary rounding artifacts (e.g. 0.1 + 0.2 = 0.30000000000000004). Use ONLY for scientific measurements, GPS coordinates, or statistical data where approximate precision is acceptable."
               ],
@@ -9346,15 +9773,15 @@ export const INITIAL_COURSES = [
               "heading": "3. Character & Text Data Types: CHAR, VARCHAR, and Extended TEXT",
               "text": "String data types manage textual information with different memory alignment and storage characteristics:",
               "bulletPoints": [
-                "Fixed-Length String — CHAR(n):",
+                "Fixed-Length String  -  CHAR(n):",
                 "• Allocates exactly n bytes on disk regardless of actual text length.",
                 "• If the input string is shorter than n, the engine pads trailing blank spaces (e.g. CHAR(5) storing 'US' pads 3 spaces: 'US   ').",
                 "• Ideal for fixed-length codes: Country ISO Codes ('USA', 'IND'), State Codes ('NY', 'CA'), or Hash Digests (SHA-256).",
-                "Variable-Length String — VARCHAR(n):",
+                "Variable-Length String  -  VARCHAR(n):",
                 "• Stores variable-length text up to a maximum limit of n characters.",
                 "• Stores only actual character bytes plus a 1 or 2 byte length prefix. No space padding occurs.",
                 "• Standard default for names, email addresses, usernames, and street addresses.",
-                "Unlimited Extended Text — TEXT / CLOB:",
+                "Unlimited Extended Text  -  TEXT / CLOB:",
                 "• Stores large blocks of text (blog posts, JSON documents, HTML bodies, raw logs) up to 1GB or 4GB in size.",
                 "• TOAST Storage Engine (PostgreSQL): When text exceeds 2KB, PostgreSQL automatically compresses and stores the text out-of-page in TOAST (The Oversized-Attribute Storage Technique) tables to keep main data pages small and index scans fast."
               ]
@@ -9488,13 +9915,13 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "sql-mod-3",
-        "title": "Module 03 — DDL: Creating & Managing Database Structures",
+        "title": "Module 03  -  DDL: Creating & Managing Database Structures",
         "description": "Master Data Definition Language (DDL) architecture: CREATE DATABASE, CREATE SCHEMA, CREATE TABLE, Generated Columns, Temporary Tables (CTAS), zero-downtime ALTER TABLE migrations (ADD, DROP, RENAME, ALTER TYPE), and structural destruction mechanics (DROP TABLE vs TRUNCATE TABLE vs DELETE FROM).",
         "completed": false,
         "order": 3,
         "published": true,
         "readingMaterial": {
-          "introduction": "Welcome to Module 3! Data Definition Language (DDL) is the sub-language of SQL responsible for defining, altering, managing, and destroying relational database structures—including databases, schemas, tables, views, indexes, and constraints. Unlike DML (which manipulates row data inside tables), DDL statements modify the system catalog (data dictionary) and physical storage allocations on disk. Mastering DDL is essential for database architects, software engineers, and DevOps professionals who design resilient database schemas and manage production schema migrations.",
+          "introduction": "Welcome to Module 3! Data Definition Language (DDL) is the sub-language of SQL responsible for defining, altering, managing, and destroying relational database structures - including databases, schemas, tables, views, indexes, and constraints. Unlike DML (which manipulates row data inside tables), DDL statements modify the system catalog (data dictionary) and physical storage allocations on disk. Mastering DDL is essential for database architects, software engineers, and DevOps professionals who design resilient database schemas and manage production schema migrations.",
           "objectives": [
             "Master DDL statement fundamentals: CREATE, ALTER, DROP, TRUNCATE, and RENAME",
             "Understand System Catalogs & Data Dictionaries (pg_catalog, information_schema)",
@@ -9756,13 +10183,13 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "sql-mod-4",
-        "title": "Module 04 — Constraints & Keys",
+        "title": "Module 04  -  Constraints & Keys",
         "description": "Master Relational Database Integrity: Column vs Table-Level Constraints, PRIMARY KEY (Single & Composite), UNIQUE Constraints (and NULL handling rules), FOREIGN KEY Referential Integrity with ON DELETE / ON UPDATE Cascading Actions (CASCADE, RESTRICT, SET NULL, SET DEFAULT), CHECK Constraints, NOT NULL, DEFAULT, and Deferred Constraint Validation (DEFERRABLE INITIALLY DEFERRED).",
         "completed": false,
         "order": 4,
         "published": true,
         "readingMaterial": {
-          "introduction": "Welcome to Module 4! Constraints are the fundamental rules enforced by a Relational Database Management System (RDBMS) to guarantee Data Integrity across all database operations. Without constraints, databases degrade into chaotic stores of dirty, orphaned, duplicate, or corrupted data. Constraints operate directly inside the storage engine, enforcing Domain Integrity, Entity Integrity, and Referential Integrity automatically—regardless of what buggy code backend applications or external clients attempt to execute.",
+          "introduction": "Welcome to Module 4! Constraints are the fundamental rules enforced by a Relational Database Management System (RDBMS) to guarantee Data Integrity across all database operations. Without constraints, databases degrade into chaotic stores of dirty, orphaned, duplicate, or corrupted data. Constraints operate directly inside the storage engine, enforcing Domain Integrity, Entity Integrity, and Referential Integrity automatically - regardless of what buggy code backend applications or external clients attempt to execute.",
           "objectives": [
             "Differentiate the 3 Pillars of Database Integrity: Entity Integrity, Referential Integrity, and Domain Integrity",
             "Understand Column-Level vs Table-Level Constraint syntax and Named Constraints (CONSTRAINT pk_name)",
@@ -9952,13 +10379,13 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "sql-mod-5",
-        "title": "Module 05 — DML: INSERT, UPDATE & DELETE",
+        "title": "Module 05  -  DML: INSERT, UPDATE & DELETE",
         "description": "Master Data Manipulation Language (DML): Single & Bulk Batch INSERT INTO, RETURNING clause, INSERT INTO ... SELECT, WHERE Safety Controls in UPDATE & DELETE, UPDATE ... JOIN, Hard Deletes vs Soft Deletes (is_deleted, partial indexes), and Atomic UPSERT operations (INSERT ... ON CONFLICT DO UPDATE, MERGE INTO).",
         "completed": false,
         "order": 5,
         "published": true,
         "readingMaterial": {
-          "introduction": "Welcome to Module 5! Data Manipulation Language (DML) encompasses the core SQL commands used to insert, modify, update, and delete data records stored inside relational database tables. While DDL defines the empty schema containers, DML manages the live data state of the application. DML operations acquire Row-Level Exclusive Locks (X-Locks) and generate Write-Ahead Logging (WAL) entries to guarantee ACID transaction safety. Mastering DML statements—including bulk insertions, multi-table updates, soft delete patterns, and atomic UPSERT operations—is essential for building high-concurrency backend web applications and ETL data pipelines.",
+          "introduction": "Welcome to Module 5! Data Manipulation Language (DML) encompasses the core SQL commands used to insert, modify, update, and delete data records stored inside relational database tables. While DDL defines the empty schema containers, DML manages the live data state of the application. DML operations acquire Row-Level Exclusive Locks (X-Locks) and generate Write-Ahead Logging (WAL) entries to guarantee ACID transaction safety. Mastering DML statements - including bulk insertions, multi-table updates, soft delete patterns, and atomic UPSERT operations - is essential for building high-concurrency backend web applications and ETL data pipelines.",
           "objectives": [
             "Master single-row and high-performance multi-row batch INSERT INTO statements",
             "Retrieve auto-generated primary keys instantly using the RETURNING clause",
@@ -10129,13 +10556,13 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "sql-mod-6",
-        "title": "Module 06 — SELECT Statement: Retrieving Data",
+        "title": "Module 06  -  SELECT Statement: Retrieving Data",
         "description": "Master Data Query Language (DQL): Declarative Querying, the 8-step Logical Query Processing Order (FROM -> WHERE -> GROUP BY -> HAVING -> SELECT -> DISTINCT -> ORDER BY -> LIMIT), Selective Column Projection vs SELECT * Anti-Pattern, Computed Arithmetic Fields, Division-by-Zero Protection (NULLIF), String Concatenation (||, CONCAT), Constant Literals, Table Aliases, and Index-Only Scan Optimization.",
         "completed": false,
         "order": 6,
         "published": true,
         "readingMaterial": {
-          "introduction": "Welcome to Module 6! The SELECT statement is the foundational command of Data Query Language (DQL). It enables software engineers, database architects, and data analysts to extract, project, compute, transform, and format structured data streams stored within database tables. SQL is a declarative language—meaning you specify *what* data you require, while the database engine's Cost-Based Optimizer (CBO) determines *how* to execute the retrieval using index scans, table heap scans, or hash joins. Mastering SELECT statement projection, logical processing order, and expression evaluation is critical for writing performant, enterprise-grade database queries.",
+          "introduction": "Welcome to Module 6! The SELECT statement is the foundational command of Data Query Language (DQL). It enables software engineers, database architects, and data analysts to extract, project, compute, transform, and format structured data streams stored within database tables. SQL is a declarative language - meaning you specify *what* data you require, while the database engine's Cost-Based Optimizer (CBO) determines *how* to execute the retrieval using index scans, table heap scans, or hash joins. Mastering SELECT statement projection, logical processing order, and expression evaluation is critical for writing performant, enterprise-grade database queries.",
           "objectives": [
             "Master the Declarative Nature of SQL: Distinguishing query intent from physical execution strategy",
             "Deconstruct the 8-Step Logical Query Processing Order of SQL clauses",
@@ -10317,13 +10744,13 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "sql-mod-7",
-        "title": "Module 07 — Filtering Data with WHERE & Operators",
+        "title": "Module 07  -  Filtering Data with WHERE & Operators",
         "description": "Master Row-Level Data Filtering: SARGable Queries vs Non-SARGable Index Traps, Functional B-Tree Expression Indexes, Comparison Operators (=, <>, !=, <, >, <=, >=), Inclusive Ranges (BETWEEN ... AND ...), Set Membership (IN, NOT IN), Three-Valued Logic (3VL: TRUE, FALSE, UNKNOWN), IS NULL / IS NOT NULL, Null-Safe Equality (IS DISTINCT FROM), The Catastrophic NOT IN (..., NULL) Trap, Boolean Precedence (NOT > AND > OR), Short-Circuit Evaluation, Pattern Matching (LIKE, ILIKE, %, _), Wildcard Escaping, and POSIX Regular Expressions (~, ~*).",
         "completed": false,
         "order": 7,
         "published": true,
         "readingMaterial": {
-          "introduction": "Welcome to Module 7! The WHERE clause is the primary mechanism for restricting query result sets to rows that satisfy explicit boolean filtering criteria. In relational database engines, the WHERE clause is evaluated during Step 2 of the 8-step logical execution pipeline—filtering raw table heap rows *before* any grouping, aggregate calculations, or sorting take place. Mastering WHERE clause operators, Three-Valued Logic (3VL), parenthetical boolean precedence, and SARGable index optimization is essential for writing high-performance database queries across multi-million row datasets.",
+          "introduction": "Welcome to Module 7! The WHERE clause is the primary mechanism for restricting query result sets to rows that satisfy explicit boolean filtering criteria. In relational database engines, the WHERE clause is evaluated during Step 2 of the 8-step logical execution pipeline - filtering raw table heap rows *before* any grouping, aggregate calculations, or sorting take place. Mastering WHERE clause operators, Three-Valued Logic (3VL), parenthetical boolean precedence, and SARGable index optimization is essential for writing high-performance database queries across multi-million row datasets.",
           "objectives": [
             "Master the WHERE clause role in Step 2 of the 8-step logical execution pipeline",
             "Understand SARGable Queries (Search Argumentable): Writing predicates that utilize B-Tree index scans",
@@ -10515,7 +10942,7 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "sql-mod-8",
-        "title": "Module 08 — DISTINCT, ORDER BY & LIMIT",
+        "title": "Module 08  -  DISTINCT, ORDER BY & LIMIT",
         "description": "Master Result Set Presentation & Pagination Architecture: Single & Multi-Column SELECT DISTINCT Deduplication, Memory Allocation (work_mem Hash vs Sort Aggregates), PostgreSQL DISTINCT ON (expression), Deterministic Multi-Column ORDER BY Sorting (ASC/DESC), Custom CASE Statement Priority Sorting, Expression Sorting, NULL Positioning (NULLS FIRST / NULLS LAST), ANSI FETCH FIRST n ROWS ONLY, Web API Pagination Mechanics (LIMIT n OFFSET m), Deep Pagination Penalty Analysis, Keyset / Cursor-Based Composite Tuple Pagination (WHERE (created_at, id) < (:last_time, :last_id)), and Top-N Tie-Breaking Strategies.",
         "completed": false,
         "order": 8,
@@ -10717,7 +11144,7 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "sql-mod-9",
-        "title": "Module 09 — Aggregate Functions, GROUP BY & HAVING",
+        "title": "Module 09  -  Aggregate Functions, GROUP BY & HAVING",
         "description": "Master Data Analytics & Aggregation Architecture: The 5 Core Aggregate Functions (COUNT(*), COUNT(col), COUNT(DISTINCT col), SUM, AVG, MIN, MAX), Whitespace Syntax Rules, NULL Handling Mechanics, Conditional Aggregation (FILTER (WHERE ...)), Categorical Grouping (GROUP BY Single & Composite Keys), The Golden Rule of SQL Aggregation, WHERE vs HAVING Execution Order, and Multidimensional Enterprise Reporting (ROLLUP, CUBE, GROUPING SETS).",
         "completed": false,
         "order": 9,
@@ -10930,7 +11357,7 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "sql-mod-10",
-        "title": "Module 10 — SQL Joins & Relationships",
+        "title": "Module 10  -  SQL Joins & Relationships",
         "description": "Master Relational Normalization (1NF, 2NF, 3NF, BCNF), Relational Algebra (Selection, Projection, Join), Entity Relationships (1:1, 1:N, N:M Junction Tables), Complete Join Family: INNER JOIN, Non-Equi Joins, LEFT (OUTER) JOIN, RIGHT JOIN, FULL OUTER JOIN, CROSS JOIN (Cartesian Product), SELF JOIN (Hierarchical Trees), Anti-Join Pattern (LEFT JOIN ... WHERE right.id IS NULL), Semi-Join Pattern (EXISTS), RDBMS Physical Join Algorithms (Nested Loop, Hash Join, Sort-Merge Join), and Foreign Key B-Tree Indexing Optimization.",
         "completed": false,
         "order": 10,
@@ -11123,7 +11550,7 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "sql-mod-11",
-        "title": "Module 11 — Subqueries, UNION & Advanced Querying",
+        "title": "Module 11  -  Subqueries, UNION & Advanced Querying",
         "description": "Master Advanced Querying Architectures: Subquery Classification (Scalar, Multi-Row, Multi-Column Row Constructors), Multi-Row Operators (IN, NOT IN, ANY/SOME, ALL), Correlated Subqueries, Existence Optimization (EXISTS vs NOT EXISTS), Common Table Expressions (CTEs - WITH clause, AS MATERIALIZED optimization fences), Recursive CTEs (WITH RECURSIVE for Graphs, Trees & Cycle Detection), and Set Operators (UNION, UNION ALL, INTERSECT, EXCEPT/MINUS).",
         "completed": false,
         "order": 11,
@@ -11293,7 +11720,7 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "sql-mod-12",
-        "title": "Module 12 — SQL Functions & Conditional Logic",
+        "title": "Module 12  -  SQL Functions & Conditional Logic",
         "description": "Master Built-in SQL Functions & Expression Architecture: Deterministic vs Non-Deterministic Functions, String Functions (LENGTH, SUBSTRING, REPLACE, TRIM, POSITION, UPPER, LOWER, INITCAP, LPAD/RPAD, REGEXP_REPLACE), Mathematical Functions (ROUND, TRUNC, CEIL, FLOOR, ABS, MOD, POWER), Date/Time Functions (CURRENT_DATE, EXTRACT, DATE_TRUNC time-series bucketing, AGE, INTERVAL math), Conditional Expressions (Simple CASE, Searched CASE WHEN ... THEN ... ELSE ... END), and Null Handling Functions (COALESCE, NULLIF, NVL, IFNULL).",
         "completed": false,
         "order": 12,
@@ -11510,7 +11937,7 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "sql-mod-13",
-        "title": "Module 13 — Views, Indexes & Database Optimization",
+        "title": "Module 13  -  Views, Indexes & Database Optimization",
         "description": "Master Database Performance Engineering & Architecture: Standard Virtual Views (CREATE VIEW, Updatable Views, Security Column Masking), Materialized Views (CREATE MATERIALIZED VIEW, REFRESH MATERIALIZED VIEW CONCURRENTLY), B-Tree Index Architecture (Root, Branch, Leaf TIDs, O(log N) logarithmic search), Composite Multi-Column Indexes, Leftmost Prefix Rule, Unique Indexes, Partial / Filtered Indexes (WHERE clause scoped), Expression / Functional Indexes (UPPER/LOWER), Specialized Indexes (Hash, GIN for JSONB, GiST), Cost-Based Optimizer (CBO Table Statistics), EXPLAIN ANALYZE Plan Inspection (Seq Scan, Index Scan, Index-Only Scan, Bitmap Heap Scan), Index Write Penalties, and Unused Index Cleanup.",
         "completed": false,
         "order": 13,
@@ -11715,13 +12142,13 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "sql-mod-14",
-        "title": "Module 14 — Transactions, TCL & Database Security",
+        "title": "Module 14  -  Transactions, TCL & Database Security",
         "description": "Master Database Reliability & Security Engineering: ACID Properties (Atomicity, Consistency, Isolation, Durability), Write-Ahead Logging (WAL), Multi-Version Concurrency Control (MVCC tuple xmin/xmax), Transaction Control Language (BEGIN, COMMIT, ROLLBACK, SAVEPOINT), Concurrency Anomalies (Dirty Reads, Non-Repeatable Reads, Phantom Reads, Serialization Anomalies), Transaction Isolation Levels (READ UNCOMMITTED, READ COMMITTED, REPEATABLE READ, SERIALIZABLE), Pessimistic Row Locking (SELECT ... FOR UPDATE), Database Security (DCL GRANT, REVOKE, RBAC Principle of Least Privilege), and PostgreSQL Row-Level Security (RLS) Multi-Tenant Isolation.",
         "completed": false,
         "order": 14,
         "published": true,
         "readingMaterial": {
-          "introduction": "Welcome to Module 14! In modern multi-user enterprise applications, thousands of client transactions execute concurrently against the database server. Ensuring data correctness requires robust Transaction Control Language (TCL), strict concurrency isolation levels, explicit row locking, and fine-grained security role permissions. Transactions guarantee ACID properties (Atomicity, Consistency, Isolation, Durability)—ensuring multi-step operations (like bank funds transfers or inventory allocation) either succeed 100% or fail safely with zero data corruption. Mastering TCL transactions, MVCC concurrency control, and Role-Based Access Security (RBAC) is mandatory for enterprise backend engineers.",
+          "introduction": "Welcome to Module 14! In modern multi-user enterprise applications, thousands of client transactions execute concurrently against the database server. Ensuring data correctness requires robust Transaction Control Language (TCL), strict concurrency isolation levels, explicit row locking, and fine-grained security role permissions. Transactions guarantee ACID properties (Atomicity, Consistency, Isolation, Durability) - ensuring multi-step operations (like bank funds transfers or inventory allocation) either succeed 100% or fail safely with zero data corruption. Mastering TCL transactions, MVCC concurrency control, and Role-Based Access Security (RBAC) is mandatory for enterprise backend engineers.",
           "objectives": [
             "Master the 4 ACID Guarantees: Atomicity, Consistency, Isolation, and Durability",
             "Understand Write-Ahead Logging (WAL) and Multi-Version Concurrency Control (MVCC xmin/xmax tuple versions)",
@@ -11866,7 +12293,7 @@ export const INITIAL_COURSES = [
       },
       {
         "id": "sql-mod-15",
-        "title": "Module 15 — SQL for Data Analytics, Python & AI + Final Project",
+        "title": "Module 15  -  SQL for Data Analytics, Python & AI + Final Project",
         "description": "Master Advanced Data Analytics & AI Integration Architecture: Window Functions (ROW_NUMBER(), RANK(), DENSE_RANK(), NTILE(), FIRST_VALUE, LAST_VALUE), PARTITION BY & Window Framing (ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW), Navigation Functions (LAG, LEAD for MoM / YoY Growth %), Python Data Science Integration (psycopg2, sqlite3, SQLAlchemy create_engine, pandas.read_sql), SQL for AI & Vector Databases (pgvector extension, Cosine Distance <=> for RAG), and Comprehensive Capstone Final Project.",
         "completed": false,
         "order": 15,
@@ -11924,7 +12351,7 @@ export const INITIAL_COURSES = [
                 "Window Function Structure: `FUNCTION() OVER (PARTITION BY category ORDER BY sales DESC)`",
                 "• `PARTITION BY`: Segregates rows into independent calculation windows (similar to GROUP BY, but rows are NOT collapsed!).",
                 "• `ORDER BY`: Defines row calculation sequence within each partition.",
-                "Window Function Execution Stage: Window functions execute during Step 5 (`SELECT`) of the 8-step logical query pipeline—AFTER `WHERE`, `GROUP BY`, and `HAVING` have executed!"
+                "Window Function Execution Stage: Window functions execute during Step 5 (`SELECT`) of the 8-step logical query pipeline - AFTER `WHERE`, `GROUP BY`, and `HAVING` have executed!"
               ]
             },
             {
@@ -11990,11 +12417,11 @@ export const INITIAL_COURSES = [
               "heading": "5. Comprehensive Capstone Final Project Architecture",
               "text": "The capstone project synthesizes all 15 modules into an end-to-end database solution:",
               "bulletPoints": [
-                "Step 1: Schema Design (DDL) — Multi-tenant schema with identity columns, generated stored columns, and CHECK constraints.",
-                "Step 2: Data Ingestion (DML) — Multi-row batch insertions and atomic UPSERT (`ON CONFLICT DO UPDATE`) handling.",
-                "Step 3: Relational Querying — Multi-table INNER/LEFT JOINs and Anti-Joins.",
-                "Step 4: Advanced Analytics — Chained CTEs, Window Functions (`DENSE_RANK`, `LAG`, running totals), and `GROUP BY ROLLUP` subtotals.",
-                "Step 5: Python Integration — Exporting analytical DataFrames for executive presentation."
+                "Step 1: Schema Design (DDL)  -  Multi-tenant schema with identity columns, generated stored columns, and CHECK constraints.",
+                "Step 2: Data Ingestion (DML)  -  Multi-row batch insertions and atomic UPSERT (`ON CONFLICT DO UPDATE`) handling.",
+                "Step 3: Relational Querying  -  Multi-table INNER/LEFT JOINs and Anti-Joins.",
+                "Step 4: Advanced Analytics  -  Chained CTEs, Window Functions (`DENSE_RANK`, `LAG`, running totals), and `GROUP BY ROLLUP` subtotals.",
+                "Step 5: Python Integration  -  Exporting analytical DataFrames for executive presentation."
               ]
             }
           ],
@@ -12050,7 +12477,7 @@ export const INITIAL_COURSES = [
         {
           "id": "qp-sql-set-a",
           "paperCode": "SQL-QP-SETA",
-          "groupName": "Alphabetical Group A–F",
+          "groupName": "Alphabetical Group A - F",
           "letterRange": "A-F",
           "studentNamePattern": "Candidate first name starting with A, B, C, D, E, or F",
           "title": "Paper 1 (Set A): Database Architecture, Relational Modeling & Core DDL/DML",
@@ -12358,13 +12785,88 @@ export const INITIAL_COURSES = [
               ],
               "correctAnswer": 0,
               "explanation": "Third Normal Form (3NF) requires the table to be in 2NF and have no transitive dependencies: every non-prime attribute must depend non-transitively directly on the primary key ('the key, the whole key, and nothing but the key')."
+            },
+            {
+              "id": "sql-set-a-21",
+              "questionNumber": 21,
+              "topic": "Covering Indexes & Index-Only Scans",
+              "questionText": "Under what condition can a Relational Database Query Optimizer perform an Index-Only Scan to fulfill a SELECT query without fetching table rows from disk heaps?",
+              "codeSnippet": "-- Table: employees (id, name, dept_id, salary)\nCREATE INDEX idx_dept_salary ON employees(dept_id, salary);\n\nSELECT dept_id, salary FROM employees WHERE dept_id = 101;",
+              "options": [
+                "When the table contains fewer than 100 rows",
+                "When all columns requested in the SELECT clause and WHERE filter are contained directly within the B-Tree index itself",
+                "When the database uses SQLite in memory mode exclusively",
+                "When a FULL OUTER JOIN is executed on primary keys"
+              ],
+              "correctAnswer": 1,
+              "explanation": "An Index-Only Scan occurs when a covering index contains all requested query fields (SELECT and WHERE). The engine reads data directly from the index in RAM without disk heap I/O."
+            },
+            {
+              "id": "sql-set-a-22",
+              "questionNumber": 22,
+              "topic": "Window Functions: LEAD and LAG",
+              "questionText": "Which SQL Window Function allows a query to access data from the next or previous row in the result set without performing a self-join?",
+              "codeSnippet": "SELECT \n    order_date,\n    total_amount,\n    LAG(total_amount, 1) OVER (ORDER BY order_date) AS prev_order_amount,\n    total_amount - LAG(total_amount, 1) OVER (ORDER BY order_date) AS diff\nFROM orders;",
+              "options": [
+                "FIRST_VALUE() and LAST_VALUE()",
+                "LAG() and LEAD()",
+                "ROW_NUMBER() and RANK()",
+                "NTILE() and CUME_DIST()"
+              ],
+              "correctAnswer": 1,
+              "explanation": "`LAG()` accesses data from a previous row, and `LEAD()` accesses data from a subsequent row relative to the current position within the defined window partition."
+            },
+            {
+              "id": "sql-set-a-23",
+              "questionNumber": 23,
+              "topic": "Recursive Common Table Expressions (CTEs)",
+              "questionText": "What is the primary usage of a `WITH RECURSIVE` CTE in relational databases?",
+              "codeSnippet": "WITH RECURSIVE OrgChart AS (\n    SELECT emp_id, name, manager_id, 1 AS level\n    FROM employees WHERE manager_id IS NULL\n    UNION ALL\n    SELECT e.emp_id, e.name, e.manager_id, o.level + 1\n    FROM employees e\n    JOIN OrgChart o ON e.manager_id = o.emp_id\n)\nSELECT * FROM OrgChart;",
+              "options": [
+                "To automatically create foreign key triggers across multiple databases",
+                "To query hierarchical, tree-structured, or graph network data like organizational charts and bill of materials",
+                "To bypass database security permissions and grant superuser access",
+                "To encrypt passwords stored in text columns"
+              ],
+              "correctAnswer": 1,
+              "explanation": "`WITH RECURSIVE` enables traversal of hierarchical or graph-structured datasets (such as parent-child employee org charts, categories, or network paths) by repeatedly executing an anchor query."
+            },
+            {
+              "id": "sql-set-a-24",
+              "questionNumber": 24,
+              "topic": "ACID Transaction Isolation Levels",
+              "questionText": "Which ANSI SQL Transaction Isolation level guarantees protection against Dirty Reads, Non-Repeatable Reads, and Phantom Reads?",
+              "codeSnippet": "SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;\nBEGIN TRANSACTION;\n-- Guarantees complete isolation\nCOMMIT;",
+              "options": [
+                "READ UNCOMMITTED",
+                "READ COMMITTED",
+                "REPEATABLE READ",
+                "SERIALIZABLE"
+              ],
+              "correctAnswer": 3,
+              "explanation": "`SERIALIZABLE` is the highest isolation level. It enforces strict transaction execution sequence as if transactions occurred serially, preventing Dirty Reads, Non-Repeatable Reads, and Phantom Reads."
+            },
+            {
+              "id": "sql-set-a-25",
+              "questionNumber": 25,
+              "topic": "Three-Valued Logic & NULL Handling",
+              "questionText": "In SQL Three-Valued Logic (TRUE, FALSE, UNKNOWN), what is the evaluation result of the expression `SELECT * FROM users WHERE status = NULL;`?",
+              "codeSnippet": "SELECT * FROM users WHERE status = NULL; -- Returns 0 rows!",
+              "options": [
+                "It returns all rows where status is NULL",
+                "It evaluates to UNKNOWN (falsy), returning 0 rows; `IS NULL` must be used instead",
+                "It raises a SyntaxError during execution",
+                "It converts NULL to an empty string ''"
+              ],
+              "correctAnswer": 1,
+              "explanation": "In SQL, NULL represents an unknown value. Comparisons using `=`, `<>`, or `!=` with NULL evaluate to UNKNOWN, which fails WHERE conditions. Developers must use `IS NULL` or `IS NOT NULL`."
             }
           ]
         },
         {
           "id": "qp-sql-set-b",
           "paperCode": "SQL-QP-SETB",
-          "groupName": "Alphabetical Group G–L",
+          "groupName": "Alphabetical Group G - L",
           "letterRange": "G-L",
           "studentNamePattern": "Candidate first name starting with G, H, I, J, K, or L",
           "title": "Paper 2 (Set B): Advanced Multi-Table JOINs, Aggregations & Grouping Sets",
@@ -12672,13 +13174,88 @@ export const INITIAL_COURSES = [
               ],
               "correctAnswer": 0,
               "explanation": "STRING_AGG() (ANSI SQL / PostgreSQL / SQL Server) and GROUP_CONCAT() (MySQL/SQLite) aggregate column string values across rows in a group into a delimiter-separated string."
+            },
+            {
+              "id": "sql-set-b-21",
+              "questionNumber": 21,
+              "topic": "Correlated Subqueries vs EXISTS",
+              "questionText": "Why is using `WHERE EXISTS (SELECT 1 FROM ...)` generally faster than `WHERE id IN (SELECT id FROM ...)` when querying large subquery datasets with potential NULL values?",
+              "codeSnippet": "SELECT c.full_name FROM customers c\nWHERE EXISTS (\n    SELECT 1 FROM orders o \n    WHERE o.customer_id = c.customer_id AND o.total_amount > 10000\n);",
+              "options": [
+                "EXISTS converts the query into a C-extension function",
+                "EXISTS short-circuits evaluation as soon as a single matching record is found, and avoids three-valued NULL logic pitfalls",
+                "IN creates a temporary table on physical disk for every row",
+                "EXISTS automatically disables table indexing"
+              ],
+              "correctAnswer": 1,
+              "explanation": "`EXISTS` short-circuits as soon as a matching row is found without scanning the entire subquery. Furthermore, `NOT IN` fails to return rows if the subquery contains a single NULL value."
+            },
+            {
+              "id": "sql-set-b-22",
+              "questionNumber": 22,
+              "topic": "Advanced Grouping: ROLLUP & CUBE",
+              "questionText": "Which GROUP BY extension generates aggregate summary rows for all possible combinations of specified grouping columns, including sub-totals and a grand total?",
+              "codeSnippet": "SELECT region, category, SUM(sales)\nFROM sales_data\nGROUP BY CUBE(region, category);",
+              "options": [
+                "GROUP BY HAVING",
+                "GROUP BY ROLLUP",
+                "GROUP BY CUBE",
+                "GROUP BY OVER"
+              ],
+              "correctAnswer": 2,
+              "explanation": "`GROUP BY CUBE(a, b)` generates aggregations for all $2^N$ dimension combinations ((a, b), (a), (b), and grand total ()). `ROLLUP` produces hierarchical sub-totals."
+            },
+            {
+              "id": "sql-set-b-23",
+              "questionNumber": 23,
+              "topic": "Database Normalization (3NF vs BCNF)",
+              "questionText": "A relational table is in Third Normal Form (3NF) if it is in 2NF and satisfies which key structural condition?",
+              "codeSnippet": "-- 3NF Rule: Every non-key attribute must depend on the key, the whole key, and nothing but the key!",
+              "options": [
+                "It contains no multi-valued array columns",
+                "There are no transitive dependencies (non-key columns depending on other non-key columns)",
+                "All columns are indexed with B-Tree indexes",
+                "Every column must be declared with NOT NULL constraints"
+              ],
+              "correctAnswer": 1,
+              "explanation": "3NF requires removing transitive functional dependencies where a non-prime attribute depends on another non-prime attribute rather than directly on candidate keys."
+            },
+            {
+              "id": "sql-set-b-24",
+              "questionNumber": 24,
+              "topic": "Foreign Key Referential Integrity Actions",
+              "questionText": "What happens when a parent record in a primary table is deleted if its Foreign Key constraint specifies `ON DELETE SET NULL`?",
+              "codeSnippet": "CREATE TABLE orders (\n    order_id INT PRIMARY KEY,\n    customer_id INT,\n    FOREIGN KEY (customer_id) REFERENCES customers(id) ON DELETE SET NULL\n);",
+              "options": [
+                "The deletion of the parent customer is rejected with an IntegrityError",
+                "The corresponding child order records in orders table automatically have their customer_id updated to NULL",
+                "All child orders are permanently deleted from disk",
+                "The customer_id is assigned to value 0"
+              ],
+              "correctAnswer": 1,
+              "explanation": "`ON DELETE SET NULL` preserves child records when a referenced parent row is deleted by automatically updating the foreign key column in child rows to NULL."
+            },
+            {
+              "id": "sql-set-b-25",
+              "questionNumber": 25,
+              "topic": "Full-Text Search vs Pattern Matching",
+              "questionText": "Why is a wildcard query like `SELECT * FROM articles WHERE content LIKE '%database%';` inefficient on large text datasets, and how is it optimized?",
+              "codeSnippet": "-- Inefficient: Leading wildcard forces Full Table Scan\nSELECT * FROM articles WHERE content LIKE '%database%';",
+              "options": [
+                "Leading wildcards (%term) prevent B-Tree index lookup, requiring a Full Table Scan; Full-Text Search (FTS) uses GIN/GiST inverted indexes for fast word searches",
+                "LIKE queries automatically lock the entire database server",
+                "LIKE statements only work on integer columns",
+                "Full-Text Search converts text into floating point numbers"
+              ],
+              "correctAnswer": 0,
+              "explanation": "Standard B-Tree indexes cannot index pattern searches starting with wildcards (`%text`). Full-Text Search indexes build inverted key-to-document indexes (GIN/GiST) for fast text matching."
             }
           ]
         },
         {
           "id": "qp-sql-set-c",
           "paperCode": "SQL-QP-SETC",
-          "groupName": "Alphabetical Group M–R",
+          "groupName": "Alphabetical Group M - R",
           "letterRange": "M-R",
           "studentNamePattern": "Candidate first name starting with M, N, O, P, Q, or R",
           "title": "Paper 3 (Set C): Subqueries, CTEs, Window Functions & Analytical SQL",
@@ -12986,13 +13563,88 @@ export const INITIAL_COURSES = [
               ],
               "correctAnswer": 0,
               "explanation": "The Anti-Join pattern performs a LEFT JOIN from customers to orders and filters 'WHERE orders.id IS NULL', isolating customer records with zero matching orders."
+            },
+            {
+              "id": "sql-set-c-21",
+              "questionNumber": 21,
+              "topic": "Self JOINs for Sequential Analytics",
+              "questionText": "Which SQL query pattern correlates rows within the same table to compare events or calculate intervals between consecutive user interactions?",
+              "codeSnippet": "SELECT \n    a.user_id,\n    a.login_time AS current_login,\n    b.login_time AS previous_login\nFROM user_logins a\nJOIN user_logins b \n  ON a.user_id = b.user_id AND a.login_id = b.login_id + 1;",
+              "options": [
+                "CROSS JOIN",
+                "Self JOIN",
+                "FULL OUTER JOIN",
+                "NATURAL JOIN"
+              ],
+              "correctAnswer": 1,
+              "explanation": "A Self JOIN joins a table to itself using aliases (e.g., `a` and `b`), allowing row-to-row comparisons within the same dataset."
+            },
+            {
+              "id": "sql-set-c-22",
+              "questionNumber": 22,
+              "topic": "COUNT(*) vs COUNT(column_name)",
+              "questionText": "What is the critical behavioral difference between `COUNT(*)` and `COUNT(status)` when analyzing a table where 5 out of 10 rows have a NULL status?",
+              "codeSnippet": "-- Table has 10 total rows (5 have NULL status)\nSELECT COUNT(*) AS total_rows, COUNT(status) AS status_count FROM orders;",
+              "options": [
+                "Both queries return 10",
+                "COUNT(*) returns 10 (all rows), while COUNT(status) returns 5 (ignores NULLs)",
+                "COUNT(status) raises an error when encountering NULL values",
+                "COUNT(*) returns 5 and COUNT(status) returns 10"
+              ],
+              "correctAnswer": 1,
+              "explanation": "`COUNT(*)` counts all rows in the dataset regardless of content. `COUNT(column_name)` counts only non-NULL occurrences in that specific column."
+            },
+            {
+              "id": "sql-set-c-23",
+              "questionNumber": 23,
+              "topic": "Database Triggers & Audit Logging",
+              "questionText": "When creating a database Trigger to write audit log entries whenever a user's email address is updated, which timing and event specification should be defined?",
+              "codeSnippet": "CREATE TRIGGER audit_user_email_update\nAFTER UPDATE OF email ON users\nFOR EACH ROW\nBEGIN\n    INSERT INTO email_audit_log(user_id, old_email, new_email, updated_at)\n    VALUES (OLD.id, OLD.email, NEW.email, DATETIME('now'));\nEND;",
+              "options": [
+                "BEFORE DELETE ON users",
+                "AFTER UPDATE OF email ON users FOR EACH ROW",
+                "INSTEAD OF SELECT ON users",
+                "BEFORE INSERT ON users"
+              ],
+              "correctAnswer": 1,
+              "explanation": "An `AFTER UPDATE OF email ON users FOR EACH ROW` trigger executes after an update statement finishes, exposing `OLD.email` (previous value) and `NEW.email` (updated value) for audit records."
+            },
+            {
+              "id": "sql-set-c-24",
+              "questionNumber": 24,
+              "topic": "Temporary Tables vs CTEs",
+              "questionText": "When should a developer choose a Temporary Table (`CREATE TEMP TABLE`) over a Common Table Expression (`WITH cte AS ...`) in a complex multi-step stored procedure?",
+              "codeSnippet": "CREATE TEMP TABLE temp_active_users AS\nSELECT user_id, registration_date FROM users WHERE status = 'Active';\n\nCREATE INDEX idx_temp_user ON temp_active_users(user_id);",
+              "options": [
+                "CTEs cannot perform JOIN operations",
+                "When the intermediate result set is referenced multiple times across separate queries or requires explicit indexing",
+                "Temporary tables are stored permanently on network disk backup drives",
+                "CTEs only work inside SQLite"
+              ],
+              "correctAnswer": 1,
+              "explanation": "CTEs are scoped to a single query execution. Temporary tables persist across multiple queries in the session, allowing index creation and repeated references without recomputing data."
+            },
+            {
+              "id": "sql-set-c-25",
+              "questionNumber": 25,
+              "topic": "Upsert Logic (ON CONFLICT DO UPDATE)",
+              "questionText": "Which SQL clause implements 'Upsert' functionality by updating an existing record if a UNIQUE key conflict occurs during insertion?",
+              "codeSnippet": "INSERT INTO user_stats (user_id, login_count)\nVALUES (101, 1)\nON CONFLICT(user_id) DO UPDATE SET\n    login_count = user_stats.login_count + 1;",
+              "options": [
+                "ON CONFLICT(...) DO UPDATE",
+                "WHERE DUPLICATE REPLACE",
+                "TRY INSERT CATCH UPDATE",
+                "IF EXISTS ALTER"
+              ],
+              "correctAnswer": 0,
+              "explanation": "`INSERT INTO ... ON CONFLICT(key) DO UPDATE SET ...` (standard SQL / PostgreSQL / SQLite) atomizes insertion or updating upon primary key or unique constraint collisions."
             }
           ]
         },
         {
           "id": "qp-sql-set-d",
           "paperCode": "SQL-QP-SETD",
-          "groupName": "Alphabetical Group S–Z",
+          "groupName": "Alphabetical Group S - Z",
           "letterRange": "S-Z",
           "studentNamePattern": "Candidate first name starting with S, T, U, V, W, X, Y, or Z",
           "title": "Paper 4 (Set D): Query Performance Optimization, Indexing, ACID & Transactions",
@@ -13300,6 +13952,81 @@ export const INITIAL_COURSES = [
               ],
               "correctAnswer": 0,
               "explanation": "Opening TCP database connections involves expensive SSL/TLS handshakes and process allocations. Connection pooling maintains reusable open connections, dramatically reducing latency."
+            },
+            {
+              "id": "sql-set-d-21",
+              "questionNumber": 21,
+              "topic": "DENSE_RANK() vs ROW_NUMBER()",
+              "questionText": "How does `DENSE_RANK()` behave differently from `ROW_NUMBER()` when ranking employees with identical salaries?",
+              "codeSnippet": "-- Two employees earn $100,000 (tied)\nSELECT name, salary,\n    ROW_NUMBER() OVER (ORDER BY salary DESC) as row_num,\n    DENSE_RANK() OVER (ORDER BY salary DESC) as dense_rk\nFROM employees;",
+              "options": [
+                "ROW_NUMBER assigns distinct sequential numbers (1, 2, 3); DENSE_RANK assigns tied ranks (1, 1, 2) without skipping numbers",
+                "DENSE_RANK skips numbers after ties (1, 1, 3)",
+                "ROW_NUMBER raises an error on ties",
+                "DENSE_RANK produces floating-point numbers"
+              ],
+              "correctAnswer": 0,
+              "explanation": "`ROW_NUMBER()` assigns unique sequential integers (1, 2, 3). `DENSE_RANK()` assigns identical ranks to tied values without skipping subsequent rank numbers (1, 1, 2)."
+            },
+            {
+              "id": "sql-set-d-22",
+              "questionNumber": 22,
+              "topic": "Database Deadlocks & Lock Ordering",
+              "questionText": "What causes a Deadlock scenario in concurrent relational database transactions, and how is it mitigated?",
+              "codeSnippet": "-- Transaction 1: Locks Row A, waits for Row B\n-- Transaction 2: Locks Row B, waits for Row A",
+              "options": [
+                "Deadlocks occur when disk space runs out; they are mitigated by clearing logs",
+                "Deadlocks occur when two or more transactions hold locks on resources the other requires; mitigated by accessing tables/rows in a consistent deterministic order",
+                "Deadlocks occur when foreign keys are deleted",
+                "Deadlocks are prevented by disabling index locks"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Deadlocks occur when transactions wait mutually for locks held by each other. Mitigate by acquiring locks in a consistent order and keeping transaction windows short."
+            },
+            {
+              "id": "sql-set-d-23",
+              "questionNumber": 23,
+              "topic": "Table Partitioning Strategies",
+              "questionText": "What is the primary performance benefit of Table Partitioning (`PARTITION BY RANGE`) on multi-terabyte transactional tables?",
+              "codeSnippet": "CREATE TABLE sales (\n    sale_id INT,\n    sale_date DATE NOT NULL,\n    amount DECIMAL\n) PARTITION BY RANGE (sale_date);",
+              "options": [
+                "It compresses text columns using ZIP compression",
+                "Partition Pruning enables the query engine to scan only relevant data partitions, skipping unneeded date ranges entirely",
+                "It converts relational tables into NoSQL document stores",
+                "It eliminates the need for primary keys"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Partition Pruning excludes non-relevant table partitions from query execution plans based on WHERE filtering (e.g., filtering `sale_date = '2025-04-01'` scans only the Q2 2025 partition)."
+            },
+            {
+              "id": "sql-set-d-24",
+              "questionNumber": 24,
+              "topic": "Conditional Aggregations",
+              "questionText": "Which SQL technique allows calculating multiple conditional metrics in a single SELECT query pass over a dataset?",
+              "codeSnippet": "SELECT \n    COUNT(*) AS total_orders,\n    SUM(CASE WHEN status = 'Completed' THEN 1 ELSE 0 END) AS completed_orders,\n    SUM(CASE WHEN status = 'Cancelled' THEN 1 ELSE 0 END) AS cancelled_orders\nFROM orders;",
+              "options": [
+                "Running separate SELECT queries and combining them with UNION",
+                "Using SUM(CASE WHEN ... END) or FILTER (WHERE ...)",
+                "Using GROUP BY HAVING on status",
+                "Executing nested cursor loops"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Combining aggregate functions with CASE statements (or ANSI `FILTER (WHERE ...)`) computes distinct subset counts in a single table scan."
+            },
+            {
+              "id": "sql-set-d-25",
+              "questionNumber": 25,
+              "topic": "Foreign Key Indexing & Table Locking",
+              "questionText": "Why should database administrators always build indexes on Foreign Key columns in relational database schemas?",
+              "codeSnippet": "CREATE TABLE order_items (\n    item_id INT PRIMARY KEY,\n    order_id INT NOT NULL, -- Foreign Key\n    product_id INT NOT NULL\n);\nCREATE INDEX idx_order_items_order ON order_items(order_id); -- Critical!",
+              "options": [
+                "Without an index on Foreign Keys, deleting a row from the parent table can cause a full table lock or full scan on the child table",
+                "Foreign Keys cannot be created unless an index already exists",
+                "Indexes convert foreign keys into primary keys",
+                "Foreign key indexes automatically encrypt table rows"
+              ],
+              "correctAnswer": 0,
+              "explanation": "When modifying parent rows, database engines verify child table constraints. Un-indexed Foreign Key columns force full table scans or share locks on the child table, hindering concurrency."
             }
           ]
         }
@@ -13604,180 +14331,464 @@ export const INITIAL_COURSES = [
           ],
           "correctAnswer": 0,
           "explanation": "Third Normal Form (3NF) requires the table to be in 2NF and have no transitive dependencies: every non-prime attribute must depend non-transitively directly on the primary key ('the key, the whole key, and nothing but the key')."
+        },
+        {
+          "id": "sql-set-a-21",
+          "questionNumber": 21,
+          "topic": "Covering Indexes & Index-Only Scans",
+          "questionText": "Under what condition can a Relational Database Query Optimizer perform an Index-Only Scan to fulfill a SELECT query without fetching table rows from disk heaps?",
+          "codeSnippet": "-- Table: employees (id, name, dept_id, salary)\nCREATE INDEX idx_dept_salary ON employees(dept_id, salary);\n\nSELECT dept_id, salary FROM employees WHERE dept_id = 101;",
+          "options": [
+            "When the table contains fewer than 100 rows",
+            "When all columns requested in the SELECT clause and WHERE filter are contained directly within the B-Tree index itself",
+            "When the database uses SQLite in memory mode exclusively",
+            "When a FULL OUTER JOIN is executed on primary keys"
+          ],
+          "correctAnswer": 1,
+          "explanation": "An Index-Only Scan occurs when a covering index contains all requested query fields (SELECT and WHERE). The engine reads data directly from the index in RAM without disk heap I/O."
+        },
+        {
+          "id": "sql-set-a-22",
+          "questionNumber": 22,
+          "topic": "Window Functions: LEAD and LAG",
+          "questionText": "Which SQL Window Function allows a query to access data from the next or previous row in the result set without performing a self-join?",
+          "codeSnippet": "SELECT \n    order_date,\n    total_amount,\n    LAG(total_amount, 1) OVER (ORDER BY order_date) AS prev_order_amount,\n    total_amount - LAG(total_amount, 1) OVER (ORDER BY order_date) AS diff\nFROM orders;",
+          "options": [
+            "FIRST_VALUE() and LAST_VALUE()",
+            "LAG() and LEAD()",
+            "ROW_NUMBER() and RANK()",
+            "NTILE() and CUME_DIST()"
+          ],
+          "correctAnswer": 1,
+          "explanation": "`LAG()` accesses data from a previous row, and `LEAD()` accesses data from a subsequent row relative to the current position within the defined window partition."
+        },
+        {
+          "id": "sql-set-a-23",
+          "questionNumber": 23,
+          "topic": "Recursive Common Table Expressions (CTEs)",
+          "questionText": "What is the primary usage of a `WITH RECURSIVE` CTE in relational databases?",
+          "codeSnippet": "WITH RECURSIVE OrgChart AS (\n    SELECT emp_id, name, manager_id, 1 AS level\n    FROM employees WHERE manager_id IS NULL\n    UNION ALL\n    SELECT e.emp_id, e.name, e.manager_id, o.level + 1\n    FROM employees e\n    JOIN OrgChart o ON e.manager_id = o.emp_id\n)\nSELECT * FROM OrgChart;",
+          "options": [
+            "To automatically create foreign key triggers across multiple databases",
+            "To query hierarchical, tree-structured, or graph network data like organizational charts and bill of materials",
+            "To bypass database security permissions and grant superuser access",
+            "To encrypt passwords stored in text columns"
+          ],
+          "correctAnswer": 1,
+          "explanation": "`WITH RECURSIVE` enables traversal of hierarchical or graph-structured datasets (such as parent-child employee org charts, categories, or network paths) by repeatedly executing an anchor query."
+        },
+        {
+          "id": "sql-set-a-24",
+          "questionNumber": 24,
+          "topic": "ACID Transaction Isolation Levels",
+          "questionText": "Which ANSI SQL Transaction Isolation level guarantees protection against Dirty Reads, Non-Repeatable Reads, and Phantom Reads?",
+          "codeSnippet": "SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;\nBEGIN TRANSACTION;\n-- Guarantees complete isolation\nCOMMIT;",
+          "options": [
+            "READ UNCOMMITTED",
+            "READ COMMITTED",
+            "REPEATABLE READ",
+            "SERIALIZABLE"
+          ],
+          "correctAnswer": 3,
+          "explanation": "`SERIALIZABLE` is the highest isolation level. It enforces strict transaction execution sequence as if transactions occurred serially, preventing Dirty Reads, Non-Repeatable Reads, and Phantom Reads."
+        },
+        {
+          "id": "sql-set-a-25",
+          "questionNumber": 25,
+          "topic": "Three-Valued Logic & NULL Handling",
+          "questionText": "In SQL Three-Valued Logic (TRUE, FALSE, UNKNOWN), what is the evaluation result of the expression `SELECT * FROM users WHERE status = NULL;`?",
+          "codeSnippet": "SELECT * FROM users WHERE status = NULL; -- Returns 0 rows!",
+          "options": [
+            "It returns all rows where status is NULL",
+            "It evaluates to UNKNOWN (falsy), returning 0 rows; `IS NULL` must be used instead",
+            "It raises a SyntaxError during execution",
+            "It converts NULL to an empty string ''"
+          ],
+          "correctAnswer": 1,
+          "explanation": "In SQL, NULL represents an unknown value. Comparisons using `=`, `<>`, or `!=` with NULL evaluate to UNKNOWN, which fails WHERE conditions. Developers must use `IS NULL` or `IS NOT NULL`."
         }
       ]
-    }
+    },
+    "finalProject": {
+      "id": "sql-final-project",
+      "title": "E-Commerce Relational Database Design & Query Suite",
+      "description": "Design a normalized 3NF database schema for an e-commerce platform including customers, orders, inventory, and payments.",
+      "requirements": [
+        "Draw ER diagram",
+        "Write DDL scripts",
+        "Write 10 analytical queries"
+      ],
+      "instructions": "Submit SQL script file and ER diagram documentation.",
+      "allowedFileTypes": [
+        ".sql",
+        ".zip",
+        ".pdf"
+      ],
+      "maxFileSizeMb": 20,
+      "githubUrlAllowed": true,
+      "liveProjectUrlAllowed": false,
+      "passingScore": 80,
+      "published": true
+    },
+    "updatedAt": "2026-10-01T11:13:39.780Z",
+    "projects": [
+      {
+        "id": "sql-proj-1",
+        "projectNumber": 1,
+        "title": "Project 1: E-Commerce Sales & Customer Lifetime Value (LTV) Analytics",
+        "subtitle": "Module 03, 04 & 05 — DML Filtering, Aggregations & Multi-Table JOINS",
+        "difficulty": "Beginner to Intermediate",
+        "estimatedTime": "1 – 2 Hours",
+        "pageLength": "1 – 2 Pages",
+        "description": "Write SQL DDL to create customer and order tables, populate real-world transactional test records, and craft analytical JOIN and GROUP BY queries to extract total spending per customer, monthly revenue trends, and top customer segments.",
+        "objectives": [
+          "Design normalized tables ('customers' and 'orders') with PRIMARY KEY and FOREIGN KEY constraints",
+          "Perform multi-table INNER JOINs and LEFT JOINs to correlate client metadata with purchase records",
+          "Calculate key business metrics using aggregate functions (SUM, COUNT, AVG, ROUND)",
+          "Filter grouped summary data using HAVING clauses to identify high-value VIP shoppers"
+        ],
+        "requirements": [
+          "Create 'customers' (customer_id, full_name, email, city) and 'orders' (order_id, customer_id, order_date, total_amount, status) tables",
+          "Insert representative sample records including completed, pending, and cancelled orders",
+          "Write SQL query computing total revenue, average order value (AOV), and total orders by status",
+          "Write SQL query calculating Customer Lifetime Value (LTV) per customer, ordered by highest spenders"
+        ],
+        "starterCode": "-- Project 1: E-Commerce Sales & Customer Lifetime Value (LTV) Analytics\n-- File: ecommerce_analytics.sql\n\n-- 1. Create Normalized Tables with Referential Integrity\nCREATE TABLE IF NOT EXISTS customers (\n    customer_id INTEGER PRIMARY KEY AUTOINCREMENT,\n    full_name VARCHAR(100) NOT NULL,\n    email VARCHAR(100) UNIQUE NOT NULL,\n    city VARCHAR(50) NOT NULL,\n    joined_date DATE NOT NULL\n);\n\nCREATE TABLE IF NOT EXISTS orders (\n    order_id INTEGER PRIMARY KEY AUTOINCREMENT,\n    customer_id INTEGER NOT NULL,\n    order_date DATE NOT NULL,\n    total_amount DECIMAL(10,2) NOT NULL,\n    status VARCHAR(20) NOT NULL CHECK (status IN ('Completed', 'Pending', 'Cancelled')),\n    FOREIGN KEY (customer_id) REFERENCES customers(customer_id)\n);\n\n-- 2. Populate Sample Dataset\nINSERT INTO customers (full_name, email, city, joined_date) VALUES\n('Arshith Kumar', 'arshith@example.com', 'Bengaluru', '2025-01-10'),\n('Bhavana Kolla', 'bhavana@example.com', 'Hyderabad', '2025-02-14'),\n('Chandan Verma', 'chandan@example.com', 'Mumbai', '2025-03-01'),\n('Divya Sharma', 'divya@example.com', 'Delhi', '2025-03-15');\n\nINSERT INTO orders (customer_id, order_date, total_amount, status) VALUES\n(1, '2025-03-20', 4500.00, 'Completed'),\n(1, '2025-04-02', 12500.50, 'Completed'),\n(2, '2025-03-22', 8900.00, 'Completed'),\n(2, '2025-04-05', 3100.00, 'Pending'),\n(3, '2025-03-25', 15000.00, 'Completed'),\n(3, '2025-04-10', 450.00, 'Cancelled'),\n(1, '2025-04-12', 6200.00, 'Completed');\n\n-- 3. Executive Sales Metrics Query (Overall Revenue & AOV)\nSELECT \n    COUNT(order_id) AS total_orders,\n    SUM(CASE WHEN status = 'Completed' THEN total_amount ELSE 0 END) AS total_revenue,\n    ROUND(AVG(CASE WHEN status = 'Completed' THEN total_amount END), 2) AS avg_order_value\nFROM orders;\n\n-- 4. Customer Lifetime Value (LTV) & VIP Ranking Query\nSELECT \n    c.customer_id,\n    c.full_name,\n    c.city,\n    COUNT(o.order_id) AS total_purchases,\n    COALESCE(SUM(o.total_amount), 0.00) AS lifetime_value,\n    CASE \n        WHEN SUM(o.total_amount) >= 20000 THEN 'VIP Diamond'\n        WHEN SUM(o.total_amount) >= 10000 THEN 'Gold Preferred'\n        ELSE 'Regular Shopper'\n    END AS customer_tier\nFROM customers c\nLEFT JOIN orders o ON c.customer_id = o.customer_id AND o.status = 'Completed'\nGROUP BY c.customer_id, c.full_name, c.city\nHAVING SUM(o.total_amount) > 0\nORDER BY lifetime_value DESC;\n",
+        "expectedOutput": "+--------------+---------------+-----------------+\n| total_orders | total_revenue | avg_order_value |\n+--------------+---------------+-----------------+\n|            7 |      47100.50 |         9420.10 |\n+--------------+---------------+-----------------+\n\n+-------------+---------------+-----------+-----------------+----------------+----------------+\n| customer_id | full_name     | city      | total_purchases | lifetime_value | customer_tier  |\n+-------------+---------------+-----------+-----------------+----------------+----------------+\n|           1 | Arshith Kumar | Bengaluru |               3 |       23200.50 | VIP Diamond    |\n|           3 | Chandan Verma | Mumbai    |               1 |       15000.00 | Gold Preferred |\n|           2 | Bhavana Kolla | Hyderabad |               1 |        8900.00 | Regular Shopper|\n+-------------+---------------+-----------+-----------------+----------------+----------------+"
+      },
+      {
+        "id": "sql-proj-2",
+        "projectNumber": 2,
+        "title": "Project 2: Corporate Payroll & Department Performance Window Analytics",
+        "subtitle": "Module 06 & 07 — Subqueries, Common Table Expressions (CTEs) & Window Functions",
+        "difficulty": "Intermediate",
+        "estimatedTime": "2 Hours",
+        "pageLength": "1 – 2 Pages",
+        "description": "Construct advanced analytical SQL queries using Common Table Expressions (WITH clauses) and Window Functions (RANK, DENSE_RANK, AVG OVER) to compute department salary rankings, compare individual pay against department averages, and identify top earners per department.",
+        "objectives": [
+          "Formulate structured WITH CTE queries to isolate modular aggregation stages",
+          "Apply Window Functions OVER (PARTITION BY ... ORDER BY ...) for analytical ranking",
+          "Calculate deviation percentages comparing employee salary against department mean",
+          "Retrieve department top earners without relying on correlated subqueries"
+        ],
+        "requirements": [
+          "Create 'departments' (dept_id, dept_name) and 'employees' (emp_id, emp_name, dept_id, salary, hire_date) tables",
+          "Insert departmental payroll dataset spanning multiple engineering and marketing roles",
+          "Write a CTE query with RANK() OVER to rank employees within their department by salary",
+          "Write a query returning employees earning 15%+ above their department's average salary"
+        ],
+        "starterCode": "-- Project 2: Corporate Payroll & Department Window Analytics\n-- File: department_analytics.sql\n\n-- 1. Create Schema\nCREATE TABLE IF NOT EXISTS departments (\n    dept_id INTEGER PRIMARY KEY,\n    dept_name VARCHAR(50) NOT NULL\n);\n\nCREATE TABLE IF NOT EXISTS employees (\n    emp_id INTEGER PRIMARY KEY,\n    emp_name VARCHAR(100) NOT NULL,\n    dept_id INTEGER NOT NULL,\n    salary DECIMAL(10,2) NOT NULL,\n    hire_date DATE NOT NULL,\n    FOREIGN KEY (dept_id) REFERENCES departments(dept_id)\n);\n\n-- 2. Insert Test Data\nINSERT INTO departments VALUES (101, 'Engineering'), (102, 'Data Science'), (103, 'Marketing');\n\nINSERT INTO employees VALUES\n(1, 'Arshith Kumar', 101, 145000.00, '2022-03-15'),\n(2, 'Bhavana Kolla', 101, 120000.00, '2023-01-10'),\n(3, 'Chandan Verma', 101, 95000.00,  '2024-06-01'),\n(4, 'Deepak Rao',    102, 160000.00, '2021-11-20'),\n(5, 'Esha Gupta',    102, 135000.00, '2023-05-12'),\n(6, 'Farhan Khan',   103, 88000.00,  '2022-09-01'),\n(7, 'Gita Patel',    103, 92000.00,  '2021-04-15');\n\n-- 3. Advanced CTE + Window Function Analytical Query\nWITH DeptStats AS (\n    SELECT \n        e.emp_id,\n        e.emp_name,\n        d.dept_name,\n        e.salary,\n        AVG(e.salary) OVER (PARTITION BY e.dept_id) AS dept_avg_salary,\n        RANK() OVER (PARTITION BY e.dept_id ORDER BY e.salary DESC) AS salary_rank_in_dept\n    FROM employees e\n    JOIN departments d ON e.dept_id = d.dept_id\n)\nSELECT \n    emp_id,\n    emp_name,\n    dept_name,\n    salary,\n    ROUND(dept_avg_salary, 2) AS dept_avg,\n    salary_rank_in_dept,\n    ROUND(((salary - dept_avg_salary) / dept_avg_salary) * 100, 1) AS pct_above_avg\nFROM DeptStats\nORDER BY dept_name, salary_rank_in_dept;\n",
+        "expectedOutput": "+--------+---------------+--------------+-----------+-----------+---------------------+---------------+\n| emp_id | emp_name      | dept_name    | salary    | dept_avg  | salary_rank_in_dept | pct_above_avg |\n+--------+---------------+--------------+-----------+-----------+---------------------+---------------+\n|      4 | Deepak Rao    | Data Science | 160000.00 | 147500.00 |                   1 |           8.5 |\n|      5 | Esha Gupta    | Data Science | 135000.00 | 147500.00 |                   2 |          -8.5 |\n|      1 | Arshith Kumar | Engineering  | 145000.00 | 120000.00 |                   1 |          20.8 |\n|      2 | Bhavana Kolla | Engineering  | 120000.00 | 120000.00 |                   2 |           0.0 |\n|      3 | Chandan Verma | Engineering  |  95000.00 | 120000.00 |                   3 |         -20.8 |\n|      7 | Gita Patel    | Marketing    |  92000.00 |  90000.00 |                   1 |           2.2 |\n|      6 | Farhan Khan   | Marketing    |  88000.00 |  90000.00 |                   2 |          -2.2 |\n+--------+---------------+--------------+-----------+-----------+---------------------+---------------+"
+      },
+      {
+        "id": "sql-proj-3",
+        "projectNumber": 3,
+        "title": "Project 3: Persistent Library Inventory & Transaction Management System",
+        "subtitle": "Module 08, 10 & 14 — DDL Views, Transactions (COMMIT/ROLLBACK) & Python SQLite Integration",
+        "difficulty": "Intermediate to Advanced",
+        "estimatedTime": "2 – 3 Hours",
+        "pageLength": "1 – 2 Pages",
+        "description": "Build a robust SQL database pipeline featuring DDL table creation, audit triggers, transactional borrowing workflows with COMMIT/ROLLBACK error handling, and a Python script using sqlite3 to execute parameterized inventory queries.",
+        "objectives": [
+          "Define triggers (AFTER UPDATE) to automatically decrease available book inventory copies",
+          "Enforce data integrity with CHECK constraints (copies_available >= 0)",
+          "Implement ACID compliant SQL transactions using BEGIN TRANSACTION, COMMIT, and ROLLBACK",
+          "Create reusable SQL VIEWs for active loan tracking and build a Python SQLite client wrapper"
+        ],
+        "requirements": [
+          "Create 'books' (book_id, title, author, total_copies, available_copies) and 'borrow_log' tables",
+          "Create a Trigger 'update_book_inventory' that decrements available copies upon borrow insertion",
+          "Create a SQL View 'v_active_loans' summarizing member borrowing activity",
+          "Write a complete Python script demonstrating connection, transaction execution, and exception handling"
+        ],
+        "starterCode": "# Project 3: Persistent Library Inventory & Transaction Management System\n# File: library_system.py\n\nimport sqlite3\n\nclass LibraryDatabase:\n    def __init__(self, db_path=\":memory:\"):\n        self.conn = sqlite3.connect(db_path)\n        self.conn.execute(\"PRAGMA foreign_keys = ON;\")\n        self.cursor = self.conn.cursor()\n        self.setup_schema()\n\n    def setup_schema(self):\n        # 1. Books Table\n        self.cursor.execute('''\n            CREATE TABLE IF NOT EXISTS books (\n                book_id INTEGER PRIMARY KEY AUTOINCREMENT,\n                title TEXT NOT NULL,\n                author TEXT NOT NULL,\n                total_copies INTEGER NOT NULL CHECK(total_copies >= 0),\n                available_copies INTEGER NOT NULL CHECK(available_copies >= 0)\n            );\n        ''')\n\n        # 2. Borrow Log Table\n        self.cursor.execute('''\n            CREATE TABLE IF NOT EXISTS borrow_log (\n                log_id INTEGER PRIMARY KEY AUTOINCREMENT,\n                book_id INTEGER NOT NULL,\n                member_name TEXT NOT NULL,\n                borrow_date DATE DEFAULT (DATE('now')),\n                return_date DATE,\n                FOREIGN KEY (book_id) REFERENCES books(book_id)\n            );\n        ''')\n\n        # 3. View for Active Loans\n        self.cursor.execute('''\n            CREATE VIEW IF NOT EXISTS v_active_loans AS\n            SELECT \n                l.log_id,\n                b.title,\n                b.author,\n                l.member_name,\n                l.borrow_date\n            FROM borrow_log l\n            JOIN books b ON l.book_id = b.book_id\n            WHERE l.return_date IS NULL;\n        ''')\n\n        # 4. Insert Initial Books\n        self.cursor.executemany('''\n            INSERT INTO books (title, author, total_copies, available_copies)\n            VALUES (?, ?, ?, ?)\n        ''', [\n            (\"SQL & Relational Database Mastery\", \"Siddharth Nair\", 5, 5),\n            (\"Python for Data Analysis\", \"Charles Severance\", 3, 3),\n            (\"Designing Data-Intensive Applications\", \"Martin Kleppmann\", 2, 2)\n        ])\n        self.conn.commit()\n\n    def borrow_book(self, book_id, member_name):\n        \"\"\"Executes borrow workflow in an ACID Compliant Transaction\"\"\"\n        try:\n            self.cursor.execute(\"BEGIN TRANSACTION;\")\n            \n            # Check availability\n            self.cursor.execute(\"SELECT available_copies, title FROM books WHERE book_id = ?\", (book_id,))\n            row = self.cursor.fetchone()\n            \n            if not row:\n                raise ValueError(\"Book ID not found.\")\n            \n            available, title = row\n            if available <= 0:\n                raise ValueError(f\"No copies of '{title}' currently available!\")\n\n            # Log borrow event\n            self.cursor.execute('''\n                INSERT INTO borrow_log (book_id, member_name)\n                VALUES (?, ?)\n            ''', (book_id, member_name))\n\n            # Deduct inventory\n            self.cursor.execute('''\n                UPDATE books SET available_copies = available_copies - 1\n                WHERE book_id = ?\n            ''', (book_id,))\n\n            self.conn.commit()\n            print(f\"✓ Successfully borrowed '{title}' for {member_name}.\")\n            return True\n\n        except Exception as e:\n            self.conn.rollback()\n            print(f\"✗ Transaction Aborted: {e}\")\n            return False\n\n    def display_active_loans(self):\n        self.cursor.execute(\"SELECT * FROM v_active_loans;\")\n        rows = self.cursor.fetchall()\n        print(\"\\n=== CURRENT ACTIVE LIBRARY LOANS ===\")\n        print(f\"{'ID':<4} {'Title':<35} {'Member':<15} {'Borrow Date':<12}\")\n        print(\"-\" * 70)\n        for r in rows:\n            print(f\"{r[0]:<4} {r[1]:<35} {r[3]:<15} {r[4]:<12}\")\n        print(\"-\" * 70)\n\nif __name__ == '__main__':\n    lib = LibraryDatabase()\n    lib.borrow_book(1, \"Arshith Kumar\")\n    lib.borrow_book(1, \"Bhavana Kolla\")\n    lib.borrow_book(2, \"Chandan Verma\")\n    lib.display_active_loans()\n",
+        "expectedOutput": "✓ Successfully borrowed 'SQL & Relational Database Mastery' for Arshith Kumar.\n✓ Successfully borrowed 'SQL & Relational Database Mastery' for Bhavana Kolla.\n✓ Successfully borrowed 'Python for Data Analysis' for Chandan Verma.\n\n=== CURRENT ACTIVE LIBRARY LOANS ===\nID   Title                               Member          Borrow Date \n----------------------------------------------------------------------\n1    SQL & Relational Database Mastery   Arshith Kumar   2026-10-10  \n2    SQL & Relational Database Mastery   Bhavana Kolla   2026-10-10  \n3    Python for Data Analysis            Chandan Verma   2026-10-10  \n----------------------------------------------------------------------"
+      }
+    ]
   },
   {
     "id": "web-development",
     "title": "Web Development",
+    "slug": "web-development",
     "category": "Web Development",
-    "level": "Beginner to Advanced",
-    "duration": "50 hours",
+    "level": "Intermediate",
+    "duration": "60 hours",
     "rating": 4.9,
-    "studentsCount": "18.5k",
-    "studentsNumeric": 18500,
-    "price": 1499,
-    "isFree": false,
+    "studentsCount": "18.9k",
+    "studentsNumeric": 18900,
+    "price": 0,
+    "isFree": true,
     "bestseller": true,
-    "progress": 18,
-    "iconBg": "bg-emerald-50 border 2 border-emerald-200 text-emerald-600",
-    "iconType": "code",
-    "introVideoUrl": "https://www.youtube.com/embed/dpw9EHDh2bM",
-    "description": "Become a Full-Stack Web Developer! HTML5, CSS3, Flexbox, Grid, Responsive Design, JavaScript ES6+, DOM Manipulation, Fetch API, Git, and Modern Frontend Architecture.",
+    "progress": 20,
+    "status": "published",
+    "featured": false,
+    "certificateAvailable": true,
+    "sequentialLearning": true,
+    "iconBg": "bg-purple-50 border-2 border-purple-200 text-purple-600",
+    "iconType": "layout",
+    "introVideoUrl": "https://www.youtube.com/embed/nu_pCVPKzTk",
+    "thumbnail": "https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=600&q=80",
+    "shortDescription": "Build modern responsive web applications with HTML5, CSS3, Tailwind, React, Node.js, Express, and MongoDB.",
+    "description": "Build modern responsive web applications with HTML5, CSS3, Tailwind, React, Node.js, Express, and MongoDB. Complete full-stack bootcamp.",
     "instructor": {
-      "name": "Rahul Verma",
-      "role": "Lead Web Engineer @ Arshith Boot Camp",
-      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"
+      "name": "Vikramaditya Rao",
+      "role": "Lead Full Stack Architect @ Arshith Boot Camp",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80"
     },
+    "prerequisites": null,
+    "skills": [],
     "whatYouWillLearn": [
-      "How HTTP, DNS, Browsers, and Web Servers interact",
-      "Semantic HTML5 tags, accessibility (a11y), and SEO standards",
-      "CSS3 Box Model, Flexbox, Grid, Animations & Custom Variables",
-      "Responsive Web Design across Mobile, Tablet, and Desktop displays",
-      "JavaScript ES6+: Async/Await, Promises, Closures, DOM Events",
-      "Building a complete, production-ready Full-Stack Web Application"
+      "Responsive Web Design with HTML5, CSS Grid, Flexbox, and Tailwind CSS",
+      "Modern ES6+ JavaScript, Async/Await, and DOM manipulation",
+      "React Component Architecture, Hooks, Context API, and State Management",
+      "Node.js & Express RESTful API Development",
+      "MongoDB database modeling with Mongoose"
     ],
     "modules": [
       {
         "id": "web-mod-1",
-        "title": "Module 01 — How the Web Works",
-        "description": "Clients, Servers, HTTP request/response cycle, IP addresses, DNS resolution, and browser rendering engines.",
+        "title": "Module 01 - Modern HTML5 & CSS3 Architecture",
+        "description": "Semantic HTML tags, CSS Flexbox, Grid, CSS Variables, and Mobile-First Responsive Design.",
         "completed": true,
+        "order": 1,
+        "published": true,
         "readingMaterial": {
-          "introduction": "Understanding how browsers communicate with web servers over HTTP/HTTPS is the foundation of web development.",
+          "introduction": "HTML5 and CSS3 form the foundational presentation tier of the web.",
           "objectives": [
-            "Understand Client-Server architecture",
-            "Trace HTTP GET/POST request lifecycle",
-            "Role of HTML, CSS, and JavaScript in browsers"
+            "Understand semantic HTML tags",
+            "Master CSS Flexbox and Grid"
           ],
           "sections": [
             {
-              "heading": "The Request-Response Cycle",
-              "text": "1. Browser enters URL -> 2. DNS resolves IP -> 3. TCP Handshake -> 4. HTTP Request -> 5. Server responds HTML -> 6. Browser renders DOM."
+              "heading": "Flexbox Layout",
+              "text": "Flexbox provides 1D alignment along main and cross axes."
             }
           ],
           "codeExamples": [
             {
-              "title": "HTTP Response Status Codes",
-              "code": "200 OK          - Request succeeded\n201 Created     - Resource created\n400 Bad Request - Invalid client syntax\n404 Not Found   - Resource does not exist\n500 Server Error - Internal server crash",
-              "explanation": "HTTP status codes indicate request outcome."
+              "title": "Flex Center",
+              "code": "display: flex; justify-content: center; align-items: center;",
+              "explanation": "Centers elements inside container."
             }
           ],
-          "bestPractices": [
-            "Always serve web applications over encrypted HTTPS."
-          ],
-          "commonMistakes": [
-            "Confusing domain registrar with web host server."
-          ],
-          "practiceExercise": {
-            "title": "Inspect Network Tab",
-            "problem": "Open browser DevTools (F12) Network tab and inspect loaded assets.",
-            "solutionCode": "Press F12 -> Select Network tab -> Refresh page"
-          },
           "keyTakeaways": [
-            "Browsers render HTML structure, CSS styling, and JS interactivity.",
-            "DNS maps human domain names to IP addresses."
-          ],
-          "references": [
+            "Use semantic HTML elements for accessibility."
+          ]
+        },
+        "quiz": {
+          "id": "web-quiz-1",
+          "title": "Module 01 Quiz - HTML5 & CSS3",
+          "passingScore": 70,
+          "timeLimitMinutes": 15,
+          "maxAttempts": 3,
+          "published": true,
+          "questions": [
             {
-              "title": "MDN How the Web Works",
-              "url": "https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/How_the_Web_works"
+              "id": "wq1",
+              "type": "multiple-choice",
+              "questionText": "Which CSS layout mode is designed for one-dimensional layouts?",
+              "options": [
+                "Grid",
+                "Flexbox",
+                "Float",
+                "Table"
+              ],
+              "correctAnswer": 1,
+              "marks": 10
             }
           ]
         }
       }
-    ]
+    ],
+    "finalTest": {
+      "id": "web-final-test",
+      "title": "Full Stack Development Certification Exam",
+      "description": "Testing React components, hooks, Express API routes, and database modeling.",
+      "passingScore": 75,
+      "timeLimitMinutes": 45,
+      "maxAttempts": 2,
+      "published": true,
+      "questions": [
+        {
+          "id": "webt1",
+          "type": "multiple-choice",
+          "questionText": "Which React hook is used to manage local component state?",
+          "options": [
+            "useEffect",
+            "useState",
+            "useContext",
+            "useRef"
+          ],
+          "correctAnswer": 1,
+          "marks": 20
+        }
+      ]
+    },
+    "finalProject": {
+      "id": "web-final-project",
+      "title": "SaaS Learning Management Portal Platform",
+      "description": "Develop a full-stack MERN/PERN web application with user authentication, course management, video player, and admin dashboard.",
+      "requirements": [
+        "React frontend with Tailwind",
+        "Node/Express backend REST API",
+        "Authentication with JWT",
+        "Responsive UI"
+      ],
+      "instructions": "Deploy app to live host (Vercel/Netlify/Render) and submit GitHub repo link.",
+      "allowedFileTypes": [
+        ".zip",
+        ".pdf"
+      ],
+      "maxFileSizeMb": 50,
+      "githubUrlAllowed": true,
+      "liveProjectUrlAllowed": true,
+      "passingScore": 80,
+      "published": true
+    },
+    "updatedAt": "2026-10-01T11:14:03.912Z"
   },
   {
-    "id": "ai-data-science",
-    "title": "AI with Data Science",
+    "id": "data-science-ai",
+    "title": "Data Science & AI Foundations",
+    "slug": "data-science-ai",
     "category": "AI",
     "level": "Intermediate to Advanced",
-    "duration": "60 hours",
+    "duration": "50 hours",
     "rating": 4.9,
-    "studentsCount": "12.1k",
-    "studentsNumeric": 12100,
-    "price": 2499,
-    "isFree": false,
+    "studentsCount": "9.8k",
+    "studentsNumeric": 9800,
+    "price": 0,
+    "isFree": true,
     "bestseller": false,
-    "progress": 12,
-    "iconBg": "bg-purple-50 border 2 border-purple-200 text-purple-600",
-    "iconType": "barchart",
-    "introVideoUrl": "https://www.youtube.com/embed/LHBE6Q9XlzI",
-    "description": "Master Data Analysis, Machine Learning, & AI! NumPy arrays, Pandas DataFrames, Data Visualization, Scikit-Learn Regression/Classification, and Generative AI applications.",
+    "progress": 0,
+    "status": "published",
+    "featured": false,
+    "certificateAvailable": true,
+    "sequentialLearning": true,
+    "iconBg": "bg-amber-50 border-2 border-amber-200 text-amber-600",
+    "iconType": "brain",
+    "introVideoUrl": "https://www.youtube.com/embed/aircAruvnKk",
+    "thumbnail": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=600&q=80",
+    "shortDescription": "Learn Python for Data Analysis, NumPy, Pandas, Matplotlib, Scikit-Learn, and Neural Networks.",
+    "description": "Learn Python for Data Analysis, NumPy, Pandas, Matplotlib, Scikit-Learn, and Neural Networks. Complete AI pipeline.",
     "instructor": {
-      "name": "Dr. Ananya Sharma & Karan Mehta",
-      "role": "AI Research Specialists @ Arshith Boot Camp",
-      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80"
+      "name": "Dr. Ananya Sharma",
+      "role": "AI Research Scientist @ Arshith Boot Camp",
+      "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80"
     },
+    "prerequisites": null,
+    "skills": [],
     "whatYouWillLearn": [
-      "NumPy vectorization, matrix mathematics, and N-dimensional arrays",
-      "Pandas DataFrames for data cleaning, transformation, indexing, and merging",
-      "Exploratory Data Analysis (EDA) and plotting with Matplotlib & Seaborn",
-      "Supervised Machine Learning algorithms: Linear/Logistic Regression, Decision Trees, Random Forests",
-      "Model Evaluation metrics: Precision, Recall, F1-score, ROC-AUC curves",
-      "Building an end-to-end AI Predictive Capstone Project"
+      "Data Manipulation with NumPy & Pandas",
+      "Exploratory Data Analysis (EDA) and Visualization",
+      "Supervised Learning: Linear/Logistic Regression, Decision Trees, Random Forests",
+      "Unsupervised Learning: K-Means Clustering and PCA",
+      "Intro to Deep Learning with PyTorch/TensorFlow"
     ],
     "modules": [
       {
         "id": "ds-mod-1",
-        "title": "Module 01 — Introduction to AI and Data Science",
+        "title": "Module 01 - Data Science & Machine Learning Pipeline",
         "description": "Overview of Data Science pipeline, Machine Learning paradigms (Supervised, Unsupervised, Reinforcement), and AI industry applications.",
         "completed": true,
+        "order": 1,
+        "published": true,
         "readingMaterial": {
-          "introduction": "Data Science extracts actionable business insights from raw structured and unstructured datasets using scientific methods, algorithms, and Machine Learning.",
+          "introduction": "Data Science extracts actionable business insights from raw structured and unstructured datasets.",
           "objectives": [
-            "Understand Data Science Lifecycle: Collection -> Cleaning -> EDA -> Modeling -> Deployment",
-            "Difference between AI, Machine Learning, and Deep Learning",
-            "Configure Jupyter Notebook & Anaconda environments"
+            "Understand Data Science Lifecycle",
+            "Difference between AI, ML, and Deep Learning"
           ],
           "sections": [
             {
-              "heading": "AI vs ML vs Deep Learning Hierarchy",
-              "text": "Artificial Intelligence (Broadest domain) -> Machine Learning (Statistical learning from data) -> Deep Learning (Multi-layer Neural Networks)."
+              "heading": "AI vs ML",
+              "text": "AI is the broad domain; ML is statistical learning from data."
             }
           ],
           "codeExamples": [
             {
-              "title": "Jupyter Environment Test",
-              "code": "import sys\nprint(f\"Python Version: {sys.version}\")\nprint(\"Arshith Boot Camp AI Workspace Active!\")",
-              "explanation": "Verifies Python runtime inside Jupyter environment."
+              "title": "Import Test",
+              "code": "import numpy as np\nimport pandas as pd",
+              "explanation": "Imports key DS libraries."
             }
           ],
-          "bestPractices": [
-            "Use virtual environments to manage data science dependencies."
-          ],
-          "commonMistakes": [
-            "Jumping directly into ML modeling without exploratory data analysis."
-          ],
-          "practiceExercise": {
-            "title": "Check Environment",
-            "problem": "Verify Python kernel version in Jupyter.",
-            "solutionCode": "import sys; print(sys.version)"
-          },
           "keyTakeaways": [
-            "Data Science combines statistics, computer science, and domain expertise.",
-            "Jupyter Notebooks are the industry standard for interactive analysis."
-          ],
-          "references": [
+            "EDA is critical before model training."
+          ]
+        },
+        "quiz": {
+          "id": "ds-quiz-1",
+          "title": "Module 01 Quiz — Data Science Principles",
+          "passingScore": 70,
+          "timeLimitMinutes": 15,
+          "maxAttempts": 3,
+          "published": true,
+          "questions": [
             {
-              "title": "NumPy Documentation Overview",
-              "url": "https://numpy.org/doc/stable/"
+              "id": "dsq1",
+              "type": "multiple-choice",
+              "questionText": "Which Python library is primarily used for multi-dimensional array processing?",
+              "options": [
+                "Pandas",
+                "NumPy",
+                "Matplotlib",
+                "Requests"
+              ],
+              "correctAnswer": 1,
+              "marks": 10
             }
           ]
         }
       }
-    ]
+    ],
+    "finalTest": {
+      "id": "ds-final-test",
+      "title": "Data Science & AI Specialist Certification Exam",
+      "description": "Testing statistical modeling, feature engineering, classification evaluation metrics, and hyperparameter tuning.",
+      "passingScore": 80,
+      "timeLimitMinutes": 45,
+      "maxAttempts": 2,
+      "published": true,
+      "questions": [
+        {
+          "id": "dst1",
+          "type": "multiple-choice",
+          "questionText": "What metric is best suited for imbalanced classification tasks?",
+          "options": [
+            "Accuracy",
+            "F1-Score / ROC-AUC",
+            "Mean Squared Error",
+            "R-squared"
+          ],
+          "correctAnswer": 1,
+          "marks": 20
+        }
+      ]
+    },
+    "finalProject": {
+      "id": "ds-final-project",
+      "title": "Customer Churn Prediction & Model Deployment",
+      "description": "Build an end-to-end Machine Learning pipeline to predict customer churn using Pandas, Scikit-Learn, and FastAPI.",
+      "requirements": [
+        "Exploratory Data Analysis notebook",
+        "Feature engineering & preprocessing",
+        "Model training (Random Forest/XGBoost)",
+        "Evaluation report"
+      ],
+      "instructions": "Submit Jupyter Notebook (.ipynb) and GitHub repository.",
+      "allowedFileTypes": [
+        ".ipynb",
+        ".zip",
+        ".pdf"
+      ],
+      "maxFileSizeMb": 50,
+      "githubUrlAllowed": true,
+      "liveProjectUrlAllowed": true,
+      "passingScore": 80,
+      "published": true
+    },
+    "updatedAt": "2026-10-01T11:14:13.849Z"
   }
-];
-
-export const CATEGORIES = [
-  "All Categories",
-  "Programming",
-  "SQL",
-  "Web Development",
-  "AI"
 ];
 
 export const STUDENT_PROFILE = {

@@ -20,7 +20,7 @@ export default function Footer({ setActiveTab }) {
   };
 
   return (
-    <footer className="bg-brand-900 text-slate-300 pt-16 pb-12 border-t-4 border-brand-800">
+    <footer className="bg-brand-900 text-slate-300 pt-16 pb-12 border-t-4 border-brand-800 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Top 4 Columns */}
@@ -50,21 +50,62 @@ export default function Footer({ setActiveTab }) {
               Empowering learners worldwide with structured, project-based boot camp courses, complete module reading manuals, and verified credentials.
             </p>
 
-            {/* Social Icons */}
-            <div className="flex items-center gap-2 pt-2">
-              <a href="#facebook" className="w-9 h-9 rounded-full bg-brand-800/90 hover:bg-brand-600 hover:text-white text-slate-300 flex items-center justify-center transition-all border border-brand-700">
+            {/* Social Icons Bar with Active Redirection */}
+            <div className="flex items-center gap-2.5 pt-2">
+              <a 
+                href="#facebook" 
+                className="w-9 h-9 rounded-full bg-brand-800/90 hover:bg-brand-600 hover:text-white text-slate-300 flex items-center justify-center transition-all border border-brand-700"
+                title="Facebook"
+              >
                 <Facebook className="w-4 h-4" />
               </a>
-              <a href="#instagram" className="w-9 h-9 rounded-full bg-brand-800/90 hover:bg-brand-600 hover:text-white text-slate-300 flex items-center justify-center transition-all border border-brand-700">
+
+              {/* Instagram */}
+              <a 
+                href="https://www.instagram.com/arshithgroup/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-9 h-9 rounded-full bg-brand-800/90 hover:bg-gradient-to-tr hover:from-amber-500 hover:via-rose-500 hover:to-purple-600 text-slate-300 hover:text-white flex items-center justify-center transition-all border border-brand-700"
+                title="PALLAVI NELLI (@arshithgroup) on Instagram"
+              >
                 <Instagram className="w-4 h-4" />
               </a>
-              <a href="#youtube" className="w-9 h-9 rounded-full bg-brand-800/90 hover:bg-brand-600 hover:text-white text-slate-300 flex items-center justify-center transition-all border border-brand-700">
-                <Youtube className="w-4 h-4" />
-              </a>
-              <a href="#linkedin" className="w-9 h-9 rounded-full bg-brand-800/90 hover:bg-brand-600 hover:text-white text-slate-300 flex items-center justify-center transition-all border border-brand-700">
+
+              {/* LinkedIn Company */}
+              <a 
+                href="https://www.linkedin.com/company/arshith-group/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-9 h-9 rounded-full bg-brand-800/90 hover:bg-[#0A66C2] text-slate-300 hover:text-white flex items-center justify-center transition-all border border-brand-700"
+                title="Arshith Group on LinkedIn"
+              >
                 <Linkedin className="w-4 h-4" />
               </a>
-              <a href="#x" className="w-9 h-9 rounded-full bg-brand-800/90 hover:bg-brand-600 hover:text-white text-slate-300 flex items-center justify-center transition-all border border-brand-700">
+
+              {/* LinkedIn Profile (Farook N) */}
+              <a 
+                href="https://www.linkedin.com/in/farook-n-2bb2b5344/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-9 h-9 rounded-full bg-brand-800/90 hover:bg-[#0077B5] text-cyan-400 hover:text-white flex items-center justify-center transition-all border border-brand-700"
+                title="Farook N on LinkedIn"
+              >
+                <Linkedin className="w-4 h-4" />
+              </a>
+
+              <a 
+                href="#youtube" 
+                className="w-9 h-9 rounded-full bg-brand-800/90 hover:bg-rose-600 hover:text-white text-slate-300 flex items-center justify-center transition-all border border-brand-700"
+                title="YouTube"
+              >
+                <Youtube className="w-4 h-4" />
+              </a>
+
+              <a 
+                href="#x" 
+                className="w-9 h-9 rounded-full bg-brand-800/90 hover:bg-brand-600 hover:text-white text-slate-300 flex items-center justify-center transition-all border border-brand-700"
+                title="Twitter / X"
+              >
                 <Twitter className="w-4 h-4" />
               </a>
             </div>
@@ -75,38 +116,35 @@ export default function Footer({ setActiveTab }) {
             <h3 className="text-xs font-black text-white uppercase tracking-wider">Quick Links</h3>
             <ul className="space-y-2.5 text-sm font-semibold">
               <li>
-                <button onClick={() => handleNavClick('home')} className="hover:text-emerald-400 transition-colors">Home</button>
+                <button onClick={() => handleNavClick('home')} className="hover:text-emerald-400 transition-colors cursor-pointer">Home</button>
               </li>
               <li>
-                <button onClick={() => handleNavClick('courses')} className="hover:text-emerald-400 transition-colors">Courses</button>
+                <button onClick={() => handleNavClick('courses')} className="hover:text-emerald-400 transition-colors cursor-pointer">Courses</button>
               </li>
               <li>
-                <button onClick={() => handleNavClick('categories')} className="hover:text-emerald-400 transition-colors">Categories</button>
+                <button onClick={() => handleNavClick('categories')} className="hover:text-emerald-400 transition-colors cursor-pointer">Categories</button>
               </li>
               <li>
-                <button onClick={() => handleNavClick('about')} className="hover:text-emerald-400 transition-colors">About Us</button>
+                <button onClick={() => handleNavClick('about')} className="hover:text-emerald-400 transition-colors cursor-pointer">About Us</button>
               </li>
               <li>
-                <button onClick={() => handleNavClick('contact')} className="hover:text-emerald-400 transition-colors">Contact</button>
+                <button onClick={() => handleNavClick('contact')} className="hover:text-emerald-400 transition-colors cursor-pointer">Contact</button>
               </li>
             </ul>
           </div>
 
-          {/* Support */}
+          {/* Support Column */}
           <div className="lg:col-span-2 space-y-3">
             <h3 className="text-xs font-black text-white uppercase tracking-wider">Support</h3>
             <ul className="space-y-2.5 text-sm font-semibold">
               <li>
-                <button onClick={() => handleNavClick('contact')} className="hover:text-emerald-400 transition-colors">Help Center</button>
+                <button onClick={() => handleNavClick('contact')} className="hover:text-emerald-400 transition-colors cursor-pointer">Help Center</button>
               </li>
               <li>
                 <a href="#terms" className="hover:text-emerald-400 transition-colors">Terms & Conditions</a>
               </li>
               <li>
                 <a href="#privacy" className="hover:text-emerald-400 transition-colors">Privacy Policy</a>
-              </li>
-              <li>
-                <a href="#refund" className="hover:text-emerald-400 transition-colors">Refund Policy</a>
               </li>
             </ul>
           </div>
