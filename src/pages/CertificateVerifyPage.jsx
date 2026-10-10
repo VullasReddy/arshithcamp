@@ -2,13 +2,22 @@ import React, { useState } from 'react';
 import { ShieldCheck, CheckCircle2, Search, ArrowLeft } from 'lucide-react';
 import { SAMPLE_CERTIFICATES } from '../data/coursesData';
 
-export default function CertificateVerifyPage({ certId, onBack }) {
+export default function CertificateVerifyPage({ certId, onBack, studentUser }) {
   const [searchId, setSearchId] = useState(certId || 'ABC-2026-PY0128');
   const [query, setQuery] = useState(certId || 'ABC-2026-PY0128');
 
-  const match = SAMPLE_CERTIFICATES.find(
+  const rawMatch = SAMPLE_CERTIFICATES.find(
     c => c.id.toLowerCase() === query.trim().toLowerCase()
   ) || (query.includes('ABC') ? SAMPLE_CERTIFICATES[0] : null);
+
+  const todayFormatted = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+  const studentDisplayName = (studentUser?.name && studentUser.name.trim()) ? studentUser.name.trim() : (studentUser?.email && studentUser.email.trim() ? studentUser.email.trim() : '');
+
+  const match = rawMatch ? {
+    ...rawMatch,
+    studentName: studentDisplayName || (rawMatch.studentName !== 'Arshith Kumar' ? rawMatch.studentName : '') || studentUser?.email || 'Student',
+    issueDate: (studentUser || rawMatch.issueDate === 'October 1, 2026') ? todayFormatted : rawMatch.issueDate
+  } : null;
 
   return (
     <div className="py-12 bg-[#FAFDFB] min-h-screen">

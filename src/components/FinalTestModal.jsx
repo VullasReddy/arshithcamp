@@ -33,13 +33,13 @@ export default function FinalTestModal({
 
   let savedUser = {};
   try {
-    const raw = localStorage.getItem('student_user');
+    const raw = localStorage.getItem('studentUser') || localStorage.getItem('student_user');
     if (raw && raw !== 'undefined' && raw !== 'null') savedUser = JSON.parse(raw);
   } catch (e) {
     savedUser = {};
   }
   const userId = savedUser?.id || savedUser?.email || 'student-001';
-  const studentName = savedUser?.name || 'Arshith Student';
+  const studentName = (savedUser?.name && savedUser.name.trim()) ? savedUser.name.trim() : (savedUser?.email && savedUser.email.trim() ? savedUser.email.trim() : 'Student');
 
   const timerRef = useRef(null);
 
@@ -179,6 +179,8 @@ export default function FinalTestModal({
         localStorage.removeItem(`${course?.id || 'course'}_final_answers_${userId}`);
 
         if (res.result.passed) {
+          localStorage.setItem(`arb_final_passed_${course?.id}_${userId}`, 'true');
+          localStorage.setItem(`final_test_passed_${course?.id}`, 'true');
           confetti({
             particleCount: 150,
             spread: 90,

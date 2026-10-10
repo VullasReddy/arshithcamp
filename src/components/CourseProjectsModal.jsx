@@ -60,7 +60,17 @@ export default function CourseProjectsModal({ isOpen, onClose, course }) {
       status: 'Submitted'
     };
 
+    const savedUser = (() => {
+      try {
+        const raw = localStorage.getItem('studentUser') || localStorage.getItem('student_user');
+        return raw && raw !== 'undefined' && raw !== 'null' ? JSON.parse(raw) : {};
+      } catch (e) { return {}; }
+    })();
+    const userId = savedUser?.id || savedUser?.email || 'student-001';
+
     localStorage.setItem(`arb_proj_sub_${course.id}_${activeProject.id}`, JSON.stringify(record));
+    localStorage.setItem(`arb_proj_submitted_${course.id}_${userId}`, 'true');
+    localStorage.setItem(`project_submitted_${course.id}`, 'true');
     setSubmissions(prev => ({ ...prev, [activeProject.id]: record }));
     setSaveSuccess(true);
     setTimeout(() => setSaveSuccess(false), 3000);

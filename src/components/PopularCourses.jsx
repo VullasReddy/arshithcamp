@@ -1,7 +1,7 @@
 import React from 'react';
-import { Star, Clock, Users, ArrowRight, Code, Database, BarChart2, Terminal, PlayCircle } from 'lucide-react';
+import { Star, Clock, Users, ArrowRight, Code, Database, BarChart2, Terminal, PlayCircle, CheckCircle } from 'lucide-react';
 
-export default function PopularCourses({ courses, onSelectCourse, onViewAllCourses }) {
+export default function PopularCourses({ courses, onSelectCourse, onViewAllCourses, studentUser, onEnrollCourse }) {
   const popularCourses = courses.slice(0, 4);
 
   const renderCourseIcon = (type) => {
@@ -73,6 +73,7 @@ export default function PopularCourses({ courses, onSelectCourse, onViewAllCours
           {popularCourses.map((course) => {
             const completedCount = course.modules?.filter(m => m.completed).length || 0;
             const totalModules = course.modules?.length || 1;
+            const isEnrolled = studentUser?.enrolledCourseIds?.includes(course.id);
 
             return (
               <div
@@ -129,13 +130,23 @@ export default function PopularCourses({ courses, onSelectCourse, onViewAllCours
 
                 {/* Footer Action & Real Module Progress */}
                 <div className="space-y-3 pt-3 border-t-2 border-slate-100">
-                  <button
-                    onClick={() => onSelectCourse(course.id)}
-                    className="w-full py-2.5 px-4 text-xs font-black text-white bg-brand-600 hover:bg-brand-700 active:scale-98 rounded-full border-2 border-brand-900 shadow-xs transition-all flex items-center justify-center gap-1.5"
-                  >
-                    <span>Open Course</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
+                  {isEnrolled ? (
+                    <button
+                      onClick={() => onSelectCourse(course.id)}
+                      className="w-full py-2.5 px-4 text-xs font-black text-white bg-emerald-600 hover:bg-emerald-700 active:scale-98 rounded-full border-2 border-emerald-900 shadow-xs transition-all flex items-center justify-center gap-1.5"
+                    >
+                      <span>Enrolled</span>
+                      <CheckCircle className="w-3.5 h-3.5" />
+                    </button>
+                  ) : (
+                    <button
+                      onClick={(e) => onEnrollCourse ? onEnrollCourse(course.id, e) : onSelectCourse(course.id)}
+                      className="w-full py-2.5 px-4 text-xs font-black text-white bg-brand-600 hover:bg-brand-700 active:scale-98 rounded-full border-2 border-brand-900 shadow-xs transition-all flex items-center justify-center gap-1.5"
+                    >
+                      <span>Enroll</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
+                  )}
 
                   {/* Progress Bar */}
                   <div className="space-y-1">

@@ -12,7 +12,9 @@ export default function ModuleQuizModal({
   module, 
   courseId = 'sql-data-analysis',
   onQuizPassed,
-  onContinueNextModule 
+  onContinueNextModule,
+  hasNextModule = true,
+  nextModuleName = ''
 }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -101,6 +103,8 @@ export default function ModuleQuizModal({
     setQuizState('submitting');
     setShowUnansweredWarning(false);
 
+    let submittedData = null;
+
     try {
       const res = await api.submitModuleQuiz(module.id, {
         userId,
@@ -110,24 +114,53 @@ export default function ModuleQuizModal({
       });
 
       if (res.success && res.result) {
-        setResultData(res.result);
-        setQuizState('result');
-
-        if (res.result.passed) {
-          confetti({
-            particleCount: 120,
-            spread: 70,
-            origin: { y: 0.6 }
-          });
-          if (onQuizPassed) onQuizPassed(module.id);
-        }
-      } else {
-        throw new Error('Submission failed.');
+        submittedData = res.result;
       }
     } catch (err) {
-      console.error('Quiz submit error:', err);
-      setError('Error submitting quiz. Please try again.');
-      setQuizState('taking');
+      console.error('Quiz submit error, fallback to local scoring:', err);
+    }
+
+    if (!submittedData) {
+      let correct = 0;
+      const questionsReview = questions.map(q => {
+        const isCorrect = answers[q.id] === q.correctAnswer;
+        if (isCorrect) correct++;
+        return {
+          id: q.id,
+          questionText: q.questionText,
+          options: q.options,
+          correctAnswer: q.correctAnswer,
+          selectedAnswer: answers[q.id] !== undefined ? answers[q.id] : null,
+          isCorrect,
+          explanation: q.explanation
+        };
+      });
+
+      const total = questions.length || 1;
+      const pct = Math.round((correct / total) * 100);
+      const passed = pct >= 70;
+
+      submittedData = {
+        score: correct,
+        totalQuestions: total,
+        percentage: pct,
+        passed,
+        correctCount: correct,
+        incorrectCount: total - correct,
+        questionsReview
+      };
+    }
+
+    setResultData(submittedData);
+    setQuizState('result');
+
+    if (submittedData.passed) {
+      confetti({
+        particleCount: 120,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+      if (onQuizPassed) onQuizPassed(module.id);
     }
   };
 
@@ -326,36 +359,58 @@ export default function ModuleQuizModal({
           <div className="flex-1 overflow-y-auto p-6 sm:p-10 space-y-6 text-center">
             
             {/* Status Badge & Header */}
-            <div className="space-y-2">
-              <span className="text-xs font-extrabold uppercase text-slate-400 tracking-wider">
+            <div className="space-y-3">
+              <span className="text-xs font-extrabold uppercase text-slate-400 tracking-wider block">
                 {module.title}
               </span>
-              <h2 className="text-2xl sm:text-3xl font-black text-white">MODULE QUIZ RESULT</h2>
+
+              {resultData.passed ? (
+                <div className="space-y-2">
+                  <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-emerald-500/20 border-2 border-emerald-400 text-emerald-300 text-sm font-black uppercase tracking-widest shadow-lg shadow-emerald-500/20 animate-bounce">
+                    <span>🎉 CONGRATULATIONS! COMPLETED 🎉</span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl font-black text-white">Module Quiz Passed Successfully!</h2>
+                </div>
+              ) : (
+                <div className="space-y-1">
+                  <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-500/20 border border-rose-500/50 text-rose-300 text-xs font-black uppercase tracking-wider">
+                    <span>Quiz Needs Improvement</span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl font-black text-white">MODULE QUIZ RESULT</h2>
+                </div>
+              )}
             </div>
 
             <div className={`max-w-md mx-auto p-6 rounded-3xl border-2 shadow-2xl space-y-4 ${
               resultData.passed 
-                ? 'bg-emerald-950/40 border-emerald-400 text-emerald-200' 
+                ? 'bg-emerald-950/40 border-emerald-400 text-emerald-200 ring-2 ring-emerald-500/20' 
                 : 'bg-rose-950/40 border-rose-500 text-rose-200'
             }`}>
               <div className={`w-16 h-16 rounded-full mx-auto flex items-center justify-center text-3xl font-black border-2 ${
                 resultData.passed 
-                  ? 'bg-emerald-500/20 border-emerald-400 text-emerald-400' 
+                  ? 'bg-emerald-500/20 border-emerald-400 text-emerald-400 shadow-lg shadow-emerald-500/30' 
                   : 'bg-rose-500/20 border-rose-500 text-rose-400'
               }`}>
                 {resultData.passed ? '✓' : '✕'}
               </div>
 
               <div>
-                <span className={`px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest ${
+                <span className={`px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest inline-flex items-center gap-1.5 shadow-md ${
                   resultData.passed ? 'bg-emerald-400 text-slate-950' : 'bg-rose-500 text-white'
                 }`}>
-                  STATUS: {resultData.passed ? 'PASSED' : 'NOT PASSED'}
+                  {resultData.passed ? 'CONGRATULATIONS! COMPLETED ✓' : 'STATUS: NOT PASSED'}
                 </span>
                 <p className="text-xs text-slate-400 font-medium pt-2">
-                  Passing criteria: 70% (4 out of 5 correct)
+                  Passing criteria: 70% ({Math.ceil(resultData.totalQuestions * 0.7)} out of {resultData.totalQuestions} correct)
                 </p>
               </div>
+
+              {resultData.passed && (
+                <div className="bg-emerald-900/40 border border-emerald-500/40 p-3 rounded-2xl text-emerald-300 text-xs font-bold flex items-center justify-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span>Module Completed! Your Score: <strong>{resultData.score} / {resultData.totalQuestions} ({resultData.percentage}%)</strong></span>
+                </div>
+              )}
 
               {/* Score Breakdown Grid */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center pt-2">
@@ -402,9 +457,17 @@ export default function ModuleQuizModal({
                     onClose();
                     onContinueNextModule();
                   }}
-                  className="px-6 py-3 text-xs font-black text-slate-950 bg-emerald-400 hover:bg-emerald-300 rounded-xl shadow-lg flex items-center gap-1.5 transition-all"
+                  className={`px-6 py-3.5 text-xs font-black text-slate-950 rounded-xl shadow-xl flex items-center gap-2 transition-all border-2 cursor-pointer ${
+                    hasNextModule
+                      ? 'bg-emerald-400 hover:bg-emerald-300 border-emerald-300 hover:scale-105 shadow-emerald-500/20'
+                      : 'bg-amber-400 hover:bg-amber-300 border-amber-300 hover:scale-105 shadow-amber-500/20'
+                  }`}
                 >
-                  <span>Continue to Next Module</span>
+                  <span>
+                    {hasNextModule 
+                      ? (nextModuleName ? `Go to Next Module: ${nextModuleName.split('—')[0].trim()} →` : 'Go to Next Module →') 
+                      : 'Course Completed! Take Final Assessment →'}
+                  </span>
                   <ArrowRight className="w-4 h-4 text-slate-950" />
                 </button>
               )}

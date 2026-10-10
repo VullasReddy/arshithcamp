@@ -138,7 +138,7 @@ router.post('/admin/certificates/generate', verifyAdminToken, (req, res) => {
     id: certificateId,
     certificateId,
     studentId: student.id,
-    studentName: student.name,
+    studentName: (student.name && student.name.trim()) ? student.name.trim() : (student.email && student.email.trim() ? student.email.trim() : 'Student'),
     studentEmail: student.email,
     courseId: course.id,
     courseTitle: course.title,

@@ -9,6 +9,8 @@ import { generateCoursePDF } from '../utils/pdfGenerator';
 import ModuleQuizModal from '../components/ModuleQuizModal';
 import FinalTestModal from '../components/FinalTestModal';
 import CourseProjectsModal from '../components/CourseProjectsModal';
+import CertificateRequirementsModal from '../components/CertificateRequirementsModal';
+import { isCertificateUnlocked } from '../utils/certificateEligibility';
 
 export default function LearningPage({ 
   course, 
@@ -22,6 +24,7 @@ export default function LearningPage({
   const [quizModalOpen, setQuizModalOpen] = useState(false);
   const [finalTestModalOpen, setFinalTestModalOpen] = useState(false);
   const [projectsModalOpen, setProjectsModalOpen] = useState(false);
+  const [requirementsModalOpen, setRequirementsModalOpen] = useState(false);
 
   const savedUser = (() => {
     try {
@@ -31,7 +34,7 @@ export default function LearningPage({
       return {};
     }
   })();
-  const studentName = savedUser?.name || 'Arshith Kumar';
+  const studentName = (savedUser?.name && savedUser.name.trim()) ? savedUser.name.trim() : (savedUser?.email && savedUser.email.trim() ? savedUser.email.trim() : 'Student');
 
   useEffect(() => {
     if (!course || !course.modules || course.modules.length === 0) return;
@@ -56,6 +59,17 @@ export default function LearningPage({
   const completedCount = course.modules?.filter(m => m.completed).length || 0;
   const totalCount = course.modules?.length || 1;
   const isCourseFullyCompleted = course.progress === 100 || completedCount === totalCount;
+
+  const userId = savedUser?.id || savedUser?.email || 'student-001';
+  const certEligibility = isCertificateUnlocked(course.id, userId, course);
+
+  const handleCertificateClick = () => {
+    if (certEligibility.canGenerateCertificate) {
+      onViewCertificate(course.id);
+    } else {
+      setRequirementsModalOpen(true);
+    }
+  };
 
   // Handle Mark Module Complete
   const handleMarkComplete = () => {
@@ -163,8 +177,8 @@ export default function LearningPage({
 
           {isCourseFullyCompleted && (
             <button
-              onClick={() => onViewCertificate(course.id)}
-              className="px-4 py-1.5 text-xs font-black text-slate-950 bg-amber-400 hover:bg-amber-300 rounded-full shadow-lg flex items-center gap-1.5"
+              onClick={handleCertificateClick}
+              className="px-4 py-1.5 text-xs font-black text-slate-950 bg-amber-400 hover:bg-amber-300 rounded-full shadow-lg flex items-center gap-1.5 cursor-pointer"
             >
               <Award className="w-4 h-4 text-slate-950" />
               <span>Get Certificate</span>
@@ -326,8 +340,8 @@ export default function LearningPage({
                 </button>
 
                 <button
-                  onClick={() => onViewCertificate(course.id)}
-                  className="px-6 py-3 text-xs font-black text-slate-950 bg-amber-400 hover:bg-amber-300 rounded-full shadow-lg flex items-center gap-2"
+                  onClick={handleCertificateClick}
+                  className="px-6 py-3 text-xs font-black text-slate-950 bg-amber-400 hover:bg-amber-300 rounded-full shadow-lg flex items-center gap-2 cursor-pointer"
                 >
                   <Award className="w-4 h-4 text-slate-950" />
                   <span>View Certificate</span>
@@ -608,11 +622,17 @@ export default function LearningPage({
           onClose={() => setQuizModalOpen(false)}
           module={currentModule}
           courseId={course.id}
+          hasNextModule={currentModuleIndex < (course.modules?.length || 1) - 1}
+          nextModuleName={currentModuleIndex < (course.modules?.length || 1) - 1 ? course.modules[currentModuleIndex + 1]?.title : ''}
           onQuizPassed={(modId) => {
-            onToggleModuleComplete(course.id, modId);
+            onToggleModuleComplete(course.id, modId, true);
           }}
           onContinueNextModule={() => {
-            handleNext();
+            if (currentModuleIndex < (course.modules?.length || 1) - 1) {
+              handleNext();
+            } else {
+              setFinalTestModalOpen(true);
+            }
           }}
         />
       )}
@@ -639,6 +659,16 @@ export default function LearningPage({
         isOpen={projectsModalOpen}
         onClose={() => setProjectsModalOpen(false)}
         course={course}
+      />
+
+      {/* Certificate Requirements Modal */}
+      <CertificateRequirementsModal
+        isOpen={requirementsModalOpen}
+        onClose={() => setRequirementsModalOpen(false)}
+        course={course}
+        eligibility={certEligibility}
+        onOpenFinalTest={() => setFinalTestModalOpen(true)}
+        onOpenProjects={() => setProjectsModalOpen(true)}
       />
 
     </div>

@@ -1,6 +1,6 @@
 import jsPDF from 'jspdf';
 
-export function generateCoursePDF(course, studentName = 'Arshith Kumar') {
+export function generateCoursePDF(course, studentName = 'Student') {
   const doc = new jsPDF({
     orientation: 'portrait',
     unit: 'mm',

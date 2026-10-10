@@ -22,7 +22,7 @@
       "price": 0,
       "isFree": true,
       "bestseller": true,
-      "progress": 0,
+      "progress": 100,
       "status": "published",
       "featured": false,
       "certificateAvailable": true,
@@ -59,7 +59,7 @@
           "id": "py-mod-1",
           "title": "Module 01 — Introduction to Python",
           "description": "This module introduces Python programming from the ground up. You will learn what Python is, why it is widely used, how to install and run Python, the basic structure of a Python program, and the core concepts needed before moving into variables, data types, operators, and control flow.",
-          "completed": false,
+          "completed": true,
           "readingMaterial": {
             "introduction": "This module introduces Python programming from the ground up. You will learn what Python is, why it is widely used, how to install and run Python, the basic structure of a Python program, and the core concepts needed before moving into variables, data types, operators, and control flow.\n\nLearning Level: Beginner | Module Type: Theory + Practical\nPrerequisite: No prior programming experience is required.",
             "objectives": [
@@ -503,7 +503,7 @@
           "id": "py-mod-2",
           "title": "Module 02 — Variables, Expressions and Statements",
           "description": "Variables and data types are fundamental concepts in Python programming. Learn variable assignment, naming rules, dynamic typing, built-in numeric/string/collection types, mutability, type conversion, and practice programs.",
-          "completed": false,
+          "completed": true,
           "readingMaterial": {
             "introduction": "Variables and data types are fundamental concepts in Python programming.\n\nA variable is a name that refers to a value or object stored in memory. Variables allow us to store information and use that information later in a program.\n\nA data type tells us what kind of value an object represents and what operations can be performed with that value.\n\nPython is dynamically typed, which means you do not have to explicitly declare the type of a variable before assigning a value to it. The same variable name can refer to objects of different types at different times.",
             "objectives": [
@@ -1075,7 +1075,7 @@
           "id": "py-mod-3",
           "title": "Module 03 — Operators, Expressions & Precedence",
           "description": "Operators and expressions are fundamental building blocks of Python programs. Master arithmetic, assignment, comparison, logical, bitwise, membership, and identity operators, operator precedence (PEMDAS), short-circuiting, ternary expressions, and hands-on coding practice.",
-          "completed": false,
+          "completed": true,
           "readingMaterial": {
             "introduction": "Operators and expressions are fundamental building blocks of Python programs.\n\nAn operator is a symbol or keyword that tells Python to perform an operation.\nAn operand is a value or object on which an operator performs an operation.\nAn expression is a combination of values, variables, operators, function calls, or other elements that Python can evaluate to produce a value.\n\nFor example:\na = 10\nb = 20\nresult = a + b\n\nHere:\n• a and b are operands.\n• + is an operator.\n• a + b is an expression.\n• 30 is the value produced by the expression.\n\nOperators allow us to perform essential tasks such as:\n• Mathematical calculations\n• Comparing values\n• Assigning and updating values\n• Performing logical decision-making\n• Working with binary bits\n• Checking membership within sequences and mappings\n• Comparing object memory identity",
             "objectives": [
@@ -8939,7 +8939,8 @@
           "expectedOutput": "✓ Contact 'Arshith Kumar' added successfully.\n✓ Contact 'Bhavana Kolla' added successfully.\n✓ Contact 'Chandan Verma' added successfully.\n\nSearch results for 'Arshith' (1 found):\n--------------------------------------------------\nID: 1 | Name: Arshith Kumar | Email: arshith@example.com | Phone: +91-9876543210\n--------------------------------------------------"
         }
       ],
-      "isCompleted": false
+      "isCompleted": true,
+      "completedAt": "2026-10-10T13:04:15.598Z"
     },
     {
       "id": "sql-mastery",
@@ -17622,6 +17623,186 @@
   ],
   "quizAttempts": [
     {
+      "id": "attempt-1791637270345-547",
+      "userId": "student-001",
+      "studentName": "Arshith Student",
+      "courseId": "python-programming",
+      "moduleId": "py-mod-6",
+      "score": 3,
+      "totalQuestions": 5,
+      "percentage": 60,
+      "passed": false,
+      "attemptNumber": 1,
+      "answers": {
+        "py-q-6-1": 0,
+        "py-q-6-2": 2,
+        "py-q-6-3": 1,
+        "py-q-6-4": 1,
+        "py-q-6-5": 1
+      },
+      "completedAt": "2026-10-10T13:01:10.345Z"
+    },
+    {
+      "id": "attempt-1791637216331-868",
+      "userId": "student-001",
+      "studentName": "Arshith Student",
+      "courseId": "python-programming",
+      "moduleId": "py-mod-5",
+      "score": 3,
+      "totalQuestions": 5,
+      "percentage": 60,
+      "passed": false,
+      "attemptNumber": 1,
+      "answers": {
+        "py-q-5-1": 0,
+        "py-q-5-2": 1,
+        "py-q-5-3": 0,
+        "py-q-5-4": 1,
+        "py-q-5-5": 3
+      },
+      "completedAt": "2026-10-10T13:00:16.331Z"
+    },
+    {
+      "id": "attempt-1791637183828-267",
+      "userId": "student-001",
+      "studentName": "Arshith Student",
+      "courseId": "python-programming",
+      "moduleId": "py-mod-4",
+      "score": 3,
+      "totalQuestions": 5,
+      "percentage": 60,
+      "passed": false,
+      "attemptNumber": 1,
+      "answers": {
+        "py-q-4-1": 0,
+        "py-q-4-2": 2,
+        "py-q-4-3": 2,
+        "py-q-4-4": 1,
+        "py-q-4-5": 2
+      },
+      "completedAt": "2026-10-10T12:59:43.828Z"
+    },
+    {
+      "id": "attempt-1791637150458-823",
+      "userId": "student-001",
+      "studentName": "Arshith Student",
+      "courseId": "python-programming",
+      "moduleId": "py-mod-1",
+      "score": 4,
+      "totalQuestions": 5,
+      "percentage": 80,
+      "passed": true,
+      "attemptNumber": 6,
+      "answers": {
+        "py-q-1-1": 0,
+        "py-q-1-2": 1,
+        "py-q-1-3": 1,
+        "py-q-1-4": 2,
+        "py-q-1-5": 1
+      },
+      "completedAt": "2026-10-10T12:59:10.458Z"
+    },
+    {
+      "id": "attempt-1791637125538-668",
+      "userId": "student-001",
+      "studentName": "Arshith Student",
+      "courseId": "python-programming",
+      "moduleId": "py-mod-3",
+      "score": 5,
+      "totalQuestions": 5,
+      "percentage": 100,
+      "passed": true,
+      "attemptNumber": 1,
+      "answers": {
+        "py-q-3-1": 1,
+        "py-q-3-2": 1,
+        "py-q-3-3": 1,
+        "py-q-3-4": 1,
+        "py-q-3-5": 1
+      },
+      "completedAt": "2026-10-10T12:58:45.539Z"
+    },
+    {
+      "id": "attempt-1791636828659-547",
+      "userId": "student-001",
+      "studentName": "Arshith Student",
+      "courseId": "python-programming",
+      "moduleId": "py-mod-2",
+      "score": 5,
+      "totalQuestions": 5,
+      "percentage": 100,
+      "passed": true,
+      "attemptNumber": 1,
+      "answers": {
+        "py-q-2-1": 1,
+        "py-q-2-2": 1,
+        "py-q-2-3": 1,
+        "py-q-2-4": 2,
+        "py-q-2-5": 1
+      },
+      "completedAt": "2026-10-10T12:53:48.659Z"
+    },
+    {
+      "id": "attempt-1791633333785-224",
+      "userId": "student-001",
+      "studentName": "Arshith Student",
+      "courseId": "python-programming",
+      "moduleId": "py-mod-1",
+      "score": 5,
+      "totalQuestions": 5,
+      "percentage": 100,
+      "passed": true,
+      "attemptNumber": 5,
+      "answers": {
+        "py-q-1-1": 1,
+        "py-q-1-2": 1,
+        "py-q-1-3": 1,
+        "py-q-1-4": 2,
+        "py-q-1-5": 1
+      },
+      "completedAt": "2026-10-10T11:55:33.785Z"
+    },
+    {
+      "id": "attempt-1791633311292-65",
+      "userId": "student-001",
+      "studentName": "Arshith Student",
+      "courseId": "python-programming",
+      "moduleId": "py-mod-1",
+      "score": 5,
+      "totalQuestions": 5,
+      "percentage": 100,
+      "passed": true,
+      "attemptNumber": 4,
+      "answers": {
+        "py-q-1-1": 1,
+        "py-q-1-2": 1,
+        "py-q-1-3": 1,
+        "py-q-1-4": 2,
+        "py-q-1-5": 1
+      },
+      "completedAt": "2026-10-10T11:55:11.292Z"
+    },
+    {
+      "id": "attempt-1791633255493-446",
+      "userId": "student-001",
+      "studentName": "Arshith Student",
+      "courseId": "python-programming",
+      "moduleId": "py-mod-1",
+      "score": 1,
+      "totalQuestions": 5,
+      "percentage": 20,
+      "passed": false,
+      "attemptNumber": 3,
+      "answers": {
+        "py-q-1-1": 0,
+        "py-q-1-2": 1,
+        "py-q-1-3": 0,
+        "py-q-1-4": 1,
+        "py-q-1-5": 2
+      },
+      "completedAt": "2026-10-10T11:54:15.493Z"
+    },
+    {
       "id": "attempt-1791626043691-362",
       "userId": "student-001",
       "studentName": "Arshith Student",
@@ -17663,6 +17844,44 @@
     }
   ],
   "finalTestAttempts": [
+    {
+      "id": "ftest-attempt-1791637455598",
+      "userId": "krantishantveer@gmail.com",
+      "studentName": "kranti",
+      "courseId": "python-programming",
+      "score": 12,
+      "totalQuestions": 20,
+      "percentage": 60,
+      "passed": true,
+      "attemptNumber": 1,
+      "timeTakenSeconds": 62,
+      "timeTakenFormatted": "1 minute 2 seconds",
+      "isAutoSubmitted": false,
+      "startedAt": "2026-10-10T13:03:13.510Z",
+      "submittedAt": "2026-10-10T13:04:15.596Z",
+      "answers": {
+        "py-set-b-1": 1,
+        "py-set-b-2": 1,
+        "py-set-b-3": 2,
+        "py-set-b-4": 2,
+        "py-set-b-5": 0,
+        "py-set-b-6": 1,
+        "py-set-b-7": 2,
+        "py-set-b-8": 1,
+        "py-set-b-9": 1,
+        "py-set-b-10": 3,
+        "py-set-b-11": 1,
+        "py-set-b-12": 1,
+        "py-set-b-13": 1,
+        "py-set-b-14": 1,
+        "py-set-b-15": 1,
+        "py-set-b-16": 1,
+        "py-set-b-17": 0,
+        "py-set-b-18": 1,
+        "py-set-b-19": 2,
+        "py-set-b-20": 1
+      }
+    },
     {
       "id": "ftest-attempt-1791349862984",
       "userId": "student-001",
@@ -17759,6 +17978,15 @@
       "studentName": "Adithya",
       "courseId": "python-programming",
       "startedAt": 1791626182938,
+      "durationSeconds": 2700,
+      "submitted": false
+    },
+    "krantishantveer@gmail.com-python-programming-final": {
+      "sessionId": "session-1791637856319",
+      "userId": "krantishantveer@gmail.com",
+      "studentName": "kranti",
+      "courseId": "python-programming",
+      "startedAt": 1791637856319,
       "durationSeconds": 2700,
       "submitted": false
     }

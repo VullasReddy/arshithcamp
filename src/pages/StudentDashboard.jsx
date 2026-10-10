@@ -5,6 +5,7 @@ import {
 } from 'lucide-react';
 import { SAMPLE_CERTIFICATES } from '../data/coursesData';
 import { generateCoursePDF } from '../utils/pdfGenerator';
+import { isCertificateUnlocked } from '../utils/certificateEligibility';
 
 export default function StudentDashboard({ 
   studentUser, 
@@ -14,16 +15,19 @@ export default function StudentDashboard({
   onViewCertificate,
   onExploreCourses 
 }) {
-  const userName = studentUser?.name || 'Student';
+  const userName = (studentUser?.name && studentUser.name.trim()) ? studentUser.name.trim() : (studentUser?.email && studentUser.email.trim() ? studentUser.email.trim() : 'Student');
   const enrolledCourseIds = studentUser?.enrolledCourseIds || [];
+  const userId = studentUser?.id || studentUser?.email || 'student-001';
 
   const enrolledCourses = courses.filter(c => enrolledCourseIds.includes(c.id));
   const completedCourses = enrolledCourses.filter(c => c.progress === 100);
   const inProgressCourse = enrolledCourses.sort((a, b) => (b.progress || 0) - (a.progress || 0))[0];
 
-  const earnedCertificates = SAMPLE_CERTIFICATES.filter(sc => 
-    studentUser?.certificates?.includes(sc.id) || (enrolledCourseIds.includes(sc.courseId) && completedCourses.some(c => c.id === sc.courseId))
-  );
+  const earnedCertificates = SAMPLE_CERTIFICATES.filter(sc => {
+    const targetCourse = courses.find(c => c.id === sc.courseId);
+    const elig = isCertificateUnlocked(sc.courseId, userId, targetCourse);
+    return elig.canGenerateCertificate;
+  });
 
   const totalLearningHours = enrolledCourses.reduce((acc, c) => acc + (parseInt(c.duration) || 10), 0);
   const userInitial = userName.charAt(0).toUpperCase();
@@ -263,7 +267,9 @@ export default function StudentDashboard({
                   <div className="space-y-1">
                     <span className="text-[10px] font-mono font-bold text-amber-800 uppercase tracking-wider">ID: {cert.id}</span>
                     <h3 className="text-base font-black text-slate-900">{cert.courseTitle}</h3>
-                    <p className="text-xs text-slate-600 font-semibold">Issued on: {cert.issueDate}</p>
+                    <p className="text-xs text-slate-600 font-semibold">
+                      Issued on: {cert.issueDate === 'October 1, 2026' ? new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : (cert.issueDate || new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }))}
+                    </p>
                   </div>
 
                   <button

@@ -109,16 +109,50 @@ export default function App() {
   };
 
   const handleStudentAuthSuccess = (userAuthData) => {
-    const existingEnrolled = studentUser?.enrolledCourseIds || [];
+    const emailKey = `studentUser_${userAuthData.email.trim().toLowerCase()}`;
+    let savedUserData = null;
+    try {
+      const saved = localStorage.getItem(emailKey);
+      if (saved) savedUserData = JSON.parse(saved);
+    } catch (e) {}
+
+    const resolvedName = userAuthData.name?.trim() || savedUserData?.name?.trim() || '';
+
+    const existingEnrolled = userAuthData.mode === 'signup'
+      ? []
+      : (savedUserData?.enrolledCourseIds || []);
+
     const updatedUser = {
-      name: userAuthData.name,
-      email: userAuthData.email,
-      enrolledCourseIds: userAuthData.mode === 'signup' ? [] : existingEnrolled,
-      certificates: []
+      name: resolvedName,
+      email: userAuthData.email.trim(),
+      enrolledCourseIds: existingEnrolled,
+      certificates: savedUserData?.certificates || []
     };
     setStudentUser(updatedUser);
     localStorage.setItem('studentUser', JSON.stringify(updatedUser));
+    localStorage.setItem(emailKey, JSON.stringify(updatedUser));
     setActiveTab('dashboard');
+  };
+
+  const handleEnrollCourse = (courseId, e) => {
+    if (e && e.stopPropagation) e.stopPropagation();
+    if (!studentUser) {
+      handleOpenAuth('login');
+      return;
+    }
+    const currentEnrolled = studentUser.enrolledCourseIds || [];
+    if (!currentEnrolled.includes(courseId)) {
+      const updatedEnrolled = [...currentEnrolled, courseId];
+      const updatedUser = {
+        ...studentUser,
+        enrolledCourseIds: updatedEnrolled
+      };
+      setStudentUser(updatedUser);
+      localStorage.setItem('studentUser', JSON.stringify(updatedUser));
+      if (studentUser.email) {
+        localStorage.setItem(`studentUser_${studentUser.email.trim().toLowerCase()}`, JSON.stringify(updatedUser));
+      }
+    }
   };
 
   const handleStudentLogout = () => {
@@ -143,6 +177,9 @@ export default function App() {
         };
         setStudentUser(updatedUser);
         localStorage.setItem('studentUser', JSON.stringify(updatedUser));
+        if (studentUser.email) {
+          localStorage.setItem(`studentUser_${studentUser.email.trim().toLowerCase()}`, JSON.stringify(updatedUser));
+        }
       }
     }
     setSelectedCourseId(courseId);
@@ -151,7 +188,7 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleToggleModuleComplete = (courseId, moduleId) => {
+  const handleToggleModuleComplete = (courseId, moduleId, forceState = null) => {
     setCourses(prevCourses => {
       return prevCourses.map(c => {
         if (c.id !== courseId) return c;
@@ -160,7 +197,9 @@ export default function App() {
         let completedCount = 0;
 
         const updatedModules = c.modules.map(m => {
-          const isCompleted = m.id === moduleId ? !m.completed : m.completed;
+          const isCompleted = m.id === moduleId 
+            ? (forceState !== null ? forceState : !m.completed)
+            : m.completed;
           if (isCompleted) completedCount += 1;
           return { ...m, completed: isCompleted };
         });
@@ -216,15 +255,34 @@ export default function App() {
     window.history.pushState(null, '', '/');
   };
 
+  const getTodayFormattedDate = () => {
+    return new Date().toLocaleDateString('en-US', {
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric'
+    });
+  };
+
+  const getStudentDisplayName = () => {
+    if (studentUser?.name && studentUser.name.trim()) return studentUser.name.trim();
+    if (studentUser?.email && studentUser.email.trim()) return studentUser.email.trim();
+    return '';
+  };
+
   const currentSelectedCourse = courses.find(c => c.id === selectedCourseId) || courses[0];
-  const currentCert = SAMPLE_CERTIFICATES.find(c => c.id === selectedCertId) || {
+  const foundCert = SAMPLE_CERTIFICATES.find(c => c.id === selectedCertId);
+  const studentDisplayName = getStudentDisplayName();
+
+  const currentCert = {
     id: selectedCertId,
-    courseId: currentSelectedCourse?.id || 'python-programming',
-    courseTitle: currentSelectedCourse?.title || 'Python Programming',
-    studentName: studentUser?.name || 'Arshith Student',
-    issueDate: 'October 1, 2026',
-    instructorName: currentSelectedCourse?.instructor?.name || 'Dr. Ananya Sharma',
-    grade: '98% Distinction'
+    courseId: foundCert?.courseId || currentSelectedCourse?.id || 'python-programming',
+    courseTitle: foundCert?.courseTitle || currentSelectedCourse?.title || 'Python Programming',
+    studentName: studentDisplayName || (foundCert?.studentName !== 'Arshith Kumar' ? foundCert?.studentName : '') || studentUser?.email || '',
+    issueDate: (studentUser && studentUser.certificateIssueDates && studentUser.certificateIssueDates[selectedCertId])
+      ? studentUser.certificateIssueDates[selectedCertId]
+      : getTodayFormattedDate(),
+    instructorName: foundCert?.instructorName || currentSelectedCourse?.instructor?.name || 'Dr. Ananya Sharma',
+    grade: foundCert?.grade || '98% Distinction'
   };
 
   const isPublicPage = !['learning', 'admin-login', 'admin-dashboard'].includes(activeTab);
@@ -272,7 +330,9 @@ export default function App() {
             />
             <PopularCourses
               courses={courses}
+              studentUser={studentUser}
               onSelectCourse={handleSelectCourse}
+              onEnrollCourse={handleEnrollCourse}
               onViewAllCourses={() => {
                 setActiveTab('courses');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -291,7 +351,9 @@ export default function App() {
         {activeTab === 'courses' && (
           <CoursesPage
             courses={courses}
+            studentUser={studentUser}
             onSelectCourse={handleSelectCourse}
+            onEnrollCourse={handleEnrollCourse}
             initialSearch={searchQuery}
             initialCategory={selectedCategoryFilter}
           />
@@ -326,6 +388,7 @@ export default function App() {
         {activeTab === 'verify' && (
           <CertificateVerifyPage
             certId={selectedCertId}
+            studentUser={studentUser}
             onBack={() => setActiveTab('home')}
           />
         )}

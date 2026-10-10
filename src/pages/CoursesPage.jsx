@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { Search, Filter, Star, Clock, Users, ArrowRight, Code, Database, BarChart2, Terminal, CheckCircle } from 'lucide-react';
 import { CATEGORIES } from '../data/coursesData';
 
-export default function CoursesPage({ courses, onSelectCourse, initialSearch = '', initialCategory = 'All Categories' }) {
+export default function CoursesPage({ courses, onSelectCourse, studentUser, onEnrollCourse, initialSearch = '', initialCategory = 'All Categories' }) {
   const [search, setSearch] = useState(initialSearch);
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
   const [selectedLevel, setSelectedLevel] = useState('All');
@@ -167,73 +167,85 @@ export default function CoursesPage({ courses, onSelectCourse, initialSearch = '
         {/* Course Cards Grid */}
         {filteredCourses.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredCourses.map((course) => (
-              <div
-                key={course.id}
-                className="bg-white rounded-3xl border border-slate-200/90 p-5 shadow-sm hover:shadow-xl hover:border-brand-300 card-hover-effect flex flex-col justify-between relative group"
-              >
-                <div>
-                  <div className="flex items-start justify-between gap-3 mb-4">
-                    {renderIcon(course.iconType)}
-                    <div className="flex items-center gap-1.5">
-                      {course.isFree && (
-                        <span className="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-emerald-100 text-emerald-700">
-                          Free
-                        </span>
+            {filteredCourses.map((course) => {
+              const isEnrolled = studentUser?.enrolledCourseIds?.includes(course.id);
+              return (
+                <div
+                  key={course.id}
+                  className="bg-white rounded-3xl border border-slate-200/90 p-5 shadow-sm hover:shadow-xl hover:border-brand-300 card-hover-effect flex flex-col justify-between relative group"
+                >
+                  <div>
+                    <div className="flex items-start justify-between gap-3 mb-4">
+                      {renderIcon(course.iconType)}
+                      <div className="flex items-center gap-1.5">
+                        {course.isFree && (
+                          <span className="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-emerald-100 text-emerald-700">
+                            Free
+                          </span>
+                        )}
+                        {course.bestseller && (
+                          <span className="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-brand-600 text-white uppercase">
+                            Bestseller
+                          </span>
+                        )}
+                      </div>
+                    </div>
+
+                    <h3
+                      onClick={() => onSelectCourse(course.id)}
+                      className="text-lg font-bold text-slate-900 group-hover:text-brand-700 transition-colors cursor-pointer line-clamp-1 mb-2"
+                    >
+                      {course.title}
+                    </h3>
+
+                    <p className="text-xs text-slate-500 line-clamp-2 mb-4">
+                      {course.description}
+                    </p>
+
+                    <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 mb-3">
+                      <span className="px-2 py-0.5 bg-slate-100 rounded text-slate-600">{course.level}</span>
+                      <span className="text-slate-300">•</span>
+                      <div className="flex items-center gap-1">
+                        <Clock className="w-3.5 h-3.5 text-slate-400" />
+                        <span>{course.duration}</span>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-2 text-xs font-semibold text-slate-600 mb-4">
+                      <div className="flex items-center gap-1 text-amber-500 font-bold bg-amber-50 px-2 py-0.5 rounded-md">
+                        <Star className="w-3.5 h-3.5 fill-amber-400 stroke-amber-500" />
+                        <span>{course.rating}</span>
+                      </div>
+                      <span className="text-slate-500">({course.studentsCount} students)</span>
+                    </div>
+
+                    <div className="mb-5">
+                      {course.isFree ? (
+                        <span className="text-xl font-extrabold text-brand-600">Free</span>
+                      ) : (
+                        <span className="text-xl font-extrabold text-slate-900">₹{course.price.toLocaleString()}</span>
                       )}
-                      {course.bestseller && (
-                        <span className="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-brand-600 text-white uppercase">
-                          Bestseller
-                        </span>
-                      )}
                     </div>
                   </div>
 
-                  <h3
-                    onClick={() => onSelectCourse(course.id)}
-                    className="text-lg font-bold text-slate-900 group-hover:text-brand-700 transition-colors cursor-pointer line-clamp-1 mb-2"
-                  >
-                    {course.title}
-                  </h3>
-
-                  <p className="text-xs text-slate-500 line-clamp-2 mb-4">
-                    {course.description}
-                  </p>
-
-                  <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 mb-3">
-                    <span className="px-2 py-0.5 bg-slate-100 rounded text-slate-600">{course.level}</span>
-                    <span className="text-slate-300">•</span>
-                    <div className="flex items-center gap-1">
-                      <Clock className="w-3.5 h-3.5 text-slate-400" />
-                      <span>{course.duration}</span>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-2 text-xs font-semibold text-slate-600 mb-4">
-                    <div className="flex items-center gap-1 text-amber-500 font-bold bg-amber-50 px-2 py-0.5 rounded-md">
-                      <Star className="w-3.5 h-3.5 fill-amber-400 stroke-amber-500" />
-                      <span>{course.rating}</span>
-                    </div>
-                    <span className="text-slate-500">({course.studentsCount} students)</span>
-                  </div>
-
-                  <div className="mb-5">
-                    {course.isFree ? (
-                      <span className="text-xl font-extrabold text-brand-600">Free</span>
+                  <div className="space-y-3 pt-3 border-t border-slate-100">
+                    {isEnrolled ? (
+                      <button
+                        onClick={() => onSelectCourse(course.id)}
+                        className="w-full py-2.5 px-4 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 active:scale-98 rounded-full shadow-sm transition-all flex items-center justify-center gap-1.5"
+                      >
+                        <span>Enrolled</span>
+                        <CheckCircle className="w-3.5 h-3.5" />
+                      </button>
                     ) : (
-                      <span className="text-xl font-extrabold text-slate-900">₹{course.price.toLocaleString()}</span>
+                      <button
+                        onClick={(e) => onEnrollCourse ? onEnrollCourse(course.id, e) : onSelectCourse(course.id)}
+                        className="w-full py-2.5 px-4 text-xs font-bold text-white bg-brand-600 hover:bg-brand-700 active:scale-98 rounded-full shadow-sm transition-all flex items-center justify-center gap-1.5"
+                      >
+                        <span>Enroll</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </button>
                     )}
-                  </div>
-                </div>
-
-                <div className="space-y-3 pt-3 border-t border-slate-100">
-                  <button
-                    onClick={() => onSelectCourse(course.id)}
-                    className="w-full py-2.5 px-4 text-xs font-bold text-white bg-brand-600 hover:bg-brand-700 active:scale-98 rounded-full shadow-sm transition-all flex items-center justify-center gap-1.5"
-                  >
-                    <span>View Course</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
 
                   <div className="space-y-1">
                     <div className="flex justify-between items-center text-[11px] font-bold text-slate-500">
@@ -248,9 +260,9 @@ export default function CoursesPage({ courses, onSelectCourse, initialSearch = '
                     </div>
                   </div>
                 </div>
-
               </div>
-            ))}
+            );
+          })}
           </div>
         ) : (
           <div className="bg-white rounded-3xl p-12 text-center border border-slate-200 max-w-md mx-auto">
