@@ -6,7 +6,7 @@
     "email": "admin@arshithbootcamp.com",
     "role": "admin",
     "createdAt": "2026-01-01T00:00:00.000Z",
-    "lastLogin": "2026-10-10T11:57:04.512Z"
+    "lastLogin": "2026-10-10T11:58:09.743Z"
   },
   "courses": [
     {
@@ -14521,7 +14521,7 @@
       "isFree": true,
       "bestseller": true,
       "progress": 20,
-      "status": "published",
+      "status": "archived",
       "featured": false,
       "certificateAvailable": true,
       "sequentialLearning": true,
@@ -14662,7 +14662,7 @@
       "isFree": true,
       "bestseller": false,
       "progress": 0,
-      "status": "published",
+      "status": "archived",
       "featured": false,
       "certificateAvailable": true,
       "sequentialLearning": true,
@@ -15011,6 +15011,36 @@
     }
   ],
   "activityLogs": [
+    {
+      "id": "log-1791633504889-353",
+      "adminId": "ARB-ADMIN-001",
+      "action": "COURSE_ARCHIVED",
+      "target": "Course: Data Science & AI Foundations",
+      "details": "Archived course data-science-ai",
+      "timestamp": "2026-10-10T11:58:24.889Z",
+      "ipAddress": "127.0.0.1",
+      "device": "Desktop Chrome"
+    },
+    {
+      "id": "log-1791633498816-308",
+      "adminId": "ARB-ADMIN-001",
+      "action": "COURSE_ARCHIVED",
+      "target": "Course: Web Development",
+      "details": "Archived course web-development",
+      "timestamp": "2026-10-10T11:58:18.816Z",
+      "ipAddress": "127.0.0.1",
+      "device": "Desktop Chrome"
+    },
+    {
+      "id": "log-1791633489777-469",
+      "adminId": "ARB-ADMIN-001",
+      "action": "ADMIN_LOGIN",
+      "target": "Admin Portal",
+      "details": "Successful administrator login",
+      "timestamp": "2026-10-10T11:58:09.777Z",
+      "ipAddress": "::1",
+      "device": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+    },
     {
       "id": "log-1791633424529-241",
       "adminId": "ARB-ADMIN-001",
