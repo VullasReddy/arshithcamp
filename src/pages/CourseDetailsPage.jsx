@@ -93,12 +93,6 @@ export default function CourseDetailsPage({ course, onBack, onStartLearning }) {
 
                 {/* Stats Meta */}
                 <div className="flex flex-wrap items-center gap-6 pt-2 text-xs sm:text-sm font-bold text-slate-600 border-t border-slate-100">
-                  <div className="flex items-center gap-1.5 text-amber-500 font-black">
-                    <Star className="w-4 h-4 fill-amber-400 stroke-amber-500" />
-                    <span className="text-slate-900">{course.rating}</span>
-                    <span className="text-slate-400 font-semibold">({course.studentsCount} enrolled)</span>
-                  </div>
-
                   <div className="flex items-center gap-1.5 text-slate-600">
                     <Clock className="w-4 h-4 text-brand-700" />
                     <span>{course.duration}</span>
@@ -107,20 +101,6 @@ export default function CourseDetailsPage({ course, onBack, onStartLearning }) {
                   <div className="flex items-center gap-1.5 text-brand-700 font-extrabold">
                     <BookOpen className="w-4 h-4" />
                     <span>{totalModulesCount} Total Modules</span>
-                  </div>
-                </div>
-
-                {/* Instructor Profile */}
-                <div className="flex items-center gap-4 pt-4 border-t border-slate-100">
-                  <img
-                    src={course.instructor.avatar}
-                    alt={course.instructor.name}
-                    className="w-12 h-12 rounded-full object-cover ring-2 ring-brand-900"
-                  />
-                  <div>
-                    <p className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider">Lead Instructor</p>
-                    <p className="text-sm font-extrabold text-slate-900">{course.instructor.name}</p>
-                    <p className="text-xs text-slate-500 font-semibold">{course.instructor.role}</p>
                   </div>
                 </div>
               </div>
