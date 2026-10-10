@@ -95,7 +95,7 @@ export function ContactPage() {
               </div>
               <div>
                 <p className="text-[10px] font-black text-slate-400 uppercase">Email Us</p>
-                <p className="text-sm font-black text-slate-900">support@arshithbootcamp.com</p>
+                <p className="text-sm font-black text-slate-900">careers@arshithgroup.com</p>
               </div>
             </div>
 
@@ -105,7 +105,7 @@ export function ContactPage() {
               </div>
               <div>
                 <p className="text-[10px] font-black text-slate-400 uppercase">Call Support</p>
-                <p className="text-sm font-black text-slate-900">+91 98765 43210</p>
+                <p className="text-sm font-black text-slate-900">+91 86184 71444</p>
               </div>
             </div>
 
@@ -115,7 +115,7 @@ export function ContactPage() {
               </div>
               <div>
                 <p className="text-[10px] font-black text-slate-400 uppercase">Headquarters</p>
-                <p className="text-sm font-black text-slate-900">Arshith Boot Camp Campus, Bengaluru, India</p>
+                <p className="text-sm font-black text-slate-900">Bengaluru, Karnataka, India</p>
               </div>
             </div>
           </div>

@@ -1,26 +1,46 @@
+export const CATEGORIES = [
+  "All Categories",
+  "Programming",
+  "SQL",
+  "Data Science",
+  "Web Development",
+  "Cloud & DevOps",
+  "Cybersecurity",
+  "AI"
+];
+
 export const INITIAL_COURSES = [
   {
     "id": "python-programming",
     "title": "Python Programming",
+    "slug": "python-programming",
     "category": "Programming",
     "level": "Beginner to Intermediate",
-    "duration": "40 hours",
+    "duration": "30 hours",
     "rating": 4.9,
     "studentsCount": "14.2k",
     "studentsNumeric": 14200,
-    "price": 999,
-    "isFree": false,
+    "price": 0,
+    "isFree": true,
     "bestseller": true,
     "progress": 0,
-    "iconBg": "bg-blue-50 border 2 border-blue-200 text-blue-600",
+    "status": "published",
+    "featured": false,
+    "certificateAvailable": true,
+    "sequentialLearning": true,
+    "iconBg": "bg-blue-50 border-2 border-blue-200 text-blue-600",
     "iconType": "python",
     "introVideoUrl": "https://www.youtube.com/embed/kqtD5dpn9C8",
+    "thumbnail": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80",
+    "shortDescription": "Master Python from absolute scratch based on Python for Everybody curriculum.",
     "description": "Master Python from absolute scratch! Based on the world-renowned 'Python for Everybody' curriculum by Dr. Charles Severance, cover variables, conditionals, loops, functions, data structures, files, regex, web services, OOP, and databases.",
     "instructor": {
       "name": "Dr. Ananya Sharma & Dr. Charles Severance",
       "role": "Lead Educators @ Arshith Boot Camp & Authors of Python for Everybody",
       "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80"
     },
+    "prerequisites": null,
+    "skills": [],
     "whatYouWillLearn": [
       "Computer hardware architecture, interpreter vs compiler, and Python syntax foundations",
       "Variables, expressions, PEMDAS order of operations, and input handling",
@@ -7547,6 +7567,81 @@ export const INITIAL_COURSES = [
               ],
               "correctAnswer": 2,
               "explanation": "Operator precedence evaluates 'not', then 'and', then 'or'. (1) '[] and \"python\"' short-circuits to []. (2) 'not 0' is True; 'True and {}' returns {}. (3) The remaining 'or' chain is '0 or [] or {} or 42'. (4) However, notice: 'not 0 and {}' evaluates to {}. Since {} is falsy, the evaluation proceeds to 'or 42', returning 42. Wait, let's trace: 0 (falsy) -> [] (falsy) -> {} (falsy) -> 42 is truthy, so the final result is 42!"
+            },
+            {
+              "id": "py-set-a-21",
+              "questionNumber": 21,
+              "topic": "Decorators & Metadata Preservation",
+              "questionText": "When decorating a target function with a custom wrapper function, which tool from Python's standard library should be applied to the wrapper to preserve the original function's name, docstring, and parameter signature?",
+              "codeSnippet": "from functools import wraps\n\ndef my_decorator(func):\n    @wraps(func)\n    def wrapper(*args, **kwargs):\n        print(\"Before execution\")\n        return func(*args, **kwargs)\n    return wrapper",
+              "options": [
+                "functools.lru_cache(func)",
+                "functools.wraps(func)",
+                "sys.settrace(func)",
+                "inspect.signature(func)"
+              ],
+              "correctAnswer": 1,
+              "explanation": "@functools.wraps(func) copies the __name__, __doc__, and module metadata from the decorated target function to the wrapper function, preventing reflection tools and debuggers from losing function identity."
+            },
+            {
+              "id": "py-set-a-22",
+              "questionNumber": 22,
+              "topic": "Context Managers & Exception Handling",
+              "questionText": "In a custom class implementing Python's Context Manager protocol (__enter__ and __exit__), how can __exit__ explicitly suppress an exception raised inside the 'with' block?",
+              "codeSnippet": "class SuppressErrorContext:\n    def __enter__(self):\n        return self\n\n    def __exit__(self, exc_type, exc_val, exc_tb):\n        if exc_type is ValueError:\n            return True  # Suppress ValueError\n        return False",
+              "options": [
+                "By returning True (or any truthy value) from the __exit__ method",
+                "By raising StopIteration inside __exit__",
+                "By returning None from __enter__",
+                "Exceptions inside a 'with' block cannot be suppressed by __exit__"
+              ],
+              "correctAnswer": 0,
+              "explanation": "If __exit__() returns True (or a truthy value), Python catches and suppresses the exception raised inside the 'with' block, allowing code execution to proceed immediately after the block."
+            },
+            {
+              "id": "py-set-a-23",
+              "questionNumber": 23,
+              "topic": "Generators & Memory Management",
+              "questionText": "What is the primary memory advantage of returning a generator expression using the yield keyword compared to returning a full list from a function processing 10 million records?",
+              "codeSnippet": "def stream_records():\n    for i in range(10_000_000):\n        yield f\"Record_{i}\"",
+              "options": [
+                "Generators compile the records into C machine code to execute 100x faster",
+                "Generators evaluate items lazily one at a time on-demand, maintaining a constant O(1) memory footprint regardless of dataset size",
+                "Generators automatically store records in RAM cache to eliminate garbage collection overhead",
+                "Generators allow multi-threaded parallel execution across all CPU cores"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Generators produce values on-demand using lazy evaluation. Instead of allocating memory for all 10 million items simultaneously (O(N) RAM), a generator requires constant O(1) memory space."
+            },
+            {
+              "id": "py-set-a-24",
+              "questionNumber": 24,
+              "topic": "Metaclasses & Class Construction",
+              "questionText": "In Python's Object Model, what is a metaclass and which special method is invoked when creating a new class definition?",
+              "codeSnippet": "class MetaSingleton(type):\n    def __call__(cls, *args, **kwargs):\n        if not hasattr(cls, '_instance'):\n            cls._instance = super().__call__(*args, **kwargs)\n        return cls._instance",
+              "options": [
+                "A metaclass is a class decorator; it invokes __init__ when an instance is deleted",
+                "A metaclass is the class of a class (such as 'type'); its __new__ or __call__ method constructs the class object itself",
+                "A metaclass is an abstract base class that prevents subclasses from using inheritance",
+                "A metaclass is a C-extension module built into the standard garbage collector"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Classes in Python are instances of metaclasses (default is 'type'). A metaclass defines how class objects are constructed, validated, and initialized when the class statement is evaluated."
+            },
+            {
+              "id": "py-set-a-25",
+              "questionNumber": 25,
+              "topic": "Concurrency: Threading vs Multiprocessing",
+              "questionText": "Due to CPython's Global Interpreter Lock (GIL), which module should be chosen to maximize performance for CPU-heavy tasks like image processing or matrix multiplication across multiple CPU cores?",
+              "codeSnippet": "from concurrent.futures import ProcessPoolExecutor\n\ndef compute_heavy_task(data):\n    return sum(i * i for i in data)\n\nif __name__ == '__main__':\n    with ProcessPoolExecutor() as executor:\n        results = list(executor.map(compute_heavy_task, chunks))",
+              "options": [
+                "threading module with ThreadPoolExecutor",
+                "multiprocessing module or ProcessPoolExecutor",
+                "asyncio module with event loops",
+                "queue module with ThreadQueue"
+              ],
+              "correctAnswer": 1,
+              "explanation": "CPython's GIL permits only one thread to execute Python bytecode at a time per process. For CPU-bound tasks, multiprocessing/ProcessPoolExecutor spawns separate OS processes with independent GIL instances across all CPU cores."
             }
           ]
         },
@@ -7868,6 +7963,81 @@ export const INITIAL_COURSES = [
               ],
               "correctAnswer": 1,
               "explanation": "TCP guarantees reliable ordered byte delivery but provides no record framing. A 3KB payload may be split by the network MTU into several smaller segments, requiring the application to loop recv() until an agreed-upon length or sentinel delimiter is received."
+            },
+            {
+              "id": "py-set-b-21",
+              "questionNumber": 21,
+              "topic": "List Comprehensions & Flattening",
+              "questionText": "What is the correct syntax for a list comprehension that flattens a 2D matrix `[[1, 2], [3, 4], [5, 6]]` into a 1D list `[1, 2, 3, 4, 5, 6]`?",
+              "codeSnippet": "matrix = [[1, 2], [3, 4], [5, 6]]\nflat = [num for row in matrix for num in row]",
+              "options": [
+                "[num for num in row for row in matrix]",
+                "[num for row in matrix for num in row]",
+                "[row for num in matrix for num in row]",
+                "[num for row in matrix if num in row]"
+              ],
+              "correctAnswer": 1,
+              "explanation": "In nested list comprehensions, the 'for' loops follow the exact same order as traditional nested for-loops: 'for row in matrix:' followed by 'for num in row:'."
+            },
+            {
+              "id": "py-set-b-22",
+              "questionNumber": 22,
+              "topic": "Memory Optimization with __slots__",
+              "questionText": "What is the primary benefit of declaring `__slots__` inside a Python class definition when instantiating millions of small objects?",
+              "codeSnippet": "class Point:\n    __slots__ = ('x', 'y')\n    def __init__(self, x, y):\n        self.x = x\n        self.y = y",
+              "options": [
+                "It suppresses all AttributeError exceptions raised when accessing invalid properties",
+                "It prevents Python from creating a dynamic __dict__ per instance, significantly reducing memory consumption",
+                "It automatically converts instance attributes into thread-safe atomic variables",
+                "It serializes class instances into SQLite binary database records"
+              ],
+              "correctAnswer": 1,
+              "explanation": "By default, Python instances store attributes in a dynamic instance dictionary (__dict__). Defining __slots__ allocates a fixed array space instead, saving substantial memory for millions of instances."
+            },
+            {
+              "id": "py-set-b-23",
+              "questionNumber": 23,
+              "topic": "Exception Chaining & Tracebacks",
+              "questionText": "In Python 3, how do you re-raise a custom exception while explicitly linking it to the original caught exception to maintain clean cause tracking?",
+              "codeSnippet": "try:\n    connect_to_database()\nexcept ConnectionError as err:\n    raise DatabaseException(\"Service unavailable\") from err",
+              "options": [
+                "raise DatabaseException() with err",
+                "raise DatabaseException() from err",
+                "raise DatabaseException() cause err",
+                "raise DatabaseException() using err"
+              ],
+              "correctAnswer": 1,
+              "explanation": "The 'raise NewException() from original_err' syntax sets the __cause__ attribute on the new exception, producing an explicit 'The above exception was the direct cause of the following exception' traceback message."
+            },
+            {
+              "id": "py-set-b-24",
+              "questionNumber": 24,
+              "topic": "Structural Pattern Matching (match / case)",
+              "questionText": "Introduced in Python 3.10, which statement describes how structural pattern matching evaluates data structures?",
+              "codeSnippet": "def handle_command(cmd):\n    match cmd.split():\n        case [\"quit\"]:\n            return \"Exiting\"\n        case [\"move\", (\"left\" | \"right\" | \"up\" | \"down\") as direction]:\n            return f\"Moving {direction}\"\n        case _:\n            return \"Unknown command\"",
+              "options": [
+                "It is a simple replacement for C-style switch statements that only evaluates integer constants",
+                "It inspects data shape, sequences, dynamic patterns, and binding variables with guards and wildcards (_)",
+                "It compiles Python statements into regular expressions before runtime matching",
+                "It runs only inside asynchronous event loops"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Python 3.10 match/case supports structural pattern matching, destructuring tuples/lists, binding dynamic variables, matching dict keys, applying guards ('if'), and wildcards ('_')."
+            },
+            {
+              "id": "py-set-b-25",
+              "questionNumber": 25,
+              "topic": "Asynchronous IO & Event Loops",
+              "questionText": "In Python's `asyncio` framework, how do you execute multiple asynchronous coroutines concurrently and await all their completed results simultaneously?",
+              "codeSnippet": "import asyncio\n\nasync def fetch_api(endpoint):\n    await asyncio.sleep(1)\n    return f\"Data from {endpoint}\"\n\nasync def main():\n    results = await asyncio.gather(\n        fetch_api(\"/users\"),\n        fetch_api(\"/orders\"),\n        fetch_api(\"/products\")\n    )",
+              "options": [
+                "asyncio.run_parallel()",
+                "asyncio.gather()",
+                "asyncio.thread_wait()",
+                "asyncio.join_all()"
+              ],
+              "correctAnswer": 1,
+              "explanation": "`asyncio.gather(*aws)` takes multiple asynchronous awaitables/coroutines, schedules them concurrently on the active event loop, and returns an ordered list of their return values."
             }
           ]
         },
@@ -8189,6 +8359,81 @@ export const INITIAL_COURSES = [
               ],
               "correctAnswer": 1,
               "explanation": "A tuple is only hashable if every element inside it is also hashable. Because [30, 40] is a mutable list, the tuple containing it cannot produce a fixed hash value and raises 'TypeError: unhashable type: list'."
+            },
+            {
+              "id": "py-set-c-21",
+              "questionNumber": 21,
+              "topic": "Dictionary Union Operators",
+              "questionText": "In Python 3.9+, what is the result of applying the dictionary merge operator `d1 | d2` when both dictionaries contain overlapping keys?",
+              "codeSnippet": "d1 = {'a': 1, 'b': 2}\nd2 = {'b': 99, 'c': 3}\nresult = d1 | d2",
+              "options": [
+                "{'a': 1, 'b': 2, 'c': 3} (left operand d1 takes priority)",
+                "{'a': 1, 'b': 99, 'c': 3} (right operand d2 overrides overlapping keys)",
+                "A KeyError is raised due to duplicate key collision",
+                "{'a': 1, 'b': [2, 99], 'c': 3} (values are merged into lists)"
+              ],
+              "correctAnswer": 1,
+              "explanation": "The dictionary union operator `|` merges two dictionaries. If there are duplicate keys, the right-hand dictionary (`d2`) overwrites the values of the left-hand dictionary (`d1`)."
+            },
+            {
+              "id": "py-set-c-22",
+              "questionNumber": 22,
+              "topic": "Object Copying: Shallow vs Deep",
+              "questionText": "What distinguishes `copy.deepcopy()` from `copy.copy()` when duplicating a nested object structure containing lists inside dictionaries?",
+              "codeSnippet": "import copy\noriginal = {'items': [1, 2, 3]}\nshallow = copy.copy(original)\ndeep = copy.deepcopy(original)",
+              "options": [
+                "copy.copy() creates a new outer object and recursively copies all nested child objects",
+                "copy.deepcopy() creates a completely independent recursive copy of both outer and all nested mutable objects",
+                "copy.deepcopy() converts all list elements into immutable tuples automatically",
+                "copy.copy() only works on primitive integers and strings"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Shallow copy (`copy.copy`) creates a new outer object but inserts references to the nested objects. Deep copy (`copy.deepcopy`) recursively duplicates every nested child object."
+            },
+            {
+              "id": "py-set-c-23",
+              "questionNumber": 23,
+              "topic": "LRU Caching & Memoization",
+              "questionText": "Which requirement must function arguments satisfy to be compatible with `@functools.lru_cache` memoization?",
+              "codeSnippet": "from functools import lru_cache\n\n@lru_cache(maxsize=128)\ndef compute_factorial(n):\n    return 1 if n <= 1 else n * compute_factorial(n - 1)",
+              "options": [
+                "All arguments passed to the function must be mutable data structures like lists or dicts",
+                "All arguments passed to the function must be hashable (immutable data types like int, str, tuple)",
+                "The function must be defined inside a class inheriting from dict",
+                "The function must be declared with the async keyword"
+              ],
+              "correctAnswer": 1,
+              "explanation": "`@lru_cache` stores cached results in an internal dictionary indexed by function arguments. Therefore, all positional and keyword arguments must be hashable."
+            },
+            {
+              "id": "py-set-c-24",
+              "questionNumber": 24,
+              "topic": "Custom Iterator Protocol",
+              "questionText": "To build a custom Iterator class in Python, which two special dunder methods must be implemented?",
+              "codeSnippet": "class NumberCounter:\n    def __init__(self, low, high):\n        self.current = low\n        self.high = high\n\n    def __iter__(self):\n        return self\n\n    def __next__(self):\n        if self.current > self.high:\n            raise StopIteration\n        self.current += 1\n        return self.current - 1",
+              "options": [
+                "__init__ and __del__",
+                "__iter__ and __next__",
+                "__enter__ and __exit__",
+                "__getitem__ and __setitem__"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Python's Iterator Protocol requires `__iter__()` (which returns the iterator object itself) and `__next__()` (which returns the next item or raises `StopIteration`)."
+            },
+            {
+              "id": "py-set-c-25",
+              "questionNumber": 25,
+              "topic": "Dataclasses & Default Factories",
+              "questionText": "In Python's `@dataclass` decorator, why is setting a mutable default argument like `tags: list = []` invalid, and how should it be declared?",
+              "codeSnippet": "from dataclasses import dataclass, field\n\n@dataclass\nclass UserProfile:\n    username: str\n    tags: list = field(default_factory=list)",
+              "options": [
+                "Dataclasses do not allow list attributes under any circumstances",
+                "Mutable default arguments are shared across all class instances; `field(default_factory=list)` creates a fresh list instance per object",
+                "default_factory is used exclusively for serializing objects to JSON",
+                "tags must be declared as a tuple instead of a list"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Python prevents mutable defaults in dataclass definitions to avoid sharing the same list reference across all class instances. `field(default_factory=list)` calls the factory function to produce a new list for each instance."
             }
           ]
         },
@@ -8510,6 +8755,81 @@ export const INITIAL_COURSES = [
               ],
               "correctAnswer": 1,
               "explanation": "__new__ is the constructor that actually allocates and returns a new instance of the class (cls). Once the instance exists, __init__(self, ...) is invoked to configure its attributes."
+            },
+            {
+              "id": "py-set-d-21",
+              "questionNumber": 21,
+              "topic": "Scope & Nonlocal Keyword",
+              "questionText": "Inside an inner nested function, which keyword allows you to modify a variable bound in the outer enclosing function's scope (without making it global)?",
+              "codeSnippet": "def outer_counter():\n    count = 0\n    def inner_increment():\n        nonlocal count\n        count += 1\n        return count\n    return inner_increment",
+              "options": [
+                "global",
+                "nonlocal",
+                "outer",
+                "self"
+              ],
+              "correctAnswer": 1,
+              "explanation": "The `nonlocal` keyword allows a nested function to modify variables defined in its outer (enclosing) scope rather than creating a new local variable."
+            },
+            {
+              "id": "py-set-d-22",
+              "questionNumber": 22,
+              "topic": "Default Mutable Arguments Idiom",
+              "questionText": "What occurs when calling a function multiple times if default parameter values are initialized with mutable objects like `def append_to(element, target=[])`?",
+              "codeSnippet": "def append_to(element, target=[]):\n    target.append(element)\n    return target\n\nprint(append_to(1))  # [1]\nprint(append_to(2))  # Expected [2], but output is [1, 2]!",
+              "options": [
+                "Python creates a new empty list on every function call",
+                "The default list is created once when the function is defined, causing state to persist across successive calls",
+                "A TypeError is raised during module import",
+                "The list is automatically cleared when the function returns"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Default parameter values are evaluated once when the function definition is executed. Passing a mutable default retains modifications across subsequent function calls."
+            },
+            {
+              "id": "py-set-d-23",
+              "questionNumber": 23,
+              "topic": "Weak References & Memory Leaks",
+              "questionText": "Which standard library module allows you to create references to objects without preventing the garbage collector from reclaiming their memory space?",
+              "codeSnippet": "import weakref\n\nclass LargeCache:\n    pass\n\nobj = LargeCache()\nref = weakref.ref(obj)  # Does not increment refcount",
+              "options": [
+                "sys.memref",
+                "weakref",
+                "gc.collect",
+                "ctypes.pointer"
+              ],
+              "correctAnswer": 1,
+              "explanation": "The `weakref` module enables weak references to objects. A weak reference does not keep the target object alive if its strong reference count drops to zero."
+            },
+            {
+              "id": "py-set-d-24",
+              "questionNumber": 24,
+              "topic": "Subprocess Command Execution",
+              "questionText": "When executing system shell commands using `subprocess.run()`, which options capture standard output as text and raise CalledProcessError on non-zero exit status?",
+              "codeSnippet": "import subprocess\n\nresult = subprocess.run(\n    [\"git\", \"status\"],\n    capture_output=True,\n    text=True,\n    check=True\n)",
+              "options": [
+                "shell=True, debug=True",
+                "capture_output=True, text=True, check=True",
+                "stdout=PIPE, async=True",
+                "raise_on_error=True, format='string'"
+              ],
+              "correctAnswer": 1,
+              "explanation": "`capture_output=True` captures stdout/stderr, `text=True` decodes bytes into UTF-8 strings, and `check=True` raises a CalledProcessError if the command fails."
+            },
+            {
+              "id": "py-set-d-25",
+              "questionNumber": 25,
+              "topic": "Type Hinting & Generics",
+              "questionText": "In Python's `typing` module, what does `Optional[str]` represent?",
+              "codeSnippet": "from typing import Optional\n\ndef get_user_name(user_id: int) -> Optional[str]:\n    if user_id == 1:\n        return \"Arshith\"\n    return None",
+              "options": [
+                "A string that is automatically converted to lower case",
+                "Shorthand for Union[str, None], indicating the return value can be either a string or None",
+                "A string that is optional to pass as an argument but required as a return value",
+                "A thread-safe string wrapper"
+              ],
+              "correctAnswer": 1,
+              "explanation": "`Optional[T]` is equivalent to `Union[T, None]`. It signals to static type checkers (like mypy) that the variable can hold a value of type T or None."
             }
           ]
         }
@@ -8819,9 +9139,108 @@ export const INITIAL_COURSES = [
           ],
           "correctAnswer": 2,
           "explanation": "Operator precedence evaluates 'not', then 'and', then 'or'. (1) '[] and \"python\"' short-circuits to []. (2) 'not 0' is True; 'True and {}' returns {}. (3) The remaining 'or' chain is '0 or [] or {} or 42'. (4) However, notice: 'not 0 and {}' evaluates to {}. Since {} is falsy, the evaluation proceeds to 'or 42', returning 42. Wait, let's trace: 0 (falsy) -> [] (falsy) -> {} (falsy) -> 42 is truthy, so the final result is 42!"
+        },
+        {
+          "id": "py-set-a-21",
+          "questionNumber": 21,
+          "topic": "Decorators & Metadata Preservation",
+          "questionText": "When decorating a target function with a custom wrapper function, which tool from Python's standard library should be applied to the wrapper to preserve the original function's name, docstring, and parameter signature?",
+          "codeSnippet": "from functools import wraps\n\ndef my_decorator(func):\n    @wraps(func)\n    def wrapper(*args, **kwargs):\n        print(\"Before execution\")\n        return func(*args, **kwargs)\n    return wrapper",
+          "options": [
+            "functools.lru_cache(func)",
+            "functools.wraps(func)",
+            "sys.settrace(func)",
+            "inspect.signature(func)"
+          ],
+          "correctAnswer": 1,
+          "explanation": "@functools.wraps(func) copies the __name__, __doc__, and module metadata from the decorated target function to the wrapper function, preventing reflection tools and debuggers from losing function identity."
+        },
+        {
+          "id": "py-set-a-22",
+          "questionNumber": 22,
+          "topic": "Context Managers & Exception Handling",
+          "questionText": "In a custom class implementing Python's Context Manager protocol (__enter__ and __exit__), how can __exit__ explicitly suppress an exception raised inside the 'with' block?",
+          "codeSnippet": "class SuppressErrorContext:\n    def __enter__(self):\n        return self\n\n    def __exit__(self, exc_type, exc_val, exc_tb):\n        if exc_type is ValueError:\n            return True  # Suppress ValueError\n        return False",
+          "options": [
+            "By returning True (or any truthy value) from the __exit__ method",
+            "By raising StopIteration inside __exit__",
+            "By returning None from __enter__",
+            "Exceptions inside a 'with' block cannot be suppressed by __exit__"
+          ],
+          "correctAnswer": 0,
+          "explanation": "If __exit__() returns True (or a truthy value), Python catches and suppresses the exception raised inside the 'with' block, allowing code execution to proceed immediately after the block."
+        },
+        {
+          "id": "py-set-a-23",
+          "questionNumber": 23,
+          "topic": "Generators & Memory Management",
+          "questionText": "What is the primary memory advantage of returning a generator expression using the yield keyword compared to returning a full list from a function processing 10 million records?",
+          "codeSnippet": "def stream_records():\n    for i in range(10_000_000):\n        yield f\"Record_{i}\"",
+          "options": [
+            "Generators compile the records into C machine code to execute 100x faster",
+            "Generators evaluate items lazily one at a time on-demand, maintaining a constant O(1) memory footprint regardless of dataset size",
+            "Generators automatically store records in RAM cache to eliminate garbage collection overhead",
+            "Generators allow multi-threaded parallel execution across all CPU cores"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Generators produce values on-demand using lazy evaluation. Instead of allocating memory for all 10 million items simultaneously (O(N) RAM), a generator requires constant O(1) memory space."
+        },
+        {
+          "id": "py-set-a-24",
+          "questionNumber": 24,
+          "topic": "Metaclasses & Class Construction",
+          "questionText": "In Python's Object Model, what is a metaclass and which special method is invoked when creating a new class definition?",
+          "codeSnippet": "class MetaSingleton(type):\n    def __call__(cls, *args, **kwargs):\n        if not hasattr(cls, '_instance'):\n            cls._instance = super().__call__(*args, **kwargs)\n        return cls._instance",
+          "options": [
+            "A metaclass is a class decorator; it invokes __init__ when an instance is deleted",
+            "A metaclass is the class of a class (such as 'type'); its __new__ or __call__ method constructs the class object itself",
+            "A metaclass is an abstract base class that prevents subclasses from using inheritance",
+            "A metaclass is a C-extension module built into the standard garbage collector"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Classes in Python are instances of metaclasses (default is 'type'). A metaclass defines how class objects are constructed, validated, and initialized when the class statement is evaluated."
+        },
+        {
+          "id": "py-set-a-25",
+          "questionNumber": 25,
+          "topic": "Concurrency: Threading vs Multiprocessing",
+          "questionText": "Due to CPython's Global Interpreter Lock (GIL), which module should be chosen to maximize performance for CPU-heavy tasks like image processing or matrix multiplication across multiple CPU cores?",
+          "codeSnippet": "from concurrent.futures import ProcessPoolExecutor\n\ndef compute_heavy_task(data):\n    return sum(i * i for i in data)\n\nif __name__ == '__main__':\n    with ProcessPoolExecutor() as executor:\n        results = list(executor.map(compute_heavy_task, chunks))",
+          "options": [
+            "threading module with ThreadPoolExecutor",
+            "multiprocessing module or ProcessPoolExecutor",
+            "asyncio module with event loops",
+            "queue module with ThreadQueue"
+          ],
+          "correctAnswer": 1,
+          "explanation": "CPython's GIL permits only one thread to execute Python bytecode at a time per process. For CPU-bound tasks, multiprocessing/ProcessPoolExecutor spawns separate OS processes with independent GIL instances across all CPU cores."
         }
       ]
     },
+    "finalProject": {
+      "id": "py-final-project",
+      "title": "Automated Log Parser & Database Analytics Suite",
+      "description": "Build an automated CLI tool in Python that reads server log files, extracts IP addresses and user agents using regular expressions, calculates frequency statistics, and persists data into SQLite.",
+      "requirements": [
+        "Read log files from disk using try/except file error handling",
+        "Use regular expressions (re module) to extract IP addresses and timestamps",
+        "Store word and IP frequency distributions using Python dictionaries",
+        "Create an SQLite database schema with tables for Logs and Analytics",
+        "Export final report summary as JSON and text format"
+      ],
+      "instructions": "Upload your Python script (.py), sample dataset, and SQLite database file or submit GitHub Repository URL and video demo link.",
+      "allowedFileTypes": [
+        ".zip",
+        ".py",
+        ".pdf"
+      ],
+      "maxFileSizeMb": 50,
+      "githubUrlAllowed": true,
+      "liveProjectUrlAllowed": true,
+      "passingScore": 75,
+      "published": true
+    },
+    "updatedAt": "2026-10-01T11:13:24.675Z",
     "projects": [
       {
         "id": "py-proj-1",
@@ -8895,30 +9314,40 @@ export const INITIAL_COURSES = [
         "starterCode": "# Project 3: SQLite Contact Book & Search Utility\n# File: contacts_app.py\n\nimport sqlite3\n\nclass ContactBook:\n    def __init__(self, db_file=\"contacts.db\"):\n        self.conn = sqlite3.connect(db_file)\n        self.cursor = self.conn.cursor()\n        self.setup_table()\n\n    def setup_table(self):\n        self.cursor.execute('''\n            CREATE TABLE IF NOT EXISTS contacts (\n                id INTEGER PRIMARY KEY AUTOINCREMENT,\n                name TEXT NOT NULL,\n                email TEXT UNIQUE NOT NULL,\n                phone TEXT NOT NULL\n            )\n        ''')\n        self.conn.commit()\n\n    def add_contact(self, name, email, phone):\n        try:\n            self.cursor.execute('''\n                INSERT INTO contacts (name, email, phone)\n                VALUES (?, ?, ?)\n            ''', (name, email, phone))\n            self.conn.commit()\n            print(f\"✓ Contact '{name}' added successfully.\")\n            return True\n        except sqlite3.IntegrityError:\n            print(f\"✗ Error: Email '{email}' already exists in database.\")\n            return False\n\n    def search_contacts(self, keyword):\n        query = \"%\" + keyword.strip() + \"%\"\n        self.cursor.execute('''\n            SELECT id, name, email, phone FROM contacts\n            WHERE name LIKE ? OR email LIKE ?\n            ORDER BY name ASC\n        ''', (query, query))\n        rows = self.cursor.fetchall()\n        \n        print(f\"\\nSearch results for '{keyword}' ({len(rows)} found):\")\n        print(\"-\" * 50)\n        for r in rows:\n            print(f\"ID: {r[0]} | Name: {r[1]} | Email: {r[2]} | Phone: {r[3]}\")\n        print(\"-\" * 50)\n        return rows\n\n    def close(self):\n        self.conn.close()\n\nif __name__ == '__main__':\n    cb = ContactBook()\n    cb.add_contact(\"Arshith Kumar\", \"arshith@example.com\", \"+91-9876543210\")\n    cb.add_contact(\"Bhavana Kolla\", \"bhavana@example.com\", \"+91-9876543211\")\n    cb.add_contact(\"Chandan Verma\", \"chandan@example.com\", \"+91-9876543212\")\n    cb.search_contacts(\"Arshith\")\n    cb.close()\n",
         "expectedOutput": "✓ Contact 'Arshith Kumar' added successfully.\n✓ Contact 'Bhavana Kolla' added successfully.\n✓ Contact 'Chandan Verma' added successfully.\n\nSearch results for 'Arshith' (1 found):\n--------------------------------------------------\nID: 1 | Name: Arshith Kumar | Email: arshith@example.com | Phone: +91-9876543210\n--------------------------------------------------"
       }
-    ]
+    ],
+    "isCompleted": false
   },
   {
-    "id": "sql-data-analysis",
+    "id": "sql-mastery",
     "title": "SQL & Relational Databases",
+    "slug": "sql-mastery",
     "category": "SQL",
     "level": "All Levels",
     "duration": "35 hours",
-    "rating": 4.9,
-    "studentsCount": "14.8k",
-    "studentsNumeric": 14800,
+    "rating": 4.8,
+    "studentsCount": "11.5k",
+    "studentsNumeric": 11500,
     "price": 0,
     "isFree": true,
-    "bestseller": true,
+    "bestseller": false,
     "progress": 0,
-    "iconBg": "bg-cyan-50 border-2 border-cyan-200 text-cyan-600",
+    "status": "published",
+    "featured": false,
+    "certificateAvailable": true,
+    "sequentialLearning": true,
+    "iconBg": "bg-emerald-50 border-2 border-emerald-200 text-emerald-600",
     "iconType": "database",
     "introVideoUrl": "https://www.youtube.com/embed/HXV3zeQKqGY",
-    "description": "Master Relational Databases & SQL with our comprehensive 15-module curriculum based on the complete SQL manual. Covers DDL, DML, filtering, aggregation, Joins, Subqueries, CTEs, Views, Indexes, Transactions, DCL security, Python integration, AI-assisted SQL, and Capstone E-Commerce Project.",
+    "thumbnail": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=600&q=80",
+    "shortDescription": "Master SQL queries, table joins, aggregations, database design, indexing, and normalization.",
+    "description": "Master SQL & Relational Databases with our 15-module curriculum covering DDL, DML, WHERE filtering, ORDER BY, aggregate functions, GROUP BY, HAVING, JOINS, Subqueries, CTEs, Views, Indexes, Transactions (TCL), DCL security, Python integration, and AI-assisted SQL.",
     "instructor": {
-      "name": "Siddharth Nair & Dr. Ananya Sharma",
-      "role": "Principal Data Architect @ Arshith Boot Camp",
+      "name": "Rohan Varma",
+      "role": "Senior Database Architect @ Arshith Boot Camp",
       "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
     },
+    "prerequisites": null,
+    "skills": [],
     "whatYouWillLearn": [
       "Introduction to SQL, Databases, RDBMS, and Data Types",
       "Data Definition Language (DDL): CREATE, ALTER, DROP, TRUNCATE",
@@ -12358,6 +12787,81 @@ export const INITIAL_COURSES = [
               ],
               "correctAnswer": 0,
               "explanation": "Third Normal Form (3NF) requires the table to be in 2NF and have no transitive dependencies: every non-prime attribute must depend non-transitively directly on the primary key ('the key, the whole key, and nothing but the key')."
+            },
+            {
+              "id": "sql-set-a-21",
+              "questionNumber": 21,
+              "topic": "Covering Indexes & Index-Only Scans",
+              "questionText": "Under what condition can a Relational Database Query Optimizer perform an Index-Only Scan to fulfill a SELECT query without fetching table rows from disk heaps?",
+              "codeSnippet": "-- Table: employees (id, name, dept_id, salary)\nCREATE INDEX idx_dept_salary ON employees(dept_id, salary);\n\nSELECT dept_id, salary FROM employees WHERE dept_id = 101;",
+              "options": [
+                "When the table contains fewer than 100 rows",
+                "When all columns requested in the SELECT clause and WHERE filter are contained directly within the B-Tree index itself",
+                "When the database uses SQLite in memory mode exclusively",
+                "When a FULL OUTER JOIN is executed on primary keys"
+              ],
+              "correctAnswer": 1,
+              "explanation": "An Index-Only Scan occurs when a covering index contains all requested query fields (SELECT and WHERE). The engine reads data directly from the index in RAM without disk heap I/O."
+            },
+            {
+              "id": "sql-set-a-22",
+              "questionNumber": 22,
+              "topic": "Window Functions: LEAD and LAG",
+              "questionText": "Which SQL Window Function allows a query to access data from the next or previous row in the result set without performing a self-join?",
+              "codeSnippet": "SELECT \n    order_date,\n    total_amount,\n    LAG(total_amount, 1) OVER (ORDER BY order_date) AS prev_order_amount,\n    total_amount - LAG(total_amount, 1) OVER (ORDER BY order_date) AS diff\nFROM orders;",
+              "options": [
+                "FIRST_VALUE() and LAST_VALUE()",
+                "LAG() and LEAD()",
+                "ROW_NUMBER() and RANK()",
+                "NTILE() and CUME_DIST()"
+              ],
+              "correctAnswer": 1,
+              "explanation": "`LAG()` accesses data from a previous row, and `LEAD()` accesses data from a subsequent row relative to the current position within the defined window partition."
+            },
+            {
+              "id": "sql-set-a-23",
+              "questionNumber": 23,
+              "topic": "Recursive Common Table Expressions (CTEs)",
+              "questionText": "What is the primary usage of a `WITH RECURSIVE` CTE in relational databases?",
+              "codeSnippet": "WITH RECURSIVE OrgChart AS (\n    SELECT emp_id, name, manager_id, 1 AS level\n    FROM employees WHERE manager_id IS NULL\n    UNION ALL\n    SELECT e.emp_id, e.name, e.manager_id, o.level + 1\n    FROM employees e\n    JOIN OrgChart o ON e.manager_id = o.emp_id\n)\nSELECT * FROM OrgChart;",
+              "options": [
+                "To automatically create foreign key triggers across multiple databases",
+                "To query hierarchical, tree-structured, or graph network data like organizational charts and bill of materials",
+                "To bypass database security permissions and grant superuser access",
+                "To encrypt passwords stored in text columns"
+              ],
+              "correctAnswer": 1,
+              "explanation": "`WITH RECURSIVE` enables traversal of hierarchical or graph-structured datasets (such as parent-child employee org charts, categories, or network paths) by repeatedly executing an anchor query."
+            },
+            {
+              "id": "sql-set-a-24",
+              "questionNumber": 24,
+              "topic": "ACID Transaction Isolation Levels",
+              "questionText": "Which ANSI SQL Transaction Isolation level guarantees protection against Dirty Reads, Non-Repeatable Reads, and Phantom Reads?",
+              "codeSnippet": "SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;\nBEGIN TRANSACTION;\n-- Guarantees complete isolation\nCOMMIT;",
+              "options": [
+                "READ UNCOMMITTED",
+                "READ COMMITTED",
+                "REPEATABLE READ",
+                "SERIALIZABLE"
+              ],
+              "correctAnswer": 3,
+              "explanation": "`SERIALIZABLE` is the highest isolation level. It enforces strict transaction execution sequence as if transactions occurred serially, preventing Dirty Reads, Non-Repeatable Reads, and Phantom Reads."
+            },
+            {
+              "id": "sql-set-a-25",
+              "questionNumber": 25,
+              "topic": "Three-Valued Logic & NULL Handling",
+              "questionText": "In SQL Three-Valued Logic (TRUE, FALSE, UNKNOWN), what is the evaluation result of the expression `SELECT * FROM users WHERE status = NULL;`?",
+              "codeSnippet": "SELECT * FROM users WHERE status = NULL; -- Returns 0 rows!",
+              "options": [
+                "It returns all rows where status is NULL",
+                "It evaluates to UNKNOWN (falsy), returning 0 rows; `IS NULL` must be used instead",
+                "It raises a SyntaxError during execution",
+                "It converts NULL to an empty string ''"
+              ],
+              "correctAnswer": 1,
+              "explanation": "In SQL, NULL represents an unknown value. Comparisons using `=`, `<>`, or `!=` with NULL evaluate to UNKNOWN, which fails WHERE conditions. Developers must use `IS NULL` or `IS NOT NULL`."
             }
           ]
         },
@@ -12672,6 +13176,81 @@ export const INITIAL_COURSES = [
               ],
               "correctAnswer": 0,
               "explanation": "STRING_AGG() (ANSI SQL / PostgreSQL / SQL Server) and GROUP_CONCAT() (MySQL/SQLite) aggregate column string values across rows in a group into a delimiter-separated string."
+            },
+            {
+              "id": "sql-set-b-21",
+              "questionNumber": 21,
+              "topic": "Correlated Subqueries vs EXISTS",
+              "questionText": "Why is using `WHERE EXISTS (SELECT 1 FROM ...)` generally faster than `WHERE id IN (SELECT id FROM ...)` when querying large subquery datasets with potential NULL values?",
+              "codeSnippet": "SELECT c.full_name FROM customers c\nWHERE EXISTS (\n    SELECT 1 FROM orders o \n    WHERE o.customer_id = c.customer_id AND o.total_amount > 10000\n);",
+              "options": [
+                "EXISTS converts the query into a C-extension function",
+                "EXISTS short-circuits evaluation as soon as a single matching record is found, and avoids three-valued NULL logic pitfalls",
+                "IN creates a temporary table on physical disk for every row",
+                "EXISTS automatically disables table indexing"
+              ],
+              "correctAnswer": 1,
+              "explanation": "`EXISTS` short-circuits as soon as a matching row is found without scanning the entire subquery. Furthermore, `NOT IN` fails to return rows if the subquery contains a single NULL value."
+            },
+            {
+              "id": "sql-set-b-22",
+              "questionNumber": 22,
+              "topic": "Advanced Grouping: ROLLUP & CUBE",
+              "questionText": "Which GROUP BY extension generates aggregate summary rows for all possible combinations of specified grouping columns, including sub-totals and a grand total?",
+              "codeSnippet": "SELECT region, category, SUM(sales)\nFROM sales_data\nGROUP BY CUBE(region, category);",
+              "options": [
+                "GROUP BY HAVING",
+                "GROUP BY ROLLUP",
+                "GROUP BY CUBE",
+                "GROUP BY OVER"
+              ],
+              "correctAnswer": 2,
+              "explanation": "`GROUP BY CUBE(a, b)` generates aggregations for all $2^N$ dimension combinations ((a, b), (a), (b), and grand total ()). `ROLLUP` produces hierarchical sub-totals."
+            },
+            {
+              "id": "sql-set-b-23",
+              "questionNumber": 23,
+              "topic": "Database Normalization (3NF vs BCNF)",
+              "questionText": "A relational table is in Third Normal Form (3NF) if it is in 2NF and satisfies which key structural condition?",
+              "codeSnippet": "-- 3NF Rule: Every non-key attribute must depend on the key, the whole key, and nothing but the key!",
+              "options": [
+                "It contains no multi-valued array columns",
+                "There are no transitive dependencies (non-key columns depending on other non-key columns)",
+                "All columns are indexed with B-Tree indexes",
+                "Every column must be declared with NOT NULL constraints"
+              ],
+              "correctAnswer": 1,
+              "explanation": "3NF requires removing transitive functional dependencies where a non-prime attribute depends on another non-prime attribute rather than directly on candidate keys."
+            },
+            {
+              "id": "sql-set-b-24",
+              "questionNumber": 24,
+              "topic": "Foreign Key Referential Integrity Actions",
+              "questionText": "What happens when a parent record in a primary table is deleted if its Foreign Key constraint specifies `ON DELETE SET NULL`?",
+              "codeSnippet": "CREATE TABLE orders (\n    order_id INT PRIMARY KEY,\n    customer_id INT,\n    FOREIGN KEY (customer_id) REFERENCES customers(id) ON DELETE SET NULL\n);",
+              "options": [
+                "The deletion of the parent customer is rejected with an IntegrityError",
+                "The corresponding child order records in orders table automatically have their customer_id updated to NULL",
+                "All child orders are permanently deleted from disk",
+                "The customer_id is assigned to value 0"
+              ],
+              "correctAnswer": 1,
+              "explanation": "`ON DELETE SET NULL` preserves child records when a referenced parent row is deleted by automatically updating the foreign key column in child rows to NULL."
+            },
+            {
+              "id": "sql-set-b-25",
+              "questionNumber": 25,
+              "topic": "Full-Text Search vs Pattern Matching",
+              "questionText": "Why is a wildcard query like `SELECT * FROM articles WHERE content LIKE '%database%';` inefficient on large text datasets, and how is it optimized?",
+              "codeSnippet": "-- Inefficient: Leading wildcard forces Full Table Scan\nSELECT * FROM articles WHERE content LIKE '%database%';",
+              "options": [
+                "Leading wildcards (%term) prevent B-Tree index lookup, requiring a Full Table Scan; Full-Text Search (FTS) uses GIN/GiST inverted indexes for fast word searches",
+                "LIKE queries automatically lock the entire database server",
+                "LIKE statements only work on integer columns",
+                "Full-Text Search converts text into floating point numbers"
+              ],
+              "correctAnswer": 0,
+              "explanation": "Standard B-Tree indexes cannot index pattern searches starting with wildcards (`%text`). Full-Text Search indexes build inverted key-to-document indexes (GIN/GiST) for fast text matching."
             }
           ]
         },
@@ -12986,6 +13565,81 @@ export const INITIAL_COURSES = [
               ],
               "correctAnswer": 0,
               "explanation": "The Anti-Join pattern performs a LEFT JOIN from customers to orders and filters 'WHERE orders.id IS NULL', isolating customer records with zero matching orders."
+            },
+            {
+              "id": "sql-set-c-21",
+              "questionNumber": 21,
+              "topic": "Self JOINs for Sequential Analytics",
+              "questionText": "Which SQL query pattern correlates rows within the same table to compare events or calculate intervals between consecutive user interactions?",
+              "codeSnippet": "SELECT \n    a.user_id,\n    a.login_time AS current_login,\n    b.login_time AS previous_login\nFROM user_logins a\nJOIN user_logins b \n  ON a.user_id = b.user_id AND a.login_id = b.login_id + 1;",
+              "options": [
+                "CROSS JOIN",
+                "Self JOIN",
+                "FULL OUTER JOIN",
+                "NATURAL JOIN"
+              ],
+              "correctAnswer": 1,
+              "explanation": "A Self JOIN joins a table to itself using aliases (e.g., `a` and `b`), allowing row-to-row comparisons within the same dataset."
+            },
+            {
+              "id": "sql-set-c-22",
+              "questionNumber": 22,
+              "topic": "COUNT(*) vs COUNT(column_name)",
+              "questionText": "What is the critical behavioral difference between `COUNT(*)` and `COUNT(status)` when analyzing a table where 5 out of 10 rows have a NULL status?",
+              "codeSnippet": "-- Table has 10 total rows (5 have NULL status)\nSELECT COUNT(*) AS total_rows, COUNT(status) AS status_count FROM orders;",
+              "options": [
+                "Both queries return 10",
+                "COUNT(*) returns 10 (all rows), while COUNT(status) returns 5 (ignores NULLs)",
+                "COUNT(status) raises an error when encountering NULL values",
+                "COUNT(*) returns 5 and COUNT(status) returns 10"
+              ],
+              "correctAnswer": 1,
+              "explanation": "`COUNT(*)` counts all rows in the dataset regardless of content. `COUNT(column_name)` counts only non-NULL occurrences in that specific column."
+            },
+            {
+              "id": "sql-set-c-23",
+              "questionNumber": 23,
+              "topic": "Database Triggers & Audit Logging",
+              "questionText": "When creating a database Trigger to write audit log entries whenever a user's email address is updated, which timing and event specification should be defined?",
+              "codeSnippet": "CREATE TRIGGER audit_user_email_update\nAFTER UPDATE OF email ON users\nFOR EACH ROW\nBEGIN\n    INSERT INTO email_audit_log(user_id, old_email, new_email, updated_at)\n    VALUES (OLD.id, OLD.email, NEW.email, DATETIME('now'));\nEND;",
+              "options": [
+                "BEFORE DELETE ON users",
+                "AFTER UPDATE OF email ON users FOR EACH ROW",
+                "INSTEAD OF SELECT ON users",
+                "BEFORE INSERT ON users"
+              ],
+              "correctAnswer": 1,
+              "explanation": "An `AFTER UPDATE OF email ON users FOR EACH ROW` trigger executes after an update statement finishes, exposing `OLD.email` (previous value) and `NEW.email` (updated value) for audit records."
+            },
+            {
+              "id": "sql-set-c-24",
+              "questionNumber": 24,
+              "topic": "Temporary Tables vs CTEs",
+              "questionText": "When should a developer choose a Temporary Table (`CREATE TEMP TABLE`) over a Common Table Expression (`WITH cte AS ...`) in a complex multi-step stored procedure?",
+              "codeSnippet": "CREATE TEMP TABLE temp_active_users AS\nSELECT user_id, registration_date FROM users WHERE status = 'Active';\n\nCREATE INDEX idx_temp_user ON temp_active_users(user_id);",
+              "options": [
+                "CTEs cannot perform JOIN operations",
+                "When the intermediate result set is referenced multiple times across separate queries or requires explicit indexing",
+                "Temporary tables are stored permanently on network disk backup drives",
+                "CTEs only work inside SQLite"
+              ],
+              "correctAnswer": 1,
+              "explanation": "CTEs are scoped to a single query execution. Temporary tables persist across multiple queries in the session, allowing index creation and repeated references without recomputing data."
+            },
+            {
+              "id": "sql-set-c-25",
+              "questionNumber": 25,
+              "topic": "Upsert Logic (ON CONFLICT DO UPDATE)",
+              "questionText": "Which SQL clause implements 'Upsert' functionality by updating an existing record if a UNIQUE key conflict occurs during insertion?",
+              "codeSnippet": "INSERT INTO user_stats (user_id, login_count)\nVALUES (101, 1)\nON CONFLICT(user_id) DO UPDATE SET\n    login_count = user_stats.login_count + 1;",
+              "options": [
+                "ON CONFLICT(...) DO UPDATE",
+                "WHERE DUPLICATE REPLACE",
+                "TRY INSERT CATCH UPDATE",
+                "IF EXISTS ALTER"
+              ],
+              "correctAnswer": 0,
+              "explanation": "`INSERT INTO ... ON CONFLICT(key) DO UPDATE SET ...` (standard SQL / PostgreSQL / SQLite) atomizes insertion or updating upon primary key or unique constraint collisions."
             }
           ]
         },
@@ -13300,6 +13954,81 @@ export const INITIAL_COURSES = [
               ],
               "correctAnswer": 0,
               "explanation": "Opening TCP database connections involves expensive SSL/TLS handshakes and process allocations. Connection pooling maintains reusable open connections, dramatically reducing latency."
+            },
+            {
+              "id": "sql-set-d-21",
+              "questionNumber": 21,
+              "topic": "DENSE_RANK() vs ROW_NUMBER()",
+              "questionText": "How does `DENSE_RANK()` behave differently from `ROW_NUMBER()` when ranking employees with identical salaries?",
+              "codeSnippet": "-- Two employees earn $100,000 (tied)\nSELECT name, salary,\n    ROW_NUMBER() OVER (ORDER BY salary DESC) as row_num,\n    DENSE_RANK() OVER (ORDER BY salary DESC) as dense_rk\nFROM employees;",
+              "options": [
+                "ROW_NUMBER assigns distinct sequential numbers (1, 2, 3); DENSE_RANK assigns tied ranks (1, 1, 2) without skipping numbers",
+                "DENSE_RANK skips numbers after ties (1, 1, 3)",
+                "ROW_NUMBER raises an error on ties",
+                "DENSE_RANK produces floating-point numbers"
+              ],
+              "correctAnswer": 0,
+              "explanation": "`ROW_NUMBER()` assigns unique sequential integers (1, 2, 3). `DENSE_RANK()` assigns identical ranks to tied values without skipping subsequent rank numbers (1, 1, 2)."
+            },
+            {
+              "id": "sql-set-d-22",
+              "questionNumber": 22,
+              "topic": "Database Deadlocks & Lock Ordering",
+              "questionText": "What causes a Deadlock scenario in concurrent relational database transactions, and how is it mitigated?",
+              "codeSnippet": "-- Transaction 1: Locks Row A, waits for Row B\n-- Transaction 2: Locks Row B, waits for Row A",
+              "options": [
+                "Deadlocks occur when disk space runs out; they are mitigated by clearing logs",
+                "Deadlocks occur when two or more transactions hold locks on resources the other requires; mitigated by accessing tables/rows in a consistent deterministic order",
+                "Deadlocks occur when foreign keys are deleted",
+                "Deadlocks are prevented by disabling index locks"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Deadlocks occur when transactions wait mutually for locks held by each other. Mitigate by acquiring locks in a consistent order and keeping transaction windows short."
+            },
+            {
+              "id": "sql-set-d-23",
+              "questionNumber": 23,
+              "topic": "Table Partitioning Strategies",
+              "questionText": "What is the primary performance benefit of Table Partitioning (`PARTITION BY RANGE`) on multi-terabyte transactional tables?",
+              "codeSnippet": "CREATE TABLE sales (\n    sale_id INT,\n    sale_date DATE NOT NULL,\n    amount DECIMAL\n) PARTITION BY RANGE (sale_date);",
+              "options": [
+                "It compresses text columns using ZIP compression",
+                "Partition Pruning enables the query engine to scan only relevant data partitions, skipping unneeded date ranges entirely",
+                "It converts relational tables into NoSQL document stores",
+                "It eliminates the need for primary keys"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Partition Pruning excludes non-relevant table partitions from query execution plans based on WHERE filtering (e.g., filtering `sale_date = '2025-04-01'` scans only the Q2 2025 partition)."
+            },
+            {
+              "id": "sql-set-d-24",
+              "questionNumber": 24,
+              "topic": "Conditional Aggregations",
+              "questionText": "Which SQL technique allows calculating multiple conditional metrics in a single SELECT query pass over a dataset?",
+              "codeSnippet": "SELECT \n    COUNT(*) AS total_orders,\n    SUM(CASE WHEN status = 'Completed' THEN 1 ELSE 0 END) AS completed_orders,\n    SUM(CASE WHEN status = 'Cancelled' THEN 1 ELSE 0 END) AS cancelled_orders\nFROM orders;",
+              "options": [
+                "Running separate SELECT queries and combining them with UNION",
+                "Using SUM(CASE WHEN ... END) or FILTER (WHERE ...)",
+                "Using GROUP BY HAVING on status",
+                "Executing nested cursor loops"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Combining aggregate functions with CASE statements (or ANSI `FILTER (WHERE ...)`) computes distinct subset counts in a single table scan."
+            },
+            {
+              "id": "sql-set-d-25",
+              "questionNumber": 25,
+              "topic": "Foreign Key Indexing & Table Locking",
+              "questionText": "Why should database administrators always build indexes on Foreign Key columns in relational database schemas?",
+              "codeSnippet": "CREATE TABLE order_items (\n    item_id INT PRIMARY KEY,\n    order_id INT NOT NULL, -- Foreign Key\n    product_id INT NOT NULL\n);\nCREATE INDEX idx_order_items_order ON order_items(order_id); -- Critical!",
+              "options": [
+                "Without an index on Foreign Keys, deleting a row from the parent table can cause a full table lock or full scan on the child table",
+                "Foreign Keys cannot be created unless an index already exists",
+                "Indexes convert foreign keys into primary keys",
+                "Foreign key indexes automatically encrypt table rows"
+              ],
+              "correctAnswer": 0,
+              "explanation": "When modifying parent rows, database engines verify child table constraints. Un-indexed Foreign Key columns force full table scans or share locks on the child table, hindering concurrency."
             }
           ]
         }
@@ -13604,180 +14333,464 @@ export const INITIAL_COURSES = [
           ],
           "correctAnswer": 0,
           "explanation": "Third Normal Form (3NF) requires the table to be in 2NF and have no transitive dependencies: every non-prime attribute must depend non-transitively directly on the primary key ('the key, the whole key, and nothing but the key')."
+        },
+        {
+          "id": "sql-set-a-21",
+          "questionNumber": 21,
+          "topic": "Covering Indexes & Index-Only Scans",
+          "questionText": "Under what condition can a Relational Database Query Optimizer perform an Index-Only Scan to fulfill a SELECT query without fetching table rows from disk heaps?",
+          "codeSnippet": "-- Table: employees (id, name, dept_id, salary)\nCREATE INDEX idx_dept_salary ON employees(dept_id, salary);\n\nSELECT dept_id, salary FROM employees WHERE dept_id = 101;",
+          "options": [
+            "When the table contains fewer than 100 rows",
+            "When all columns requested in the SELECT clause and WHERE filter are contained directly within the B-Tree index itself",
+            "When the database uses SQLite in memory mode exclusively",
+            "When a FULL OUTER JOIN is executed on primary keys"
+          ],
+          "correctAnswer": 1,
+          "explanation": "An Index-Only Scan occurs when a covering index contains all requested query fields (SELECT and WHERE). The engine reads data directly from the index in RAM without disk heap I/O."
+        },
+        {
+          "id": "sql-set-a-22",
+          "questionNumber": 22,
+          "topic": "Window Functions: LEAD and LAG",
+          "questionText": "Which SQL Window Function allows a query to access data from the next or previous row in the result set without performing a self-join?",
+          "codeSnippet": "SELECT \n    order_date,\n    total_amount,\n    LAG(total_amount, 1) OVER (ORDER BY order_date) AS prev_order_amount,\n    total_amount - LAG(total_amount, 1) OVER (ORDER BY order_date) AS diff\nFROM orders;",
+          "options": [
+            "FIRST_VALUE() and LAST_VALUE()",
+            "LAG() and LEAD()",
+            "ROW_NUMBER() and RANK()",
+            "NTILE() and CUME_DIST()"
+          ],
+          "correctAnswer": 1,
+          "explanation": "`LAG()` accesses data from a previous row, and `LEAD()` accesses data from a subsequent row relative to the current position within the defined window partition."
+        },
+        {
+          "id": "sql-set-a-23",
+          "questionNumber": 23,
+          "topic": "Recursive Common Table Expressions (CTEs)",
+          "questionText": "What is the primary usage of a `WITH RECURSIVE` CTE in relational databases?",
+          "codeSnippet": "WITH RECURSIVE OrgChart AS (\n    SELECT emp_id, name, manager_id, 1 AS level\n    FROM employees WHERE manager_id IS NULL\n    UNION ALL\n    SELECT e.emp_id, e.name, e.manager_id, o.level + 1\n    FROM employees e\n    JOIN OrgChart o ON e.manager_id = o.emp_id\n)\nSELECT * FROM OrgChart;",
+          "options": [
+            "To automatically create foreign key triggers across multiple databases",
+            "To query hierarchical, tree-structured, or graph network data like organizational charts and bill of materials",
+            "To bypass database security permissions and grant superuser access",
+            "To encrypt passwords stored in text columns"
+          ],
+          "correctAnswer": 1,
+          "explanation": "`WITH RECURSIVE` enables traversal of hierarchical or graph-structured datasets (such as parent-child employee org charts, categories, or network paths) by repeatedly executing an anchor query."
+        },
+        {
+          "id": "sql-set-a-24",
+          "questionNumber": 24,
+          "topic": "ACID Transaction Isolation Levels",
+          "questionText": "Which ANSI SQL Transaction Isolation level guarantees protection against Dirty Reads, Non-Repeatable Reads, and Phantom Reads?",
+          "codeSnippet": "SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;\nBEGIN TRANSACTION;\n-- Guarantees complete isolation\nCOMMIT;",
+          "options": [
+            "READ UNCOMMITTED",
+            "READ COMMITTED",
+            "REPEATABLE READ",
+            "SERIALIZABLE"
+          ],
+          "correctAnswer": 3,
+          "explanation": "`SERIALIZABLE` is the highest isolation level. It enforces strict transaction execution sequence as if transactions occurred serially, preventing Dirty Reads, Non-Repeatable Reads, and Phantom Reads."
+        },
+        {
+          "id": "sql-set-a-25",
+          "questionNumber": 25,
+          "topic": "Three-Valued Logic & NULL Handling",
+          "questionText": "In SQL Three-Valued Logic (TRUE, FALSE, UNKNOWN), what is the evaluation result of the expression `SELECT * FROM users WHERE status = NULL;`?",
+          "codeSnippet": "SELECT * FROM users WHERE status = NULL; -- Returns 0 rows!",
+          "options": [
+            "It returns all rows where status is NULL",
+            "It evaluates to UNKNOWN (falsy), returning 0 rows; `IS NULL` must be used instead",
+            "It raises a SyntaxError during execution",
+            "It converts NULL to an empty string ''"
+          ],
+          "correctAnswer": 1,
+          "explanation": "In SQL, NULL represents an unknown value. Comparisons using `=`, `<>`, or `!=` with NULL evaluate to UNKNOWN, which fails WHERE conditions. Developers must use `IS NULL` or `IS NOT NULL`."
         }
       ]
-    }
+    },
+    "finalProject": {
+      "id": "sql-final-project",
+      "title": "E-Commerce Relational Database Design & Query Suite",
+      "description": "Design a normalized 3NF database schema for an e-commerce platform including customers, orders, inventory, and payments.",
+      "requirements": [
+        "Draw ER diagram",
+        "Write DDL scripts",
+        "Write 10 analytical queries"
+      ],
+      "instructions": "Submit SQL script file and ER diagram documentation.",
+      "allowedFileTypes": [
+        ".sql",
+        ".zip",
+        ".pdf"
+      ],
+      "maxFileSizeMb": 20,
+      "githubUrlAllowed": true,
+      "liveProjectUrlAllowed": false,
+      "passingScore": 80,
+      "published": true
+    },
+    "updatedAt": "2026-10-01T11:13:39.780Z",
+    "projects": [
+      {
+        "id": "sql-proj-1",
+        "projectNumber": 1,
+        "title": "Project 1: E-Commerce Sales & Customer Lifetime Value (LTV) Analytics",
+        "subtitle": "Module 03, 04 & 05 — DML Filtering, Aggregations & Multi-Table JOINS",
+        "difficulty": "Beginner to Intermediate",
+        "estimatedTime": "1 – 2 Hours",
+        "pageLength": "1 – 2 Pages",
+        "description": "Write SQL DDL to create customer and order tables, populate real-world transactional test records, and craft analytical JOIN and GROUP BY queries to extract total spending per customer, monthly revenue trends, and top customer segments.",
+        "objectives": [
+          "Design normalized tables ('customers' and 'orders') with PRIMARY KEY and FOREIGN KEY constraints",
+          "Perform multi-table INNER JOINs and LEFT JOINs to correlate client metadata with purchase records",
+          "Calculate key business metrics using aggregate functions (SUM, COUNT, AVG, ROUND)",
+          "Filter grouped summary data using HAVING clauses to identify high-value VIP shoppers"
+        ],
+        "requirements": [
+          "Create 'customers' (customer_id, full_name, email, city) and 'orders' (order_id, customer_id, order_date, total_amount, status) tables",
+          "Insert representative sample records including completed, pending, and cancelled orders",
+          "Write SQL query computing total revenue, average order value (AOV), and total orders by status",
+          "Write SQL query calculating Customer Lifetime Value (LTV) per customer, ordered by highest spenders"
+        ],
+        "starterCode": "-- Project 1: E-Commerce Sales & Customer Lifetime Value (LTV) Analytics\n-- File: ecommerce_analytics.sql\n\n-- 1. Create Normalized Tables with Referential Integrity\nCREATE TABLE IF NOT EXISTS customers (\n    customer_id INTEGER PRIMARY KEY AUTOINCREMENT,\n    full_name VARCHAR(100) NOT NULL,\n    email VARCHAR(100) UNIQUE NOT NULL,\n    city VARCHAR(50) NOT NULL,\n    joined_date DATE NOT NULL\n);\n\nCREATE TABLE IF NOT EXISTS orders (\n    order_id INTEGER PRIMARY KEY AUTOINCREMENT,\n    customer_id INTEGER NOT NULL,\n    order_date DATE NOT NULL,\n    total_amount DECIMAL(10,2) NOT NULL,\n    status VARCHAR(20) NOT NULL CHECK (status IN ('Completed', 'Pending', 'Cancelled')),\n    FOREIGN KEY (customer_id) REFERENCES customers(customer_id)\n);\n\n-- 2. Populate Sample Dataset\nINSERT INTO customers (full_name, email, city, joined_date) VALUES\n('Arshith Kumar', 'arshith@example.com', 'Bengaluru', '2025-01-10'),\n('Bhavana Kolla', 'bhavana@example.com', 'Hyderabad', '2025-02-14'),\n('Chandan Verma', 'chandan@example.com', 'Mumbai', '2025-03-01'),\n('Divya Sharma', 'divya@example.com', 'Delhi', '2025-03-15');\n\nINSERT INTO orders (customer_id, order_date, total_amount, status) VALUES\n(1, '2025-03-20', 4500.00, 'Completed'),\n(1, '2025-04-02', 12500.50, 'Completed'),\n(2, '2025-03-22', 8900.00, 'Completed'),\n(2, '2025-04-05', 3100.00, 'Pending'),\n(3, '2025-03-25', 15000.00, 'Completed'),\n(3, '2025-04-10', 450.00, 'Cancelled'),\n(1, '2025-04-12', 6200.00, 'Completed');\n\n-- 3. Executive Sales Metrics Query (Overall Revenue & AOV)\nSELECT \n    COUNT(order_id) AS total_orders,\n    SUM(CASE WHEN status = 'Completed' THEN total_amount ELSE 0 END) AS total_revenue,\n    ROUND(AVG(CASE WHEN status = 'Completed' THEN total_amount END), 2) AS avg_order_value\nFROM orders;\n\n-- 4. Customer Lifetime Value (LTV) & VIP Ranking Query\nSELECT \n    c.customer_id,\n    c.full_name,\n    c.city,\n    COUNT(o.order_id) AS total_purchases,\n    COALESCE(SUM(o.total_amount), 0.00) AS lifetime_value,\n    CASE \n        WHEN SUM(o.total_amount) >= 20000 THEN 'VIP Diamond'\n        WHEN SUM(o.total_amount) >= 10000 THEN 'Gold Preferred'\n        ELSE 'Regular Shopper'\n    END AS customer_tier\nFROM customers c\nLEFT JOIN orders o ON c.customer_id = o.customer_id AND o.status = 'Completed'\nGROUP BY c.customer_id, c.full_name, c.city\nHAVING SUM(o.total_amount) > 0\nORDER BY lifetime_value DESC;\n",
+        "expectedOutput": "+--------------+---------------+-----------------+\n| total_orders | total_revenue | avg_order_value |\n+--------------+---------------+-----------------+\n|            7 |      47100.50 |         9420.10 |\n+--------------+---------------+-----------------+\n\n+-------------+---------------+-----------+-----------------+----------------+----------------+\n| customer_id | full_name     | city      | total_purchases | lifetime_value | customer_tier  |\n+-------------+---------------+-----------+-----------------+----------------+----------------+\n|           1 | Arshith Kumar | Bengaluru |               3 |       23200.50 | VIP Diamond    |\n|           3 | Chandan Verma | Mumbai    |               1 |       15000.00 | Gold Preferred |\n|           2 | Bhavana Kolla | Hyderabad |               1 |        8900.00 | Regular Shopper|\n+-------------+---------------+-----------+-----------------+----------------+----------------+"
+      },
+      {
+        "id": "sql-proj-2",
+        "projectNumber": 2,
+        "title": "Project 2: Corporate Payroll & Department Performance Window Analytics",
+        "subtitle": "Module 06 & 07 — Subqueries, Common Table Expressions (CTEs) & Window Functions",
+        "difficulty": "Intermediate",
+        "estimatedTime": "2 Hours",
+        "pageLength": "1 – 2 Pages",
+        "description": "Construct advanced analytical SQL queries using Common Table Expressions (WITH clauses) and Window Functions (RANK, DENSE_RANK, AVG OVER) to compute department salary rankings, compare individual pay against department averages, and identify top earners per department.",
+        "objectives": [
+          "Formulate structured WITH CTE queries to isolate modular aggregation stages",
+          "Apply Window Functions OVER (PARTITION BY ... ORDER BY ...) for analytical ranking",
+          "Calculate deviation percentages comparing employee salary against department mean",
+          "Retrieve department top earners without relying on correlated subqueries"
+        ],
+        "requirements": [
+          "Create 'departments' (dept_id, dept_name) and 'employees' (emp_id, emp_name, dept_id, salary, hire_date) tables",
+          "Insert departmental payroll dataset spanning multiple engineering and marketing roles",
+          "Write a CTE query with RANK() OVER to rank employees within their department by salary",
+          "Write a query returning employees earning 15%+ above their department's average salary"
+        ],
+        "starterCode": "-- Project 2: Corporate Payroll & Department Window Analytics\n-- File: department_analytics.sql\n\n-- 1. Create Schema\nCREATE TABLE IF NOT EXISTS departments (\n    dept_id INTEGER PRIMARY KEY,\n    dept_name VARCHAR(50) NOT NULL\n);\n\nCREATE TABLE IF NOT EXISTS employees (\n    emp_id INTEGER PRIMARY KEY,\n    emp_name VARCHAR(100) NOT NULL,\n    dept_id INTEGER NOT NULL,\n    salary DECIMAL(10,2) NOT NULL,\n    hire_date DATE NOT NULL,\n    FOREIGN KEY (dept_id) REFERENCES departments(dept_id)\n);\n\n-- 2. Insert Test Data\nINSERT INTO departments VALUES (101, 'Engineering'), (102, 'Data Science'), (103, 'Marketing');\n\nINSERT INTO employees VALUES\n(1, 'Arshith Kumar', 101, 145000.00, '2022-03-15'),\n(2, 'Bhavana Kolla', 101, 120000.00, '2023-01-10'),\n(3, 'Chandan Verma', 101, 95000.00,  '2024-06-01'),\n(4, 'Deepak Rao',    102, 160000.00, '2021-11-20'),\n(5, 'Esha Gupta',    102, 135000.00, '2023-05-12'),\n(6, 'Farhan Khan',   103, 88000.00,  '2022-09-01'),\n(7, 'Gita Patel',    103, 92000.00,  '2021-04-15');\n\n-- 3. Advanced CTE + Window Function Analytical Query\nWITH DeptStats AS (\n    SELECT \n        e.emp_id,\n        e.emp_name,\n        d.dept_name,\n        e.salary,\n        AVG(e.salary) OVER (PARTITION BY e.dept_id) AS dept_avg_salary,\n        RANK() OVER (PARTITION BY e.dept_id ORDER BY e.salary DESC) AS salary_rank_in_dept\n    FROM employees e\n    JOIN departments d ON e.dept_id = d.dept_id\n)\nSELECT \n    emp_id,\n    emp_name,\n    dept_name,\n    salary,\n    ROUND(dept_avg_salary, 2) AS dept_avg,\n    salary_rank_in_dept,\n    ROUND(((salary - dept_avg_salary) / dept_avg_salary) * 100, 1) AS pct_above_avg\nFROM DeptStats\nORDER BY dept_name, salary_rank_in_dept;\n",
+        "expectedOutput": "+--------+---------------+--------------+-----------+-----------+---------------------+---------------+\n| emp_id | emp_name      | dept_name    | salary    | dept_avg  | salary_rank_in_dept | pct_above_avg |\n+--------+---------------+--------------+-----------+-----------+---------------------+---------------+\n|      4 | Deepak Rao    | Data Science | 160000.00 | 147500.00 |                   1 |           8.5 |\n|      5 | Esha Gupta    | Data Science | 135000.00 | 147500.00 |                   2 |          -8.5 |\n|      1 | Arshith Kumar | Engineering  | 145000.00 | 120000.00 |                   1 |          20.8 |\n|      2 | Bhavana Kolla | Engineering  | 120000.00 | 120000.00 |                   2 |           0.0 |\n|      3 | Chandan Verma | Engineering  |  95000.00 | 120000.00 |                   3 |         -20.8 |\n|      7 | Gita Patel    | Marketing    |  92000.00 |  90000.00 |                   1 |           2.2 |\n|      6 | Farhan Khan   | Marketing    |  88000.00 |  90000.00 |                   2 |          -2.2 |\n+--------+---------------+--------------+-----------+-----------+---------------------+---------------+"
+      },
+      {
+        "id": "sql-proj-3",
+        "projectNumber": 3,
+        "title": "Project 3: Persistent Library Inventory & Transaction Management System",
+        "subtitle": "Module 08, 10 & 14 — DDL Views, Transactions (COMMIT/ROLLBACK) & Python SQLite Integration",
+        "difficulty": "Intermediate to Advanced",
+        "estimatedTime": "2 – 3 Hours",
+        "pageLength": "1 – 2 Pages",
+        "description": "Build a robust SQL database pipeline featuring DDL table creation, audit triggers, transactional borrowing workflows with COMMIT/ROLLBACK error handling, and a Python script using sqlite3 to execute parameterized inventory queries.",
+        "objectives": [
+          "Define triggers (AFTER UPDATE) to automatically decrease available book inventory copies",
+          "Enforce data integrity with CHECK constraints (copies_available >= 0)",
+          "Implement ACID compliant SQL transactions using BEGIN TRANSACTION, COMMIT, and ROLLBACK",
+          "Create reusable SQL VIEWs for active loan tracking and build a Python SQLite client wrapper"
+        ],
+        "requirements": [
+          "Create 'books' (book_id, title, author, total_copies, available_copies) and 'borrow_log' tables",
+          "Create a Trigger 'update_book_inventory' that decrements available copies upon borrow insertion",
+          "Create a SQL View 'v_active_loans' summarizing member borrowing activity",
+          "Write a complete Python script demonstrating connection, transaction execution, and exception handling"
+        ],
+        "starterCode": "# Project 3: Persistent Library Inventory & Transaction Management System\n# File: library_system.py\n\nimport sqlite3\n\nclass LibraryDatabase:\n    def __init__(self, db_path=\":memory:\"):\n        self.conn = sqlite3.connect(db_path)\n        self.conn.execute(\"PRAGMA foreign_keys = ON;\")\n        self.cursor = self.conn.cursor()\n        self.setup_schema()\n\n    def setup_schema(self):\n        # 1. Books Table\n        self.cursor.execute('''\n            CREATE TABLE IF NOT EXISTS books (\n                book_id INTEGER PRIMARY KEY AUTOINCREMENT,\n                title TEXT NOT NULL,\n                author TEXT NOT NULL,\n                total_copies INTEGER NOT NULL CHECK(total_copies >= 0),\n                available_copies INTEGER NOT NULL CHECK(available_copies >= 0)\n            );\n        ''')\n\n        # 2. Borrow Log Table\n        self.cursor.execute('''\n            CREATE TABLE IF NOT EXISTS borrow_log (\n                log_id INTEGER PRIMARY KEY AUTOINCREMENT,\n                book_id INTEGER NOT NULL,\n                member_name TEXT NOT NULL,\n                borrow_date DATE DEFAULT (DATE('now')),\n                return_date DATE,\n                FOREIGN KEY (book_id) REFERENCES books(book_id)\n            );\n        ''')\n\n        # 3. View for Active Loans\n        self.cursor.execute('''\n            CREATE VIEW IF NOT EXISTS v_active_loans AS\n            SELECT \n                l.log_id,\n                b.title,\n                b.author,\n                l.member_name,\n                l.borrow_date\n            FROM borrow_log l\n            JOIN books b ON l.book_id = b.book_id\n            WHERE l.return_date IS NULL;\n        ''')\n\n        # 4. Insert Initial Books\n        self.cursor.executemany('''\n            INSERT INTO books (title, author, total_copies, available_copies)\n            VALUES (?, ?, ?, ?)\n        ''', [\n            (\"SQL & Relational Database Mastery\", \"Siddharth Nair\", 5, 5),\n            (\"Python for Data Analysis\", \"Charles Severance\", 3, 3),\n            (\"Designing Data-Intensive Applications\", \"Martin Kleppmann\", 2, 2)\n        ])\n        self.conn.commit()\n\n    def borrow_book(self, book_id, member_name):\n        \"\"\"Executes borrow workflow in an ACID Compliant Transaction\"\"\"\n        try:\n            self.cursor.execute(\"BEGIN TRANSACTION;\")\n            \n            # Check availability\n            self.cursor.execute(\"SELECT available_copies, title FROM books WHERE book_id = ?\", (book_id,))\n            row = self.cursor.fetchone()\n            \n            if not row:\n                raise ValueError(\"Book ID not found.\")\n            \n            available, title = row\n            if available <= 0:\n                raise ValueError(f\"No copies of '{title}' currently available!\")\n\n            # Log borrow event\n            self.cursor.execute('''\n                INSERT INTO borrow_log (book_id, member_name)\n                VALUES (?, ?)\n            ''', (book_id, member_name))\n\n            # Deduct inventory\n            self.cursor.execute('''\n                UPDATE books SET available_copies = available_copies - 1\n                WHERE book_id = ?\n            ''', (book_id,))\n\n            self.conn.commit()\n            print(f\"✓ Successfully borrowed '{title}' for {member_name}.\")\n            return True\n\n        except Exception as e:\n            self.conn.rollback()\n            print(f\"✗ Transaction Aborted: {e}\")\n            return False\n\n    def display_active_loans(self):\n        self.cursor.execute(\"SELECT * FROM v_active_loans;\")\n        rows = self.cursor.fetchall()\n        print(\"\\n=== CURRENT ACTIVE LIBRARY LOANS ===\")\n        print(f\"{'ID':<4} {'Title':<35} {'Member':<15} {'Borrow Date':<12}\")\n        print(\"-\" * 70)\n        for r in rows:\n            print(f\"{r[0]:<4} {r[1]:<35} {r[3]:<15} {r[4]:<12}\")\n        print(\"-\" * 70)\n\nif __name__ == '__main__':\n    lib = LibraryDatabase()\n    lib.borrow_book(1, \"Arshith Kumar\")\n    lib.borrow_book(1, \"Bhavana Kolla\")\n    lib.borrow_book(2, \"Chandan Verma\")\n    lib.display_active_loans()\n",
+        "expectedOutput": "✓ Successfully borrowed 'SQL & Relational Database Mastery' for Arshith Kumar.\n✓ Successfully borrowed 'SQL & Relational Database Mastery' for Bhavana Kolla.\n✓ Successfully borrowed 'Python for Data Analysis' for Chandan Verma.\n\n=== CURRENT ACTIVE LIBRARY LOANS ===\nID   Title                               Member          Borrow Date \n----------------------------------------------------------------------\n1    SQL & Relational Database Mastery   Arshith Kumar   2026-10-10  \n2    SQL & Relational Database Mastery   Bhavana Kolla   2026-10-10  \n3    Python for Data Analysis            Chandan Verma   2026-10-10  \n----------------------------------------------------------------------"
+      }
+    ]
   },
   {
     "id": "web-development",
     "title": "Web Development",
+    "slug": "web-development",
     "category": "Web Development",
-    "level": "Beginner to Advanced",
-    "duration": "50 hours",
+    "level": "Intermediate",
+    "duration": "60 hours",
     "rating": 4.9,
-    "studentsCount": "18.5k",
-    "studentsNumeric": 18500,
-    "price": 1499,
-    "isFree": false,
+    "studentsCount": "18.9k",
+    "studentsNumeric": 18900,
+    "price": 0,
+    "isFree": true,
     "bestseller": true,
-    "progress": 18,
-    "iconBg": "bg-emerald-50 border 2 border-emerald-200 text-emerald-600",
-    "iconType": "code",
-    "introVideoUrl": "https://www.youtube.com/embed/dpw9EHDh2bM",
-    "description": "Become a Full-Stack Web Developer! HTML5, CSS3, Flexbox, Grid, Responsive Design, JavaScript ES6+, DOM Manipulation, Fetch API, Git, and Modern Frontend Architecture.",
+    "progress": 20,
+    "status": "published",
+    "featured": false,
+    "certificateAvailable": true,
+    "sequentialLearning": true,
+    "iconBg": "bg-purple-50 border-2 border-purple-200 text-purple-600",
+    "iconType": "layout",
+    "introVideoUrl": "https://www.youtube.com/embed/nu_pCVPKzTk",
+    "thumbnail": "https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=600&q=80",
+    "shortDescription": "Build modern responsive web applications with HTML5, CSS3, Tailwind, React, Node.js, Express, and MongoDB.",
+    "description": "Build modern responsive web applications with HTML5, CSS3, Tailwind, React, Node.js, Express, and MongoDB. Complete full-stack bootcamp.",
     "instructor": {
-      "name": "Rahul Verma",
-      "role": "Lead Web Engineer @ Arshith Boot Camp",
-      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"
+      "name": "Vikramaditya Rao",
+      "role": "Lead Full Stack Architect @ Arshith Boot Camp",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80"
     },
+    "prerequisites": null,
+    "skills": [],
     "whatYouWillLearn": [
-      "How HTTP, DNS, Browsers, and Web Servers interact",
-      "Semantic HTML5 tags, accessibility (a11y), and SEO standards",
-      "CSS3 Box Model, Flexbox, Grid, Animations & Custom Variables",
-      "Responsive Web Design across Mobile, Tablet, and Desktop displays",
-      "JavaScript ES6+: Async/Await, Promises, Closures, DOM Events",
-      "Building a complete, production-ready Full-Stack Web Application"
+      "Responsive Web Design with HTML5, CSS Grid, Flexbox, and Tailwind CSS",
+      "Modern ES6+ JavaScript, Async/Await, and DOM manipulation",
+      "React Component Architecture, Hooks, Context API, and State Management",
+      "Node.js & Express RESTful API Development",
+      "MongoDB database modeling with Mongoose"
     ],
     "modules": [
       {
         "id": "web-mod-1",
-        "title": "Module 01  -  How the Web Works",
-        "description": "Clients, Servers, HTTP request/response cycle, IP addresses, DNS resolution, and browser rendering engines.",
+        "title": "Module 01 - Modern HTML5 & CSS3 Architecture",
+        "description": "Semantic HTML tags, CSS Flexbox, Grid, CSS Variables, and Mobile-First Responsive Design.",
         "completed": true,
+        "order": 1,
+        "published": true,
         "readingMaterial": {
-          "introduction": "Understanding how browsers communicate with web servers over HTTP/HTTPS is the foundation of web development.",
+          "introduction": "HTML5 and CSS3 form the foundational presentation tier of the web.",
           "objectives": [
-            "Understand Client-Server architecture",
-            "Trace HTTP GET/POST request lifecycle",
-            "Role of HTML, CSS, and JavaScript in browsers"
+            "Understand semantic HTML tags",
+            "Master CSS Flexbox and Grid"
           ],
           "sections": [
             {
-              "heading": "The Request-Response Cycle",
-              "text": "1. Browser enters URL -> 2. DNS resolves IP -> 3. TCP Handshake -> 4. HTTP Request -> 5. Server responds HTML -> 6. Browser renders DOM."
+              "heading": "Flexbox Layout",
+              "text": "Flexbox provides 1D alignment along main and cross axes."
             }
           ],
           "codeExamples": [
             {
-              "title": "HTTP Response Status Codes",
-              "code": "200 OK          - Request succeeded\n201 Created     - Resource created\n400 Bad Request - Invalid client syntax\n404 Not Found   - Resource does not exist\n500 Server Error - Internal server crash",
-              "explanation": "HTTP status codes indicate request outcome."
+              "title": "Flex Center",
+              "code": "display: flex; justify-content: center; align-items: center;",
+              "explanation": "Centers elements inside container."
             }
           ],
-          "bestPractices": [
-            "Always serve web applications over encrypted HTTPS."
-          ],
-          "commonMistakes": [
-            "Confusing domain registrar with web host server."
-          ],
-          "practiceExercise": {
-            "title": "Inspect Network Tab",
-            "problem": "Open browser DevTools (F12) Network tab and inspect loaded assets.",
-            "solutionCode": "Press F12 -> Select Network tab -> Refresh page"
-          },
           "keyTakeaways": [
-            "Browsers render HTML structure, CSS styling, and JS interactivity.",
-            "DNS maps human domain names to IP addresses."
-          ],
-          "references": [
+            "Use semantic HTML elements for accessibility."
+          ]
+        },
+        "quiz": {
+          "id": "web-quiz-1",
+          "title": "Module 01 Quiz - HTML5 & CSS3",
+          "passingScore": 70,
+          "timeLimitMinutes": 15,
+          "maxAttempts": 3,
+          "published": true,
+          "questions": [
             {
-              "title": "MDN How the Web Works",
-              "url": "https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/How_the_Web_works"
+              "id": "wq1",
+              "type": "multiple-choice",
+              "questionText": "Which CSS layout mode is designed for one-dimensional layouts?",
+              "options": [
+                "Grid",
+                "Flexbox",
+                "Float",
+                "Table"
+              ],
+              "correctAnswer": 1,
+              "marks": 10
             }
           ]
         }
       }
-    ]
+    ],
+    "finalTest": {
+      "id": "web-final-test",
+      "title": "Full Stack Development Certification Exam",
+      "description": "Testing React components, hooks, Express API routes, and database modeling.",
+      "passingScore": 75,
+      "timeLimitMinutes": 45,
+      "maxAttempts": 2,
+      "published": true,
+      "questions": [
+        {
+          "id": "webt1",
+          "type": "multiple-choice",
+          "questionText": "Which React hook is used to manage local component state?",
+          "options": [
+            "useEffect",
+            "useState",
+            "useContext",
+            "useRef"
+          ],
+          "correctAnswer": 1,
+          "marks": 20
+        }
+      ]
+    },
+    "finalProject": {
+      "id": "web-final-project",
+      "title": "SaaS Learning Management Portal Platform",
+      "description": "Develop a full-stack MERN/PERN web application with user authentication, course management, video player, and admin dashboard.",
+      "requirements": [
+        "React frontend with Tailwind",
+        "Node/Express backend REST API",
+        "Authentication with JWT",
+        "Responsive UI"
+      ],
+      "instructions": "Deploy app to live host (Vercel/Netlify/Render) and submit GitHub repo link.",
+      "allowedFileTypes": [
+        ".zip",
+        ".pdf"
+      ],
+      "maxFileSizeMb": 50,
+      "githubUrlAllowed": true,
+      "liveProjectUrlAllowed": true,
+      "passingScore": 80,
+      "published": true
+    },
+    "updatedAt": "2026-10-01T11:14:03.912Z"
   },
   {
-    "id": "ai-data-science",
-    "title": "AI with Data Science",
+    "id": "data-science-ai",
+    "title": "Data Science & AI Foundations",
+    "slug": "data-science-ai",
     "category": "AI",
     "level": "Intermediate to Advanced",
-    "duration": "60 hours",
+    "duration": "50 hours",
     "rating": 4.9,
-    "studentsCount": "12.1k",
-    "studentsNumeric": 12100,
-    "price": 2499,
-    "isFree": false,
+    "studentsCount": "9.8k",
+    "studentsNumeric": 9800,
+    "price": 0,
+    "isFree": true,
     "bestseller": false,
-    "progress": 12,
-    "iconBg": "bg-purple-50 border 2 border-purple-200 text-purple-600",
-    "iconType": "barchart",
-    "introVideoUrl": "https://www.youtube.com/embed/LHBE6Q9XlzI",
-    "description": "Master Data Analysis, Machine Learning, & AI! NumPy arrays, Pandas DataFrames, Data Visualization, Scikit-Learn Regression/Classification, and Generative AI applications.",
+    "progress": 0,
+    "status": "published",
+    "featured": false,
+    "certificateAvailable": true,
+    "sequentialLearning": true,
+    "iconBg": "bg-amber-50 border-2 border-amber-200 text-amber-600",
+    "iconType": "brain",
+    "introVideoUrl": "https://www.youtube.com/embed/aircAruvnKk",
+    "thumbnail": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=600&q=80",
+    "shortDescription": "Learn Python for Data Analysis, NumPy, Pandas, Matplotlib, Scikit-Learn, and Neural Networks.",
+    "description": "Learn Python for Data Analysis, NumPy, Pandas, Matplotlib, Scikit-Learn, and Neural Networks. Complete AI pipeline.",
     "instructor": {
-      "name": "Dr. Ananya Sharma & Karan Mehta",
-      "role": "AI Research Specialists @ Arshith Boot Camp",
-      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80"
+      "name": "Dr. Ananya Sharma",
+      "role": "AI Research Scientist @ Arshith Boot Camp",
+      "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80"
     },
+    "prerequisites": null,
+    "skills": [],
     "whatYouWillLearn": [
-      "NumPy vectorization, matrix mathematics, and N-dimensional arrays",
-      "Pandas DataFrames for data cleaning, transformation, indexing, and merging",
-      "Exploratory Data Analysis (EDA) and plotting with Matplotlib & Seaborn",
-      "Supervised Machine Learning algorithms: Linear/Logistic Regression, Decision Trees, Random Forests",
-      "Model Evaluation metrics: Precision, Recall, F1-score, ROC-AUC curves",
-      "Building an end-to-end AI Predictive Capstone Project"
+      "Data Manipulation with NumPy & Pandas",
+      "Exploratory Data Analysis (EDA) and Visualization",
+      "Supervised Learning: Linear/Logistic Regression, Decision Trees, Random Forests",
+      "Unsupervised Learning: K-Means Clustering and PCA",
+      "Intro to Deep Learning with PyTorch/TensorFlow"
     ],
     "modules": [
       {
         "id": "ds-mod-1",
-        "title": "Module 01  -  Introduction to AI and Data Science",
+        "title": "Module 01 - Data Science & Machine Learning Pipeline",
         "description": "Overview of Data Science pipeline, Machine Learning paradigms (Supervised, Unsupervised, Reinforcement), and AI industry applications.",
         "completed": true,
+        "order": 1,
+        "published": true,
         "readingMaterial": {
-          "introduction": "Data Science extracts actionable business insights from raw structured and unstructured datasets using scientific methods, algorithms, and Machine Learning.",
+          "introduction": "Data Science extracts actionable business insights from raw structured and unstructured datasets.",
           "objectives": [
-            "Understand Data Science Lifecycle: Collection -> Cleaning -> EDA -> Modeling -> Deployment",
-            "Difference between AI, Machine Learning, and Deep Learning",
-            "Configure Jupyter Notebook & Anaconda environments"
+            "Understand Data Science Lifecycle",
+            "Difference between AI, ML, and Deep Learning"
           ],
           "sections": [
             {
-              "heading": "AI vs ML vs Deep Learning Hierarchy",
-              "text": "Artificial Intelligence (Broadest domain) -> Machine Learning (Statistical learning from data) -> Deep Learning (Multi-layer Neural Networks)."
+              "heading": "AI vs ML",
+              "text": "AI is the broad domain; ML is statistical learning from data."
             }
           ],
           "codeExamples": [
             {
-              "title": "Jupyter Environment Test",
-              "code": "import sys\nprint(f\"Python Version: {sys.version}\")\nprint(\"Arshith Boot Camp AI Workspace Active!\")",
-              "explanation": "Verifies Python runtime inside Jupyter environment."
+              "title": "Import Test",
+              "code": "import numpy as np\nimport pandas as pd",
+              "explanation": "Imports key DS libraries."
             }
           ],
-          "bestPractices": [
-            "Use virtual environments to manage data science dependencies."
-          ],
-          "commonMistakes": [
-            "Jumping directly into ML modeling without exploratory data analysis."
-          ],
-          "practiceExercise": {
-            "title": "Check Environment",
-            "problem": "Verify Python kernel version in Jupyter.",
-            "solutionCode": "import sys; print(sys.version)"
-          },
           "keyTakeaways": [
-            "Data Science combines statistics, computer science, and domain expertise.",
-            "Jupyter Notebooks are the industry standard for interactive analysis."
-          ],
-          "references": [
+            "EDA is critical before model training."
+          ]
+        },
+        "quiz": {
+          "id": "ds-quiz-1",
+          "title": "Module 01 Quiz — Data Science Principles",
+          "passingScore": 70,
+          "timeLimitMinutes": 15,
+          "maxAttempts": 3,
+          "published": true,
+          "questions": [
             {
-              "title": "NumPy Documentation Overview",
-              "url": "https://numpy.org/doc/stable/"
+              "id": "dsq1",
+              "type": "multiple-choice",
+              "questionText": "Which Python library is primarily used for multi-dimensional array processing?",
+              "options": [
+                "Pandas",
+                "NumPy",
+                "Matplotlib",
+                "Requests"
+              ],
+              "correctAnswer": 1,
+              "marks": 10
             }
           ]
         }
       }
-    ]
+    ],
+    "finalTest": {
+      "id": "ds-final-test",
+      "title": "Data Science & AI Specialist Certification Exam",
+      "description": "Testing statistical modeling, feature engineering, classification evaluation metrics, and hyperparameter tuning.",
+      "passingScore": 80,
+      "timeLimitMinutes": 45,
+      "maxAttempts": 2,
+      "published": true,
+      "questions": [
+        {
+          "id": "dst1",
+          "type": "multiple-choice",
+          "questionText": "What metric is best suited for imbalanced classification tasks?",
+          "options": [
+            "Accuracy",
+            "F1-Score / ROC-AUC",
+            "Mean Squared Error",
+            "R-squared"
+          ],
+          "correctAnswer": 1,
+          "marks": 20
+        }
+      ]
+    },
+    "finalProject": {
+      "id": "ds-final-project",
+      "title": "Customer Churn Prediction & Model Deployment",
+      "description": "Build an end-to-end Machine Learning pipeline to predict customer churn using Pandas, Scikit-Learn, and FastAPI.",
+      "requirements": [
+        "Exploratory Data Analysis notebook",
+        "Feature engineering & preprocessing",
+        "Model training (Random Forest/XGBoost)",
+        "Evaluation report"
+      ],
+      "instructions": "Submit Jupyter Notebook (.ipynb) and GitHub repository.",
+      "allowedFileTypes": [
+        ".ipynb",
+        ".zip",
+        ".pdf"
+      ],
+      "maxFileSizeMb": 50,
+      "githubUrlAllowed": true,
+      "liveProjectUrlAllowed": true,
+      "passingScore": 80,
+      "published": true
+    },
+    "updatedAt": "2026-10-01T11:14:13.849Z"
   }
-];
-
-export const CATEGORIES = [
-  "All Categories",
-  "Programming",
-  "SQL",
-  "Web Development",
-  "AI"
 ];
 
 export const STUDENT_PROFILE = {

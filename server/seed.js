@@ -2,7 +2,7 @@
 export const initialData = {
   "admin": {
     "adminId": "ARB-ADMIN-001",
-    "passwordHash": "$2b$10$2iBDmZGJ1sqJFfaYevbs9O9/a9x41aIUxuVSWu1ODU2h3eJ9F6NpW",
+    "passwordHash": "$2b$10$DYKNsHHfNNEk6UrIbZNUyO/QKE5zuD6zCmVcInL.7q.j9.NOhMgPC",
     "name": "Arshith Boot Camp Administrator",
     "email": "admin@arshithbootcamp.com",
     "role": "admin",
@@ -23,7 +23,7 @@ export const initialData = {
       "price": 0,
       "isFree": true,
       "bestseller": true,
-      "progress": 47,
+      "progress": 0,
       "status": "published",
       "featured": false,
       "certificateAvailable": true,
@@ -60,7 +60,7 @@ export const initialData = {
           "id": "py-mod-1",
           "title": "Module 01  -  Introduction to Python",
           "description": "This module introduces Python programming from the ground up. You will learn what Python is, why it is widely used, how to install and run Python, the basic structure of a Python program, and the core concepts needed before moving into variables, data types, operators, and control flow.",
-          "completed": true,
+          "completed": false,
           "readingMaterial": {
             "introduction": "This module introduces Python programming from the ground up. You will learn what Python is, why it is widely used, how to install and run Python, the basic structure of a Python program, and the core concepts needed before moving into variables, data types, operators, and control flow.\n\nLearning Level: Beginner | Module Type: Theory + Practical\nPrerequisite: No prior programming experience is required.",
             "objectives": [
@@ -504,7 +504,7 @@ export const initialData = {
           "id": "py-mod-2",
           "title": "Module 02  -  Variables, Expressions and Statements",
           "description": "Variables and data types are fundamental concepts in Python programming. Learn variable assignment, naming rules, dynamic typing, built-in numeric/string/collection types, mutability, type conversion, and practice programs.",
-          "completed": true,
+          "completed": false,
           "readingMaterial": {
             "introduction": "Variables and data types are fundamental concepts in Python programming.\n\nA variable is a name that refers to a value or object stored in memory. Variables allow us to store information and use that information later in a program.\n\nA data type tells us what kind of value an object represents and what operations can be performed with that value.\n\nPython is dynamically typed, which means you do not have to explicitly declare the type of a variable before assigning a value to it. The same variable name can refer to objects of different types at different times.",
             "objectives": [
@@ -1076,7 +1076,7 @@ export const initialData = {
           "id": "py-mod-3",
           "title": "Module 03  -  Operators, Expressions & Precedence",
           "description": "Operators and expressions are fundamental building blocks of Python programs. Master arithmetic, assignment, comparison, logical, bitwise, membership, and identity operators, operator precedence (PEMDAS), short-circuiting, ternary expressions, and hands-on coding practice.",
-          "completed": true,
+          "completed": false,
           "readingMaterial": {
             "introduction": "Operators and expressions are fundamental building blocks of Python programs.\n\nAn operator is a symbol or keyword that tells Python to perform an operation.\nAn operand is a value or object on which an operator performs an operation.\nAn expression is a combination of values, variables, operators, function calls, or other elements that Python can evaluate to produce a value.\n\nFor example:\na = 10\nb = 20\nresult = a + b\n\nHere:\n• a and b are operands.\n• + is an operator.\n• a + b is an expression.\n• 30 is the value produced by the expression.\n\nOperators allow us to perform essential tasks such as:\n• Mathematical calculations\n• Comparing values\n• Assigning and updating values\n• Performing logical decision-making\n• Working with binary bits\n• Checking membership within sequences and mappings\n• Comparing object memory identity",
             "objectives": [
@@ -1803,7 +1803,7 @@ export const initialData = {
           "id": "py-mod-4",
           "title": "Module 04  -  Conditional Execution & Exception Handling",
           "description": "A practical Python study guide. Master Boolean expressions, comparison and logical operators, if/elif/else decision structures, nested conditionals, try/except error handling, input validation, and real-world worked exercises.",
-          "completed": true,
+          "completed": false,
           "readingMaterial": {
             "introduction": "Conditional Execution & Exception Handling: A practical Python study guide.\n\nPython normally runs statements sequentially from top to bottom. Conditional execution allows programs to select alternative execution paths based on whether a condition evaluates to True or False.\n\nMeanwhile, runtime errors (exceptions) can unexpectedly halt program execution when unexpected inputs occur (such as non-numeric text input or division by zero). The try/except construct provides an essential mechanism to catch anticipated errors, validate inputs, and produce helpful user feedback without crashing.",
             "objectives": [
@@ -2265,7 +2265,7 @@ export const initialData = {
           "id": "py-mod-5",
           "title": "Module 05  -  Iteration & Loops",
           "description": "Updating variables, while statements, infinite loops, break & continue, for loops, counting, summing, and min/max search patterns.",
-          "completed": true,
+          "completed": false,
           "readingMaterial": {
             "introduction": "Loops let a program repeat instructions. Repetition is useful when processing a list, asking for input until it is valid, counting items, adding values, or searching for the smallest or largest value.\n\nThis module covers updating variables, while and for loops, infinite loops, break and continue, counting, summing, and min/max search patterns. Examples use Python 3.",
             "objectives": [
@@ -2698,7 +2698,7 @@ export const initialData = {
           "id": "py-mod-6",
           "title": "Module 06  -  Functions & Modular Code",
           "description": "Built-in functions, type conversion, math & random modules, defining custom functions (def), parameters, arguments, fruitful vs void functions, and scope.",
-          "completed": true,
+          "completed": false,
           "readingMaterial": {
             "introduction": "Functions help programmers organize instructions into named, reusable units. As a program grows, placing every instruction in one long sequence makes it difficult to understand and maintain. Functions provide a way to divide a program into smaller tasks. A function can accept information, perform work, and return a result to the part of the program that called it.\n\nPython also provides built-in functions and an extensive standard library. Built-ins handle everyday tasks such as displaying output, counting items, and finding totals. Modules group related tools; for example, math provides mathematical functions and constants, while random provides pseudo-random choices for simulations and games.",
             "objectives": [
@@ -3116,7 +3116,7 @@ export const initialData = {
           "id": "py-mod-7",
           "title": "Module 07  -  Data Structures: Lists, Dictionaries & Tuples",
           "description": "Sequences, mutability, lists, dictionaries as key-value mappings & counters, tuples immutability, DSU sorting pattern, and list comprehensions.",
-          "completed": true,
+          "completed": false,
           "readingMaterial": {
             "introduction": "Python data structures store and organize related values. Lists and tuples are ordered sequences accessed by position, while dictionaries map unique keys to values, and sets store unique, unordered elements.\n\nPrograms often need to work with groups of related information: a set of quiz scores, a record of a person's details, a collection of product names, or unique user permissions. A data structure stores that information in a useful form. The choice of structure affects how values are accessed, updated, searched, and processed.\n\nPython's core collection types include lists, dictionaries, tuples, and sets. Lists are ordered and mutable. Dictionaries store key-value mappings and allow values to be retrieved by key in O(1) average time. Tuples are ordered sequences that cannot be structurally changed after creation. Sets store unique elements with ultra-fast mathematical set operations. This comprehensive module covers sequence operations, mutability, multi-dimensional lists, shallow vs deep copying, dictionary counters, dictionary comprehensions, modern merge operators, tuple immutability, namedtuples, sets & set theory, the collections module (Counter, defaultdict, deque), the Decorate-Sort-Undecorate (DSU) pattern, Big-O computational complexity, and list comprehensions.",
             "objectives": [
@@ -3657,7 +3657,7 @@ export const initialData = {
           "id": "py-mod-8",
           "title": "Module 08  -  Strings, Slicing & Text Parsing",
           "description": "Strings as immutable sequences, indexing, slicing with step, string methods (find, strip, split, join, replace), parsing patterns, and f-string formatting.",
-          "completed": true,
+          "completed": false,
           "readingMaterial": {
             "introduction": "Strings are among the most versatile and ubiquitous data structures in Python programming. A string is an immutable, ordered sequence of characters representing textual data. From parsing server logs and extracting API parameters to validating email addresses and generating formatted invoices, text processing is a core pillar of software development.\n\nIn Python, every character in a string is represented internally using Unicode (UTF-8 by default), allowing programs to manipulate characters, symbols, and emojis across all written languages seamlessly. Because strings are sequences, they share fundamental behaviors with lists and tuples - such as zero-based indexing, slicing, iteration, and membership testing - while enforcing strict immutability.\n\nThis comprehensive module covers the full anatomy of Python strings: character indexing, step-based slicing, immutability and memory interning, frequency analysis, case normalization, searching and validation methods, delimiter tokenization with split() and join(), regex-free text extraction patterns, modern f-string interpolation, computational complexity, and 8 real-world practice programs.",
             "objectives": [
@@ -4173,7 +4173,7 @@ export const initialData = {
           "id": "py-mod-9",
           "title": "Module 09  -  File Handling & Persistence",
           "description": "Secondary memory persistence, file handles (open), line-by-line streaming, searching & filtering log files, safe writing/appending, context managers (with open), and pathlib integration.",
-          "completed": true,
+          "completed": false,
           "readingMaterial": {
             "introduction": "All computer programs operate across two primary memory tiers: volatile Main Memory (RAM), which is fast but instantly erased when a script finishes or power cuts out, and non-volatile Secondary Memory (Solid-State Drives, Hard Drives, and Cloud Storage), where information persists indefinitely. In modern software engineering - from web applications logging user transactions to data science pipelines processing multi-gigabyte telemetry datasets - reading and writing files is the fundamental bridge between transient computation and permanent data persistence.\n\nIn Python, file handling is engineered around an elegant, stream-based abstraction known as a 'File Handle'. Rather than attempting to copy an entire massive file directly into system RAM, Python establishes a lightweight pointer to the operating system's disk buffer. This stream architecture enables programmers to iterate line-by-line across files of arbitrary size - even those exceeding physical computer memory - with constant O(1) space complexity.\n\nBased on Chapter 7 of Dr. Charles Severance's 'Python for Everybody' and modern Python 3 best practices, this module provides an exhaustive, production-grade guide to text and structured file manipulation: understanding character encoding standards (UTF-8 vs ASCII vs Latin-1), mastering open modes ('r', 'w', 'a', 'x'), avoiding resource leaks via context managers (with open), filtering server log streams (mbox format), sanitizing whitespace and newlines, implementing atomic write operations, and navigating modern object-oriented file systems using pathlib.",
             "objectives": [
@@ -4684,7 +4684,7 @@ export const initialData = {
           "id": "py-mod-10",
           "title": "Module 10  -  Exception Handling & Debugging Strategies",
           "description": "Advanced exception hierarchies, try/except/else/finally control flow, custom domain exceptions, exception chaining, traceback diagnostics, the logging module, and scientific debugging by bisection.",
-          "completed": true,
+          "completed": false,
           "readingMaterial": {
             "introduction": "In software engineering, the distinction between novice scripting and production-grade programming lies in how a system handles the unexpected. Novice programs operate under the 'happy path' assumption - trusting that inputs are always clean, network connections never timeout, files always exist, and disk space is limitless. When real-world conditions violate these assumptions, unhandled exceptions trigger catastrophic process termination, leaving users with cryptic tracebacks and corrupted application state.\n\nProfessional software development treats exceptions not as disastrous failures, but as expected, normal execution branches. Python's exception handling system is engineered around the principle of 'Easier to Ask for Forgiveness than Permission' (EAFP), contrasting with the 'Look Before You Leap' (LBYL) style common in C and Java. Rather than evaluating dozens of defensive boolean conditions prior to every operation, Python encourages attempting the action inside a protected try block and handling domain-specific anomalies cleanly through explicit except handlers.\n\nBased on Chapters 3, 7, and 14 of Dr. Charles Severance's 'Python for Everybody' and enterprise Python reliability standards, this module delivers an exhaustive masterclass in building resilient, fault-tolerant Python applications: mastering the complete four-part try/except/else/finally lifecycle, building custom application exception hierarchies, tracing call stacks with the traceback module, replacing ad-hoc print statements with industrial-grade logging, applying scientific debugging by bisection (O(log N) defect isolation), and utilizing modern interactive debugging with breakpoint() and pdb.",
             "objectives": [
@@ -5183,7 +5183,7 @@ export const initialData = {
           "id": "py-mod-11",
           "title": "Module 11  -  Object-Oriented Programming (OOP)",
           "description": "Classes and instances (the cookie cutter analogy), attributes and methods, self mechanics, constructor lifecycle (__init__), encapsulation, inheritance, method overriding, and magic dunder methods.",
-          "completed": true,
+          "completed": false,
           "readingMaterial": {
             "introduction": "As software applications grow beyond simple scripts, managing hundreds of isolated variables and functions becomes unwieldy. Procedural programming organizes code around sequential actions, but as data structures expand, tracking which function modifies which global variable creates tightly coupled, fragile codebases. Object-Oriented Programming (OOP) solves this architectural challenge by bundling related state (attributes) and behavior (methods) into self-contained, reusable conceptual entities called 'Objects'.\n\nBased on Chapter 14 of Dr. Charles Severance's 'Python for Everybody' and enterprise Python software design patterns, this module introduces the foundational pillars of object-oriented architecture. Rather than treating code as a continuous series of instructions, OOP models software after real-world domains: bank accounts encapsulate balances and transaction histories; web servers encapsulate request dispatchers and session pools; graphical interfaces encapsulate windows, buttons, and event listeners.\n\nIn Python, everything is an object - from simple integers and strings to complex machine learning models. This module provides a rigorous, deep dive into designing robust classes: understanding the class blueprint vs. instance memory allocation, mastering the self parameter and object lifecycle (__init__ constructor and __del__ destructor), implementing clean encapsulation and private attribute protection, leveraging inheritance and super() hierarchies, achieving dynamic polymorphism, and harnessing Python's rich suite of special 'dunder' (double-underscore) magic methods (__str__, __repr__, __eq__, __len__).",
             "objectives": [
@@ -5621,7 +5621,7 @@ export const initialData = {
           "id": "py-mod-12",
           "title": "Module 12  -  Regular Expressions (re module)",
           "description": "Pattern matching with the re module, character classes, greedy vs non-greedy quantifiers, capture groups, search/findall/sub/split, and real-world email/log extraction.",
-          "completed": true,
+          "completed": false,
           "readingMaterial": {
             "introduction": "In earlier modules, text parsing required intricate combinations of string methods: find(), split(), strip(), and multi-step slice arithmetic. While suitable for simple delimiter separation, real-world data is rarely uniform. Server logs contain varying whitespace; user input includes erratic phone number formatting; email addresses have dynamic subdomains; and security audits require matching hexadecimal hashes or IPv4 addresses. Solving these complex text patterns using standard procedural string methods requires dozens of fragile, nested conditional statements.\n\nRegular Expressions (commonly abbreviated as 'Regex') provide a concise, declarative domain-specific language for searching, validating, extracting, and replacing text patterns. Rather than specifying algorithmic step-by-step extraction instructions, you describe the shape and constraints of the target data: 'find a line starting with From:, followed by whitespace, followed by a sequence of non-whitespace characters containing an @ symbol.'\n\nBased on Chapter 11 of Dr. Charles Severance's 'Python for Everybody' and production Python text-processing standards, this module delivers an exhaustive guide to Python's built-in re engine: mastering raw string notation (r'...'), character classes and meta-characters, greedy versus non-greedy quantifiers, capture groups and named groups, high-performance precompiled regex objects (re.compile), search-and-replace transformations (re.sub), and defensive pattern design to prevent catastrophic backtracking.",
             "objectives": [
@@ -6103,7 +6103,7 @@ export const initialData = {
           "id": "py-mod-13",
           "title": "Module 13  -  Networked Programs, Sockets & Web Scraping",
           "description": "TCP/IP socket communication, HTTP protocol specifications, urllib URL streaming, web scraping with BeautifulSoup, HTML DOM tree navigation, and SSL/TLS security contexts.",
-          "completed": true,
+          "completed": false,
           "readingMaterial": {
             "introduction": "In traditional standalone computing, software operates strictly within the confines of local memory and local disk drives. However, the true power of modern programming emerges when Python reaches across the global Internet to communicate with remote servers, retrieve real-time data feeds, automate browser workflows, and harvest knowledge from unstructured web pages.\n\nTo write networked Python programs, you must understand the underlying communication architecture: the Transport Control Protocol (TCP) and Internet Protocol (IP). A network connection is established across a 'Socket' - a two-way communication channel between two programs running across the network, uniquely identified by an IP address and a Port number. Atop TCP sockets runs the World Wide Web's foundational application protocol: the HyperText Transfer Protocol (HTTP).\n\nBased on Chapter 12 of Dr. Charles Severance's 'Python for Everybody' and enterprise web scraping engineering standards, this module bridges the gap between low-level network mechanics and high-level data harvesting: constructing raw socket connections to send manual HTTP GET commands, utilizing Python's urllib module to treat global URLs as simple file streams, respecting web scraping ethics and robots.txt protocols, mastering the BeautifulSoup (bs4) HTML parser to navigate complex DOM trees, following hyperlink trails programmatically, and downloading binary media assets via chunked network streams.",
             "objectives": [
@@ -6486,7 +6486,7 @@ export const initialData = {
           "id": "py-mod-14",
           "title": "Module 14  -  Web Services: XML, JSON & REST APIs",
           "description": "Machine-to-machine data exchange, XML tree parsing with ElementTree, JSON serialization/deserialization, REST architecture principles, API authentication, and consuming external web services.",
-          "completed": true,
+          "completed": false,
           "readingMaterial": {
             "introduction": "In Module 13, we explored web scraping - extracting data from HTML designed primarily for human visual consumption. While scraping is valuable when no alternative exists, HTML is inherently fragile: a minor redesign of a website's CSS classes or tag structure immediately breaks scraper pipelines. To build robust, enterprise-grade distributed systems, modern software relies on 'Web Services' - structured machine-to-machine application programming interfaces (APIs) where systems exchange raw data over standardized network protocols without presentation markup.\n\nTwo dominant data interchange standards power the modern web: eXtensible Markup Language (XML), a hierarchical tag-based format historically dominant in enterprise banking and SOAP architectures; and JavaScript Object Notation (JSON), a lightweight, key-value format that has become the ubiquitous standard for modern RESTful web APIs and microservices.\n\nBased on Chapter 13 of Dr. Charles Severance's 'Python for Everybody' and enterprise API engineering standards, this module provides a complete, professional masterclass in consuming and architecting web services: parsing nested XML trees using the standard xml.etree.ElementTree library, serializing and deserializing JSON payloads using Python's json module, mastering RESTful API design principles (resource endpoints, HTTP verbs, status codes), parameterizing queries with urllib.parse, implementing API Key and Bearer Token authentication, and building defensive clients that handle rate limiting (HTTP 429) and network timeouts gracefully.",
             "objectives": [
@@ -6870,7 +6870,7 @@ export const initialData = {
           "id": "py-mod-15",
           "title": "Module 15  -  Database Connectivity (SQLite) & Data Visualization",
           "description": "Relational database modeling, SQLite integration with sqlite3, SQL queries, parameterized statements preventing SQL injection, multi-table JOINs, many-to-many junction tables, and exporting data for interactive web visualization.",
-          "completed": true,
+          "completed": false,
           "readingMaterial": {
             "introduction": "Throughout the previous fourteen modules of this boot camp, we have progressed from basic syntax, variables, and loops to object-oriented programming, regular expressions, and networked web services. Yet every application we have built faced a fundamental data storage limitation: flat text files and JSON documents are linear. As dataset sizes grow to hundreds of thousands or millions of records, searching a flat file requires scanning every byte sequentially ($O(N)$ linear time), and updating a single record requires rewriting the entire file to disk.\n\nRelational Database Management Systems (RDBMS) solve these performance and scalability limits. Databases store structured tables indexed with balanced B-trees, enabling instant $O(log N)$ lookups across billions of rows. Furthermore, databases enforce ACID guarantees (Atomicity, Consistency, Isolation, Durability), ensuring that financial transactions and multi-user updates never leave data partially written or corrupted.\n\nBased on Chapters 15 and 16 of Dr. Charles Severance's 'Python for Everybody', this capstone module unites every skill acquired in this boot camp into a complete, enterprise-grade data engineering pipeline. You will master Python's built-in sqlite3 engine: modeling normalized relational schemas (1-to-many and many-to-many relationships), executing parameterized SQL queries to eliminate SQL injection vulnerabilities, joining tables across Primary and Foreign Keys, managing transaction rollbacks and commits, and building the complete Capstone Project: an automated pipeline that ingests data from external sources, structures it inside SQLite, and exports it for high-impact interactive web visualization.",
             "objectives": [
@@ -7567,6 +7567,81 @@ export const initialData = {
                 ],
                 "correctAnswer": 2,
                 "explanation": "Operator precedence evaluates 'not', then 'and', then 'or'. (1) '[] and \"python\"' short-circuits to []. (2) 'not 0' is True; 'True and {}' returns {}. (3) The remaining 'or' chain is '0 or [] or {} or 42'. (4) However, notice: 'not 0 and {}' evaluates to {}. Since {} is falsy, the evaluation proceeds to 'or 42', returning 42. Wait, let's trace: 0 (falsy) -> [] (falsy) -> {} (falsy) -> 42 is truthy, so the final result is 42!"
+              },
+              {
+                "id": "py-set-a-21",
+                "questionNumber": 21,
+                "topic": "Decorators & Metadata Preservation",
+                "questionText": "When decorating a target function with a custom wrapper function, which tool from Python's standard library should be applied to the wrapper to preserve the original function's name, docstring, and parameter signature?",
+                "codeSnippet": "from functools import wraps\n\ndef my_decorator(func):\n    @wraps(func)\n    def wrapper(*args, **kwargs):\n        print(\"Before execution\")\n        return func(*args, **kwargs)\n    return wrapper",
+                "options": [
+                  "functools.lru_cache(func)",
+                  "functools.wraps(func)",
+                  "sys.settrace(func)",
+                  "inspect.signature(func)"
+                ],
+                "correctAnswer": 1,
+                "explanation": "@functools.wraps(func) copies the __name__, __doc__, and module metadata from the decorated target function to the wrapper function, preventing reflection tools and debuggers from losing function identity."
+              },
+              {
+                "id": "py-set-a-22",
+                "questionNumber": 22,
+                "topic": "Context Managers & Exception Handling",
+                "questionText": "In a custom class implementing Python's Context Manager protocol (__enter__ and __exit__), how can __exit__ explicitly suppress an exception raised inside the 'with' block?",
+                "codeSnippet": "class SuppressErrorContext:\n    def __enter__(self):\n        return self\n\n    def __exit__(self, exc_type, exc_val, exc_tb):\n        if exc_type is ValueError:\n            return True  # Suppress ValueError\n        return False",
+                "options": [
+                  "By returning True (or any truthy value) from the __exit__ method",
+                  "By raising StopIteration inside __exit__",
+                  "By returning None from __enter__",
+                  "Exceptions inside a 'with' block cannot be suppressed by __exit__"
+                ],
+                "correctAnswer": 0,
+                "explanation": "If __exit__() returns True (or a truthy value), Python catches and suppresses the exception raised inside the 'with' block, allowing code execution to proceed immediately after the block."
+              },
+              {
+                "id": "py-set-a-23",
+                "questionNumber": 23,
+                "topic": "Generators & Memory Management",
+                "questionText": "What is the primary memory advantage of returning a generator expression using the yield keyword compared to returning a full list from a function processing 10 million records?",
+                "codeSnippet": "def stream_records():\n    for i in range(10_000_000):\n        yield f\"Record_{i}\"",
+                "options": [
+                  "Generators compile the records into C machine code to execute 100x faster",
+                  "Generators evaluate items lazily one at a time on-demand, maintaining a constant O(1) memory footprint regardless of dataset size",
+                  "Generators automatically store records in RAM cache to eliminate garbage collection overhead",
+                  "Generators allow multi-threaded parallel execution across all CPU cores"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Generators produce values on-demand using lazy evaluation. Instead of allocating memory for all 10 million items simultaneously (O(N) RAM), a generator requires constant O(1) memory space."
+              },
+              {
+                "id": "py-set-a-24",
+                "questionNumber": 24,
+                "topic": "Metaclasses & Class Construction",
+                "questionText": "In Python's Object Model, what is a metaclass and which special method is invoked when creating a new class definition?",
+                "codeSnippet": "class MetaSingleton(type):\n    def __call__(cls, *args, **kwargs):\n        if not hasattr(cls, '_instance'):\n            cls._instance = super().__call__(*args, **kwargs)\n        return cls._instance",
+                "options": [
+                  "A metaclass is a class decorator; it invokes __init__ when an instance is deleted",
+                  "A metaclass is the class of a class (such as 'type'); its __new__ or __call__ method constructs the class object itself",
+                  "A metaclass is an abstract base class that prevents subclasses from using inheritance",
+                  "A metaclass is a C-extension module built into the standard garbage collector"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Classes in Python are instances of metaclasses (default is 'type'). A metaclass defines how class objects are constructed, validated, and initialized when the class statement is evaluated."
+              },
+              {
+                "id": "py-set-a-25",
+                "questionNumber": 25,
+                "topic": "Concurrency: Threading vs Multiprocessing",
+                "questionText": "Due to CPython's Global Interpreter Lock (GIL), which module should be chosen to maximize performance for CPU-heavy tasks like image processing or matrix multiplication across multiple CPU cores?",
+                "codeSnippet": "from concurrent.futures import ProcessPoolExecutor\n\ndef compute_heavy_task(data):\n    return sum(i * i for i in data)\n\nif __name__ == '__main__':\n    with ProcessPoolExecutor() as executor:\n        results = list(executor.map(compute_heavy_task, chunks))",
+                "options": [
+                  "threading module with ThreadPoolExecutor",
+                  "multiprocessing module or ProcessPoolExecutor",
+                  "asyncio module with event loops",
+                  "queue module with ThreadQueue"
+                ],
+                "correctAnswer": 1,
+                "explanation": "CPython's GIL permits only one thread to execute Python bytecode at a time per process. For CPU-bound tasks, multiprocessing/ProcessPoolExecutor spawns separate OS processes with independent GIL instances across all CPU cores."
               }
             ]
           },
@@ -7888,6 +7963,81 @@ export const initialData = {
                 ],
                 "correctAnswer": 1,
                 "explanation": "TCP guarantees reliable ordered byte delivery but provides no record framing. A 3KB payload may be split by the network MTU into several smaller segments, requiring the application to loop recv() until an agreed-upon length or sentinel delimiter is received."
+              },
+              {
+                "id": "py-set-b-21",
+                "questionNumber": 21,
+                "topic": "List Comprehensions & Flattening",
+                "questionText": "What is the correct syntax for a list comprehension that flattens a 2D matrix `[[1, 2], [3, 4], [5, 6]]` into a 1D list `[1, 2, 3, 4, 5, 6]`?",
+                "codeSnippet": "matrix = [[1, 2], [3, 4], [5, 6]]\nflat = [num for row in matrix for num in row]",
+                "options": [
+                  "[num for num in row for row in matrix]",
+                  "[num for row in matrix for num in row]",
+                  "[row for num in matrix for num in row]",
+                  "[num for row in matrix if num in row]"
+                ],
+                "correctAnswer": 1,
+                "explanation": "In nested list comprehensions, the 'for' loops follow the exact same order as traditional nested for-loops: 'for row in matrix:' followed by 'for num in row:'."
+              },
+              {
+                "id": "py-set-b-22",
+                "questionNumber": 22,
+                "topic": "Memory Optimization with __slots__",
+                "questionText": "What is the primary benefit of declaring `__slots__` inside a Python class definition when instantiating millions of small objects?",
+                "codeSnippet": "class Point:\n    __slots__ = ('x', 'y')\n    def __init__(self, x, y):\n        self.x = x\n        self.y = y",
+                "options": [
+                  "It suppresses all AttributeError exceptions raised when accessing invalid properties",
+                  "It prevents Python from creating a dynamic __dict__ per instance, significantly reducing memory consumption",
+                  "It automatically converts instance attributes into thread-safe atomic variables",
+                  "It serializes class instances into SQLite binary database records"
+                ],
+                "correctAnswer": 1,
+                "explanation": "By default, Python instances store attributes in a dynamic instance dictionary (__dict__). Defining __slots__ allocates a fixed array space instead, saving substantial memory for millions of instances."
+              },
+              {
+                "id": "py-set-b-23",
+                "questionNumber": 23,
+                "topic": "Exception Chaining & Tracebacks",
+                "questionText": "In Python 3, how do you re-raise a custom exception while explicitly linking it to the original caught exception to maintain clean cause tracking?",
+                "codeSnippet": "try:\n    connect_to_database()\nexcept ConnectionError as err:\n    raise DatabaseException(\"Service unavailable\") from err",
+                "options": [
+                  "raise DatabaseException() with err",
+                  "raise DatabaseException() from err",
+                  "raise DatabaseException() cause err",
+                  "raise DatabaseException() using err"
+                ],
+                "correctAnswer": 1,
+                "explanation": "The 'raise NewException() from original_err' syntax sets the __cause__ attribute on the new exception, producing an explicit 'The above exception was the direct cause of the following exception' traceback message."
+              },
+              {
+                "id": "py-set-b-24",
+                "questionNumber": 24,
+                "topic": "Structural Pattern Matching (match / case)",
+                "questionText": "Introduced in Python 3.10, which statement describes how structural pattern matching evaluates data structures?",
+                "codeSnippet": "def handle_command(cmd):\n    match cmd.split():\n        case [\"quit\"]:\n            return \"Exiting\"\n        case [\"move\", (\"left\" | \"right\" | \"up\" | \"down\") as direction]:\n            return f\"Moving {direction}\"\n        case _:\n            return \"Unknown command\"",
+                "options": [
+                  "It is a simple replacement for C-style switch statements that only evaluates integer constants",
+                  "It inspects data shape, sequences, dynamic patterns, and binding variables with guards and wildcards (_)",
+                  "It compiles Python statements into regular expressions before runtime matching",
+                  "It runs only inside asynchronous event loops"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Python 3.10 match/case supports structural pattern matching, destructuring tuples/lists, binding dynamic variables, matching dict keys, applying guards ('if'), and wildcards ('_')."
+              },
+              {
+                "id": "py-set-b-25",
+                "questionNumber": 25,
+                "topic": "Asynchronous IO & Event Loops",
+                "questionText": "In Python's `asyncio` framework, how do you execute multiple asynchronous coroutines concurrently and await all their completed results simultaneously?",
+                "codeSnippet": "import asyncio\n\nasync def fetch_api(endpoint):\n    await asyncio.sleep(1)\n    return f\"Data from {endpoint}\"\n\nasync def main():\n    results = await asyncio.gather(\n        fetch_api(\"/users\"),\n        fetch_api(\"/orders\"),\n        fetch_api(\"/products\")\n    )",
+                "options": [
+                  "asyncio.run_parallel()",
+                  "asyncio.gather()",
+                  "asyncio.thread_wait()",
+                  "asyncio.join_all()"
+                ],
+                "correctAnswer": 1,
+                "explanation": "`asyncio.gather(*aws)` takes multiple asynchronous awaitables/coroutines, schedules them concurrently on the active event loop, and returns an ordered list of their return values."
               }
             ]
           },
@@ -8209,6 +8359,81 @@ export const initialData = {
                 ],
                 "correctAnswer": 1,
                 "explanation": "A tuple is only hashable if every element inside it is also hashable. Because [30, 40] is a mutable list, the tuple containing it cannot produce a fixed hash value and raises 'TypeError: unhashable type: list'."
+              },
+              {
+                "id": "py-set-c-21",
+                "questionNumber": 21,
+                "topic": "Dictionary Union Operators",
+                "questionText": "In Python 3.9+, what is the result of applying the dictionary merge operator `d1 | d2` when both dictionaries contain overlapping keys?",
+                "codeSnippet": "d1 = {'a': 1, 'b': 2}\nd2 = {'b': 99, 'c': 3}\nresult = d1 | d2",
+                "options": [
+                  "{'a': 1, 'b': 2, 'c': 3} (left operand d1 takes priority)",
+                  "{'a': 1, 'b': 99, 'c': 3} (right operand d2 overrides overlapping keys)",
+                  "A KeyError is raised due to duplicate key collision",
+                  "{'a': 1, 'b': [2, 99], 'c': 3} (values are merged into lists)"
+                ],
+                "correctAnswer": 1,
+                "explanation": "The dictionary union operator `|` merges two dictionaries. If there are duplicate keys, the right-hand dictionary (`d2`) overwrites the values of the left-hand dictionary (`d1`)."
+              },
+              {
+                "id": "py-set-c-22",
+                "questionNumber": 22,
+                "topic": "Object Copying: Shallow vs Deep",
+                "questionText": "What distinguishes `copy.deepcopy()` from `copy.copy()` when duplicating a nested object structure containing lists inside dictionaries?",
+                "codeSnippet": "import copy\noriginal = {'items': [1, 2, 3]}\nshallow = copy.copy(original)\ndeep = copy.deepcopy(original)",
+                "options": [
+                  "copy.copy() creates a new outer object and recursively copies all nested child objects",
+                  "copy.deepcopy() creates a completely independent recursive copy of both outer and all nested mutable objects",
+                  "copy.deepcopy() converts all list elements into immutable tuples automatically",
+                  "copy.copy() only works on primitive integers and strings"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Shallow copy (`copy.copy`) creates a new outer object but inserts references to the nested objects. Deep copy (`copy.deepcopy`) recursively duplicates every nested child object."
+              },
+              {
+                "id": "py-set-c-23",
+                "questionNumber": 23,
+                "topic": "LRU Caching & Memoization",
+                "questionText": "Which requirement must function arguments satisfy to be compatible with `@functools.lru_cache` memoization?",
+                "codeSnippet": "from functools import lru_cache\n\n@lru_cache(maxsize=128)\ndef compute_factorial(n):\n    return 1 if n <= 1 else n * compute_factorial(n - 1)",
+                "options": [
+                  "All arguments passed to the function must be mutable data structures like lists or dicts",
+                  "All arguments passed to the function must be hashable (immutable data types like int, str, tuple)",
+                  "The function must be defined inside a class inheriting from dict",
+                  "The function must be declared with the async keyword"
+                ],
+                "correctAnswer": 1,
+                "explanation": "`@lru_cache` stores cached results in an internal dictionary indexed by function arguments. Therefore, all positional and keyword arguments must be hashable."
+              },
+              {
+                "id": "py-set-c-24",
+                "questionNumber": 24,
+                "topic": "Custom Iterator Protocol",
+                "questionText": "To build a custom Iterator class in Python, which two special dunder methods must be implemented?",
+                "codeSnippet": "class NumberCounter:\n    def __init__(self, low, high):\n        self.current = low\n        self.high = high\n\n    def __iter__(self):\n        return self\n\n    def __next__(self):\n        if self.current > self.high:\n            raise StopIteration\n        self.current += 1\n        return self.current - 1",
+                "options": [
+                  "__init__ and __del__",
+                  "__iter__ and __next__",
+                  "__enter__ and __exit__",
+                  "__getitem__ and __setitem__"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Python's Iterator Protocol requires `__iter__()` (which returns the iterator object itself) and `__next__()` (which returns the next item or raises `StopIteration`)."
+              },
+              {
+                "id": "py-set-c-25",
+                "questionNumber": 25,
+                "topic": "Dataclasses & Default Factories",
+                "questionText": "In Python's `@dataclass` decorator, why is setting a mutable default argument like `tags: list = []` invalid, and how should it be declared?",
+                "codeSnippet": "from dataclasses import dataclass, field\n\n@dataclass\nclass UserProfile:\n    username: str\n    tags: list = field(default_factory=list)",
+                "options": [
+                  "Dataclasses do not allow list attributes under any circumstances",
+                  "Mutable default arguments are shared across all class instances; `field(default_factory=list)` creates a fresh list instance per object",
+                  "default_factory is used exclusively for serializing objects to JSON",
+                  "tags must be declared as a tuple instead of a list"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Python prevents mutable defaults in dataclass definitions to avoid sharing the same list reference across all class instances. `field(default_factory=list)` calls the factory function to produce a new list for each instance."
               }
             ]
           },
@@ -8530,6 +8755,81 @@ export const initialData = {
                 ],
                 "correctAnswer": 1,
                 "explanation": "__new__ is the constructor that actually allocates and returns a new instance of the class (cls). Once the instance exists, __init__(self, ...) is invoked to configure its attributes."
+              },
+              {
+                "id": "py-set-d-21",
+                "questionNumber": 21,
+                "topic": "Scope & Nonlocal Keyword",
+                "questionText": "Inside an inner nested function, which keyword allows you to modify a variable bound in the outer enclosing function's scope (without making it global)?",
+                "codeSnippet": "def outer_counter():\n    count = 0\n    def inner_increment():\n        nonlocal count\n        count += 1\n        return count\n    return inner_increment",
+                "options": [
+                  "global",
+                  "nonlocal",
+                  "outer",
+                  "self"
+                ],
+                "correctAnswer": 1,
+                "explanation": "The `nonlocal` keyword allows a nested function to modify variables defined in its outer (enclosing) scope rather than creating a new local variable."
+              },
+              {
+                "id": "py-set-d-22",
+                "questionNumber": 22,
+                "topic": "Default Mutable Arguments Idiom",
+                "questionText": "What occurs when calling a function multiple times if default parameter values are initialized with mutable objects like `def append_to(element, target=[])`?",
+                "codeSnippet": "def append_to(element, target=[]):\n    target.append(element)\n    return target\n\nprint(append_to(1))  # [1]\nprint(append_to(2))  # Expected [2], but output is [1, 2]!",
+                "options": [
+                  "Python creates a new empty list on every function call",
+                  "The default list is created once when the function is defined, causing state to persist across successive calls",
+                  "A TypeError is raised during module import",
+                  "The list is automatically cleared when the function returns"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Default parameter values are evaluated once when the function definition is executed. Passing a mutable default retains modifications across subsequent function calls."
+              },
+              {
+                "id": "py-set-d-23",
+                "questionNumber": 23,
+                "topic": "Weak References & Memory Leaks",
+                "questionText": "Which standard library module allows you to create references to objects without preventing the garbage collector from reclaiming their memory space?",
+                "codeSnippet": "import weakref\n\nclass LargeCache:\n    pass\n\nobj = LargeCache()\nref = weakref.ref(obj)  # Does not increment refcount",
+                "options": [
+                  "sys.memref",
+                  "weakref",
+                  "gc.collect",
+                  "ctypes.pointer"
+                ],
+                "correctAnswer": 1,
+                "explanation": "The `weakref` module enables weak references to objects. A weak reference does not keep the target object alive if its strong reference count drops to zero."
+              },
+              {
+                "id": "py-set-d-24",
+                "questionNumber": 24,
+                "topic": "Subprocess Command Execution",
+                "questionText": "When executing system shell commands using `subprocess.run()`, which options capture standard output as text and raise CalledProcessError on non-zero exit status?",
+                "codeSnippet": "import subprocess\n\nresult = subprocess.run(\n    [\"git\", \"status\"],\n    capture_output=True,\n    text=True,\n    check=True\n)",
+                "options": [
+                  "shell=True, debug=True",
+                  "capture_output=True, text=True, check=True",
+                  "stdout=PIPE, async=True",
+                  "raise_on_error=True, format='string'"
+                ],
+                "correctAnswer": 1,
+                "explanation": "`capture_output=True` captures stdout/stderr, `text=True` decodes bytes into UTF-8 strings, and `check=True` raises a CalledProcessError if the command fails."
+              },
+              {
+                "id": "py-set-d-25",
+                "questionNumber": 25,
+                "topic": "Type Hinting & Generics",
+                "questionText": "In Python's `typing` module, what does `Optional[str]` represent?",
+                "codeSnippet": "from typing import Optional\n\ndef get_user_name(user_id: int) -> Optional[str]:\n    if user_id == 1:\n        return \"Arshith\"\n    return None",
+                "options": [
+                  "A string that is automatically converted to lower case",
+                  "Shorthand for Union[str, None], indicating the return value can be either a string or None",
+                  "A string that is optional to pass as an argument but required as a return value",
+                  "A thread-safe string wrapper"
+                ],
+                "correctAnswer": 1,
+                "explanation": "`Optional[T]` is equivalent to `Union[T, None]`. It signals to static type checkers (like mypy) that the variable can hold a value of type T or None."
               }
             ]
           }
@@ -8839,6 +9139,81 @@ export const initialData = {
             ],
             "correctAnswer": 2,
             "explanation": "Operator precedence evaluates 'not', then 'and', then 'or'. (1) '[] and \"python\"' short-circuits to []. (2) 'not 0' is True; 'True and {}' returns {}. (3) The remaining 'or' chain is '0 or [] or {} or 42'. (4) However, notice: 'not 0 and {}' evaluates to {}. Since {} is falsy, the evaluation proceeds to 'or 42', returning 42. Wait, let's trace: 0 (falsy) -> [] (falsy) -> {} (falsy) -> 42 is truthy, so the final result is 42!"
+          },
+          {
+            "id": "py-set-a-21",
+            "questionNumber": 21,
+            "topic": "Decorators & Metadata Preservation",
+            "questionText": "When decorating a target function with a custom wrapper function, which tool from Python's standard library should be applied to the wrapper to preserve the original function's name, docstring, and parameter signature?",
+            "codeSnippet": "from functools import wraps\n\ndef my_decorator(func):\n    @wraps(func)\n    def wrapper(*args, **kwargs):\n        print(\"Before execution\")\n        return func(*args, **kwargs)\n    return wrapper",
+            "options": [
+              "functools.lru_cache(func)",
+              "functools.wraps(func)",
+              "sys.settrace(func)",
+              "inspect.signature(func)"
+            ],
+            "correctAnswer": 1,
+            "explanation": "@functools.wraps(func) copies the __name__, __doc__, and module metadata from the decorated target function to the wrapper function, preventing reflection tools and debuggers from losing function identity."
+          },
+          {
+            "id": "py-set-a-22",
+            "questionNumber": 22,
+            "topic": "Context Managers & Exception Handling",
+            "questionText": "In a custom class implementing Python's Context Manager protocol (__enter__ and __exit__), how can __exit__ explicitly suppress an exception raised inside the 'with' block?",
+            "codeSnippet": "class SuppressErrorContext:\n    def __enter__(self):\n        return self\n\n    def __exit__(self, exc_type, exc_val, exc_tb):\n        if exc_type is ValueError:\n            return True  # Suppress ValueError\n        return False",
+            "options": [
+              "By returning True (or any truthy value) from the __exit__ method",
+              "By raising StopIteration inside __exit__",
+              "By returning None from __enter__",
+              "Exceptions inside a 'with' block cannot be suppressed by __exit__"
+            ],
+            "correctAnswer": 0,
+            "explanation": "If __exit__() returns True (or a truthy value), Python catches and suppresses the exception raised inside the 'with' block, allowing code execution to proceed immediately after the block."
+          },
+          {
+            "id": "py-set-a-23",
+            "questionNumber": 23,
+            "topic": "Generators & Memory Management",
+            "questionText": "What is the primary memory advantage of returning a generator expression using the yield keyword compared to returning a full list from a function processing 10 million records?",
+            "codeSnippet": "def stream_records():\n    for i in range(10_000_000):\n        yield f\"Record_{i}\"",
+            "options": [
+              "Generators compile the records into C machine code to execute 100x faster",
+              "Generators evaluate items lazily one at a time on-demand, maintaining a constant O(1) memory footprint regardless of dataset size",
+              "Generators automatically store records in RAM cache to eliminate garbage collection overhead",
+              "Generators allow multi-threaded parallel execution across all CPU cores"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Generators produce values on-demand using lazy evaluation. Instead of allocating memory for all 10 million items simultaneously (O(N) RAM), a generator requires constant O(1) memory space."
+          },
+          {
+            "id": "py-set-a-24",
+            "questionNumber": 24,
+            "topic": "Metaclasses & Class Construction",
+            "questionText": "In Python's Object Model, what is a metaclass and which special method is invoked when creating a new class definition?",
+            "codeSnippet": "class MetaSingleton(type):\n    def __call__(cls, *args, **kwargs):\n        if not hasattr(cls, '_instance'):\n            cls._instance = super().__call__(*args, **kwargs)\n        return cls._instance",
+            "options": [
+              "A metaclass is a class decorator; it invokes __init__ when an instance is deleted",
+              "A metaclass is the class of a class (such as 'type'); its __new__ or __call__ method constructs the class object itself",
+              "A metaclass is an abstract base class that prevents subclasses from using inheritance",
+              "A metaclass is a C-extension module built into the standard garbage collector"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Classes in Python are instances of metaclasses (default is 'type'). A metaclass defines how class objects are constructed, validated, and initialized when the class statement is evaluated."
+          },
+          {
+            "id": "py-set-a-25",
+            "questionNumber": 25,
+            "topic": "Concurrency: Threading vs Multiprocessing",
+            "questionText": "Due to CPython's Global Interpreter Lock (GIL), which module should be chosen to maximize performance for CPU-heavy tasks like image processing or matrix multiplication across multiple CPU cores?",
+            "codeSnippet": "from concurrent.futures import ProcessPoolExecutor\n\ndef compute_heavy_task(data):\n    return sum(i * i for i in data)\n\nif __name__ == '__main__':\n    with ProcessPoolExecutor() as executor:\n        results = list(executor.map(compute_heavy_task, chunks))",
+            "options": [
+              "threading module with ThreadPoolExecutor",
+              "multiprocessing module or ProcessPoolExecutor",
+              "asyncio module with event loops",
+              "queue module with ThreadQueue"
+            ],
+            "correctAnswer": 1,
+            "explanation": "CPython's GIL permits only one thread to execute Python bytecode at a time per process. For CPU-bound tasks, multiprocessing/ProcessPoolExecutor spawns separate OS processes with independent GIL instances across all CPU cores."
           }
         ]
       },
@@ -8939,7 +9314,8 @@ export const initialData = {
           "starterCode": "# Project 3: SQLite Contact Book & Search Utility\n# File: contacts_app.py\n\nimport sqlite3\n\nclass ContactBook:\n    def __init__(self, db_file=\"contacts.db\"):\n        self.conn = sqlite3.connect(db_file)\n        self.cursor = self.conn.cursor()\n        self.setup_table()\n\n    def setup_table(self):\n        self.cursor.execute('''\n            CREATE TABLE IF NOT EXISTS contacts (\n                id INTEGER PRIMARY KEY AUTOINCREMENT,\n                name TEXT NOT NULL,\n                email TEXT UNIQUE NOT NULL,\n                phone TEXT NOT NULL\n            )\n        ''')\n        self.conn.commit()\n\n    def add_contact(self, name, email, phone):\n        try:\n            self.cursor.execute('''\n                INSERT INTO contacts (name, email, phone)\n                VALUES (?, ?, ?)\n            ''', (name, email, phone))\n            self.conn.commit()\n            print(f\"✓ Contact '{name}' added successfully.\")\n            return True\n        except sqlite3.IntegrityError:\n            print(f\"✗ Error: Email '{email}' already exists in database.\")\n            return False\n\n    def search_contacts(self, keyword):\n        query = \"%\" + keyword.strip() + \"%\"\n        self.cursor.execute('''\n            SELECT id, name, email, phone FROM contacts\n            WHERE name LIKE ? OR email LIKE ?\n            ORDER BY name ASC\n        ''', (query, query))\n        rows = self.cursor.fetchall()\n        \n        print(f\"\\nSearch results for '{keyword}' ({len(rows)} found):\")\n        print(\"-\" * 50)\n        for r in rows:\n            print(f\"ID: {r[0]} | Name: {r[1]} | Email: {r[2]} | Phone: {r[3]}\")\n        print(\"-\" * 50)\n        return rows\n\n    def close(self):\n        self.conn.close()\n\nif __name__ == '__main__':\n    cb = ContactBook()\n    cb.add_contact(\"Arshith Kumar\", \"arshith@example.com\", \"+91-9876543210\")\n    cb.add_contact(\"Bhavana Kolla\", \"bhavana@example.com\", \"+91-9876543211\")\n    cb.add_contact(\"Chandan Verma\", \"chandan@example.com\", \"+91-9876543212\")\n    cb.search_contacts(\"Arshith\")\n    cb.close()\n",
           "expectedOutput": "✓ Contact 'Arshith Kumar' added successfully.\n✓ Contact 'Bhavana Kolla' added successfully.\n✓ Contact 'Chandan Verma' added successfully.\n\nSearch results for 'Arshith' (1 found):\n--------------------------------------------------\nID: 1 | Name: Arshith Kumar | Email: arshith@example.com | Phone: +91-9876543210\n--------------------------------------------------"
         }
-      ]
+      ],
+      "isCompleted": false
     },
     {
       "id": "sql-mastery",
@@ -12411,6 +12787,81 @@ export const initialData = {
                 ],
                 "correctAnswer": 0,
                 "explanation": "Third Normal Form (3NF) requires the table to be in 2NF and have no transitive dependencies: every non-prime attribute must depend non-transitively directly on the primary key ('the key, the whole key, and nothing but the key')."
+              },
+              {
+                "id": "sql-set-a-21",
+                "questionNumber": 21,
+                "topic": "Covering Indexes & Index-Only Scans",
+                "questionText": "Under what condition can a Relational Database Query Optimizer perform an Index-Only Scan to fulfill a SELECT query without fetching table rows from disk heaps?",
+                "codeSnippet": "-- Table: employees (id, name, dept_id, salary)\nCREATE INDEX idx_dept_salary ON employees(dept_id, salary);\n\nSELECT dept_id, salary FROM employees WHERE dept_id = 101;",
+                "options": [
+                  "When the table contains fewer than 100 rows",
+                  "When all columns requested in the SELECT clause and WHERE filter are contained directly within the B-Tree index itself",
+                  "When the database uses SQLite in memory mode exclusively",
+                  "When a FULL OUTER JOIN is executed on primary keys"
+                ],
+                "correctAnswer": 1,
+                "explanation": "An Index-Only Scan occurs when a covering index contains all requested query fields (SELECT and WHERE). The engine reads data directly from the index in RAM without disk heap I/O."
+              },
+              {
+                "id": "sql-set-a-22",
+                "questionNumber": 22,
+                "topic": "Window Functions: LEAD and LAG",
+                "questionText": "Which SQL Window Function allows a query to access data from the next or previous row in the result set without performing a self-join?",
+                "codeSnippet": "SELECT \n    order_date,\n    total_amount,\n    LAG(total_amount, 1) OVER (ORDER BY order_date) AS prev_order_amount,\n    total_amount - LAG(total_amount, 1) OVER (ORDER BY order_date) AS diff\nFROM orders;",
+                "options": [
+                  "FIRST_VALUE() and LAST_VALUE()",
+                  "LAG() and LEAD()",
+                  "ROW_NUMBER() and RANK()",
+                  "NTILE() and CUME_DIST()"
+                ],
+                "correctAnswer": 1,
+                "explanation": "`LAG()` accesses data from a previous row, and `LEAD()` accesses data from a subsequent row relative to the current position within the defined window partition."
+              },
+              {
+                "id": "sql-set-a-23",
+                "questionNumber": 23,
+                "topic": "Recursive Common Table Expressions (CTEs)",
+                "questionText": "What is the primary usage of a `WITH RECURSIVE` CTE in relational databases?",
+                "codeSnippet": "WITH RECURSIVE OrgChart AS (\n    SELECT emp_id, name, manager_id, 1 AS level\n    FROM employees WHERE manager_id IS NULL\n    UNION ALL\n    SELECT e.emp_id, e.name, e.manager_id, o.level + 1\n    FROM employees e\n    JOIN OrgChart o ON e.manager_id = o.emp_id\n)\nSELECT * FROM OrgChart;",
+                "options": [
+                  "To automatically create foreign key triggers across multiple databases",
+                  "To query hierarchical, tree-structured, or graph network data like organizational charts and bill of materials",
+                  "To bypass database security permissions and grant superuser access",
+                  "To encrypt passwords stored in text columns"
+                ],
+                "correctAnswer": 1,
+                "explanation": "`WITH RECURSIVE` enables traversal of hierarchical or graph-structured datasets (such as parent-child employee org charts, categories, or network paths) by repeatedly executing an anchor query."
+              },
+              {
+                "id": "sql-set-a-24",
+                "questionNumber": 24,
+                "topic": "ACID Transaction Isolation Levels",
+                "questionText": "Which ANSI SQL Transaction Isolation level guarantees protection against Dirty Reads, Non-Repeatable Reads, and Phantom Reads?",
+                "codeSnippet": "SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;\nBEGIN TRANSACTION;\n-- Guarantees complete isolation\nCOMMIT;",
+                "options": [
+                  "READ UNCOMMITTED",
+                  "READ COMMITTED",
+                  "REPEATABLE READ",
+                  "SERIALIZABLE"
+                ],
+                "correctAnswer": 3,
+                "explanation": "`SERIALIZABLE` is the highest isolation level. It enforces strict transaction execution sequence as if transactions occurred serially, preventing Dirty Reads, Non-Repeatable Reads, and Phantom Reads."
+              },
+              {
+                "id": "sql-set-a-25",
+                "questionNumber": 25,
+                "topic": "Three-Valued Logic & NULL Handling",
+                "questionText": "In SQL Three-Valued Logic (TRUE, FALSE, UNKNOWN), what is the evaluation result of the expression `SELECT * FROM users WHERE status = NULL;`?",
+                "codeSnippet": "SELECT * FROM users WHERE status = NULL; -- Returns 0 rows!",
+                "options": [
+                  "It returns all rows where status is NULL",
+                  "It evaluates to UNKNOWN (falsy), returning 0 rows; `IS NULL` must be used instead",
+                  "It raises a SyntaxError during execution",
+                  "It converts NULL to an empty string ''"
+                ],
+                "correctAnswer": 1,
+                "explanation": "In SQL, NULL represents an unknown value. Comparisons using `=`, `<>`, or `!=` with NULL evaluate to UNKNOWN, which fails WHERE conditions. Developers must use `IS NULL` or `IS NOT NULL`."
               }
             ]
           },
@@ -12725,6 +13176,81 @@ export const initialData = {
                 ],
                 "correctAnswer": 0,
                 "explanation": "STRING_AGG() (ANSI SQL / PostgreSQL / SQL Server) and GROUP_CONCAT() (MySQL/SQLite) aggregate column string values across rows in a group into a delimiter-separated string."
+              },
+              {
+                "id": "sql-set-b-21",
+                "questionNumber": 21,
+                "topic": "Correlated Subqueries vs EXISTS",
+                "questionText": "Why is using `WHERE EXISTS (SELECT 1 FROM ...)` generally faster than `WHERE id IN (SELECT id FROM ...)` when querying large subquery datasets with potential NULL values?",
+                "codeSnippet": "SELECT c.full_name FROM customers c\nWHERE EXISTS (\n    SELECT 1 FROM orders o \n    WHERE o.customer_id = c.customer_id AND o.total_amount > 10000\n);",
+                "options": [
+                  "EXISTS converts the query into a C-extension function",
+                  "EXISTS short-circuits evaluation as soon as a single matching record is found, and avoids three-valued NULL logic pitfalls",
+                  "IN creates a temporary table on physical disk for every row",
+                  "EXISTS automatically disables table indexing"
+                ],
+                "correctAnswer": 1,
+                "explanation": "`EXISTS` short-circuits as soon as a matching row is found without scanning the entire subquery. Furthermore, `NOT IN` fails to return rows if the subquery contains a single NULL value."
+              },
+              {
+                "id": "sql-set-b-22",
+                "questionNumber": 22,
+                "topic": "Advanced Grouping: ROLLUP & CUBE",
+                "questionText": "Which GROUP BY extension generates aggregate summary rows for all possible combinations of specified grouping columns, including sub-totals and a grand total?",
+                "codeSnippet": "SELECT region, category, SUM(sales)\nFROM sales_data\nGROUP BY CUBE(region, category);",
+                "options": [
+                  "GROUP BY HAVING",
+                  "GROUP BY ROLLUP",
+                  "GROUP BY CUBE",
+                  "GROUP BY OVER"
+                ],
+                "correctAnswer": 2,
+                "explanation": "`GROUP BY CUBE(a, b)` generates aggregations for all $2^N$ dimension combinations ((a, b), (a), (b), and grand total ()). `ROLLUP` produces hierarchical sub-totals."
+              },
+              {
+                "id": "sql-set-b-23",
+                "questionNumber": 23,
+                "topic": "Database Normalization (3NF vs BCNF)",
+                "questionText": "A relational table is in Third Normal Form (3NF) if it is in 2NF and satisfies which key structural condition?",
+                "codeSnippet": "-- 3NF Rule: Every non-key attribute must depend on the key, the whole key, and nothing but the key!",
+                "options": [
+                  "It contains no multi-valued array columns",
+                  "There are no transitive dependencies (non-key columns depending on other non-key columns)",
+                  "All columns are indexed with B-Tree indexes",
+                  "Every column must be declared with NOT NULL constraints"
+                ],
+                "correctAnswer": 1,
+                "explanation": "3NF requires removing transitive functional dependencies where a non-prime attribute depends on another non-prime attribute rather than directly on candidate keys."
+              },
+              {
+                "id": "sql-set-b-24",
+                "questionNumber": 24,
+                "topic": "Foreign Key Referential Integrity Actions",
+                "questionText": "What happens when a parent record in a primary table is deleted if its Foreign Key constraint specifies `ON DELETE SET NULL`?",
+                "codeSnippet": "CREATE TABLE orders (\n    order_id INT PRIMARY KEY,\n    customer_id INT,\n    FOREIGN KEY (customer_id) REFERENCES customers(id) ON DELETE SET NULL\n);",
+                "options": [
+                  "The deletion of the parent customer is rejected with an IntegrityError",
+                  "The corresponding child order records in orders table automatically have their customer_id updated to NULL",
+                  "All child orders are permanently deleted from disk",
+                  "The customer_id is assigned to value 0"
+                ],
+                "correctAnswer": 1,
+                "explanation": "`ON DELETE SET NULL` preserves child records when a referenced parent row is deleted by automatically updating the foreign key column in child rows to NULL."
+              },
+              {
+                "id": "sql-set-b-25",
+                "questionNumber": 25,
+                "topic": "Full-Text Search vs Pattern Matching",
+                "questionText": "Why is a wildcard query like `SELECT * FROM articles WHERE content LIKE '%database%';` inefficient on large text datasets, and how is it optimized?",
+                "codeSnippet": "-- Inefficient: Leading wildcard forces Full Table Scan\nSELECT * FROM articles WHERE content LIKE '%database%';",
+                "options": [
+                  "Leading wildcards (%term) prevent B-Tree index lookup, requiring a Full Table Scan; Full-Text Search (FTS) uses GIN/GiST inverted indexes for fast word searches",
+                  "LIKE queries automatically lock the entire database server",
+                  "LIKE statements only work on integer columns",
+                  "Full-Text Search converts text into floating point numbers"
+                ],
+                "correctAnswer": 0,
+                "explanation": "Standard B-Tree indexes cannot index pattern searches starting with wildcards (`%text`). Full-Text Search indexes build inverted key-to-document indexes (GIN/GiST) for fast text matching."
               }
             ]
           },
@@ -13039,6 +13565,81 @@ export const initialData = {
                 ],
                 "correctAnswer": 0,
                 "explanation": "The Anti-Join pattern performs a LEFT JOIN from customers to orders and filters 'WHERE orders.id IS NULL', isolating customer records with zero matching orders."
+              },
+              {
+                "id": "sql-set-c-21",
+                "questionNumber": 21,
+                "topic": "Self JOINs for Sequential Analytics",
+                "questionText": "Which SQL query pattern correlates rows within the same table to compare events or calculate intervals between consecutive user interactions?",
+                "codeSnippet": "SELECT \n    a.user_id,\n    a.login_time AS current_login,\n    b.login_time AS previous_login\nFROM user_logins a\nJOIN user_logins b \n  ON a.user_id = b.user_id AND a.login_id = b.login_id + 1;",
+                "options": [
+                  "CROSS JOIN",
+                  "Self JOIN",
+                  "FULL OUTER JOIN",
+                  "NATURAL JOIN"
+                ],
+                "correctAnswer": 1,
+                "explanation": "A Self JOIN joins a table to itself using aliases (e.g., `a` and `b`), allowing row-to-row comparisons within the same dataset."
+              },
+              {
+                "id": "sql-set-c-22",
+                "questionNumber": 22,
+                "topic": "COUNT(*) vs COUNT(column_name)",
+                "questionText": "What is the critical behavioral difference between `COUNT(*)` and `COUNT(status)` when analyzing a table where 5 out of 10 rows have a NULL status?",
+                "codeSnippet": "-- Table has 10 total rows (5 have NULL status)\nSELECT COUNT(*) AS total_rows, COUNT(status) AS status_count FROM orders;",
+                "options": [
+                  "Both queries return 10",
+                  "COUNT(*) returns 10 (all rows), while COUNT(status) returns 5 (ignores NULLs)",
+                  "COUNT(status) raises an error when encountering NULL values",
+                  "COUNT(*) returns 5 and COUNT(status) returns 10"
+                ],
+                "correctAnswer": 1,
+                "explanation": "`COUNT(*)` counts all rows in the dataset regardless of content. `COUNT(column_name)` counts only non-NULL occurrences in that specific column."
+              },
+              {
+                "id": "sql-set-c-23",
+                "questionNumber": 23,
+                "topic": "Database Triggers & Audit Logging",
+                "questionText": "When creating a database Trigger to write audit log entries whenever a user's email address is updated, which timing and event specification should be defined?",
+                "codeSnippet": "CREATE TRIGGER audit_user_email_update\nAFTER UPDATE OF email ON users\nFOR EACH ROW\nBEGIN\n    INSERT INTO email_audit_log(user_id, old_email, new_email, updated_at)\n    VALUES (OLD.id, OLD.email, NEW.email, DATETIME('now'));\nEND;",
+                "options": [
+                  "BEFORE DELETE ON users",
+                  "AFTER UPDATE OF email ON users FOR EACH ROW",
+                  "INSTEAD OF SELECT ON users",
+                  "BEFORE INSERT ON users"
+                ],
+                "correctAnswer": 1,
+                "explanation": "An `AFTER UPDATE OF email ON users FOR EACH ROW` trigger executes after an update statement finishes, exposing `OLD.email` (previous value) and `NEW.email` (updated value) for audit records."
+              },
+              {
+                "id": "sql-set-c-24",
+                "questionNumber": 24,
+                "topic": "Temporary Tables vs CTEs",
+                "questionText": "When should a developer choose a Temporary Table (`CREATE TEMP TABLE`) over a Common Table Expression (`WITH cte AS ...`) in a complex multi-step stored procedure?",
+                "codeSnippet": "CREATE TEMP TABLE temp_active_users AS\nSELECT user_id, registration_date FROM users WHERE status = 'Active';\n\nCREATE INDEX idx_temp_user ON temp_active_users(user_id);",
+                "options": [
+                  "CTEs cannot perform JOIN operations",
+                  "When the intermediate result set is referenced multiple times across separate queries or requires explicit indexing",
+                  "Temporary tables are stored permanently on network disk backup drives",
+                  "CTEs only work inside SQLite"
+                ],
+                "correctAnswer": 1,
+                "explanation": "CTEs are scoped to a single query execution. Temporary tables persist across multiple queries in the session, allowing index creation and repeated references without recomputing data."
+              },
+              {
+                "id": "sql-set-c-25",
+                "questionNumber": 25,
+                "topic": "Upsert Logic (ON CONFLICT DO UPDATE)",
+                "questionText": "Which SQL clause implements 'Upsert' functionality by updating an existing record if a UNIQUE key conflict occurs during insertion?",
+                "codeSnippet": "INSERT INTO user_stats (user_id, login_count)\nVALUES (101, 1)\nON CONFLICT(user_id) DO UPDATE SET\n    login_count = user_stats.login_count + 1;",
+                "options": [
+                  "ON CONFLICT(...) DO UPDATE",
+                  "WHERE DUPLICATE REPLACE",
+                  "TRY INSERT CATCH UPDATE",
+                  "IF EXISTS ALTER"
+                ],
+                "correctAnswer": 0,
+                "explanation": "`INSERT INTO ... ON CONFLICT(key) DO UPDATE SET ...` (standard SQL / PostgreSQL / SQLite) atomizes insertion or updating upon primary key or unique constraint collisions."
               }
             ]
           },
@@ -13353,6 +13954,81 @@ export const initialData = {
                 ],
                 "correctAnswer": 0,
                 "explanation": "Opening TCP database connections involves expensive SSL/TLS handshakes and process allocations. Connection pooling maintains reusable open connections, dramatically reducing latency."
+              },
+              {
+                "id": "sql-set-d-21",
+                "questionNumber": 21,
+                "topic": "DENSE_RANK() vs ROW_NUMBER()",
+                "questionText": "How does `DENSE_RANK()` behave differently from `ROW_NUMBER()` when ranking employees with identical salaries?",
+                "codeSnippet": "-- Two employees earn $100,000 (tied)\nSELECT name, salary,\n    ROW_NUMBER() OVER (ORDER BY salary DESC) as row_num,\n    DENSE_RANK() OVER (ORDER BY salary DESC) as dense_rk\nFROM employees;",
+                "options": [
+                  "ROW_NUMBER assigns distinct sequential numbers (1, 2, 3); DENSE_RANK assigns tied ranks (1, 1, 2) without skipping numbers",
+                  "DENSE_RANK skips numbers after ties (1, 1, 3)",
+                  "ROW_NUMBER raises an error on ties",
+                  "DENSE_RANK produces floating-point numbers"
+                ],
+                "correctAnswer": 0,
+                "explanation": "`ROW_NUMBER()` assigns unique sequential integers (1, 2, 3). `DENSE_RANK()` assigns identical ranks to tied values without skipping subsequent rank numbers (1, 1, 2)."
+              },
+              {
+                "id": "sql-set-d-22",
+                "questionNumber": 22,
+                "topic": "Database Deadlocks & Lock Ordering",
+                "questionText": "What causes a Deadlock scenario in concurrent relational database transactions, and how is it mitigated?",
+                "codeSnippet": "-- Transaction 1: Locks Row A, waits for Row B\n-- Transaction 2: Locks Row B, waits for Row A",
+                "options": [
+                  "Deadlocks occur when disk space runs out; they are mitigated by clearing logs",
+                  "Deadlocks occur when two or more transactions hold locks on resources the other requires; mitigated by accessing tables/rows in a consistent deterministic order",
+                  "Deadlocks occur when foreign keys are deleted",
+                  "Deadlocks are prevented by disabling index locks"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Deadlocks occur when transactions wait mutually for locks held by each other. Mitigate by acquiring locks in a consistent order and keeping transaction windows short."
+              },
+              {
+                "id": "sql-set-d-23",
+                "questionNumber": 23,
+                "topic": "Table Partitioning Strategies",
+                "questionText": "What is the primary performance benefit of Table Partitioning (`PARTITION BY RANGE`) on multi-terabyte transactional tables?",
+                "codeSnippet": "CREATE TABLE sales (\n    sale_id INT,\n    sale_date DATE NOT NULL,\n    amount DECIMAL\n) PARTITION BY RANGE (sale_date);",
+                "options": [
+                  "It compresses text columns using ZIP compression",
+                  "Partition Pruning enables the query engine to scan only relevant data partitions, skipping unneeded date ranges entirely",
+                  "It converts relational tables into NoSQL document stores",
+                  "It eliminates the need for primary keys"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Partition Pruning excludes non-relevant table partitions from query execution plans based on WHERE filtering (e.g., filtering `sale_date = '2025-04-01'` scans only the Q2 2025 partition)."
+              },
+              {
+                "id": "sql-set-d-24",
+                "questionNumber": 24,
+                "topic": "Conditional Aggregations",
+                "questionText": "Which SQL technique allows calculating multiple conditional metrics in a single SELECT query pass over a dataset?",
+                "codeSnippet": "SELECT \n    COUNT(*) AS total_orders,\n    SUM(CASE WHEN status = 'Completed' THEN 1 ELSE 0 END) AS completed_orders,\n    SUM(CASE WHEN status = 'Cancelled' THEN 1 ELSE 0 END) AS cancelled_orders\nFROM orders;",
+                "options": [
+                  "Running separate SELECT queries and combining them with UNION",
+                  "Using SUM(CASE WHEN ... END) or FILTER (WHERE ...)",
+                  "Using GROUP BY HAVING on status",
+                  "Executing nested cursor loops"
+                ],
+                "correctAnswer": 1,
+                "explanation": "Combining aggregate functions with CASE statements (or ANSI `FILTER (WHERE ...)`) computes distinct subset counts in a single table scan."
+              },
+              {
+                "id": "sql-set-d-25",
+                "questionNumber": 25,
+                "topic": "Foreign Key Indexing & Table Locking",
+                "questionText": "Why should database administrators always build indexes on Foreign Key columns in relational database schemas?",
+                "codeSnippet": "CREATE TABLE order_items (\n    item_id INT PRIMARY KEY,\n    order_id INT NOT NULL, -- Foreign Key\n    product_id INT NOT NULL\n);\nCREATE INDEX idx_order_items_order ON order_items(order_id); -- Critical!",
+                "options": [
+                  "Without an index on Foreign Keys, deleting a row from the parent table can cause a full table lock or full scan on the child table",
+                  "Foreign Keys cannot be created unless an index already exists",
+                  "Indexes convert foreign keys into primary keys",
+                  "Foreign key indexes automatically encrypt table rows"
+                ],
+                "correctAnswer": 0,
+                "explanation": "When modifying parent rows, database engines verify child table constraints. Un-indexed Foreign Key columns force full table scans or share locks on the child table, hindering concurrency."
               }
             ]
           }
@@ -13657,6 +14333,81 @@ export const initialData = {
             ],
             "correctAnswer": 0,
             "explanation": "Third Normal Form (3NF) requires the table to be in 2NF and have no transitive dependencies: every non-prime attribute must depend non-transitively directly on the primary key ('the key, the whole key, and nothing but the key')."
+          },
+          {
+            "id": "sql-set-a-21",
+            "questionNumber": 21,
+            "topic": "Covering Indexes & Index-Only Scans",
+            "questionText": "Under what condition can a Relational Database Query Optimizer perform an Index-Only Scan to fulfill a SELECT query without fetching table rows from disk heaps?",
+            "codeSnippet": "-- Table: employees (id, name, dept_id, salary)\nCREATE INDEX idx_dept_salary ON employees(dept_id, salary);\n\nSELECT dept_id, salary FROM employees WHERE dept_id = 101;",
+            "options": [
+              "When the table contains fewer than 100 rows",
+              "When all columns requested in the SELECT clause and WHERE filter are contained directly within the B-Tree index itself",
+              "When the database uses SQLite in memory mode exclusively",
+              "When a FULL OUTER JOIN is executed on primary keys"
+            ],
+            "correctAnswer": 1,
+            "explanation": "An Index-Only Scan occurs when a covering index contains all requested query fields (SELECT and WHERE). The engine reads data directly from the index in RAM without disk heap I/O."
+          },
+          {
+            "id": "sql-set-a-22",
+            "questionNumber": 22,
+            "topic": "Window Functions: LEAD and LAG",
+            "questionText": "Which SQL Window Function allows a query to access data from the next or previous row in the result set without performing a self-join?",
+            "codeSnippet": "SELECT \n    order_date,\n    total_amount,\n    LAG(total_amount, 1) OVER (ORDER BY order_date) AS prev_order_amount,\n    total_amount - LAG(total_amount, 1) OVER (ORDER BY order_date) AS diff\nFROM orders;",
+            "options": [
+              "FIRST_VALUE() and LAST_VALUE()",
+              "LAG() and LEAD()",
+              "ROW_NUMBER() and RANK()",
+              "NTILE() and CUME_DIST()"
+            ],
+            "correctAnswer": 1,
+            "explanation": "`LAG()` accesses data from a previous row, and `LEAD()` accesses data from a subsequent row relative to the current position within the defined window partition."
+          },
+          {
+            "id": "sql-set-a-23",
+            "questionNumber": 23,
+            "topic": "Recursive Common Table Expressions (CTEs)",
+            "questionText": "What is the primary usage of a `WITH RECURSIVE` CTE in relational databases?",
+            "codeSnippet": "WITH RECURSIVE OrgChart AS (\n    SELECT emp_id, name, manager_id, 1 AS level\n    FROM employees WHERE manager_id IS NULL\n    UNION ALL\n    SELECT e.emp_id, e.name, e.manager_id, o.level + 1\n    FROM employees e\n    JOIN OrgChart o ON e.manager_id = o.emp_id\n)\nSELECT * FROM OrgChart;",
+            "options": [
+              "To automatically create foreign key triggers across multiple databases",
+              "To query hierarchical, tree-structured, or graph network data like organizational charts and bill of materials",
+              "To bypass database security permissions and grant superuser access",
+              "To encrypt passwords stored in text columns"
+            ],
+            "correctAnswer": 1,
+            "explanation": "`WITH RECURSIVE` enables traversal of hierarchical or graph-structured datasets (such as parent-child employee org charts, categories, or network paths) by repeatedly executing an anchor query."
+          },
+          {
+            "id": "sql-set-a-24",
+            "questionNumber": 24,
+            "topic": "ACID Transaction Isolation Levels",
+            "questionText": "Which ANSI SQL Transaction Isolation level guarantees protection against Dirty Reads, Non-Repeatable Reads, and Phantom Reads?",
+            "codeSnippet": "SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;\nBEGIN TRANSACTION;\n-- Guarantees complete isolation\nCOMMIT;",
+            "options": [
+              "READ UNCOMMITTED",
+              "READ COMMITTED",
+              "REPEATABLE READ",
+              "SERIALIZABLE"
+            ],
+            "correctAnswer": 3,
+            "explanation": "`SERIALIZABLE` is the highest isolation level. It enforces strict transaction execution sequence as if transactions occurred serially, preventing Dirty Reads, Non-Repeatable Reads, and Phantom Reads."
+          },
+          {
+            "id": "sql-set-a-25",
+            "questionNumber": 25,
+            "topic": "Three-Valued Logic & NULL Handling",
+            "questionText": "In SQL Three-Valued Logic (TRUE, FALSE, UNKNOWN), what is the evaluation result of the expression `SELECT * FROM users WHERE status = NULL;`?",
+            "codeSnippet": "SELECT * FROM users WHERE status = NULL; -- Returns 0 rows!",
+            "options": [
+              "It returns all rows where status is NULL",
+              "It evaluates to UNKNOWN (falsy), returning 0 rows; `IS NULL` must be used instead",
+              "It raises a SyntaxError during execution",
+              "It converts NULL to an empty string ''"
+            ],
+            "correctAnswer": 1,
+            "explanation": "In SQL, NULL represents an unknown value. Comparisons using `=`, `<>`, or `!=` with NULL evaluate to UNKNOWN, which fails WHERE conditions. Developers must use `IS NULL` or `IS NOT NULL`."
           }
         ]
       },
@@ -13681,7 +14432,81 @@ export const initialData = {
         "passingScore": 80,
         "published": true
       },
-      "updatedAt": "2026-10-01T11:13:39.780Z"
+      "updatedAt": "2026-10-01T11:13:39.780Z",
+      "projects": [
+        {
+          "id": "sql-proj-1",
+          "projectNumber": 1,
+          "title": "Project 1: E-Commerce Sales & Customer Lifetime Value (LTV) Analytics",
+          "subtitle": "Module 03, 04 & 05 — DML Filtering, Aggregations & Multi-Table JOINS",
+          "difficulty": "Beginner to Intermediate",
+          "estimatedTime": "1 – 2 Hours",
+          "pageLength": "1 – 2 Pages",
+          "description": "Write SQL DDL to create customer and order tables, populate real-world transactional test records, and craft analytical JOIN and GROUP BY queries to extract total spending per customer, monthly revenue trends, and top customer segments.",
+          "objectives": [
+            "Design normalized tables ('customers' and 'orders') with PRIMARY KEY and FOREIGN KEY constraints",
+            "Perform multi-table INNER JOINs and LEFT JOINs to correlate client metadata with purchase records",
+            "Calculate key business metrics using aggregate functions (SUM, COUNT, AVG, ROUND)",
+            "Filter grouped summary data using HAVING clauses to identify high-value VIP shoppers"
+          ],
+          "requirements": [
+            "Create 'customers' (customer_id, full_name, email, city) and 'orders' (order_id, customer_id, order_date, total_amount, status) tables",
+            "Insert representative sample records including completed, pending, and cancelled orders",
+            "Write SQL query computing total revenue, average order value (AOV), and total orders by status",
+            "Write SQL query calculating Customer Lifetime Value (LTV) per customer, ordered by highest spenders"
+          ],
+          "starterCode": "-- Project 1: E-Commerce Sales & Customer Lifetime Value (LTV) Analytics\n-- File: ecommerce_analytics.sql\n\n-- 1. Create Normalized Tables with Referential Integrity\nCREATE TABLE IF NOT EXISTS customers (\n    customer_id INTEGER PRIMARY KEY AUTOINCREMENT,\n    full_name VARCHAR(100) NOT NULL,\n    email VARCHAR(100) UNIQUE NOT NULL,\n    city VARCHAR(50) NOT NULL,\n    joined_date DATE NOT NULL\n);\n\nCREATE TABLE IF NOT EXISTS orders (\n    order_id INTEGER PRIMARY KEY AUTOINCREMENT,\n    customer_id INTEGER NOT NULL,\n    order_date DATE NOT NULL,\n    total_amount DECIMAL(10,2) NOT NULL,\n    status VARCHAR(20) NOT NULL CHECK (status IN ('Completed', 'Pending', 'Cancelled')),\n    FOREIGN KEY (customer_id) REFERENCES customers(customer_id)\n);\n\n-- 2. Populate Sample Dataset\nINSERT INTO customers (full_name, email, city, joined_date) VALUES\n('Arshith Kumar', 'arshith@example.com', 'Bengaluru', '2025-01-10'),\n('Bhavana Kolla', 'bhavana@example.com', 'Hyderabad', '2025-02-14'),\n('Chandan Verma', 'chandan@example.com', 'Mumbai', '2025-03-01'),\n('Divya Sharma', 'divya@example.com', 'Delhi', '2025-03-15');\n\nINSERT INTO orders (customer_id, order_date, total_amount, status) VALUES\n(1, '2025-03-20', 4500.00, 'Completed'),\n(1, '2025-04-02', 12500.50, 'Completed'),\n(2, '2025-03-22', 8900.00, 'Completed'),\n(2, '2025-04-05', 3100.00, 'Pending'),\n(3, '2025-03-25', 15000.00, 'Completed'),\n(3, '2025-04-10', 450.00, 'Cancelled'),\n(1, '2025-04-12', 6200.00, 'Completed');\n\n-- 3. Executive Sales Metrics Query (Overall Revenue & AOV)\nSELECT \n    COUNT(order_id) AS total_orders,\n    SUM(CASE WHEN status = 'Completed' THEN total_amount ELSE 0 END) AS total_revenue,\n    ROUND(AVG(CASE WHEN status = 'Completed' THEN total_amount END), 2) AS avg_order_value\nFROM orders;\n\n-- 4. Customer Lifetime Value (LTV) & VIP Ranking Query\nSELECT \n    c.customer_id,\n    c.full_name,\n    c.city,\n    COUNT(o.order_id) AS total_purchases,\n    COALESCE(SUM(o.total_amount), 0.00) AS lifetime_value,\n    CASE \n        WHEN SUM(o.total_amount) >= 20000 THEN 'VIP Diamond'\n        WHEN SUM(o.total_amount) >= 10000 THEN 'Gold Preferred'\n        ELSE 'Regular Shopper'\n    END AS customer_tier\nFROM customers c\nLEFT JOIN orders o ON c.customer_id = o.customer_id AND o.status = 'Completed'\nGROUP BY c.customer_id, c.full_name, c.city\nHAVING SUM(o.total_amount) > 0\nORDER BY lifetime_value DESC;\n",
+          "expectedOutput": "+--------------+---------------+-----------------+\n| total_orders | total_revenue | avg_order_value |\n+--------------+---------------+-----------------+\n|            7 |      47100.50 |         9420.10 |\n+--------------+---------------+-----------------+\n\n+-------------+---------------+-----------+-----------------+----------------+----------------+\n| customer_id | full_name     | city      | total_purchases | lifetime_value | customer_tier  |\n+-------------+---------------+-----------+-----------------+----------------+----------------+\n|           1 | Arshith Kumar | Bengaluru |               3 |       23200.50 | VIP Diamond    |\n|           3 | Chandan Verma | Mumbai    |               1 |       15000.00 | Gold Preferred |\n|           2 | Bhavana Kolla | Hyderabad |               1 |        8900.00 | Regular Shopper|\n+-------------+---------------+-----------+-----------------+----------------+----------------+"
+        },
+        {
+          "id": "sql-proj-2",
+          "projectNumber": 2,
+          "title": "Project 2: Corporate Payroll & Department Performance Window Analytics",
+          "subtitle": "Module 06 & 07 — Subqueries, Common Table Expressions (CTEs) & Window Functions",
+          "difficulty": "Intermediate",
+          "estimatedTime": "2 Hours",
+          "pageLength": "1 – 2 Pages",
+          "description": "Construct advanced analytical SQL queries using Common Table Expressions (WITH clauses) and Window Functions (RANK, DENSE_RANK, AVG OVER) to compute department salary rankings, compare individual pay against department averages, and identify top earners per department.",
+          "objectives": [
+            "Formulate structured WITH CTE queries to isolate modular aggregation stages",
+            "Apply Window Functions OVER (PARTITION BY ... ORDER BY ...) for analytical ranking",
+            "Calculate deviation percentages comparing employee salary against department mean",
+            "Retrieve department top earners without relying on correlated subqueries"
+          ],
+          "requirements": [
+            "Create 'departments' (dept_id, dept_name) and 'employees' (emp_id, emp_name, dept_id, salary, hire_date) tables",
+            "Insert departmental payroll dataset spanning multiple engineering and marketing roles",
+            "Write a CTE query with RANK() OVER to rank employees within their department by salary",
+            "Write a query returning employees earning 15%+ above their department's average salary"
+          ],
+          "starterCode": "-- Project 2: Corporate Payroll & Department Window Analytics\n-- File: department_analytics.sql\n\n-- 1. Create Schema\nCREATE TABLE IF NOT EXISTS departments (\n    dept_id INTEGER PRIMARY KEY,\n    dept_name VARCHAR(50) NOT NULL\n);\n\nCREATE TABLE IF NOT EXISTS employees (\n    emp_id INTEGER PRIMARY KEY,\n    emp_name VARCHAR(100) NOT NULL,\n    dept_id INTEGER NOT NULL,\n    salary DECIMAL(10,2) NOT NULL,\n    hire_date DATE NOT NULL,\n    FOREIGN KEY (dept_id) REFERENCES departments(dept_id)\n);\n\n-- 2. Insert Test Data\nINSERT INTO departments VALUES (101, 'Engineering'), (102, 'Data Science'), (103, 'Marketing');\n\nINSERT INTO employees VALUES\n(1, 'Arshith Kumar', 101, 145000.00, '2022-03-15'),\n(2, 'Bhavana Kolla', 101, 120000.00, '2023-01-10'),\n(3, 'Chandan Verma', 101, 95000.00,  '2024-06-01'),\n(4, 'Deepak Rao',    102, 160000.00, '2021-11-20'),\n(5, 'Esha Gupta',    102, 135000.00, '2023-05-12'),\n(6, 'Farhan Khan',   103, 88000.00,  '2022-09-01'),\n(7, 'Gita Patel',    103, 92000.00,  '2021-04-15');\n\n-- 3. Advanced CTE + Window Function Analytical Query\nWITH DeptStats AS (\n    SELECT \n        e.emp_id,\n        e.emp_name,\n        d.dept_name,\n        e.salary,\n        AVG(e.salary) OVER (PARTITION BY e.dept_id) AS dept_avg_salary,\n        RANK() OVER (PARTITION BY e.dept_id ORDER BY e.salary DESC) AS salary_rank_in_dept\n    FROM employees e\n    JOIN departments d ON e.dept_id = d.dept_id\n)\nSELECT \n    emp_id,\n    emp_name,\n    dept_name,\n    salary,\n    ROUND(dept_avg_salary, 2) AS dept_avg,\n    salary_rank_in_dept,\n    ROUND(((salary - dept_avg_salary) / dept_avg_salary) * 100, 1) AS pct_above_avg\nFROM DeptStats\nORDER BY dept_name, salary_rank_in_dept;\n",
+          "expectedOutput": "+--------+---------------+--------------+-----------+-----------+---------------------+---------------+\n| emp_id | emp_name      | dept_name    | salary    | dept_avg  | salary_rank_in_dept | pct_above_avg |\n+--------+---------------+--------------+-----------+-----------+---------------------+---------------+\n|      4 | Deepak Rao    | Data Science | 160000.00 | 147500.00 |                   1 |           8.5 |\n|      5 | Esha Gupta    | Data Science | 135000.00 | 147500.00 |                   2 |          -8.5 |\n|      1 | Arshith Kumar | Engineering  | 145000.00 | 120000.00 |                   1 |          20.8 |\n|      2 | Bhavana Kolla | Engineering  | 120000.00 | 120000.00 |                   2 |           0.0 |\n|      3 | Chandan Verma | Engineering  |  95000.00 | 120000.00 |                   3 |         -20.8 |\n|      7 | Gita Patel    | Marketing    |  92000.00 |  90000.00 |                   1 |           2.2 |\n|      6 | Farhan Khan   | Marketing    |  88000.00 |  90000.00 |                   2 |          -2.2 |\n+--------+---------------+--------------+-----------+-----------+---------------------+---------------+"
+        },
+        {
+          "id": "sql-proj-3",
+          "projectNumber": 3,
+          "title": "Project 3: Persistent Library Inventory & Transaction Management System",
+          "subtitle": "Module 08, 10 & 14 — DDL Views, Transactions (COMMIT/ROLLBACK) & Python SQLite Integration",
+          "difficulty": "Intermediate to Advanced",
+          "estimatedTime": "2 – 3 Hours",
+          "pageLength": "1 – 2 Pages",
+          "description": "Build a robust SQL database pipeline featuring DDL table creation, audit triggers, transactional borrowing workflows with COMMIT/ROLLBACK error handling, and a Python script using sqlite3 to execute parameterized inventory queries.",
+          "objectives": [
+            "Define triggers (AFTER UPDATE) to automatically decrease available book inventory copies",
+            "Enforce data integrity with CHECK constraints (copies_available >= 0)",
+            "Implement ACID compliant SQL transactions using BEGIN TRANSACTION, COMMIT, and ROLLBACK",
+            "Create reusable SQL VIEWs for active loan tracking and build a Python SQLite client wrapper"
+          ],
+          "requirements": [
+            "Create 'books' (book_id, title, author, total_copies, available_copies) and 'borrow_log' tables",
+            "Create a Trigger 'update_book_inventory' that decrements available copies upon borrow insertion",
+            "Create a SQL View 'v_active_loans' summarizing member borrowing activity",
+            "Write a complete Python script demonstrating connection, transaction execution, and exception handling"
+          ],
+          "starterCode": "# Project 3: Persistent Library Inventory & Transaction Management System\n# File: library_system.py\n\nimport sqlite3\n\nclass LibraryDatabase:\n    def __init__(self, db_path=\":memory:\"):\n        self.conn = sqlite3.connect(db_path)\n        self.conn.execute(\"PRAGMA foreign_keys = ON;\")\n        self.cursor = self.conn.cursor()\n        self.setup_schema()\n\n    def setup_schema(self):\n        # 1. Books Table\n        self.cursor.execute('''\n            CREATE TABLE IF NOT EXISTS books (\n                book_id INTEGER PRIMARY KEY AUTOINCREMENT,\n                title TEXT NOT NULL,\n                author TEXT NOT NULL,\n                total_copies INTEGER NOT NULL CHECK(total_copies >= 0),\n                available_copies INTEGER NOT NULL CHECK(available_copies >= 0)\n            );\n        ''')\n\n        # 2. Borrow Log Table\n        self.cursor.execute('''\n            CREATE TABLE IF NOT EXISTS borrow_log (\n                log_id INTEGER PRIMARY KEY AUTOINCREMENT,\n                book_id INTEGER NOT NULL,\n                member_name TEXT NOT NULL,\n                borrow_date DATE DEFAULT (DATE('now')),\n                return_date DATE,\n                FOREIGN KEY (book_id) REFERENCES books(book_id)\n            );\n        ''')\n\n        # 3. View for Active Loans\n        self.cursor.execute('''\n            CREATE VIEW IF NOT EXISTS v_active_loans AS\n            SELECT \n                l.log_id,\n                b.title,\n                b.author,\n                l.member_name,\n                l.borrow_date\n            FROM borrow_log l\n            JOIN books b ON l.book_id = b.book_id\n            WHERE l.return_date IS NULL;\n        ''')\n\n        # 4. Insert Initial Books\n        self.cursor.executemany('''\n            INSERT INTO books (title, author, total_copies, available_copies)\n            VALUES (?, ?, ?, ?)\n        ''', [\n            (\"SQL & Relational Database Mastery\", \"Siddharth Nair\", 5, 5),\n            (\"Python for Data Analysis\", \"Charles Severance\", 3, 3),\n            (\"Designing Data-Intensive Applications\", \"Martin Kleppmann\", 2, 2)\n        ])\n        self.conn.commit()\n\n    def borrow_book(self, book_id, member_name):\n        \"\"\"Executes borrow workflow in an ACID Compliant Transaction\"\"\"\n        try:\n            self.cursor.execute(\"BEGIN TRANSACTION;\")\n            \n            # Check availability\n            self.cursor.execute(\"SELECT available_copies, title FROM books WHERE book_id = ?\", (book_id,))\n            row = self.cursor.fetchone()\n            \n            if not row:\n                raise ValueError(\"Book ID not found.\")\n            \n            available, title = row\n            if available <= 0:\n                raise ValueError(f\"No copies of '{title}' currently available!\")\n\n            # Log borrow event\n            self.cursor.execute('''\n                INSERT INTO borrow_log (book_id, member_name)\n                VALUES (?, ?)\n            ''', (book_id, member_name))\n\n            # Deduct inventory\n            self.cursor.execute('''\n                UPDATE books SET available_copies = available_copies - 1\n                WHERE book_id = ?\n            ''', (book_id,))\n\n            self.conn.commit()\n            print(f\"✓ Successfully borrowed '{title}' for {member_name}.\")\n            return True\n\n        except Exception as e:\n            self.conn.rollback()\n            print(f\"✗ Transaction Aborted: {e}\")\n            return False\n\n    def display_active_loans(self):\n        self.cursor.execute(\"SELECT * FROM v_active_loans;\")\n        rows = self.cursor.fetchall()\n        print(\"\\n=== CURRENT ACTIVE LIBRARY LOANS ===\")\n        print(f\"{'ID':<4} {'Title':<35} {'Member':<15} {'Borrow Date':<12}\")\n        print(\"-\" * 70)\n        for r in rows:\n            print(f\"{r[0]:<4} {r[1]:<35} {r[3]:<15} {r[4]:<12}\")\n        print(\"-\" * 70)\n\nif __name__ == '__main__':\n    lib = LibraryDatabase()\n    lib.borrow_book(1, \"Arshith Kumar\")\n    lib.borrow_book(1, \"Bhavana Kolla\")\n    lib.borrow_book(2, \"Chandan Verma\")\n    lib.display_active_loans()\n",
+          "expectedOutput": "✓ Successfully borrowed 'SQL & Relational Database Mastery' for Arshith Kumar.\n✓ Successfully borrowed 'SQL & Relational Database Mastery' for Bhavana Kolla.\n✓ Successfully borrowed 'Python for Data Analysis' for Chandan Verma.\n\n=== CURRENT ACTIVE LIBRARY LOANS ===\nID   Title                               Member          Borrow Date \n----------------------------------------------------------------------\n1    SQL & Relational Database Mastery   Arshith Kumar   2026-10-10  \n2    SQL & Relational Database Mastery   Bhavana Kolla   2026-10-10  \n3    Python for Data Analysis            Chandan Verma   2026-10-10  \n----------------------------------------------------------------------"
+        }
+      ]
     },
     {
       "id": "web-development",
@@ -17620,7 +18445,48 @@ export const initialData = {
       "explanation": "DELETE FROM Table; removes all rows but preserves the table structure. DROP TABLE destroys the table schema and all metadata entirely."
     }
   ],
-  "quizAttempts": [],
+  "quizAttempts": [
+    {
+      "id": "attempt-1791626043691-362",
+      "userId": "student-001",
+      "studentName": "Arshith Student",
+      "courseId": "python-programming",
+      "moduleId": "py-mod-1",
+      "score": 5,
+      "totalQuestions": 5,
+      "percentage": 100,
+      "passed": true,
+      "attemptNumber": 2,
+      "answers": {
+        "py-q-1-1": 1,
+        "py-q-1-2": 1,
+        "py-q-1-3": 1,
+        "py-q-1-4": 2,
+        "py-q-1-5": 1
+      },
+      "completedAt": "2026-10-10T09:54:03.691Z"
+    },
+    {
+      "id": "attempt-1791625240834-668",
+      "userId": "student-001",
+      "studentName": "Test",
+      "courseId": "sql-data-analysis",
+      "moduleId": "py-mod-1",
+      "score": 5,
+      "totalQuestions": 5,
+      "percentage": 100,
+      "passed": true,
+      "attemptNumber": 1,
+      "answers": {
+        "py-q-1-1": 1,
+        "py-q-1-2": 1,
+        "py-q-1-3": 1,
+        "py-q-1-4": 2,
+        "py-q-1-5": 1
+      },
+      "completedAt": "2026-10-10T09:40:40.834Z"
+    }
+  ],
   "finalTestAttempts": [
     {
       "id": "ftest-attempt-1791349862984",
@@ -17709,6 +18575,24 @@ export const initialData = {
       "studentName": "Suresh Kumar",
       "courseId": "python-programming",
       "startedAt": 1791522306295,
+      "durationSeconds": 2700,
+      "submitted": false
+    },
+    "student-001-python-programming-final": {
+      "sessionId": "session-1791626182938",
+      "userId": "student-001",
+      "studentName": "Adithya",
+      "courseId": "python-programming",
+      "startedAt": 1791626182938,
+      "durationSeconds": 2700,
+      "submitted": false
+    },
+    "student-001-sql-mastery-final": {
+      "sessionId": "session-1791631741822",
+      "userId": "student-001",
+      "studentName": "Arshith Student",
+      "courseId": "sql-mastery",
+      "startedAt": 1791631741822,
       "durationSeconds": 2700,
       "submitted": false
     }

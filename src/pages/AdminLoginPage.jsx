@@ -147,6 +147,18 @@ export default function AdminLoginPage({ onLoginSuccess, onGoHome }) {
 
           </form>
 
+          {/* Demo Admin Credentials Helper Card */}
+          <div className="p-3.5 rounded-2xl bg-brand-50/70 border border-brand-200 text-xs text-brand-900 space-y-1">
+            <p className="font-extrabold flex items-center gap-1 text-brand-800">
+              <Sparkles className="w-3.5 h-3.5 text-brand-600" />
+              <span>Default Administrator Credentials</span>
+            </p>
+            <div className="font-mono text-[11px] text-slate-700 flex flex-col sm:flex-row sm:items-center justify-between gap-1 pt-0.5">
+              <span>Admin ID: <strong className="text-brand-900 font-bold">ARB-ADMIN-001</strong></span>
+              <span>Password: <strong className="text-brand-900 font-bold">admin123</strong></span>
+            </div>
+          </div>
+
           {/* Footer note */}
           <div className="pt-4 border-t border-slate-100 text-center text-xs text-slate-400">
             <button
