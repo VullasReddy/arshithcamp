@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { GraduationCap, ArrowRight, Facebook, Instagram, Youtube, Linkedin, Twitter, Heart, Sparkles, ExternalLink } from 'lucide-react';
+import { GraduationCap, ArrowRight, Facebook, Instagram, Youtube, Linkedin, Twitter, Heart, Sparkles } from 'lucide-react';
 
 export default function Footer({ setActiveTab }) {
   const [email, setEmail] = useState('');
@@ -50,7 +50,7 @@ export default function Footer({ setActiveTab }) {
               Empowering learners worldwide with structured, project-based boot camp courses, complete module reading manuals, and verified credentials.
             </p>
 
-            {/* Social Icons Bar */}
+            {/* Social Icons Bar with Active Redirection */}
             <div className="flex items-center gap-2.5 pt-2">
               <a 
                 href="#facebook" 
@@ -133,9 +133,9 @@ export default function Footer({ setActiveTab }) {
             </ul>
           </div>
 
-          {/* Support Column (Refund Policy Removed, Active Redirection Links Added) */}
-          <div className="lg:col-span-3 space-y-3">
-            <h3 className="text-xs font-black text-white uppercase tracking-wider">Support & Connect</h3>
+          {/* Support Column */}
+          <div className="lg:col-span-2 space-y-3">
+            <h3 className="text-xs font-black text-white uppercase tracking-wider">Support</h3>
             <ul className="space-y-2.5 text-sm font-semibold">
               <li>
                 <button onClick={() => handleNavClick('contact')} className="hover:text-emerald-400 transition-colors cursor-pointer">Help Center</button>
@@ -146,54 +146,11 @@ export default function Footer({ setActiveTab }) {
               <li>
                 <a href="#privacy" className="hover:text-emerald-400 transition-colors">Privacy Policy</a>
               </li>
-              
-              {/* Instagram Direct Redirection Link */}
-              <li className="pt-1">
-                <a 
-                  href="https://www.instagram.com/arshithgroup/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs text-slate-300 hover:text-emerald-400 transition-colors group"
-                >
-                  <Instagram className="w-3.5 h-3.5 text-rose-400 group-hover:scale-110 transition-transform" />
-                  <span>Instagram — PALLAVI NELLI</span>
-                  <ExternalLink className="w-3 h-3 text-slate-500 group-hover:text-emerald-400" />
-                </a>
-              </li>
-
-              {/* LinkedIn Company Direct Redirection Link */}
-              <li>
-                <a 
-                  href="https://www.linkedin.com/company/arshith-group/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs text-slate-300 hover:text-emerald-400 transition-colors group"
-                >
-                  <Linkedin className="w-3.5 h-3.5 text-blue-400 group-hover:scale-110 transition-transform" />
-                  <span>LinkedIn — Arshith Group</span>
-                  <ExternalLink className="w-3 h-3 text-slate-500 group-hover:text-emerald-400" />
-                </a>
-              </li>
-
-              {/* LinkedIn Farook N Direct Redirection Link */}
-              <li>
-                <a 
-                  href="https://www.linkedin.com/in/farook-n-2bb2b5344/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs text-slate-300 hover:text-emerald-400 transition-colors group"
-                >
-                  <Linkedin className="w-3.5 h-3.5 text-cyan-400 group-hover:scale-110 transition-transform" />
-                  <span>LinkedIn — Farook N</span>
-                  <ExternalLink className="w-3 h-3 text-slate-500 group-hover:text-emerald-400" />
-                </a>
-              </li>
-
             </ul>
           </div>
 
           {/* Newsletter */}
-          <div className="lg:col-span-3 space-y-3">
+          <div className="lg:col-span-4 space-y-3">
             <h3 className="text-xs font-black text-white uppercase tracking-wider">Newsletter</h3>
             <p className="text-xs text-slate-400 font-medium">
               Get updates on new boot camp courses, tutorials, and certification offers directly in your inbox.
