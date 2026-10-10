@@ -3,10 +3,8 @@ export const CATEGORIES = [
   "Programming",
   "SQL",
   "Data Science",
-  "Web Development",
   "Cloud & DevOps",
-  "Cybersecurity",
-  "AI"
+  "Cybersecurity"
 ];
 
 export const INITIAL_COURSES = [

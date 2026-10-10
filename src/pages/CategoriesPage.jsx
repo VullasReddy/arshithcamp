@@ -1,5 +1,5 @@
 import React from 'react';
-import { Code, Database, BarChart2, Brain, Terminal, ArrowRight } from 'lucide-react';
+import { Database, BarChart2, Terminal, ArrowRight, ShieldCheck, Cloud } from 'lucide-react';
 
 export default function CategoriesPage({ onCategorySelect }) {
   const categoryCards = [
@@ -18,23 +18,23 @@ export default function CategoriesPage({ onCategorySelect }) {
       courseCount: '15 Modules'
     },
     {
-      name: 'Web Development',
-      icon: Code,
+      name: 'Data Science',
+      icon: BarChart2,
       bg: 'bg-emerald-50 text-emerald-600 border-2 border-emerald-200',
-      description: 'Build responsive websites with HTML5, CSS3, Flexbox, Grid, JavaScript ES6+, DOM manipulation, and Fetch API.',
-      courseCount: '16 Modules'
+      description: 'Explore data analysis, NumPy arrays, Pandas DataFrames, statistical modeling, and data visualization.',
+      courseCount: '15 Modules'
     },
     {
-      name: 'AI',
-      icon: BarChart2,
-      bg: 'bg-purple-50 text-purple-600 border-2 border-purple-200',
-      description: 'Explore artificial intelligence, NumPy arrays, Pandas DataFrames, Data Visualization, and Machine Learning models.',
-      courseCount: '16 Modules'
+      name: 'Cloud & DevOps',
+      icon: Cloud,
+      bg: 'bg-amber-50 text-amber-600 border-2 border-amber-200',
+      description: 'Master cloud infrastructure, containerization, CI/CD deployment pipelines, and microservices architecture.',
+      courseCount: '12 Modules'
     }
   ];
 
   return (
-    <div className="py-12 bg-[#FAFDFB] min-h-screen">
+    <div className="py-12 bg-[#FAFDFB] min-h-screen font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         
         {/* Title Header */}
@@ -46,11 +46,11 @@ export default function CategoriesPage({ onCategorySelect }) {
             Browse Boot Camp Categories
           </h1>
           <p className="text-sm text-slate-500 font-semibold">
-            Explore industry-tailored learning paths designed for modern software careers.
+            Explore industry-tailored learning paths designed for modern software engineering careers.
           </p>
         </div>
 
-        {/* 4 Grid Cards */}
+        {/* Category Grid Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {categoryCards.map((cat) => {
             const Icon = cat.icon;
