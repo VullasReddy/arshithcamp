@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { GraduationCap, ArrowRight, Instagram, Linkedin, Heart, Sparkles, ExternalLink } from 'lucide-react';
+import { GraduationCap, ArrowRight, Facebook, Instagram, Youtube, Linkedin, Twitter, Heart, Sparkles } from 'lucide-react';
 
 export default function Footer({ setActiveTab }) {
   const [email, setEmail] = useState('');
@@ -50,36 +50,63 @@ export default function Footer({ setActiveTab }) {
               Empowering learners worldwide with structured, project-based boot camp courses, complete module reading manuals, and verified credentials.
             </p>
 
-            {/* Social Icons Bar */}
+            {/* Social Icons with Active Redirection */}
             <div className="flex items-center gap-2.5 pt-2">
+              <a 
+                href="#facebook" 
+                className="w-9 h-9 rounded-full bg-brand-800/90 hover:bg-brand-600 hover:text-white text-slate-300 flex items-center justify-center transition-all border border-brand-700"
+                title="Facebook"
+              >
+                <Facebook className="w-4 h-4" />
+              </a>
+
+              {/* Instagram */}
               <a 
                 href="https://www.instagram.com/arshithgroup/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="w-10 h-10 rounded-xl bg-brand-800/90 hover:bg-gradient-to-tr hover:from-amber-500 hover:via-rose-500 hover:to-purple-600 text-slate-200 hover:text-white flex items-center justify-center transition-all border border-brand-700 shadow-sm group"
+                className="w-9 h-9 rounded-full bg-brand-800/90 hover:bg-gradient-to-tr hover:from-amber-500 hover:via-rose-500 hover:to-purple-600 text-slate-300 hover:text-white flex items-center justify-center transition-all border border-brand-700"
                 title="PALLAVI NELLI (@arshithgroup) on Instagram"
               >
-                <Instagram className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                <Instagram className="w-4 h-4" />
               </a>
 
+              {/* LinkedIn Company */}
               <a 
                 href="https://www.linkedin.com/company/arshith-group/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="w-10 h-10 rounded-xl bg-brand-800/90 hover:bg-[#0A66C2] text-slate-200 hover:text-white flex items-center justify-center transition-all border border-brand-700 shadow-sm group"
+                className="w-9 h-9 rounded-full bg-brand-800/90 hover:bg-[#0A66C2] text-slate-300 hover:text-white flex items-center justify-center transition-all border border-brand-700"
                 title="Arshith Group on LinkedIn"
               >
-                <Linkedin className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                <Linkedin className="w-4 h-4" />
               </a>
 
+              {/* LinkedIn Profile (Farook N) */}
               <a 
                 href="https://www.linkedin.com/in/farook-n-2bb2b5344/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="w-10 h-10 rounded-xl bg-brand-800/90 hover:bg-[#0077B5] text-slate-200 hover:text-white flex items-center justify-center transition-all border border-brand-700 shadow-sm group"
+                className="w-9 h-9 rounded-full bg-brand-800/90 hover:bg-[#0077B5] text-cyan-400 hover:text-white flex items-center justify-center transition-all border border-brand-700"
                 title="Farook N on LinkedIn"
               >
-                <Linkedin className="w-5 h-5 group-hover:scale-110 transition-transform text-cyan-400" />
+                <Linkedin className="w-4 h-4" />
+              </a>
+
+              <a 
+                href="#youtube" 
+                className="w-9 h-9 rounded-full bg-brand-800/90 hover:bg-rose-600 hover:text-white text-slate-300 flex items-center justify-center transition-all border border-brand-700"
+                title="YouTube"
+              >
+                <Youtube className="w-4 h-4" />
+              </a>
+
+              <a 
+                href="#x" 
+                className="w-9 h-9 rounded-full bg-brand-800/90 hover:bg-brand-600 hover:text-white text-slate-300 flex items-center justify-center transition-all border border-brand-700"
+                title="Twitter / X"
+              >
+                <Twitter className="w-4 h-4" />
               </a>
             </div>
           </div>
@@ -106,73 +133,27 @@ export default function Footer({ setActiveTab }) {
             </ul>
           </div>
 
-          {/* Connect & Social Accounts */}
-          <div className="lg:col-span-3 space-y-3">
-            <h3 className="text-xs font-black text-white uppercase tracking-wider">Connect With Us</h3>
-            <ul className="space-y-3 text-xs font-medium text-slate-300">
-              
-              {/* Instagram Link */}
+          {/* Support */}
+          <div className="lg:col-span-2 space-y-3">
+            <h3 className="text-xs font-black text-white uppercase tracking-wider">Support</h3>
+            <ul className="space-y-2.5 text-sm font-semibold">
               <li>
-                <a 
-                  href="https://www.instagram.com/arshithgroup/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 hover:text-emerald-400 transition-colors group p-1.5 rounded-xl bg-brand-800/50 hover:bg-brand-800 border border-brand-700/60"
-                >
-                  <div className="w-7 h-7 rounded-lg bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white flex items-center justify-center shrink-0">
-                    <Instagram className="w-4 h-4" />
-                  </div>
-                  <div className="truncate">
-                    <p className="font-bold text-white group-hover:text-emerald-300 truncate">Instagram</p>
-                    <p className="text-[10px] text-slate-400 truncate">PALLAVI NELLI (@arshithgroup)</p>
-                  </div>
-                  <ExternalLink className="w-3.5 h-3.5 text-slate-400 group-hover:text-emerald-400 ml-auto shrink-0" />
-                </a>
+                <button onClick={() => handleNavClick('contact')} className="hover:text-emerald-400 transition-colors cursor-pointer">Help Center</button>
               </li>
-
-              {/* LinkedIn Company Link */}
               <li>
-                <a 
-                  href="https://www.linkedin.com/company/arshith-group/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 hover:text-emerald-400 transition-colors group p-1.5 rounded-xl bg-brand-800/50 hover:bg-brand-800 border border-brand-700/60"
-                >
-                  <div className="w-7 h-7 rounded-lg bg-[#0A66C2] text-white flex items-center justify-center shrink-0">
-                    <Linkedin className="w-4 h-4" />
-                  </div>
-                  <div className="truncate">
-                    <p className="font-bold text-white group-hover:text-emerald-300 truncate">LinkedIn Company</p>
-                    <p className="text-[10px] text-slate-400 truncate">Arshith Group</p>
-                  </div>
-                  <ExternalLink className="w-3.5 h-3.5 text-slate-400 group-hover:text-emerald-400 ml-auto shrink-0" />
-                </a>
+                <a href="#terms" className="hover:text-emerald-400 transition-colors">Terms & Conditions</a>
               </li>
-
-              {/* LinkedIn Farook N Link */}
               <li>
-                <a 
-                  href="https://www.linkedin.com/in/farook-n-2bb2b5344/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 hover:text-emerald-400 transition-colors group p-1.5 rounded-xl bg-brand-800/50 hover:bg-brand-800 border border-brand-700/60"
-                >
-                  <div className="w-7 h-7 rounded-lg bg-[#0077B5] text-white flex items-center justify-center shrink-0">
-                    <Linkedin className="w-4 h-4" />
-                  </div>
-                  <div className="truncate">
-                    <p className="font-bold text-white group-hover:text-emerald-300 truncate">LinkedIn Profile</p>
-                    <p className="text-[10px] text-slate-400 truncate">Farook N</p>
-                  </div>
-                  <ExternalLink className="w-3.5 h-3.5 text-slate-400 group-hover:text-emerald-400 ml-auto shrink-0" />
-                </a>
+                <a href="#privacy" className="hover:text-emerald-400 transition-colors">Privacy Policy</a>
               </li>
-
+              <li>
+                <a href="#refund" className="hover:text-emerald-400 transition-colors">Refund Policy</a>
+              </li>
             </ul>
           </div>
 
           {/* Newsletter */}
-          <div className="lg:col-span-3 space-y-3">
+          <div className="lg:col-span-4 space-y-3">
             <h3 className="text-xs font-black text-white uppercase tracking-wider">Newsletter</h3>
             <p className="text-xs text-slate-400 font-medium">
               Get updates on new boot camp courses, tutorials, and certification offers directly in your inbox.
