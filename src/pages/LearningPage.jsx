@@ -245,7 +245,7 @@ export default function LearningPage({
                   <span>Course Projects (1-2 Pages)</span>
                 </h4>
                 <p className="text-[11px] text-slate-300 font-medium pt-1 leading-relaxed">
-                  Fast, small, real-world Python mini projects covering file processing, OOP grade tracker, and SQLite database.
+                  Fast, small, real-world {course?.title || 'course'} mini projects designed to apply your learning with starter code & GitHub submission.
                 </p>
               </div>
 
