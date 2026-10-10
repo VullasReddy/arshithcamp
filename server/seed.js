@@ -1,8 +1,7 @@
-// Database Seed Data
 export const initialData = {
   "admin": {
     "adminId": "ARB-ADMIN-001",
-    "passwordHash": "$2b$10$2iBDmZGJ1sqJFfaYevbs9O9/a9x41aIUxuVSWu1ODU2h3eJ9F6NpW",
+    "passwordHash": ".z3eET2kWWCUiBufcg7GPuA8mX0treXxyz0E9P5xxb533m",
     "name": "Arshith Boot Camp Administrator",
     "email": "admin@arshithbootcamp.com",
     "role": "admin",
