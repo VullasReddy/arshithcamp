@@ -1,41 +1,154 @@
 import React, { useState, useEffect } from 'react';
-import { X, GraduationCap, Mail, Lock, User, ArrowRight, Hash } from 'lucide-react';
+import { X, GraduationCap, Mail, Lock, User, ArrowRight, Hash, Phone, KeyRound, AlertCircle } from 'lucide-react';
 
 export default function LoginModal({ isOpen, onClose, initialMode = 'login', onSuccess }) {
   const [mode, setMode] = useState(initialMode); // 'login' | 'signup'
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [regNo, setRegNo] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [error, setError] = useState('');
 
   useEffect(() => {
     setMode(initialMode);
+    setError('');
   }, [initialMode, isOpen]);
 
   if (!isOpen) return null;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let finalName = name.trim();
-    if (!finalName && email) {
-      const emailPrefix = email.split('@')[0];
-      finalName = emailPrefix
-        .replace(/[._-]/g, ' ')
-        .replace(/\b\w/g, l => l.toUpperCase());
-    }
-    if (!finalName) finalName = 'Student';
+    setError('');
 
-    const finalRegNo = regNo.trim().toUpperCase();
+    const trimmedEmail = email.trim().toLowerCase();
+    const trimmedRegNo = regNo.trim().toUpperCase();
+    const trimmedPhone = phone.trim();
+    const trimmedName = name.trim();
 
-    if (onSuccess) {
-      onSuccess({ name: finalName, regNo: finalRegNo, email: email.trim(), mode });
+    if (mode === 'signup') {
+      // 1. Mandatory validation for registration
+      if (!trimmedName) {
+        setError('Full Name is mandatory.');
+        return;
+      }
+      if (!trimmedRegNo) {
+        setError('Registration Number is mandatory.');
+        return;
+      }
+      if (!trimmedPhone) {
+        setError('Phone Number is mandatory.');
+        return;
+      }
+      const digitsOnly = trimmedPhone.replace(/[^0-9]/g, '');
+      if (digitsOnly.length < 10) {
+        setError('Please enter a valid phone number with at least 10 digits.');
+        return;
+      }
+      if (!trimmedEmail) {
+        setError('Email Address is mandatory.');
+        return;
+      }
+      if (!password) {
+        setError('Password is mandatory.');
+        return;
+      }
+      if (password.length < 6) {
+        setError('Password must be at least 6 characters long.');
+        return;
+      }
+      if (!confirmPassword) {
+        setError('Confirm Password is mandatory.');
+        return;
+      }
+      if (password !== confirmPassword) {
+        setError('Passwords do not match. Please verify and re-enter.');
+        return;
+      }
+
+      // Check if user already exists
+      const existingUserRaw = localStorage.getItem(`studentUser_${trimmedEmail}`);
+      if (existingUserRaw) {
+        setError('An account with this email address already exists. Please log in.');
+        return;
+      }
+
+      if (onSuccess) {
+        onSuccess({
+          name: trimmedName,
+          regNo: trimmedRegNo,
+          phone: trimmedPhone,
+          email: trimmedEmail,
+          password: password,
+          mode: 'signup'
+        });
+      }
+      onClose();
+    } else {
+      // LOGIN MODE - Everything is mandatory! Without Registration Number, do not log in!
+      if (!trimmedRegNo) {
+        setError('Registration Number is mandatory to log in.');
+        return;
+      }
+      if (!trimmedEmail) {
+        setError('Email Address is mandatory.');
+        return;
+      }
+      if (!password) {
+        setError('Password is mandatory.');
+        return;
+      }
+
+      // Validate against registered user credentials in localStorage if available
+      const userKey = `studentUser_${trimmedEmail}`;
+      const savedUserRaw = localStorage.getItem(userKey);
+      let resolvedName = '';
+      let resolvedPhone = '';
+
+      if (savedUserRaw) {
+        try {
+          const savedUser = JSON.parse(savedUserRaw);
+          if (savedUser.regNo && savedUser.regNo.toUpperCase() !== trimmedRegNo) {
+            setError(`Invalid Registration Number. It does not match our records for ${trimmedEmail}`);
+            return;
+          }
+          if (savedUser.password && savedUser.password !== password) {
+            setError('Incorrect password. Please try again.');
+            return;
+          }
+          resolvedName = savedUser.name || '';
+          resolvedPhone = savedUser.phone || '';
+        } catch (err) {}
+      }
+
+      if (!resolvedName) {
+        const emailPrefix = trimmedEmail.split('@')[0];
+        resolvedName = emailPrefix.replace(/[._-]/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+      }
+
+      if (onSuccess) {
+        onSuccess({
+          name: resolvedName,
+          regNo: trimmedRegNo,
+          phone: resolvedPhone,
+          email: trimmedEmail,
+          password: password,
+          mode: 'login'
+        });
+      }
+      onClose();
     }
-    onClose();
+  };
+
+  const handleSwitchMode = (newMode) => {
+    setMode(newMode);
+    setError('');
   };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl border border-slate-100 relative animate-in zoom-in-95 duration-200">
+      <div className="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl border border-slate-100 relative max-h-[90vh] overflow-y-auto animate-in zoom-in-95 duration-200">
         
         {/* Close Button */}
         <button
@@ -46,7 +159,7 @@ export default function LoginModal({ isOpen, onClose, initialMode = 'login', onS
         </button>
 
         {/* Modal Brand Header */}
-        <div className="flex flex-col items-center text-center mb-6">
+        <div className="flex flex-col items-center text-center mb-5">
           <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-brand-600 to-emerald-400 flex items-center justify-center text-white shadow-md shadow-brand-500/20 mb-3">
             <GraduationCap className="w-6 h-6" />
           </div>
@@ -54,95 +167,153 @@ export default function LoginModal({ isOpen, onClose, initialMode = 'login', onS
             {mode === 'login' ? 'Welcome Back 👋' : 'Register for Arshith Boot Camp 🚀'}
           </h2>
           <p className="text-xs text-slate-500 font-medium mt-1">
-            {mode === 'login' ? 'Enter your details to access your courses' : 'Create your student account to get started'}
+            {mode === 'login' ? 'Enter your credentials to access your courses' : 'All fields are mandatory to create your student account'}
           </p>
         </div>
 
-        {/* Form */}
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label className="block text-xs font-bold text-slate-700 mb-1">
-              Full Name {mode === 'login' && <span className="text-slate-400 font-normal">(Optional)</span>}
-            </label>
-            <div className="relative">
-              <input
-                type="text"
-                required={mode === 'signup'}
-                placeholder="e.g. Arshith Kumar"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:border-brand-500 outline-none"
-              />
-              <User className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
-            </div>
+        {/* Error Alert */}
+        {error && (
+          <div className="p-3 mb-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-semibold flex items-center gap-2">
+            <AlertCircle className="w-4 h-4 shrink-0 text-rose-500" />
+            <span>{error}</span>
           </div>
+        )}
 
-          {/* Registration Number Field */}
+        {/* Form */}
+        <form onSubmit={handleSubmit} className="space-y-3.5">
+          
+          {/* Full Name - Only in signup mode */}
+          {mode === 'signup' && (
+            <div>
+              <label className="block text-xs font-bold text-slate-700 mb-1">
+                Full Name <span className="text-rose-500">*</span>
+              </label>
+              <div className="relative">
+                <input
+                  type="text"
+                  required
+                  placeholder="e.g. Arshith Kumar"
+                  value={name}
+                  onChange={(e) => { setName(e.target.value); setError(''); }}
+                  className="w-full pl-10 pr-4 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:border-brand-500 outline-none"
+                />
+                <User className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+              </div>
+            </div>
+          )}
+
+          {/* Registration Number - Mandatory in both signup and login */}
           <div>
             <label className="block text-xs font-bold text-slate-700 mb-1">
-              Registration Number {mode === 'login' && <span className="text-slate-400 font-normal">(Optional)</span>}
+              Registration Number <span className="text-rose-500">*</span>
             </label>
             <div className="relative">
               <input
                 type="text"
-                required={mode === 'signup'}
+                required
                 placeholder="e.g. ABC2026-001 or 21A91A0501"
                 value={regNo}
-                onChange={(e) => setRegNo(e.target.value.toUpperCase())}
-                className="w-full pl-10 pr-4 py-2.5 text-sm font-mono uppercase bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:border-brand-500 outline-none"
+                onChange={(e) => { setRegNo(e.target.value.toUpperCase()); setError(''); }}
+                className="w-full pl-10 pr-4 py-2.5 text-sm font-mono uppercase bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:border-brand-500 outline-none font-semibold"
               />
               <Hash className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
             </div>
           </div>
 
+          {/* Phone Number - Only in signup mode */}
+          {mode === 'signup' && (
+            <div>
+              <label className="block text-xs font-bold text-slate-700 mb-1">
+                Phone Number <span className="text-rose-500">*</span>
+              </label>
+              <div className="relative">
+                <input
+                  type="tel"
+                  required
+                  placeholder="e.g. +91 9876543210"
+                  value={phone}
+                  onChange={(e) => { setPhone(e.target.value); setError(''); }}
+                  className="w-full pl-10 pr-4 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:border-brand-500 outline-none font-medium"
+                />
+                <Phone className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+              </div>
+            </div>
+          )}
+
+          {/* Email Address - Mandatory in both */}
           <div>
-            <label className="block text-xs font-bold text-slate-700 mb-1">Email Address</label>
+            <label className="block text-xs font-bold text-slate-700 mb-1">
+              Email Address <span className="text-rose-500">*</span>
+            </label>
             <div className="relative">
               <input
                 type="email"
                 required
                 placeholder="name@example.com"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => { setEmail(e.target.value); setError(''); }}
                 className="w-full pl-10 pr-4 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:border-brand-500 outline-none"
               />
               <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
             </div>
           </div>
 
+          {/* Password - Mandatory in both */}
           <div>
-            <label className="block text-xs font-bold text-slate-700 mb-1">Password</label>
+            <label className="block text-xs font-bold text-slate-700 mb-1">
+              Password <span className="text-rose-500">*</span>
+            </label>
             <div className="relative">
               <input
                 type="password"
                 required
                 placeholder="••••••••"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => { setPassword(e.target.value); setError(''); }}
                 className="w-full pl-10 pr-4 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:border-brand-500 outline-none"
               />
               <Lock className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
             </div>
           </div>
 
+          {/* Confirm Password - Only in signup mode */}
+          {mode === 'signup' && (
+            <div>
+              <label className="block text-xs font-bold text-slate-700 mb-1">
+                Confirm Password <span className="text-rose-500">*</span>
+              </label>
+              <div className="relative">
+                <input
+                  type="password"
+                  required
+                  placeholder="••••••••"
+                  value={confirmPassword}
+                  onChange={(e) => { setConfirmPassword(e.target.value); setError(''); }}
+                  className="w-full pl-10 pr-4 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:border-brand-500 outline-none"
+                />
+                <KeyRound className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+              </div>
+            </div>
+          )}
+
           <button
             type="submit"
-            className="w-full py-3 px-4 text-sm font-bold text-white bg-brand-600 hover:bg-brand-700 active:scale-98 rounded-xl shadow-md shadow-brand-600/20 transition-all flex items-center justify-center gap-2 mt-2"
+            className="w-full py-3 px-4 text-sm font-bold text-white bg-brand-600 hover:bg-brand-700 active:scale-98 rounded-xl shadow-md shadow-brand-600/20 transition-all flex items-center justify-center gap-2 mt-3 cursor-pointer"
           >
-            <span>{mode === 'login' ? 'Sign In' : 'Register Account'}</span>
+            <span>{mode === 'login' ? 'Sign In' : 'Create Account & Register'}</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </form>
 
         {/* Footer toggle */}
-        <div className="mt-6 pt-4 border-t border-slate-100 text-center">
+        <div className="mt-5 pt-4 border-t border-slate-100 text-center">
           <p className="text-xs text-slate-500">
             {mode === 'login' ? "Don't have an account?" : "Already have an account?"}{' '}
             <button
-              onClick={() => setMode(mode === 'login' ? 'signup' : 'login')}
-              className="font-bold text-brand-600 hover:underline"
+              onClick={() => handleSwitchMode(mode === 'login' ? 'signup' : 'login')}
+              className="font-bold text-brand-600 hover:underline cursor-pointer"
             >
-              {mode === 'login' ? 'Sign Up free' : 'Log In'}
+              {mode === 'login' ? 'Register Now' : 'Log In'}
             </button>
           </p>
         </div>

@@ -118,6 +118,8 @@ export default function App() {
 
     const resolvedName = userAuthData.name?.trim() || savedUserData?.name?.trim() || '';
     const resolvedRegNo = userAuthData.regNo?.trim() || savedUserData?.regNo?.trim() || '';
+    const resolvedPhone = userAuthData.phone?.trim() || savedUserData?.phone?.trim() || '';
+    const resolvedPassword = userAuthData.password || savedUserData?.password || '';
 
     const existingEnrolled = userAuthData.mode === 'signup'
       ? []
@@ -126,6 +128,8 @@ export default function App() {
     const updatedUser = {
       name: resolvedName,
       regNo: resolvedRegNo,
+      phone: resolvedPhone,
+      password: resolvedPassword,
       email: userAuthData.email.trim(),
       enrolledCourseIds: existingEnrolled,
       certificates: savedUserData?.certificates || []

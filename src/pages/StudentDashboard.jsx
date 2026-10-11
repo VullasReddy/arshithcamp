@@ -58,6 +58,11 @@ export default function StudentDashboard({
                       Reg No: {studentUser.regNo}
                     </span>
                   )}
+                  {studentUser?.phone && (
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-black bg-emerald-400/20 text-emerald-300 border border-emerald-400/40 tracking-wide">
+                      Phone: {studentUser.phone}
+                    </span>
+                  )}
                 </div>
               </div>
             </div>
