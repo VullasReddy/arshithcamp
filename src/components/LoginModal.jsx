@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, GraduationCap, Mail, Lock, User, ArrowRight, Hash, Phone, KeyRound, AlertCircle } from 'lucide-react';
+import { X, GraduationCap, Mail, Lock, User, ArrowRight, ArrowLeft, Hash, Phone, KeyRound, AlertCircle } from 'lucide-react';
 
 export default function LoginModal({ isOpen, onClose, initialMode = 'login', onSuccess }) {
   const [mode, setMode] = useState(initialMode); // 'login' | 'signup'
@@ -147,16 +147,27 @@ export default function LoginModal({ isOpen, onClose, initialMode = 'login', onS
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl border border-slate-100 relative max-h-[90vh] overflow-y-auto animate-in zoom-in-95 duration-200">
-        
-        {/* Close Button */}
+    <div className="fixed inset-0 z-50 bg-white overflow-y-auto flex flex-col items-center justify-start sm:justify-center p-4 sm:p-6 min-h-screen">
+      
+      {/* Top Navigation Bar */}
+      <div className="w-full max-w-md flex items-center justify-between py-2 mb-2 shrink-0">
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-full transition-all"
+          className="inline-flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-brand-900 bg-slate-100 hover:bg-slate-200 border border-slate-200 px-4 py-2 rounded-full transition-all cursor-pointer shadow-xs"
+        >
+          <ArrowLeft className="w-4 h-4 text-brand-700" />
+          <span>Back to Home</span>
+        </button>
+        <button
+          onClick={onClose}
+          title="Close"
+          className="p-2 text-slate-400 hover:text-slate-700 hover:bg-slate-100 rounded-full border border-slate-200 transition-all cursor-pointer"
         >
           <X className="w-5 h-5" />
         </button>
+      </div>
+
+      <div className="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-xl border border-slate-200 relative my-auto">
 
         {/* Modal Brand Header */}
         <div className="flex flex-col items-center text-center mb-5">
