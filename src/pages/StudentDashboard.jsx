@@ -49,9 +49,16 @@ export default function StudentDashboard({
                 <h1 className="text-2xl sm:text-3xl font-black tracking-tight">
                   Welcome back, {userName} 👋
                 </h1>
-                <p className="text-xs sm:text-sm text-emerald-200/90 font-medium mt-0.5">
-                  Arshith Boot Camp Student Dashboard • Keep building your skills!
-                </p>
+                <div className="flex flex-wrap items-center gap-2 mt-1">
+                  <p className="text-xs sm:text-sm text-emerald-200/90 font-medium">
+                    Arshith Boot Camp Student Dashboard • Keep building your skills!
+                  </p>
+                  {studentUser?.regNo && (
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-black bg-emerald-400/20 text-emerald-300 border border-emerald-400/40 font-mono tracking-wide">
+                      Reg No: {studentUser.regNo}
+                    </span>
+                  )}
+                </div>
               </div>
             </div>
 

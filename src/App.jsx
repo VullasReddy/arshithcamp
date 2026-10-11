@@ -117,6 +117,7 @@ export default function App() {
     } catch (e) {}
 
     const resolvedName = userAuthData.name?.trim() || savedUserData?.name?.trim() || '';
+    const resolvedRegNo = userAuthData.regNo?.trim() || savedUserData?.regNo?.trim() || '';
 
     const existingEnrolled = userAuthData.mode === 'signup'
       ? []
@@ -124,6 +125,7 @@ export default function App() {
 
     const updatedUser = {
       name: resolvedName,
+      regNo: resolvedRegNo,
       email: userAuthData.email.trim(),
       enrolledCourseIds: existingEnrolled,
       certificates: savedUserData?.certificates || []
@@ -278,6 +280,7 @@ export default function App() {
     courseId: foundCert?.courseId || currentSelectedCourse?.id || 'python-programming',
     courseTitle: foundCert?.courseTitle || currentSelectedCourse?.title || 'Python Programming',
     studentName: studentDisplayName || (foundCert?.studentName !== 'Arshith Kumar' ? foundCert?.studentName : '') || studentUser?.email || '',
+    regNo: studentUser?.regNo || foundCert?.regNo || '',
     issueDate: (studentUser && studentUser.certificateIssueDates && studentUser.certificateIssueDates[selectedCertId])
       ? studentUser.certificateIssueDates[selectedCertId]
       : getTodayFormattedDate(),
@@ -380,6 +383,7 @@ export default function App() {
         {activeTab === 'certificate' && (
           <CertificatePage
             certificate={currentCert}
+            studentUser={studentUser}
             onBack={() => setActiveTab('dashboard')}
             onVerifyClick={handleVerifyClick}
           />

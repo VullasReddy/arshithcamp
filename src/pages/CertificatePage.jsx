@@ -3,7 +3,7 @@ import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { Download, ShieldCheck, GraduationCap, ArrowLeft, Award, Sparkles, CheckCircle2 } from 'lucide-react';
 
-export default function CertificatePage({ certificate, onBack, onVerifyClick }) {
+export default function CertificatePage({ certificate, onBack, onVerifyClick, studentUser }) {
   const certificateRef = useRef(null);
   const [downloading, setDownloading] = useState(false);
 
@@ -220,6 +220,12 @@ export default function CertificatePage({ certificate, onBack, onVerifyClick }) 
                   {certificate.studentName || certificate.studentEmail || 'Student'}
                 </h3>
                 
+                {(certificate.regNo || studentUser?.regNo) && (
+                  <p className="text-[11px] font-bold uppercase tracking-wider font-sans" style={{ color: '#013323', margin: '2px 0 2px 0' }}>
+                    Registration No: <span className="font-mono text-[#B8860B] font-black">{certificate.regNo || studentUser?.regNo}</span>
+                  </p>
+                )}
+
                 <div className="flex items-center justify-center gap-2 text-[#D4AF37] max-w-xs mx-auto" style={{ marginTop: '4px' }}>
                   <span className="flex-1 h-px bg-[#D4AF37]"></span>
                   <span className="text-[10px]" style={{ color: '#D4AF37' }}>◈</span>

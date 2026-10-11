@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
-import { X, GraduationCap, Mail, Lock, User, ArrowRight } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { X, GraduationCap, Mail, Lock, User, ArrowRight, Hash } from 'lucide-react';
 
 export default function LoginModal({ isOpen, onClose, initialMode = 'login', onSuccess }) {
   const [mode, setMode] = useState(initialMode); // 'login' | 'signup'
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
+  const [regNo, setRegNo] = useState('');
+
+  useEffect(() => {
+    setMode(initialMode);
+  }, [initialMode, isOpen]);
 
   if (!isOpen) return null;
 
@@ -20,8 +25,10 @@ export default function LoginModal({ isOpen, onClose, initialMode = 'login', onS
     }
     if (!finalName) finalName = 'Student';
 
+    const finalRegNo = regNo.trim().toUpperCase();
+
     if (onSuccess) {
-      onSuccess({ name: finalName, email: email.trim(), mode });
+      onSuccess({ name: finalName, regNo: finalRegNo, email: email.trim(), mode });
     }
     onClose();
   };
@@ -44,10 +51,10 @@ export default function LoginModal({ isOpen, onClose, initialMode = 'login', onS
             <GraduationCap className="w-6 h-6" />
           </div>
           <h2 className="text-2xl font-extrabold text-slate-900">
-            {mode === 'login' ? 'Welcome Back 👋' : 'Join Arshith Boot Camp 🚀'}
+            {mode === 'login' ? 'Welcome Back 👋' : 'Register for Arshith Boot Camp 🚀'}
           </h2>
           <p className="text-xs text-slate-500 font-medium mt-1">
-            {mode === 'login' ? 'Enter your details to access your courses' : 'Start your learning journey today'}
+            {mode === 'login' ? 'Enter your details to access your courses' : 'Create your student account to get started'}
           </p>
         </div>
 
@@ -67,6 +74,24 @@ export default function LoginModal({ isOpen, onClose, initialMode = 'login', onS
                 className="w-full pl-10 pr-4 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:border-brand-500 outline-none"
               />
               <User className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+            </div>
+          </div>
+
+          {/* Registration Number Field */}
+          <div>
+            <label className="block text-xs font-bold text-slate-700 mb-1">
+              Registration Number {mode === 'login' && <span className="text-slate-400 font-normal">(Optional)</span>}
+            </label>
+            <div className="relative">
+              <input
+                type="text"
+                required={mode === 'signup'}
+                placeholder="e.g. ABC2026-001 or 21A91A0501"
+                value={regNo}
+                onChange={(e) => setRegNo(e.target.value.toUpperCase())}
+                className="w-full pl-10 pr-4 py-2.5 text-sm font-mono uppercase bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:border-brand-500 outline-none"
+              />
+              <Hash className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
             </div>
           </div>
 
@@ -104,7 +129,7 @@ export default function LoginModal({ isOpen, onClose, initialMode = 'login', onS
             type="submit"
             className="w-full py-3 px-4 text-sm font-bold text-white bg-brand-600 hover:bg-brand-700 active:scale-98 rounded-xl shadow-md shadow-brand-600/20 transition-all flex items-center justify-center gap-2 mt-2"
           >
-            <span>{mode === 'login' ? 'Sign In' : 'Create Account'}</span>
+            <span>{mode === 'login' ? 'Sign In' : 'Register Account'}</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </form>

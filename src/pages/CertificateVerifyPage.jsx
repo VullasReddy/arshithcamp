@@ -16,6 +16,7 @@ export default function CertificateVerifyPage({ certId, onBack, studentUser }) {
   const match = rawMatch ? {
     ...rawMatch,
     studentName: studentDisplayName || (rawMatch.studentName !== 'Arshith Kumar' ? rawMatch.studentName : '') || studentUser?.email || 'Student',
+    regNo: studentUser?.regNo || rawMatch.regNo || '',
     issueDate: (studentUser || rawMatch.issueDate === 'October 1, 2026') ? todayFormatted : rawMatch.issueDate
   } : null;
 
@@ -88,6 +89,13 @@ export default function CertificateVerifyPage({ certId, onBack, studentUser }) {
                 <span className="text-[10px] font-black text-slate-400 uppercase">Certificate ID</span>
                 <p className="text-sm font-black text-slate-900 font-mono">{match.id}</p>
               </div>
+
+              {match.regNo ? (
+                <div className="bg-slate-50 p-4 rounded-2xl border-2 border-slate-200 space-y-1">
+                  <span className="text-[10px] font-black text-slate-400 uppercase">Registration No</span>
+                  <p className="text-sm font-black text-brand-700 font-mono">{match.regNo}</p>
+                </div>
+              ) : null}
 
               <div className="bg-slate-50 p-4 rounded-2xl border-2 border-slate-200 space-y-1">
                 <span className="text-[10px] font-black text-slate-400 uppercase">Issue Date</span>
