@@ -284,13 +284,12 @@ export default function CertificatePage({ certificate, onBack, onVerifyClick, st
               </div>
 
               {/* Signature Block - Right Aligned with LEAD INSTRUCTOR & CEO Underneath */}
-              <div className="flex flex-col items-center text-center min-w-[210px]">
-                <div className="h-12 flex items-end justify-center w-full pb-1">
+              <div className="flex flex-col items-center text-center min-w-[220px]">
+                <div className="h-[72px] flex items-end justify-center w-full pb-1">
                   <img
                     src="/ceo-signature.png"
                     alt="CEO Signature"
-                    className="h-12 w-auto object-contain"
-                    style={{ mixBlendMode: 'multiply' }}
+                    className="h-full w-auto object-contain max-h-[72px]"
                   />
                 </div>
                 <div className="w-full border-b border-[#013323]" />
