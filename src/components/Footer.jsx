@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { GraduationCap, ArrowRight, Instagram, Linkedin, Heart, Sparkles, ExternalLink } from 'lucide-react';
+import { GraduationCap, ArrowRight, Facebook, Instagram, Youtube, Linkedin, Twitter, Heart, Sparkles } from 'lucide-react';
 
 export default function Footer({ setActiveTab }) {
   const [email, setEmail] = useState('');
@@ -26,7 +26,7 @@ export default function Footer({ setActiveTab }) {
         {/* Top 4 Columns */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 pb-12 border-b border-brand-800/80">
           
-          {/* Brand Info & Social Redirection */}
+          {/* Brand Info */}
           <div className="lg:col-span-4 space-y-4">
             <div 
               onClick={() => handleNavClick('home')}
@@ -50,67 +50,64 @@ export default function Footer({ setActiveTab }) {
               Empowering learners worldwide with structured, project-based boot camp courses, complete module reading manuals, and verified credentials.
             </p>
 
-            {/* Direct Social Redirection Handles */}
-            <div className="space-y-2 pt-2">
-              <p className="text-[11px] font-black uppercase text-emerald-400 tracking-wider">
-                Official Social Profiles
-              </p>
-              
-              <div className="flex flex-col gap-2">
-                {/* 1. Instagram: PALLAVI NELLI (@arshithgroup) */}
-                <a 
-                  href="https://www.instagram.com/arshithgroup/" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-brand-800/80 hover:bg-gradient-to-r hover:from-amber-500 hover:via-rose-500 hover:to-purple-600 text-slate-200 hover:text-white transition-all border border-brand-700/80 group shadow-xs cursor-pointer w-fit"
-                  title="Follow PALLAVI NELLI (@arshithgroup) on Instagram"
-                >
-                  <div className="w-6 h-6 rounded-lg bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white flex items-center justify-center shrink-0">
-                    <Instagram className="w-3.5 h-3.5" />
-                  </div>
-                  <div className="text-left">
-                    <span className="text-xs font-bold block leading-tight">Instagram</span>
-                    <span className="text-[10px] text-slate-400 group-hover:text-white/90 font-medium block">PALLAVI NELLI (@arshithgroup)</span>
-                  </div>
-                  <ExternalLink className="w-3.5 h-3.5 text-slate-400 group-hover:text-white ml-2 shrink-0" />
-                </a>
+            {/* Social Icons Bar (Just clean icons with active redirection) */}
+            <div className="flex items-center gap-2.5 pt-2">
+              <a 
+                href="#facebook" 
+                className="w-9 h-9 rounded-full bg-brand-800/90 hover:bg-brand-600 hover:text-white text-slate-300 flex items-center justify-center transition-all border border-brand-700 shadow-sm"
+                title="Facebook"
+              >
+                <Facebook className="w-4 h-4" />
+              </a>
 
-                {/* 2. LinkedIn: Company Account (Arshith Group) */}
-                <a 
-                  href="https://www.linkedin.com/company/arshith-group/" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-brand-800/80 hover:bg-[#0A66C2] text-slate-200 hover:text-white transition-all border border-brand-700/80 group shadow-xs cursor-pointer w-fit"
-                  title="Follow Arshith Group on LinkedIn"
-                >
-                  <div className="w-6 h-6 rounded-lg bg-[#0A66C2] text-white flex items-center justify-center shrink-0">
-                    <Linkedin className="w-3.5 h-3.5" />
-                  </div>
-                  <div className="text-left">
-                    <span className="text-xs font-bold block leading-tight">LinkedIn Company</span>
-                    <span className="text-[10px] text-slate-400 group-hover:text-white/90 font-medium block">Arshith Group</span>
-                  </div>
-                  <ExternalLink className="w-3.5 h-3.5 text-slate-400 group-hover:text-white ml-2 shrink-0" />
-                </a>
+              {/* Instagram */}
+              <a 
+                href="https://www.instagram.com/arshithgroup/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-9 h-9 rounded-full bg-brand-800/90 hover:bg-gradient-to-tr hover:from-amber-500 hover:via-rose-500 hover:to-purple-600 text-slate-300 hover:text-white flex items-center justify-center transition-all border border-brand-700 shadow-sm cursor-pointer"
+                title="PALLAVI NELLI (@arshithgroup) on Instagram"
+              >
+                <Instagram className="w-4 h-4" />
+              </a>
 
-                {/* 3. LinkedIn: Personal Profile (Farook N) */}
-                <a 
-                  href="https://www.linkedin.com/in/farook-n-2bb2b5344/" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-brand-800/80 hover:bg-[#0077B5] text-slate-200 hover:text-white transition-all border border-brand-700/80 group shadow-xs cursor-pointer w-fit"
-                  title="Connect with Farook N on LinkedIn"
-                >
-                  <div className="w-6 h-6 rounded-lg bg-[#0077B5] text-white flex items-center justify-center shrink-0">
-                    <Linkedin className="w-3.5 h-3.5" />
-                  </div>
-                  <div className="text-left">
-                    <span className="text-xs font-bold block leading-tight">LinkedIn Profile</span>
-                    <span className="text-[10px] text-slate-400 group-hover:text-white/90 font-medium block">Farook N</span>
-                  </div>
-                  <ExternalLink className="w-3.5 h-3.5 text-slate-400 group-hover:text-white ml-2 shrink-0" />
-                </a>
-              </div>
+              {/* LinkedIn Company */}
+              <a 
+                href="https://www.linkedin.com/company/arshith-group/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-9 h-9 rounded-full bg-brand-800/90 hover:bg-[#0A66C2] text-slate-300 hover:text-white flex items-center justify-center transition-all border border-brand-700 shadow-sm cursor-pointer"
+                title="Arshith Group on LinkedIn"
+              >
+                <Linkedin className="w-4 h-4" />
+              </a>
+
+              {/* LinkedIn Profile (Farook N) */}
+              <a 
+                href="https://www.linkedin.com/in/farook-n-2bb2b5344/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-9 h-9 rounded-full bg-brand-800/90 hover:bg-[#0077B5] text-cyan-400 hover:text-white flex items-center justify-center transition-all border border-brand-700 shadow-sm cursor-pointer"
+                title="Farook N on LinkedIn"
+              >
+                <Linkedin className="w-4 h-4" />
+              </a>
+
+              <a 
+                href="#youtube" 
+                className="w-9 h-9 rounded-full bg-brand-800/90 hover:bg-rose-600 hover:text-white text-slate-300 flex items-center justify-center transition-all border border-brand-700 shadow-sm"
+                title="YouTube"
+              >
+                <Youtube className="w-4 h-4" />
+              </a>
+
+              <a 
+                href="#x" 
+                className="w-9 h-9 rounded-full bg-brand-800/90 hover:bg-brand-600 hover:text-white text-slate-300 flex items-center justify-center transition-all border border-brand-700 shadow-sm"
+                title="Twitter / X"
+              >
+                <Twitter className="w-4 h-4" />
+              </a>
             </div>
           </div>
 
@@ -185,40 +182,14 @@ export default function Footer({ setActiveTab }) {
 
         </div>
 
-        {/* Bottom Bar with Direct Social Text Links */}
+        {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-3">
           <p>© 2026 Arshith Boot Camp. All rights reserved.</p>
-          
-          <div className="flex flex-wrap items-center gap-4 text-xs font-semibold">
-            <a 
-              href="https://www.instagram.com/arshithgroup/" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-slate-300 hover:text-emerald-400 transition-colors flex items-center gap-1"
-            >
-              <Instagram className="w-3.5 h-3.5 text-rose-400" />
-              <span>Instagram (@arshithgroup)</span>
-            </a>
-            
-            <a 
-              href="https://www.linkedin.com/company/arshith-group/" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-slate-300 hover:text-emerald-400 transition-colors flex items-center gap-1"
-            >
-              <Linkedin className="w-3.5 h-3.5 text-blue-400" />
-              <span>LinkedIn (Arshith Group)</span>
-            </a>
-
-            <a 
-              href="https://www.linkedin.com/in/farook-n-2bb2b5344/" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-slate-300 hover:text-emerald-400 transition-colors flex items-center gap-1"
-            >
-              <Linkedin className="w-3.5 h-3.5 text-cyan-400" />
-              <span>LinkedIn (Farook N)</span>
-            </a>
+          <div className="flex items-center gap-1.5 font-bold text-slate-300">
+            <span>Learn Today</span>
+            <span className="text-emerald-400">•</span>
+            <span>Build Tomorrow</span>
+            <Heart className="w-3.5 h-3.5 fill-peach-500 text-peach-500 ml-0.5 inline" />
           </div>
         </div>
 
