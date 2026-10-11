@@ -73,6 +73,7 @@ export default function PopularCourses({ courses, onSelectCourse, onViewAllCours
           {popularCourses.map((course) => {
             const completedCount = course.modules?.filter(m => m.completed).length || 0;
             const totalModules = course.modules?.length || 1;
+            const progressPercent = totalModules > 0 ? Math.round((completedCount / totalModules) * 100) : 0;
             const isEnrolled = studentUser?.enrolledCourseIds?.includes(course.id);
 
             return (
@@ -152,12 +153,12 @@ export default function PopularCourses({ courses, onSelectCourse, onViewAllCours
                   <div className="space-y-1">
                     <div className="flex justify-between items-center text-[11px] font-extrabold text-slate-600">
                       <span>{completedCount} / {totalModules} Modules</span>
-                      <span className="text-brand-700">{course.progress}%</span>
+                      <span className="text-brand-700">{progressPercent}%</span>
                     </div>
                     <div className="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden border border-slate-200">
                       <div
                         className="h-full bg-gradient-to-r from-brand-600 to-emerald-400 rounded-full transition-all duration-300"
-                        style={{ width: `${course.progress}%` }}
+                        style={{ width: `${progressPercent}%` }}
                       />
                     </div>
                   </div>

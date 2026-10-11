@@ -169,6 +169,9 @@ export default function CoursesPage({ courses, onSelectCourse, studentUser, onEn
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredCourses.map((course) => {
               const isEnrolled = studentUser?.enrolledCourseIds?.includes(course.id);
+              const completedModules = course.modules?.filter(m => m.completed).length || 0;
+              const totalModules = course.modules?.length || 1;
+              const progressPercent = totalModules > 0 ? Math.round((completedModules / totalModules) * 100) : 0;
               return (
                 <div
                   key={course.id}
@@ -249,13 +252,13 @@ export default function CoursesPage({ courses, onSelectCourse, studentUser, onEn
 
                   <div className="space-y-1">
                     <div className="flex justify-between items-center text-[11px] font-bold text-slate-500">
-                      <span>Progress</span>
-                      <span className="text-brand-700 font-extrabold">{course.progress}% Complete</span>
+                      <span>{completedModules} / {totalModules} Modules</span>
+                      <span className="text-brand-700 font-extrabold">{progressPercent}%</span>
                     </div>
                     <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
                       <div
                         className="h-full bg-gradient-to-r from-brand-500 to-emerald-400 rounded-full"
-                        style={{ width: `${course.progress}%` }}
+                        style={{ width: `${progressPercent}%` }}
                       />
                     </div>
                   </div>

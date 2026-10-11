@@ -189,6 +189,7 @@ export default function StudentDashboard({
               {enrolledCourses.map((course) => {
                 const completedModules = course.modules?.filter(m => m.completed).length || 0;
                 const totalModules = course.modules?.length || 1;
+                const progressPercent = totalModules > 0 ? Math.round((completedModules / totalModules) * 100) : 0;
 
                 return (
                   <div
@@ -212,13 +213,13 @@ export default function StudentDashboard({
                     <div className="space-y-3 pt-2 border-t border-slate-100">
                       <div className="flex justify-between items-center text-xs font-black text-slate-700">
                         <span>{completedModules} / {totalModules} Modules Completed</span>
-                        <span className="text-brand-700 font-extrabold">{course.progress || 0}%</span>
+                        <span className="text-brand-700 font-extrabold">{progressPercent}%</span>
                       </div>
 
                       <div className="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden border border-slate-200">
                         <div
                           className="h-full bg-gradient-to-r from-brand-600 to-emerald-400 rounded-full"
-                          style={{ width: `${course.progress || 0}%` }}
+                          style={{ width: `${progressPercent}%` }}
                         />
                       </div>
 

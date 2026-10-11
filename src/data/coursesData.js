@@ -14519,7 +14519,7 @@ export const INITIAL_COURSES = [
     "price": 0,
     "isFree": true,
     "bestseller": true,
-    "progress": 20,
+    "progress": 0,
     "status": "published",
     "featured": false,
     "certificateAvailable": true,
@@ -14549,7 +14549,7 @@ export const INITIAL_COURSES = [
         "id": "web-mod-1",
         "title": "Module 01 - Modern HTML5 & CSS3 Architecture",
         "description": "Semantic HTML tags, CSS Flexbox, Grid, CSS Variables, and Mobile-First Responsive Design.",
-        "completed": true,
+        "completed": false,
         "order": 1,
         "published": true,
         "readingMaterial": {
@@ -14690,7 +14690,7 @@ export const INITIAL_COURSES = [
         "id": "ds-mod-1",
         "title": "Module 01 - Data Science & Machine Learning Pipeline",
         "description": "Overview of Data Science pipeline, Machine Learning paradigms (Supervised, Unsupervised, Reinforcement), and AI industry applications.",
-        "completed": true,
+        "completed": false,
         "order": 1,
         "published": true,
         "readingMaterial": {

@@ -22,7 +22,7 @@
       "price": 0,
       "isFree": true,
       "bestseller": true,
-      "progress": 100,
+      "progress": 0,
       "status": "published",
       "featured": false,
       "certificateAvailable": true,
@@ -59,7 +59,7 @@
           "id": "py-mod-1",
           "title": "Module 01 — Introduction to Python",
           "description": "This module introduces Python programming from the ground up. You will learn what Python is, why it is widely used, how to install and run Python, the basic structure of a Python program, and the core concepts needed before moving into variables, data types, operators, and control flow.",
-          "completed": true,
+          "completed": false,
           "readingMaterial": {
             "introduction": "This module introduces Python programming from the ground up. You will learn what Python is, why it is widely used, how to install and run Python, the basic structure of a Python program, and the core concepts needed before moving into variables, data types, operators, and control flow.\n\nLearning Level: Beginner | Module Type: Theory + Practical\nPrerequisite: No prior programming experience is required.",
             "objectives": [
@@ -503,7 +503,7 @@
           "id": "py-mod-2",
           "title": "Module 02  -  Variables, Expressions and Statements",
           "description": "Variables and data types are fundamental concepts in Python programming. Learn variable assignment, naming rules, dynamic typing, built-in numeric/string/collection types, mutability, type conversion, and practice programs.",
-          "completed": true,
+          "completed": false,
           "readingMaterial": {
             "introduction": "Variables and data types are fundamental concepts in Python programming.\n\nA variable is a name that refers to a value or object stored in memory. Variables allow us to store information and use that information later in a program.\n\nA data type tells us what kind of value an object represents and what operations can be performed with that value.\n\nPython is dynamically typed, which means you do not have to explicitly declare the type of a variable before assigning a value to it. The same variable name can refer to objects of different types at different times.",
             "objectives": [
@@ -1075,7 +1075,7 @@
           "id": "py-mod-3",
           "title": "Module 03  -  Operators, Expressions & Precedence",
           "description": "Operators and expressions are fundamental building blocks of Python programs. Master arithmetic, assignment, comparison, logical, bitwise, membership, and identity operators, operator precedence (PEMDAS), short-circuiting, ternary expressions, and hands-on coding practice.",
-          "completed": true,
+          "completed": false,
           "readingMaterial": {
             "introduction": "Operators and expressions are fundamental building blocks of Python programs.\n\nAn operator is a symbol or keyword that tells Python to perform an operation.\nAn operand is a value or object on which an operator performs an operation.\nAn expression is a combination of values, variables, operators, function calls, or other elements that Python can evaluate to produce a value.\n\nFor example:\na = 10\nb = 20\nresult = a + b\n\nHere:\n• a and b are operands.\n• + is an operator.\n• a + b is an expression.\n• 30 is the value produced by the expression.\n\nOperators allow us to perform essential tasks such as:\n• Mathematical calculations\n• Comparing values\n• Assigning and updating values\n• Performing logical decision-making\n• Working with binary bits\n• Checking membership within sequences and mappings\n• Comparing object memory identity",
             "objectives": [
@@ -9330,7 +9330,7 @@
       "price": 0,
       "isFree": true,
       "bestseller": false,
-      "progress": 100,
+      "progress": 0,
       "status": "published",
       "featured": false,
       "certificateAvailable": true,
@@ -9368,7 +9368,7 @@
           "id": "sql-mod-1",
           "title": "Module 01  -  Introduction to SQL & Databases",
           "description": "Master foundational relational database engineering: Dr. Edgar F. Codd's Relational Theory, RDBMS vs Flat Files vs NoSQL, deep RDBMS Engine Architecture (Parser, AST, Cost-Based Optimizer, Execution Engine, WAL, Buffer Pool), Localhost (127.0.0.1) vs Enterprise Cloud Servers, Connection Strings, DBA Security Roles, and complete breakdown of the 5 SQL Sub-Languages (DDL, DML, DQL, DCL, TCL).",
-          "completed": true,
+          "completed": false,
           "order": 1,
           "published": true,
           "readingMaterial": {
@@ -9617,7 +9617,7 @@
           "id": "sql-mod-2",
           "title": "Module 02  -  SQL Syntax, Keywords & Data Types",
           "description": "Master SQL lexical rules, uppercase keyword conventions, single/multi-line comments, identifier quoting rules, and the complete relational Data Type System: Integers (SMALLINT, INT, BIGINT), Financial Fixed-Point Decimals (NUMERIC/DECIMAL), Floating-Point (REAL, DOUBLE PRECISION), Strings (CHAR, VARCHAR, TEXT), Timestamps (TIMESTAMP, TIMESTAMPTZ, INTERVAL), Booleans, JSONB, UUIDs, and Type Casting (CAST, ::).",
-          "completed": true,
+          "completed": false,
           "order": 2,
           "published": true,
           "readingMaterial": {
@@ -9919,7 +9919,7 @@
           "id": "sql-mod-3",
           "title": "Module 03  -  DDL: Creating & Managing Database Structures",
           "description": "Master Data Definition Language (DDL) architecture: CREATE DATABASE, CREATE SCHEMA, CREATE TABLE, Generated Columns, Temporary Tables (CTAS), zero-downtime ALTER TABLE migrations (ADD, DROP, RENAME, ALTER TYPE), and structural destruction mechanics (DROP TABLE vs TRUNCATE TABLE vs DELETE FROM).",
-          "completed": true,
+          "completed": false,
           "order": 3,
           "published": true,
           "readingMaterial": {
@@ -10187,7 +10187,7 @@
           "id": "sql-mod-4",
           "title": "Module 04  -  Constraints & Keys",
           "description": "Master Relational Database Integrity: Column vs Table-Level Constraints, PRIMARY KEY (Single & Composite), UNIQUE Constraints (and NULL handling rules), FOREIGN KEY Referential Integrity with ON DELETE / ON UPDATE Cascading Actions (CASCADE, RESTRICT, SET NULL, SET DEFAULT), CHECK Constraints, NOT NULL, DEFAULT, and Deferred Constraint Validation (DEFERRABLE INITIALLY DEFERRED).",
-          "completed": true,
+          "completed": false,
           "order": 4,
           "published": true,
           "readingMaterial": {
@@ -11148,7 +11148,7 @@
           "id": "sql-mod-9",
           "title": "Module 09  -  Aggregate Functions, GROUP BY & HAVING",
           "description": "Master Data Analytics & Aggregation Architecture: The 5 Core Aggregate Functions (COUNT(*), COUNT(col), COUNT(DISTINCT col), SUM, AVG, MIN, MAX), Whitespace Syntax Rules, NULL Handling Mechanics, Conditional Aggregation (FILTER (WHERE ...)), Categorical Grouping (GROUP BY Single & Composite Keys), The Golden Rule of SQL Aggregation, WHERE vs HAVING Execution Order, and Multidimensional Enterprise Reporting (ROLLUP, CUBE, GROUPING SETS).",
-          "completed": true,
+          "completed": false,
           "order": 9,
           "published": true,
           "readingMaterial": {
@@ -11361,7 +11361,7 @@
           "id": "sql-mod-10",
           "title": "Module 10  -  SQL Joins & Relationships",
           "description": "Master Relational Normalization (1NF, 2NF, 3NF, BCNF), Relational Algebra (Selection, Projection, Join), Entity Relationships (1:1, 1:N, N:M Junction Tables), Complete Join Family: INNER JOIN, Non-Equi Joins, LEFT (OUTER) JOIN, RIGHT JOIN, FULL OUTER JOIN, CROSS JOIN (Cartesian Product), SELF JOIN (Hierarchical Trees), Anti-Join Pattern (LEFT JOIN ... WHERE right.id IS NULL), Semi-Join Pattern (EXISTS), RDBMS Physical Join Algorithms (Nested Loop, Hash Join, Sort-Merge Join), and Foreign Key B-Tree Indexing Optimization.",
-          "completed": true,
+          "completed": false,
           "order": 10,
           "published": true,
           "readingMaterial": {
@@ -11554,7 +11554,7 @@
           "id": "sql-mod-11",
           "title": "Module 11  -  Subqueries, UNION & Advanced Querying",
           "description": "Master Advanced Querying Architectures: Subquery Classification (Scalar, Multi-Row, Multi-Column Row Constructors), Multi-Row Operators (IN, NOT IN, ANY/SOME, ALL), Correlated Subqueries, Existence Optimization (EXISTS vs NOT EXISTS), Common Table Expressions (CTEs - WITH clause, AS MATERIALIZED optimization fences), Recursive CTEs (WITH RECURSIVE for Graphs, Trees & Cycle Detection), and Set Operators (UNION, UNION ALL, INTERSECT, EXCEPT/MINUS).",
-          "completed": true,
+          "completed": false,
           "order": 11,
           "published": true,
           "readingMaterial": {
@@ -11724,7 +11724,7 @@
           "id": "sql-mod-12",
           "title": "Module 12  -  SQL Functions & Conditional Logic",
           "description": "Master Built-in SQL Functions & Expression Architecture: Deterministic vs Non-Deterministic Functions, String Functions (LENGTH, SUBSTRING, REPLACE, TRIM, POSITION, UPPER, LOWER, INITCAP, LPAD/RPAD, REGEXP_REPLACE), Mathematical Functions (ROUND, TRUNC, CEIL, FLOOR, ABS, MOD, POWER), Date/Time Functions (CURRENT_DATE, EXTRACT, DATE_TRUNC time-series bucketing, AGE, INTERVAL math), Conditional Expressions (Simple CASE, Searched CASE WHEN ... THEN ... ELSE ... END), and Null Handling Functions (COALESCE, NULLIF, NVL, IFNULL).",
-          "completed": true,
+          "completed": false,
           "order": 12,
           "published": true,
           "readingMaterial": {
@@ -11941,7 +11941,7 @@
           "id": "sql-mod-13",
           "title": "Module 13  -  Views, Indexes & Database Optimization",
           "description": "Master Database Performance Engineering & Architecture: Standard Virtual Views (CREATE VIEW, Updatable Views, Security Column Masking), Materialized Views (CREATE MATERIALIZED VIEW, REFRESH MATERIALIZED VIEW CONCURRENTLY), B-Tree Index Architecture (Root, Branch, Leaf TIDs, O(log N) logarithmic search), Composite Multi-Column Indexes, Leftmost Prefix Rule, Unique Indexes, Partial / Filtered Indexes (WHERE clause scoped), Expression / Functional Indexes (UPPER/LOWER), Specialized Indexes (Hash, GIN for JSONB, GiST), Cost-Based Optimizer (CBO Table Statistics), EXPLAIN ANALYZE Plan Inspection (Seq Scan, Index Scan, Index-Only Scan, Bitmap Heap Scan), Index Write Penalties, and Unused Index Cleanup.",
-          "completed": true,
+          "completed": false,
           "order": 13,
           "published": true,
           "readingMaterial": {
@@ -12146,7 +12146,7 @@
           "id": "sql-mod-14",
           "title": "Module 14  -  Transactions, TCL & Database Security",
           "description": "Master Database Reliability & Security Engineering: ACID Properties (Atomicity, Consistency, Isolation, Durability), Write-Ahead Logging (WAL), Multi-Version Concurrency Control (MVCC tuple xmin/xmax), Transaction Control Language (BEGIN, COMMIT, ROLLBACK, SAVEPOINT), Concurrency Anomalies (Dirty Reads, Non-Repeatable Reads, Phantom Reads, Serialization Anomalies), Transaction Isolation Levels (READ UNCOMMITTED, READ COMMITTED, REPEATABLE READ, SERIALIZABLE), Pessimistic Row Locking (SELECT ... FOR UPDATE), Database Security (DCL GRANT, REVOKE, RBAC Principle of Least Privilege), and PostgreSQL Row-Level Security (RLS) Multi-Tenant Isolation.",
-          "completed": true,
+          "completed": false,
           "order": 14,
           "published": true,
           "readingMaterial": {
@@ -12297,7 +12297,7 @@
           "id": "sql-mod-15",
           "title": "Module 15  -  SQL for Data Analytics, Python & AI + Final Project",
           "description": "Master Advanced Data Analytics & AI Integration Architecture: Window Functions (ROW_NUMBER(), RANK(), DENSE_RANK(), NTILE(), FIRST_VALUE, LAST_VALUE), PARTITION BY & Window Framing (ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW), Navigation Functions (LAG, LEAD for MoM / YoY Growth %), Python Data Science Integration (psycopg2, sqlite3, SQLAlchemy create_engine, pandas.read_sql), SQL for AI & Vector Databases (pgvector extension, Cosine Distance <=> for RAG), and Comprehensive Capstone Final Project.",
-          "completed": true,
+          "completed": false,
           "order": 15,
           "published": true,
           "readingMaterial": {
@@ -14523,7 +14523,7 @@
       "price": 0,
       "isFree": true,
       "bestseller": true,
-      "progress": 20,
+      "progress": 0,
       "status": "archived",
       "featured": false,
       "certificateAvailable": true,
@@ -14553,7 +14553,7 @@
           "id": "web-mod-1",
           "title": "Module 01  -  Modern HTML5 & CSS3 Architecture",
           "description": "Semantic HTML tags, CSS Flexbox, Grid, CSS Variables, and Mobile-First Responsive Design.",
-          "completed": true,
+          "completed": false,
           "order": 1,
           "published": true,
           "readingMaterial": {
@@ -14694,7 +14694,7 @@
           "id": "ds-mod-1",
           "title": "Module 01  -  Data Science & Machine Learning Pipeline",
           "description": "Overview of Data Science pipeline, Machine Learning paradigms (Supervised, Unsupervised, Reinforcement), and AI industry applications.",
-          "completed": true,
+          "completed": false,
           "order": 1,
           "published": true,
           "readingMaterial": {
@@ -14812,15 +14812,9 @@
       ],
       "progressMap": {
         "python-programming": {
-          "progress": 47,
-          "completedModules": [
-            "py-mod-1",
-            "py-mod-2"
-          ],
-          "quizzesPassed": [
-            "py-quiz-1",
-            "py-quiz-2"
-          ],
+          "progress": 0,
+          "completedModules": [],
+          "quizzesPassed": [],
           "finalTestPassed": false,
           "projectStatus": "Not Submitted"
         },
@@ -14832,13 +14826,9 @@
           "projectStatus": "Not Submitted"
         },
         "web-development": {
-          "progress": 20,
-          "completedModules": [
-            "web-mod-1"
-          ],
-          "quizzesPassed": [
-            "web-quiz-1"
-          ],
+          "progress": 0,
+          "completedModules": [],
+          "quizzesPassed": [],
           "finalTestPassed": false,
           "projectStatus": "Not Submitted"
         },
@@ -14866,26 +14856,16 @@
       ],
       "progressMap": {
         "python-programming": {
-          "progress": 80,
-          "completedModules": [
-            "py-mod-1",
-            "py-mod-2"
-          ],
-          "quizzesPassed": [
-            "py-quiz-1",
-            "py-quiz-2"
-          ],
-          "finalTestPassed": true,
-          "projectStatus": "Submitted"
+          "progress": 0,
+          "completedModules": [],
+          "quizzesPassed": [],
+          "finalTestPassed": false,
+          "projectStatus": "Not Submitted"
         },
         "web-development": {
-          "progress": 60,
-          "completedModules": [
-            "web-mod-1"
-          ],
-          "quizzesPassed": [
-            "web-quiz-1"
-          ],
+          "progress": 0,
+          "completedModules": [],
+          "quizzesPassed": [],
           "finalTestPassed": false,
           "projectStatus": "Not Submitted"
         }
