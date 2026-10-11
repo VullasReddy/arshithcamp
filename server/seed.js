@@ -3,7 +3,7 @@ export const initialData = {
   "admin": {
     "adminId": "ARB-ADMIN-001",
     "passwordHash": "$2b$10$DYKNsHHfNNEk6UrIbZNUyO/QKE5zuD6zCmVcInL.7q.j9.NOhMgPC",
-    "name": "Arshith Boot Camp Administrator",
+    "name": "Arshith Ignite Administrator",
     "email": "admin@arshithbootcamp.com",
     "role": "admin",
     "createdAt": "2026-01-01T00:00:00.000Z",
@@ -36,7 +36,7 @@ export const initialData = {
       "description": "Master Python from absolute scratch! Based on the world-renowned 'Python for Everybody' curriculum by Dr. Charles Severance, cover variables, conditionals, loops, functions, data structures, files, regex, web services, OOP, and databases.",
       "instructor": {
         "name": "Dr. Ananya Sharma & Dr. Charles Severance",
-        "role": "Lead Educators @ Arshith Boot Camp & Authors of Python for Everybody",
+        "role": "Lead Educators @ Arshith Ignite & Authors of Python for Everybody",
         "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80"
       },
       "prerequisites": null,
@@ -9343,7 +9343,7 @@ export const initialData = {
       "description": "Master SQL & Relational Databases with our 15-module curriculum covering DDL, DML, WHERE filtering, ORDER BY, aggregate functions, GROUP BY, HAVING, JOINS, Subqueries, CTEs, Views, Indexes, Transactions (TCL), DCL security, Python integration, and AI-assisted SQL.",
       "instructor": {
         "name": "Rohan Varma",
-        "role": "Senior Database Architect @ Arshith Boot Camp",
+        "role": "Senior Database Architect @ Arshith Ignite",
         "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
       },
       "prerequisites": null,
@@ -14531,10 +14531,10 @@ export const initialData = {
       "introVideoUrl": "https://www.youtube.com/embed/nu_pCVPKzTk",
       "thumbnail": "https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=600&q=80",
       "shortDescription": "Build modern responsive web applications with HTML5, CSS3, Tailwind, React, Node.js, Express, and MongoDB.",
-      "description": "Build modern responsive web applications with HTML5, CSS3, Tailwind, React, Node.js, Express, and MongoDB. Complete full-stack bootcamp.",
+      "description": "Build modern responsive web applications with HTML5, CSS3, Tailwind, React, Node.js, Express, and MongoDB. Complete full-stack course.",
       "instructor": {
         "name": "Vikramaditya Rao",
-        "role": "Lead Full Stack Architect @ Arshith Boot Camp",
+        "role": "Lead Full Stack Architect @ Arshith Ignite",
         "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80"
       },
       "prerequisites": null,
@@ -14675,7 +14675,7 @@ export const initialData = {
       "description": "Learn Python for Data Analysis, NumPy, Pandas, Matplotlib, Scikit-Learn, and Neural Networks. Complete AI pipeline.",
       "instructor": {
         "name": "Dr. Ananya Sharma",
-        "role": "AI Research Scientist @ Arshith Boot Camp",
+        "role": "AI Research Scientist @ Arshith Ignite",
         "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80"
       },
       "prerequisites": null,

@@ -88,7 +88,7 @@ export function generateCoursePDF(course, studentName = 'Student') {
     } else {
       doc.setTextColor(166, 226, 205);
     }
-    doc.text("BOOT CAMP - OFFICIAL MANUAL", centerX, centerY + 10, {
+    doc.text("IGNITE - OFFICIAL MANUAL", centerX, centerY + 10, {
       align: "center",
       angle: 35
     });
@@ -107,7 +107,7 @@ export function generateCoursePDF(course, studentName = 'Student') {
     doc.setFont("helvetica", "bold");
     doc.setFontSize(9);
     doc.setTextColor(255, 255, 255);
-    doc.text("ARSHiTH BOOT CAMP - Official Course Manual", margin, 8);
+    doc.text("ARSHITH IGNITE - Official Course Manual", margin, 8);
 
     doc.setFontSize(8);
     doc.setFont("helvetica", "normal");
@@ -119,7 +119,7 @@ export function generateCoursePDF(course, studentName = 'Student') {
 
     doc.setFontSize(8);
     doc.setTextColor(100, 116, 139);
-    doc.text("Learn Today, Build Tomorrow * www.arshithbootcamp.com", margin, pageHeight - 6);
+    doc.text("Learn Today, Build Tomorrow * www.arshithignite.com", margin, pageHeight - 6);
     doc.text(`Page ${pageNumber}`, pageWidth - margin, pageHeight - 6, { align: "right" });
   };
 
@@ -139,7 +139,7 @@ export function generateCoursePDF(course, studentName = 'Student') {
   doc.setFont("helvetica", "bold");
   doc.setFontSize(26);
   doc.setTextColor(255, 255, 255);
-  doc.text("ARSHiTH BOOT CAMP", margin + 14, 52);
+  doc.text("ARSHITH IGNITE", margin + 14, 52);
 
   doc.setFontSize(14);
   doc.setFont("helvetica", "normal");
@@ -178,7 +178,7 @@ export function generateCoursePDF(course, studentName = 'Student') {
   doc.setFontSize(10);
   doc.setFont("helvetica", "normal");
   doc.setTextColor(226, 232, 240);
-  doc.text(`Issued by: Arshith Boot Camp Platform`, margin + 10, 196);
+  doc.text(`Issued by: Arshith Ignite Platform`, margin + 10, 196);
   doc.text(`Date of Export: ${new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}`, margin + 10, 204);
 
   // ==========================================
@@ -681,7 +681,7 @@ export function generateCoursePDF(course, studentName = 'Student') {
   doc.text(`Student Name: ${cleanStudentName}`, margin + 15, y + 60);
   doc.text(`Course Title: ${cleanCourseTitle}`, margin + 15, y + 70);
   doc.text(`Total Modules Completed: ${course.modules.length} / ${course.modules.length} (100%)`, margin + 15, y + 80);
-  doc.text(`Credential Platform: Arshith Boot Camp`, margin + 15, y + 90);
+  doc.text(`Credential Platform: Arshith Ignite`, margin + 15, y + 90);
   doc.text(`Official Tagline: Learn Today, Build Tomorrow`, margin + 15, y + 100);
 
   doc.setFontSize(10);
@@ -690,7 +690,7 @@ export function generateCoursePDF(course, studentName = 'Student') {
   doc.text("* Verified Official Course Document *", margin + 15, y + 120);
 
   if (typeof doc.save === 'function' && typeof window !== 'undefined') {
-    const filename = `ArshithBootCamp_${course.id}_Complete_Course.pdf`;
+    const filename = `ArshithIgnite_${course.id}_Complete_Course.pdf`;
     doc.save(filename);
   }
 

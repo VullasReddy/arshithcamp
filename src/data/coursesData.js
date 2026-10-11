@@ -6870,7 +6870,7 @@ export const INITIAL_COURSES = [
         "description": "Relational database modeling, SQLite integration with sqlite3, SQL queries, parameterized statements preventing SQL injection, multi-table JOINs, many-to-many junction tables, and exporting data for interactive web visualization.",
         "completed": false,
         "readingMaterial": {
-          "introduction": "Throughout the previous fourteen modules of this boot camp, we have progressed from basic syntax, variables, and loops to object-oriented programming, regular expressions, and networked web services. Yet every application we have built faced a fundamental data storage limitation: flat text files and JSON documents are linear. As dataset sizes grow to hundreds of thousands or millions of records, searching a flat file requires scanning every byte sequentially ($O(N)$ linear time), and updating a single record requires rewriting the entire file to disk.\n\nRelational Database Management Systems (RDBMS) solve these performance and scalability limits. Databases store structured tables indexed with balanced B-trees, enabling instant $O(log N)$ lookups across billions of rows. Furthermore, databases enforce ACID guarantees (Atomicity, Consistency, Isolation, Durability), ensuring that financial transactions and multi-user updates never leave data partially written or corrupted.\n\nBased on Chapters 15 and 16 of Dr. Charles Severance's 'Python for Everybody', this capstone module unites every skill acquired in this boot camp into a complete, enterprise-grade data engineering pipeline. You will master Python's built-in sqlite3 engine: modeling normalized relational schemas (1-to-many and many-to-many relationships), executing parameterized SQL queries to eliminate SQL injection vulnerabilities, joining tables across Primary and Foreign Keys, managing transaction rollbacks and commits, and building the complete Capstone Project: an automated pipeline that ingests data from external sources, structures it inside SQLite, and exports it for high-impact interactive web visualization.",
+          "introduction": "Throughout the previous fourteen modules of Ignite, we have progressed from basic syntax, variables, and loops to object-oriented programming, regular expressions, and networked web services. Yet every application we have built faced a fundamental data storage limitation: flat text files and JSON documents are linear. As dataset sizes grow to hundreds of thousands or millions of records, searching a flat file requires scanning every byte sequentially ($O(N)$ linear time), and updating a single record requires rewriting the entire file to disk.\n\nRelational Database Management Systems (RDBMS) solve these performance and scalability limits. Databases store structured tables indexed with balanced B-trees, enabling instant $O(log N)$ lookups across billions of rows. Furthermore, databases enforce ACID guarantees (Atomicity, Consistency, Isolation, Durability), ensuring that financial transactions and multi-user updates never leave data partially written or corrupted.\n\nBased on Chapters 15 and 16 of Dr. Charles Severance's 'Python for Everybody', this capstone module unites every skill acquired in Ignite into a complete, enterprise-grade data engineering pipeline. You will master Python's built-in sqlite3 engine: modeling normalized relational schemas (1-to-many and many-to-many relationships), executing parameterized SQL queries to eliminate SQL injection vulnerabilities, joining tables across Primary and Foreign Keys, managing transaction rollbacks and commits, and building the complete Capstone Project: an automated pipeline that ingests data from external sources, structures it inside SQLite, and exports it for high-impact interactive web visualization.",
           "objectives": [
             "Understand the motivation for Relational Databases over flat files, including ACID transactional guarantees.",
             "Explain the serverless, zero-configuration architecture of SQLite embedded within Python's standard library.",
@@ -9341,7 +9341,7 @@ export const INITIAL_COURSES = [
     "description": "Master SQL & Relational Databases with our 15-module curriculum covering DDL, DML, WHERE filtering, ORDER BY, aggregate functions, GROUP BY, HAVING, JOINS, Subqueries, CTEs, Views, Indexes, Transactions (TCL), DCL security, Python integration, and AI-assisted SQL.",
     "instructor": {
       "name": "Rohan Varma",
-      "role": "Senior Database Architect @ Arshith Boot Camp",
+      "role": "Senior Database Architect @ Arshith Ignite",
       "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
     },
     "prerequisites": null,
@@ -14529,10 +14529,10 @@ export const INITIAL_COURSES = [
     "introVideoUrl": "https://www.youtube.com/embed/nu_pCVPKzTk",
     "thumbnail": "https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=600&q=80",
     "shortDescription": "Build modern responsive web applications with HTML5, CSS3, Tailwind, React, Node.js, Express, and MongoDB.",
-    "description": "Build modern responsive web applications with HTML5, CSS3, Tailwind, React, Node.js, Express, and MongoDB. Complete full-stack bootcamp.",
+    "description": "Build modern responsive web applications with HTML5, CSS3, Tailwind, React, Node.js, Express, and MongoDB. Complete full-stack course.",
     "instructor": {
       "name": "Vikramaditya Rao",
-      "role": "Lead Full Stack Architect @ Arshith Boot Camp",
+      "role": "Lead Full Stack Architect @ Arshith Ignite",
       "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80"
     },
     "prerequisites": null,
@@ -14673,7 +14673,7 @@ export const INITIAL_COURSES = [
     "description": "Learn Python for Data Analysis, NumPy, Pandas, Matplotlib, Scikit-Learn, and Neural Networks. Complete AI pipeline.",
     "instructor": {
       "name": "Dr. Ananya Sharma",
-      "role": "AI Research Scientist @ Arshith Boot Camp",
+      "role": "AI Research Scientist @ Arshith Ignite",
       "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80"
     },
     "prerequisites": null,
@@ -14793,7 +14793,7 @@ export const INITIAL_COURSES = [
 
 export const STUDENT_PROFILE = {
   "name": "Arshith Kumar",
-  "email": "arshith@arshithbootcamp.com",
+  "email": "arshith@arshithignite.com",
   "role": "Learner",
   "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80",
   "joinDate": "January 2026",

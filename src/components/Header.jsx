@@ -38,21 +38,23 @@ export default function Header({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           
-          {/* Logo - Arshith Boot Camp */}
+          {/* Logo - Arshith Ignite */}
           <div 
             onClick={() => handleNavClick('home')}
-            className="flex items-center gap-3 cursor-pointer group"
+            className="flex items-center gap-3.5 cursor-pointer group select-none"
           >
-            <div className="w-11 h-11 rounded-2xl bg-brand-900 border-2 border-brand-800 flex items-center justify-center text-emerald-400 shadow-md shadow-brand-900/20 group-hover:scale-105 transition-transform">
-              <GraduationCap className="w-6 h-6 stroke-[2.2]" />
+            <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br from-brand-950 via-brand-900 to-emerald-950 border-2 border-emerald-500/30 flex items-center justify-center text-emerald-400 shadow-lg shadow-brand-900/25 group-hover:scale-105 group-hover:border-emerald-400/60 transition-all duration-300">
+              <GraduationCap className="w-6 h-6 stroke-[2.2] drop-shadow-sm text-emerald-400 group-hover:text-emerald-300 transition-colors" />
+              <div className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-white animate-pulse" />
             </div>
             <div className="flex flex-col">
-              <span className="text-xl sm:text-2xl font-black text-brand-900 tracking-tight flex items-center gap-1.5">
-                Arshith <span className="text-brand-600 font-black">Boot Camp</span>
+              <span className="text-xl sm:text-2xl font-black tracking-tight flex items-center gap-1.5 leading-none">
+                <span className="text-brand-950">Arshith</span>
+                <span className="bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500 bg-clip-text text-transparent font-black tracking-tight">Ignite</span>
               </span>
-              <span className="text-[10px] font-extrabold text-slate-500 tracking-wider uppercase -mt-1 flex items-center gap-1">
-                <Sparkles className="w-2.5 h-2.5 text-brand-600 inline" />
-                Learn Today, Build Tomorrow
+              <span className="text-[9px] sm:text-[10px] font-black text-slate-500 tracking-wider uppercase mt-1 flex items-center gap-1">
+                <Sparkles className="w-2.5 h-2.5 text-emerald-600 inline shrink-0" />
+                LEARN TODAY, BUILD TOMORROW.
               </span>
             </div>
           </div>

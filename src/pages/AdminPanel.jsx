@@ -14,7 +14,7 @@ export default function AdminPanel({ courses, onAddCourse, onDeleteCourse }) {
   const [duration, setDuration] = useState('30 hours');
   const [price, setPrice] = useState(999);
   const [description, setDescription] = useState('');
-  const [instructorName, setInstructorName] = useState('Arshith Boot Camp Team');
+  const [instructorName, setInstructorName] = useState('Arshith Ignite Team');
 
   const handleCreateSubmit = (e) => {
     e.preventDefault();
@@ -39,17 +39,17 @@ export default function AdminPanel({ courses, onAddCourse, onDeleteCourse }) {
       description,
       instructor: {
         name: instructorName,
-        role: 'Lead Boot Camp Engineer',
+        role: 'Lead Ignite Engineer',
         avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80'
       },
       modules: [
         {
           id: `mod-${Date.now()}-1`,
-          title: 'Module 01 — Boot Camp Overview',
+          title: 'Module 01 — Ignite Overview',
           description: 'Introduction to course concepts, learning objectives, and environment setup.',
           completed: false,
           readingMaterial: {
-            introduction: 'Welcome to this module in Arshith Boot Camp!',
+            introduction: 'Welcome to this module in Arshith Ignite!',
             objectives: ['Set up development workspace', 'Understand foundational syntax'],
             keyTakeaways: ['Practice daily to master concepts!']
           }
@@ -77,7 +77,7 @@ export default function AdminPanel({ courses, onAddCourse, onDeleteCourse }) {
               Admin Control Console
             </span>
             <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mt-1">
-              Arshith Boot Camp Management Portal
+              Arshith Ignite Management Portal
             </h1>
           </div>
 
@@ -136,7 +136,7 @@ export default function AdminPanel({ courses, onAddCourse, onDeleteCourse }) {
         {/* Courses Table */}
         <div className="bg-white rounded-3xl dark-bezel p-6 space-y-4">
           <div className="flex items-center justify-between pb-4 border-b border-slate-100">
-            <h2 className="text-lg font-black text-slate-900">Published Boot Camp Courses</h2>
+            <h2 className="text-lg font-black text-slate-900">Published Ignite Courses</h2>
             <span className="text-xs font-bold text-slate-500">{courses.length} Active</span>
           </div>
 
@@ -198,7 +198,7 @@ export default function AdminPanel({ courses, onAddCourse, onDeleteCourse }) {
                 <X className="w-5 h-5" />
               </button>
 
-              <h2 className="text-xl font-black text-slate-900 mb-4">Publish New Boot Camp Course</h2>
+              <h2 className="text-xl font-black text-slate-900 mb-4">Publish New Ignite Course</h2>
 
               <form onSubmit={handleCreateSubmit} className="space-y-4">
                 <div>

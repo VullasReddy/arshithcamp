@@ -29,7 +29,7 @@ app.use((req, res, next) => {
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', service: 'Arshith Boot Camp Secure Backend API', timestamp: new Date().toISOString() });
+  res.json({ status: 'ok', service: 'Arshith Ignite Secure Backend API', timestamp: new Date().toISOString() });
 });
 
 // Mount Routes
@@ -48,7 +48,7 @@ app.use((req, res) => {
 
 app.listen(PORT, () => {
   console.log(`=================================================`);
-  console.log(` Arshith Boot Camp Secure Backend API Running    `);
+  console.log(` Arshith Ignite Secure Backend API Running       `);
   console.log(` Port: http://localhost:${PORT}                   `);
   console.log(` Health: http://localhost:${PORT}/api/health     `);
   console.log(`=================================================`);

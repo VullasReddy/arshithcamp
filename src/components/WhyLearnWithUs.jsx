@@ -58,12 +58,12 @@ export default function WhyLearnWithUs() {
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-50 border border-brand-200 text-brand-900 text-xs font-black uppercase tracking-wider shadow-xs">
             <Sparkles className="w-3.5 h-3.5 text-brand-600" />
-            <span>The Boot Camp Advantage</span>
+            <span>The Ignite Advantage</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
             Why Engineers & Developers <br className="hidden sm:inline" />
-            <span className="text-brand-700">Choose Arshith Boot Camp</span>
+            <span className="text-brand-700">Choose Arshith Ignite</span>
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 font-medium max-w-2xl mx-auto leading-relaxed">

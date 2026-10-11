@@ -43,7 +43,7 @@ export default function CategoriesPage({ onCategorySelect }) {
             Domain Expertise
           </span>
           <h1 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            Browse Boot Camp Categories
+            Browse Ignite Categories
           </h1>
           <p className="text-sm text-slate-500 font-semibold">
             Explore industry-tailored learning paths designed for modern software engineering careers.

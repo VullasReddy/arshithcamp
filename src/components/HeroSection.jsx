@@ -37,7 +37,7 @@ export default function HeroSection({ onExploreClick }) {
 
             {/* Supporting Text */}
             <p className="text-base sm:text-lg text-slate-600 max-w-xl font-normal leading-relaxed">
-              Practical, project-based boot camp courses taught by industry lead engineers. Learn at your own pace and earn verified certificates.
+              Practical, project-based Ignite courses taught by industry lead engineers. Learn at your own pace and earn verified certificates.
             </p>
 
             {/* CTA Buttons */}
@@ -46,7 +46,7 @@ export default function HeroSection({ onExploreClick }) {
                 onClick={onExploreClick}
                 className="px-8 py-4 text-base font-extrabold text-white bg-brand-600 hover:bg-brand-700 active:scale-98 rounded-full border-2 border-brand-900 shadow-lg shadow-brand-600/25 transition-all flex items-center gap-3 group cursor-pointer"
               >
-                <span>Explore Boot Camp Courses</span>
+                <span>Explore Ignite Courses</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
@@ -64,7 +64,7 @@ export default function HeroSection({ onExploreClick }) {
               <div className="relative rounded-3xl overflow-visible p-1.5 dark-bezel bg-white">
                 <img
                   src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80"
-                  alt="Student at Arshith Boot Camp"
+                  alt="Student at Arshith Ignite"
                   className="w-full h-[380px] sm:h-[460px] object-cover object-center rounded-2xl shadow-xl"
                 />
 

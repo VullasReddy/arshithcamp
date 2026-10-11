@@ -16,7 +16,7 @@ export default function CtaSection({ onExploreClick }) {
             <div className="lg:col-span-7 space-y-5 text-white">
               <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 text-emerald-300 text-xs font-black uppercase tracking-wider border border-white/20">
                 <Sparkles className="w-3.5 h-3.5" />
-                <span>Arshith Boot Camp Platform</span>
+                <span>Arshith Ignite Platform</span>
               </div>
 
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
@@ -24,7 +24,7 @@ export default function CtaSection({ onExploreClick }) {
               </h2>
 
               <p className="text-base sm:text-lg text-emerald-50/90 font-normal max-w-xl leading-relaxed">
-                Join thousands of learners and take the next step in your software career with our hands-on boot camp courses.
+                Join thousands of learners and take the next step in your software career with our hands-on Ignite courses.
               </p>
 
               <div className="pt-2">

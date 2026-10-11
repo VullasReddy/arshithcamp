@@ -43,8 +43,9 @@ export default function AdminLoginPage({ onLoginSuccess, onGoHome }) {
           <ShieldCheck className="w-9 h-9 stroke-[2.2]" />
         </div>
 
-        <h1 className="text-3xl font-black text-brand-900 tracking-tight flex items-center justify-center gap-2">
-          Arshith <span className="text-brand-600 font-black">Boot Camp</span>
+        <h1 className="text-3xl font-black text-brand-950 tracking-tight flex items-center justify-center gap-2">
+          <span>Arshith</span>
+          <span className="bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500 bg-clip-text text-transparent font-black">Ignite</span>
         </h1>
         <p className="text-xs font-black text-slate-500 uppercase tracking-widest flex items-center justify-center gap-1.5">
           <Sparkles className="w-3.5 h-3.5 text-brand-600 inline" />

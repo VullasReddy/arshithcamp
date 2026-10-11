@@ -50,12 +50,12 @@ export default function PopularCourses({ courses, onSelectCourse, onViewAllCours
           <div>
             <div className="flex items-center gap-2">
               <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-                Explore Boot Camp Courses
+                Explore Ignite Courses
               </h2>
               <span className="text-2xl">🌱</span>
             </div>
             <p className="text-sm sm:text-base text-slate-500 font-semibold mt-1">
-              Start learning from our structured, hands-on boot camp curricula
+              Start learning from our structured, hands-on Ignite curricula
             </p>
           </div>
 

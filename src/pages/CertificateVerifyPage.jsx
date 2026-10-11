@@ -41,7 +41,7 @@ export default function CertificateVerifyPage({ certId, onBack, studentUser }) {
             Certificate Verification Portal
           </h1>
           <p className="text-sm text-slate-500 font-semibold">
-            Verify the authenticity of any credential issued by Arshith Boot Camp.
+            Verify the authenticity of any credential issued by Arshith Ignite.
           </p>
         </div>
 
@@ -70,7 +70,7 @@ export default function CertificateVerifyPage({ certId, onBack, studentUser }) {
               <CheckCircle2 className="w-7 h-7 shrink-0 text-emerald-600" />
               <div>
                 <p className="text-sm font-black uppercase">AUTHENTIC & VERIFIED CREDENTIAL ✓</p>
-                <p className="text-xs font-semibold text-emerald-800">This certificate was officially issued by Arshith Boot Camp.</p>
+                <p className="text-xs font-semibold text-emerald-800">This certificate was officially issued by Arshith Ignite.</p>
               </div>
             </div>
 
@@ -104,7 +104,7 @@ export default function CertificateVerifyPage({ certId, onBack, studentUser }) {
             </div>
 
             <div className="pt-2 flex items-center justify-between text-xs text-slate-400 font-semibold">
-              <span>Issuer: Arshith Boot Camp Platform</span>
+              <span>Issuer: Arshith Ignite Platform</span>
               <span>Status: Active</span>
             </div>
 

@@ -117,7 +117,7 @@ export default function LearningPage({
             className="p-2 text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 rounded-xl transition-all flex items-center gap-1.5 text-xs font-extrabold border border-slate-700"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span className="hidden sm:inline">Exit Boot Camp Player</span>
+            <span className="hidden sm:inline">Exit Ignite Player</span>
           </button>
 
           <div className="h-4 w-px bg-slate-800 hidden sm:block" />
@@ -134,7 +134,7 @@ export default function LearningPage({
         <div className="flex items-center gap-3">
           <div className="hidden md:flex items-center gap-3">
             <div className="text-right">
-              <p className="text-[10px] font-bold text-slate-400 uppercase">Boot Camp Progress</p>
+              <p className="text-[10px] font-bold text-slate-400 uppercase">Course Progress</p>
               <p className="text-xs font-black text-emerald-400">{completedCount} / {totalCount} Modules ({course.progress}%)</p>
             </div>
             <div className="w-28 h-2.5 bg-slate-800 rounded-full overflow-hidden border border-slate-700">
