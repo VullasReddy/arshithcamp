@@ -40,18 +40,18 @@ export default function LearningPage({
   useEffect(() => {
     if (!course || !course.modules || course.modules.length === 0) return;
 
-    if (activeModuleId) {
-      const mod = course.modules.find(m => m.id === activeModuleId);
-      if (mod) {
-        setCurrentModule(mod);
-        setShowSolution(false);
-        return;
+    setCurrentModule(prev => {
+      // If student is already viewing a module, preserve it when course updates
+      if (prev) {
+        const matchingMod = course.modules.find(m => m.id === prev.id);
+        if (matchingMod) return matchingMod;
       }
-    }
-
-    // Default to first module
-    setCurrentModule(course.modules[0]);
-    setShowSolution(false);
+      if (activeModuleId) {
+        const mod = course.modules.find(m => m.id === activeModuleId);
+        if (mod) return mod;
+      }
+      return course.modules[0];
+    });
   }, [course, activeModuleId]);
 
   if (!course) return null;
@@ -629,8 +629,14 @@ export default function LearningPage({
             onToggleModuleComplete(course.id, modId, true);
           }}
           onContinueNextModule={() => {
+            setQuizModalOpen(false);
             if (currentModuleIndex < (course.modules?.length || 1) - 1) {
-              handleNext();
+              const nextMod = course.modules[currentModuleIndex + 1];
+              if (nextMod) {
+                setCurrentModule(nextMod);
+                setShowSolution(false);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }
             } else {
               setFinalTestModalOpen(true);
             }

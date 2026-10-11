@@ -37,11 +37,22 @@ export default function ModuleQuizModal({
   const userId = savedUser?.id || savedUser?.email || 'student-001';
   const studentName = savedUser?.name || 'Arshith Student';
 
+  const currentModuleId = module?.id;
+  const prevIsOpenRef = React.useRef(false);
+  const prevModuleIdRef = React.useRef(null);
+
   useEffect(() => {
-    if (isOpen && module) {
-      fetchQuizQuestions();
+    if (isOpen && currentModuleId) {
+      const isJustOpened = !prevIsOpenRef.current && isOpen;
+      const isDifferentModule = prevModuleIdRef.current !== currentModuleId;
+
+      if (isJustOpened || isDifferentModule) {
+        prevModuleIdRef.current = currentModuleId;
+        fetchQuizQuestions();
+      }
     }
-  }, [isOpen, module]);
+    prevIsOpenRef.current = isOpen;
+  }, [isOpen, currentModuleId]);
 
   const fetchQuizQuestions = async () => {
     setLoading(true);
@@ -121,18 +132,25 @@ export default function ModuleQuizModal({
     }
 
     if (!submittedData) {
+      const localQBank = module?.quiz?.questions || [];
+      const correctAnsMap = {};
+      localQBank.forEach(q => {
+        correctAnsMap[q.id] = q.correctAnswer;
+      });
+
       let correct = 0;
       const questionsReview = questions.map(q => {
-        const isCorrect = answers[q.id] === q.correctAnswer;
+        const correctAns = (q.correctAnswer !== undefined) ? q.correctAnswer : correctAnsMap[q.id];
+        const isCorrect = answers[q.id] !== undefined && answers[q.id] === correctAns;
         if (isCorrect) correct++;
         return {
           id: q.id,
           questionText: q.questionText,
           options: q.options,
-          correctAnswer: q.correctAnswer,
+          correctAnswer: correctAns !== undefined ? correctAns : 0,
           selectedAnswer: answers[q.id] !== undefined ? answers[q.id] : null,
           isCorrect,
-          explanation: q.explanation
+          explanation: q.explanation || ''
         };
       });
 

@@ -65,9 +65,19 @@ router.post('/quizzes/module/:moduleId/submit', (req, res) => {
   const { userId = 'student-001', studentName = 'Learner', answers = {} } = req.body;
 
   const db = getDb();
-  const moduleQuestions = (db.questionBank || []).filter(
+  let moduleQuestions = (db.questionBank || []).filter(
     q => q.moduleId === moduleId && q.status === 'active'
   );
+
+  if (moduleQuestions.length === 0) {
+    for (const c of (db.courses || [])) {
+      const mod = (c.modules || []).find(m => m.id === moduleId);
+      if (mod && mod.quiz && mod.quiz.questions && mod.quiz.questions.length > 0) {
+        moduleQuestions = mod.quiz.questions;
+        break;
+      }
+    }
+  }
 
   if (moduleQuestions.length === 0) {
     return res.status(404).json({ success: false, message: 'Quiz questions not found.' });

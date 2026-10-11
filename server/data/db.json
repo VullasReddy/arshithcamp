@@ -9330,7 +9330,7 @@
       "price": 0,
       "isFree": true,
       "bestseller": false,
-      "progress": 0,
+      "progress": 100,
       "status": "published",
       "featured": false,
       "certificateAvailable": true,
@@ -9368,7 +9368,7 @@
           "id": "sql-mod-1",
           "title": "Module 01  -  Introduction to SQL & Databases",
           "description": "Master foundational relational database engineering: Dr. Edgar F. Codd's Relational Theory, RDBMS vs Flat Files vs NoSQL, deep RDBMS Engine Architecture (Parser, AST, Cost-Based Optimizer, Execution Engine, WAL, Buffer Pool), Localhost (127.0.0.1) vs Enterprise Cloud Servers, Connection Strings, DBA Security Roles, and complete breakdown of the 5 SQL Sub-Languages (DDL, DML, DQL, DCL, TCL).",
-          "completed": false,
+          "completed": true,
           "order": 1,
           "published": true,
           "readingMaterial": {
@@ -9617,7 +9617,7 @@
           "id": "sql-mod-2",
           "title": "Module 02  -  SQL Syntax, Keywords & Data Types",
           "description": "Master SQL lexical rules, uppercase keyword conventions, single/multi-line comments, identifier quoting rules, and the complete relational Data Type System: Integers (SMALLINT, INT, BIGINT), Financial Fixed-Point Decimals (NUMERIC/DECIMAL), Floating-Point (REAL, DOUBLE PRECISION), Strings (CHAR, VARCHAR, TEXT), Timestamps (TIMESTAMP, TIMESTAMPTZ, INTERVAL), Booleans, JSONB, UUIDs, and Type Casting (CAST, ::).",
-          "completed": false,
+          "completed": true,
           "order": 2,
           "published": true,
           "readingMaterial": {
@@ -9919,7 +9919,7 @@
           "id": "sql-mod-3",
           "title": "Module 03  -  DDL: Creating & Managing Database Structures",
           "description": "Master Data Definition Language (DDL) architecture: CREATE DATABASE, CREATE SCHEMA, CREATE TABLE, Generated Columns, Temporary Tables (CTAS), zero-downtime ALTER TABLE migrations (ADD, DROP, RENAME, ALTER TYPE), and structural destruction mechanics (DROP TABLE vs TRUNCATE TABLE vs DELETE FROM).",
-          "completed": false,
+          "completed": true,
           "order": 3,
           "published": true,
           "readingMaterial": {
@@ -10187,7 +10187,7 @@
           "id": "sql-mod-4",
           "title": "Module 04  -  Constraints & Keys",
           "description": "Master Relational Database Integrity: Column vs Table-Level Constraints, PRIMARY KEY (Single & Composite), UNIQUE Constraints (and NULL handling rules), FOREIGN KEY Referential Integrity with ON DELETE / ON UPDATE Cascading Actions (CASCADE, RESTRICT, SET NULL, SET DEFAULT), CHECK Constraints, NOT NULL, DEFAULT, and Deferred Constraint Validation (DEFERRABLE INITIALLY DEFERRED).",
-          "completed": false,
+          "completed": true,
           "order": 4,
           "published": true,
           "readingMaterial": {
@@ -11148,7 +11148,7 @@
           "id": "sql-mod-9",
           "title": "Module 09  -  Aggregate Functions, GROUP BY & HAVING",
           "description": "Master Data Analytics & Aggregation Architecture: The 5 Core Aggregate Functions (COUNT(*), COUNT(col), COUNT(DISTINCT col), SUM, AVG, MIN, MAX), Whitespace Syntax Rules, NULL Handling Mechanics, Conditional Aggregation (FILTER (WHERE ...)), Categorical Grouping (GROUP BY Single & Composite Keys), The Golden Rule of SQL Aggregation, WHERE vs HAVING Execution Order, and Multidimensional Enterprise Reporting (ROLLUP, CUBE, GROUPING SETS).",
-          "completed": false,
+          "completed": true,
           "order": 9,
           "published": true,
           "readingMaterial": {
@@ -11361,7 +11361,7 @@
           "id": "sql-mod-10",
           "title": "Module 10  -  SQL Joins & Relationships",
           "description": "Master Relational Normalization (1NF, 2NF, 3NF, BCNF), Relational Algebra (Selection, Projection, Join), Entity Relationships (1:1, 1:N, N:M Junction Tables), Complete Join Family: INNER JOIN, Non-Equi Joins, LEFT (OUTER) JOIN, RIGHT JOIN, FULL OUTER JOIN, CROSS JOIN (Cartesian Product), SELF JOIN (Hierarchical Trees), Anti-Join Pattern (LEFT JOIN ... WHERE right.id IS NULL), Semi-Join Pattern (EXISTS), RDBMS Physical Join Algorithms (Nested Loop, Hash Join, Sort-Merge Join), and Foreign Key B-Tree Indexing Optimization.",
-          "completed": false,
+          "completed": true,
           "order": 10,
           "published": true,
           "readingMaterial": {
@@ -11554,7 +11554,7 @@
           "id": "sql-mod-11",
           "title": "Module 11  -  Subqueries, UNION & Advanced Querying",
           "description": "Master Advanced Querying Architectures: Subquery Classification (Scalar, Multi-Row, Multi-Column Row Constructors), Multi-Row Operators (IN, NOT IN, ANY/SOME, ALL), Correlated Subqueries, Existence Optimization (EXISTS vs NOT EXISTS), Common Table Expressions (CTEs - WITH clause, AS MATERIALIZED optimization fences), Recursive CTEs (WITH RECURSIVE for Graphs, Trees & Cycle Detection), and Set Operators (UNION, UNION ALL, INTERSECT, EXCEPT/MINUS).",
-          "completed": false,
+          "completed": true,
           "order": 11,
           "published": true,
           "readingMaterial": {
@@ -11724,7 +11724,7 @@
           "id": "sql-mod-12",
           "title": "Module 12  -  SQL Functions & Conditional Logic",
           "description": "Master Built-in SQL Functions & Expression Architecture: Deterministic vs Non-Deterministic Functions, String Functions (LENGTH, SUBSTRING, REPLACE, TRIM, POSITION, UPPER, LOWER, INITCAP, LPAD/RPAD, REGEXP_REPLACE), Mathematical Functions (ROUND, TRUNC, CEIL, FLOOR, ABS, MOD, POWER), Date/Time Functions (CURRENT_DATE, EXTRACT, DATE_TRUNC time-series bucketing, AGE, INTERVAL math), Conditional Expressions (Simple CASE, Searched CASE WHEN ... THEN ... ELSE ... END), and Null Handling Functions (COALESCE, NULLIF, NVL, IFNULL).",
-          "completed": false,
+          "completed": true,
           "order": 12,
           "published": true,
           "readingMaterial": {
@@ -11941,7 +11941,7 @@
           "id": "sql-mod-13",
           "title": "Module 13  -  Views, Indexes & Database Optimization",
           "description": "Master Database Performance Engineering & Architecture: Standard Virtual Views (CREATE VIEW, Updatable Views, Security Column Masking), Materialized Views (CREATE MATERIALIZED VIEW, REFRESH MATERIALIZED VIEW CONCURRENTLY), B-Tree Index Architecture (Root, Branch, Leaf TIDs, O(log N) logarithmic search), Composite Multi-Column Indexes, Leftmost Prefix Rule, Unique Indexes, Partial / Filtered Indexes (WHERE clause scoped), Expression / Functional Indexes (UPPER/LOWER), Specialized Indexes (Hash, GIN for JSONB, GiST), Cost-Based Optimizer (CBO Table Statistics), EXPLAIN ANALYZE Plan Inspection (Seq Scan, Index Scan, Index-Only Scan, Bitmap Heap Scan), Index Write Penalties, and Unused Index Cleanup.",
-          "completed": false,
+          "completed": true,
           "order": 13,
           "published": true,
           "readingMaterial": {
@@ -12146,7 +12146,7 @@
           "id": "sql-mod-14",
           "title": "Module 14  -  Transactions, TCL & Database Security",
           "description": "Master Database Reliability & Security Engineering: ACID Properties (Atomicity, Consistency, Isolation, Durability), Write-Ahead Logging (WAL), Multi-Version Concurrency Control (MVCC tuple xmin/xmax), Transaction Control Language (BEGIN, COMMIT, ROLLBACK, SAVEPOINT), Concurrency Anomalies (Dirty Reads, Non-Repeatable Reads, Phantom Reads, Serialization Anomalies), Transaction Isolation Levels (READ UNCOMMITTED, READ COMMITTED, REPEATABLE READ, SERIALIZABLE), Pessimistic Row Locking (SELECT ... FOR UPDATE), Database Security (DCL GRANT, REVOKE, RBAC Principle of Least Privilege), and PostgreSQL Row-Level Security (RLS) Multi-Tenant Isolation.",
-          "completed": false,
+          "completed": true,
           "order": 14,
           "published": true,
           "readingMaterial": {
@@ -12297,7 +12297,7 @@
           "id": "sql-mod-15",
           "title": "Module 15  -  SQL for Data Analytics, Python & AI + Final Project",
           "description": "Master Advanced Data Analytics & AI Integration Architecture: Window Functions (ROW_NUMBER(), RANK(), DENSE_RANK(), NTILE(), FIRST_VALUE, LAST_VALUE), PARTITION BY & Window Framing (ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW), Navigation Functions (LAG, LEAD for MoM / YoY Growth %), Python Data Science Integration (psycopg2, sqlite3, SQLAlchemy create_engine, pandas.read_sql), SQL for AI & Vector Databases (pgvector extension, Cosine Distance <=> for RAG), and Comprehensive Capstone Final Project.",
-          "completed": false,
+          "completed": true,
           "order": 15,
           "published": true,
           "readingMaterial": {
@@ -14506,7 +14506,9 @@
           "starterCode": "# Project 3: Persistent Library Inventory & Transaction Management System\n# File: library_system.py\n\nimport sqlite3\n\nclass LibraryDatabase:\n    def __init__(self, db_path=\":memory:\"):\n        self.conn = sqlite3.connect(db_path)\n        self.conn.execute(\"PRAGMA foreign_keys = ON;\")\n        self.cursor = self.conn.cursor()\n        self.setup_schema()\n\n    def setup_schema(self):\n        # 1. Books Table\n        self.cursor.execute('''\n            CREATE TABLE IF NOT EXISTS books (\n                book_id INTEGER PRIMARY KEY AUTOINCREMENT,\n                title TEXT NOT NULL,\n                author TEXT NOT NULL,\n                total_copies INTEGER NOT NULL CHECK(total_copies >= 0),\n                available_copies INTEGER NOT NULL CHECK(available_copies >= 0)\n            );\n        ''')\n\n        # 2. Borrow Log Table\n        self.cursor.execute('''\n            CREATE TABLE IF NOT EXISTS borrow_log (\n                log_id INTEGER PRIMARY KEY AUTOINCREMENT,\n                book_id INTEGER NOT NULL,\n                member_name TEXT NOT NULL,\n                borrow_date DATE DEFAULT (DATE('now')),\n                return_date DATE,\n                FOREIGN KEY (book_id) REFERENCES books(book_id)\n            );\n        ''')\n\n        # 3. View for Active Loans\n        self.cursor.execute('''\n            CREATE VIEW IF NOT EXISTS v_active_loans AS\n            SELECT \n                l.log_id,\n                b.title,\n                b.author,\n                l.member_name,\n                l.borrow_date\n            FROM borrow_log l\n            JOIN books b ON l.book_id = b.book_id\n            WHERE l.return_date IS NULL;\n        ''')\n\n        # 4. Insert Initial Books\n        self.cursor.executemany('''\n            INSERT INTO books (title, author, total_copies, available_copies)\n            VALUES (?, ?, ?, ?)\n        ''', [\n            (\"SQL & Relational Database Mastery\", \"Siddharth Nair\", 5, 5),\n            (\"Python for Data Analysis\", \"Charles Severance\", 3, 3),\n            (\"Designing Data-Intensive Applications\", \"Martin Kleppmann\", 2, 2)\n        ])\n        self.conn.commit()\n\n    def borrow_book(self, book_id, member_name):\n        \"\"\"Executes borrow workflow in an ACID Compliant Transaction\"\"\"\n        try:\n            self.cursor.execute(\"BEGIN TRANSACTION;\")\n            \n            # Check availability\n            self.cursor.execute(\"SELECT available_copies, title FROM books WHERE book_id = ?\", (book_id,))\n            row = self.cursor.fetchone()\n            \n            if not row:\n                raise ValueError(\"Book ID not found.\")\n            \n            available, title = row\n            if available <= 0:\n                raise ValueError(f\"No copies of '{title}' currently available!\")\n\n            # Log borrow event\n            self.cursor.execute('''\n                INSERT INTO borrow_log (book_id, member_name)\n                VALUES (?, ?)\n            ''', (book_id, member_name))\n\n            # Deduct inventory\n            self.cursor.execute('''\n                UPDATE books SET available_copies = available_copies - 1\n                WHERE book_id = ?\n            ''', (book_id,))\n\n            self.conn.commit()\n            print(f\"✓ Successfully borrowed '{title}' for {member_name}.\")\n            return True\n\n        except Exception as e:\n            self.conn.rollback()\n            print(f\"✗ Transaction Aborted: {e}\")\n            return False\n\n    def display_active_loans(self):\n        self.cursor.execute(\"SELECT * FROM v_active_loans;\")\n        rows = self.cursor.fetchall()\n        print(\"\\n=== CURRENT ACTIVE LIBRARY LOANS ===\")\n        print(f\"{'ID':<4} {'Title':<35} {'Member':<15} {'Borrow Date':<12}\")\n        print(\"-\" * 70)\n        for r in rows:\n            print(f\"{r[0]:<4} {r[1]:<35} {r[3]:<15} {r[4]:<12}\")\n        print(\"-\" * 70)\n\nif __name__ == '__main__':\n    lib = LibraryDatabase()\n    lib.borrow_book(1, \"Arshith Kumar\")\n    lib.borrow_book(1, \"Bhavana Kolla\")\n    lib.borrow_book(2, \"Chandan Verma\")\n    lib.display_active_loans()\n",
           "expectedOutput": "✓ Successfully borrowed 'SQL & Relational Database Mastery' for Arshith Kumar.\n✓ Successfully borrowed 'SQL & Relational Database Mastery' for Bhavana Kolla.\n✓ Successfully borrowed 'Python for Data Analysis' for Chandan Verma.\n\n=== CURRENT ACTIVE LIBRARY LOANS ===\nID   Title                               Member          Borrow Date \n----------------------------------------------------------------------\n1    SQL & Relational Database Mastery   Arshith Kumar   2026-10-10  \n2    SQL & Relational Database Mastery   Bhavana Kolla   2026-10-10  \n3    Python for Data Analysis            Chandan Verma   2026-10-10  \n----------------------------------------------------------------------"
         }
-      ]
+      ],
+      "isCompleted": true,
+      "completedAt": "2026-10-11T05:32:06.343Z"
     },
     {
       "id": "web-development",
@@ -18487,6 +18489,386 @@
   ],
   "quizAttempts": [
     {
+      "id": "attempt-1791696468994-739",
+      "userId": "student-001",
+      "studentName": "Arshith Student",
+      "courseId": "sql-mastery",
+      "moduleId": "sql-mod-15",
+      "score": 4,
+      "totalQuestions": 5,
+      "percentage": 80,
+      "passed": true,
+      "attemptNumber": 1,
+      "answers": {
+        "sql-q-m15-1": 0,
+        "sql-q-m15-2": 0,
+        "sql-q-m15-3": 0,
+        "sql-q-m15-4": 0,
+        "sql-q-m15-5": 1
+      },
+      "completedAt": "2026-10-11T05:27:48.994Z"
+    },
+    {
+      "id": "attempt-1791696441227-367",
+      "userId": "student-001",
+      "studentName": "Arshith Student",
+      "courseId": "sql-mastery",
+      "moduleId": "sql-mod-14",
+      "score": 5,
+      "totalQuestions": 5,
+      "percentage": 100,
+      "passed": true,
+      "attemptNumber": 1,
+      "answers": {
+        "sql-q-m14-1": 0,
+        "sql-q-m14-2": 0,
+        "sql-q-m14-3": 0,
+        "sql-q-m14-4": 0,
+        "sql-q-m14-5": 0
+      },
+      "completedAt": "2026-10-11T05:27:21.227Z"
+    },
+    {
+      "id": "attempt-1791696417763-987",
+      "userId": "student-001",
+      "studentName": "Arshith Student",
+      "courseId": "sql-mastery",
+      "moduleId": "sql-mod-13",
+      "score": 4,
+      "totalQuestions": 5,
+      "percentage": 80,
+      "passed": true,
+      "attemptNumber": 1,
+      "answers": {
+        "sql-q-m13-1": 0,
+        "sql-q-m13-2": 2,
+        "sql-q-m13-3": 0,
+        "sql-q-m13-4": 0,
+        "sql-q-m13-5": 0
+      },
+      "completedAt": "2026-10-11T05:26:57.763Z"
+    },
+    {
+      "id": "attempt-1791696379668-774",
+      "userId": "student-001",
+      "studentName": "Arshith Student",
+      "courseId": "sql-mastery",
+      "moduleId": "sql-mod-12",
+      "score": 5,
+      "totalQuestions": 5,
+      "percentage": 100,
+      "passed": true,
+      "attemptNumber": 1,
+      "answers": {
+        "sql-q-m12-1": 0,
+        "sql-q-m12-2": 0,
+        "sql-q-m12-3": 0,
+        "sql-q-m12-4": 0,
+        "sql-q-m12-5": 0
+      },
+      "completedAt": "2026-10-11T05:26:19.668Z"
+    },
+    {
+      "id": "attempt-1791696352224-750",
+      "userId": "student-001",
+      "studentName": "Arshith Student",
+      "courseId": "sql-mastery",
+      "moduleId": "sql-mod-11",
+      "score": 5,
+      "totalQuestions": 5,
+      "percentage": 100,
+      "passed": true,
+      "attemptNumber": 1,
+      "answers": {
+        "sql-q-m11-1": 0,
+        "sql-q-m11-2": 0,
+        "sql-q-m11-3": 0,
+        "sql-q-m11-4": 0,
+        "sql-q-m11-5": 0
+      },
+      "completedAt": "2026-10-11T05:25:52.224Z"
+    },
+    {
+      "id": "attempt-1791696328511-886",
+      "userId": "student-001",
+      "studentName": "Arshith Student",
+      "courseId": "sql-mastery",
+      "moduleId": "sql-mod-10",
+      "score": 5,
+      "totalQuestions": 5,
+      "percentage": 100,
+      "passed": true,
+      "attemptNumber": 1,
+      "answers": {
+        "sql-q-m10-1": 0,
+        "sql-q-m10-2": 0,
+        "sql-q-m10-3": 0,
+        "sql-q-m10-4": 0,
+        "sql-q-m10-5": 0
+      },
+      "completedAt": "2026-10-11T05:25:28.511Z"
+    },
+    {
+      "id": "attempt-1791696305019-574",
+      "userId": "student-001",
+      "studentName": "Arshith Student",
+      "courseId": "sql-mastery",
+      "moduleId": "sql-mod-9",
+      "score": 5,
+      "totalQuestions": 5,
+      "percentage": 100,
+      "passed": true,
+      "attemptNumber": 1,
+      "answers": {
+        "sql-q-m9-1": 0,
+        "sql-q-m9-2": 0,
+        "sql-q-m9-3": 0,
+        "sql-q-m9-4": 0,
+        "sql-q-m9-5": 0
+      },
+      "completedAt": "2026-10-11T05:25:05.019Z"
+    },
+    {
+      "id": "attempt-1791696281970-895",
+      "userId": "student-001",
+      "studentName": "Arshith Student",
+      "courseId": "sql-mastery",
+      "moduleId": "sql-mod-8",
+      "score": 2,
+      "totalQuestions": 5,
+      "percentage": 40,
+      "passed": false,
+      "attemptNumber": 1,
+      "answers": {
+        "sql-q-m8-1": 0,
+        "sql-q-m8-2": 1,
+        "sql-q-m8-3": 2,
+        "sql-q-m8-5": 0,
+        "sql-q-m8-4": 1
+      },
+      "completedAt": "2026-10-11T05:24:41.970Z"
+    },
+    {
+      "id": "attempt-1791696248125-728",
+      "userId": "student-001",
+      "studentName": "Arshith Student",
+      "courseId": "sql-mastery",
+      "moduleId": "sql-mod-7",
+      "score": 2,
+      "totalQuestions": 5,
+      "percentage": 40,
+      "passed": false,
+      "attemptNumber": 1,
+      "answers": {
+        "sql-q-m7-1": 0,
+        "sql-q-m7-2": 1,
+        "sql-q-m7-3": 2,
+        "sql-q-m7-4": 0,
+        "sql-q-m7-5": 2
+      },
+      "completedAt": "2026-10-11T05:24:08.125Z"
+    },
+    {
+      "id": "attempt-1791696224884-597",
+      "userId": "student-001",
+      "studentName": "Arshith Student",
+      "courseId": "sql-mastery",
+      "moduleId": "sql-mod-6",
+      "score": 3,
+      "totalQuestions": 5,
+      "percentage": 60,
+      "passed": false,
+      "attemptNumber": 1,
+      "answers": {
+        "sql-q-m6-1": 0,
+        "sql-q-m6-2": 0,
+        "sql-q-m6-3": 1,
+        "sql-q-m6-4": 0,
+        "sql-q-m6-5": 1
+      },
+      "completedAt": "2026-10-11T05:23:44.884Z"
+    },
+    {
+      "id": "attempt-1791696200137-238",
+      "userId": "student-001",
+      "studentName": "Arshith Student",
+      "courseId": "sql-mastery",
+      "moduleId": "sql-mod-5",
+      "score": 1,
+      "totalQuestions": 5,
+      "percentage": 20,
+      "passed": false,
+      "attemptNumber": 1,
+      "answers": {
+        "sql-q-m5-1": 0,
+        "sql-q-m5-2": 1,
+        "sql-q-m5-3": 2,
+        "sql-q-m5-4": 2,
+        "sql-q-m5-5": 1
+      },
+      "completedAt": "2026-10-11T05:23:20.137Z"
+    },
+    {
+      "id": "attempt-1791696173116-620",
+      "userId": "student-001",
+      "studentName": "Arshith Student",
+      "courseId": "sql-mastery",
+      "moduleId": "sql-mod-4",
+      "score": 4,
+      "totalQuestions": 5,
+      "percentage": 80,
+      "passed": true,
+      "attemptNumber": 1,
+      "answers": {
+        "sql-q-m4-1": 0,
+        "sql-q-m4-2": 0,
+        "sql-q-m4-3": 0,
+        "sql-q-m4-4": 1,
+        "sql-q-m4-5": 0
+      },
+      "completedAt": "2026-10-11T05:22:53.116Z"
+    },
+    {
+      "id": "attempt-1791696085900-985",
+      "userId": "student-001",
+      "studentName": "Arshith Student",
+      "courseId": "sql-mastery",
+      "moduleId": "sql-mod-3",
+      "score": 5,
+      "totalQuestions": 5,
+      "percentage": 100,
+      "passed": true,
+      "attemptNumber": 1,
+      "answers": {
+        "sql-q-m3-1": 0,
+        "sql-q-m3-2": 0,
+        "sql-q-m3-3": 0,
+        "sql-q-m3-4": 0,
+        "sql-q-m3-5": 0
+      },
+      "completedAt": "2026-10-11T05:21:25.900Z"
+    },
+    {
+      "id": "attempt-1791695876246-561",
+      "userId": "student-001",
+      "studentName": "Arshith Student",
+      "courseId": "sql-mastery",
+      "moduleId": "sql-mod-2",
+      "score": 5,
+      "totalQuestions": 5,
+      "percentage": 100,
+      "passed": true,
+      "attemptNumber": 1,
+      "answers": {
+        "sql-q-m2-1": 0,
+        "sql-q-m2-2": 0,
+        "sql-q-m2-3": 0,
+        "sql-q-m2-4": 0,
+        "sql-q-m2-5": 0
+      },
+      "completedAt": "2026-10-11T05:17:56.246Z"
+    },
+    {
+      "id": "attempt-1791695672435-874",
+      "userId": "student-001",
+      "studentName": "Learner",
+      "courseId": "sql-mastery",
+      "moduleId": "sql-mod-1",
+      "score": 5,
+      "totalQuestions": 5,
+      "percentage": 100,
+      "passed": true,
+      "attemptNumber": 5,
+      "answers": {
+        "sql-q-m1-1": 0,
+        "sql-q-m1-2": 0,
+        "sql-q-m1-3": 0,
+        "sql-q-m1-4": 0,
+        "sql-q-m1-5": 0
+      },
+      "completedAt": "2026-10-11T05:14:32.435Z"
+    },
+    {
+      "id": "attempt-1791695552957-50",
+      "userId": "student-001",
+      "studentName": "Learner",
+      "courseId": "sql-mastery",
+      "moduleId": "sql-mod-1",
+      "score": 0,
+      "totalQuestions": 5,
+      "percentage": 0,
+      "passed": false,
+      "attemptNumber": 4,
+      "answers": {
+        "sql-q-m1-1": 1,
+        "sql-q-m1-2": 1,
+        "sql-q-m1-3": 1,
+        "sql-q-m1-4": 1,
+        "sql-q-m1-5": 1
+      },
+      "completedAt": "2026-10-11T05:12:32.957Z"
+    },
+    {
+      "id": "attempt-1791695048109-412",
+      "userId": "student-001",
+      "studentName": "Arshith Student",
+      "courseId": "sql-mastery",
+      "moduleId": "sql-mod-1",
+      "score": 5,
+      "totalQuestions": 5,
+      "percentage": 100,
+      "passed": true,
+      "attemptNumber": 3,
+      "answers": {
+        "sql-q-m1-1": 0,
+        "sql-q-m1-2": 0,
+        "sql-q-m1-3": 0,
+        "sql-q-m1-4": 0,
+        "sql-q-m1-5": 0
+      },
+      "completedAt": "2026-10-11T05:04:08.109Z"
+    },
+    {
+      "id": "attempt-1791694990752-886",
+      "userId": "student-001",
+      "studentName": "Arshith Student",
+      "courseId": "sql-mastery",
+      "moduleId": "sql-mod-1",
+      "score": 3,
+      "totalQuestions": 5,
+      "percentage": 60,
+      "passed": false,
+      "attemptNumber": 2,
+      "answers": {
+        "sql-q-m1-1": 0,
+        "sql-q-m1-2": 0,
+        "sql-q-m1-3": 0,
+        "sql-q-m1-4": 1,
+        "sql-q-m1-5": 1
+      },
+      "completedAt": "2026-10-11T05:03:10.752Z"
+    },
+    {
+      "id": "attempt-1791694868072-39",
+      "userId": "student-001",
+      "studentName": "Arshith Student",
+      "courseId": "sql-mastery",
+      "moduleId": "sql-mod-1",
+      "score": 5,
+      "totalQuestions": 5,
+      "percentage": 100,
+      "passed": true,
+      "attemptNumber": 1,
+      "answers": {
+        "sql-q-m1-1": 0,
+        "sql-q-m1-2": 0,
+        "sql-q-m1-3": 0,
+        "sql-q-m1-4": 0,
+        "sql-q-m1-5": 0
+      },
+      "completedAt": "2026-10-11T05:01:08.072Z"
+    },
+    {
       "id": "attempt-1791637270345-547",
       "userId": "student-001",
       "studentName": "Arshith Student",
@@ -18709,6 +19091,49 @@
   ],
   "finalTestAttempts": [
     {
+      "id": "ftest-attempt-1791696726343",
+      "userId": "krantishantveer@gmail.com",
+      "studentName": "kranti",
+      "courseId": "sql-mastery",
+      "score": 25,
+      "totalQuestions": 25,
+      "percentage": 100,
+      "passed": true,
+      "attemptNumber": 2,
+      "timeTakenSeconds": 255,
+      "timeTakenFormatted": "4 minutes 15 seconds",
+      "isAutoSubmitted": false,
+      "startedAt": "2026-10-11T05:27:51.240Z",
+      "submittedAt": "2026-10-11T05:32:06.340Z",
+      "answers": {
+        "sql-b-1": 1,
+        "sql-b-2": 0,
+        "sql-b-3": 2,
+        "sql-b-4": 1,
+        "sql-b-5": 0,
+        "sql-b-6": 0,
+        "sql-b-7": 0,
+        "sql-b-8": 1,
+        "sql-b-9": 0,
+        "sql-b-10": 1,
+        "sql-b-11": 0,
+        "sql-b-12": 1,
+        "sql-b-13": 0,
+        "sql-b-14": 1,
+        "sql-b-15": 1,
+        "sql-b-16": 1,
+        "sql-b-17": 1,
+        "sql-b-18": 0,
+        "sql-b-19": 1,
+        "sql-b-20": 0,
+        "sql-set-b-21": 1,
+        "sql-set-b-22": 2,
+        "sql-set-b-23": 1,
+        "sql-set-b-24": 1,
+        "sql-set-b-25": 0
+      }
+    },
+    {
       "id": "ftest-attempt-1791637455598",
       "userId": "krantishantveer@gmail.com",
       "studentName": "kranti",
@@ -18862,6 +19287,15 @@
       "startedAt": 1791631741822,
       "durationSeconds": 2700,
       "submitted": false
+    },
+    "krantishantveer@gmail.com-sql-mastery-final": {
+      "sessionId": "session-1791696471240",
+      "userId": "krantishantveer@gmail.com",
+      "studentName": "kranti",
+      "courseId": "sql-mastery",
+      "startedAt": 1791696471240,
+      "durationSeconds": 2700,
+      "submitted": true
     }
   }
 }

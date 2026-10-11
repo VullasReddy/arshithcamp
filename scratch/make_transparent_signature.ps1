@@ -59,8 +59,8 @@ for ($y = 0; $y -lt $cropH; $y++) {
             $alpha = [int]([Math]::Min(255.0, [Math]::Max(0.0, (245.0 - $avg) / 245.0 * 255.0 * 1.5)))
             if ($alpha -gt 255) { $alpha = 255 }
             
-            # Use deep dark slate / dark green tone matching brand #013323 or deep black #0b2219
-            $bmp.SetPixel($x, $y, [System.Drawing.Color]::FromArgb($alpha, 1, 51, 35))
+            # Use vibrant light green / emerald tone (e.g., #10B981 / RGB 16, 185, 129)
+            $bmp.SetPixel($x, $y, [System.Drawing.Color]::FromArgb($alpha, 16, 185, 129))
         }
     }
 }
