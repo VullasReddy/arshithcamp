@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { GraduationCap, ArrowRight, Facebook, Instagram, Youtube, Linkedin, Twitter, Heart, Sparkles } from 'lucide-react';
+import { GraduationCap, ArrowRight, Instagram, Linkedin, Heart, Sparkles } from 'lucide-react';
 
 export default function Footer({ setActiveTab }) {
   const [email, setEmail] = useState('');
@@ -50,63 +50,42 @@ export default function Footer({ setActiveTab }) {
               Empowering learners worldwide with structured, project-based boot camp courses, complete module reading manuals, and verified credentials.
             </p>
 
-            {/* Social Icons Bar (Just clean icons with active redirection) */}
-            <div className="flex items-center gap-2.5 pt-2">
-              <a 
-                href="#facebook" 
-                className="w-9 h-9 rounded-full bg-brand-800/90 hover:bg-brand-600 hover:text-white text-slate-300 flex items-center justify-center transition-all border border-brand-700 shadow-sm"
-                title="Facebook"
-              >
-                <Facebook className="w-4 h-4" />
-              </a>
-
+            {/* Social Icons (Only Instagram and LinkedIn) */}
+            <div className="flex items-center gap-3 pt-2">
               {/* Instagram */}
               <a 
                 href="https://www.instagram.com/arshithgroup/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="w-9 h-9 rounded-full bg-brand-800/90 hover:bg-gradient-to-tr hover:from-amber-500 hover:via-rose-500 hover:to-purple-600 text-slate-300 hover:text-white flex items-center justify-center transition-all border border-brand-700 shadow-sm cursor-pointer"
+                className="w-10 h-10 rounded-full bg-brand-800/90 hover:bg-gradient-to-tr hover:from-amber-500 hover:via-rose-500 hover:to-purple-600 text-slate-300 hover:text-white flex items-center justify-center transition-all border border-brand-700 shadow-sm cursor-pointer"
                 title="PALLAVI NELLI (@arshithgroup) on Instagram"
+                aria-label="Instagram - PALLAVI NELLI (@arshithgroup)"
               >
                 <Instagram className="w-4 h-4" />
               </a>
 
-              {/* LinkedIn Company */}
+              {/* LinkedIn: Company Profile */}
               <a 
                 href="https://www.linkedin.com/company/arshith-group/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="w-9 h-9 rounded-full bg-brand-800/90 hover:bg-[#0A66C2] text-slate-300 hover:text-white flex items-center justify-center transition-all border border-brand-700 shadow-sm cursor-pointer"
+                className="w-10 h-10 rounded-full bg-brand-800/90 hover:bg-[#0A66C2] text-slate-300 hover:text-white flex items-center justify-center transition-all border border-brand-700 shadow-sm cursor-pointer"
                 title="Arshith Group on LinkedIn"
+                aria-label="LinkedIn - Arshith Group Company"
               >
                 <Linkedin className="w-4 h-4" />
               </a>
 
-              {/* LinkedIn Profile (Farook N) */}
+              {/* LinkedIn: Personal Profile (Farook N) */}
               <a 
                 href="https://www.linkedin.com/in/farook-n-2bb2b5344/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="w-9 h-9 rounded-full bg-brand-800/90 hover:bg-[#0077B5] text-cyan-400 hover:text-white flex items-center justify-center transition-all border border-brand-700 shadow-sm cursor-pointer"
+                className="w-10 h-10 rounded-full bg-brand-800/90 hover:bg-[#0077B5] text-slate-300 hover:text-white flex items-center justify-center transition-all border border-brand-700 shadow-sm cursor-pointer"
                 title="Farook N on LinkedIn"
+                aria-label="LinkedIn - Farook N Profile"
               >
                 <Linkedin className="w-4 h-4" />
-              </a>
-
-              <a 
-                href="#youtube" 
-                className="w-9 h-9 rounded-full bg-brand-800/90 hover:bg-rose-600 hover:text-white text-slate-300 flex items-center justify-center transition-all border border-brand-700 shadow-sm"
-                title="YouTube"
-              >
-                <Youtube className="w-4 h-4" />
-              </a>
-
-              <a 
-                href="#x" 
-                className="w-9 h-9 rounded-full bg-brand-800/90 hover:bg-brand-600 hover:text-white text-slate-300 flex items-center justify-center transition-all border border-brand-700 shadow-sm"
-                title="Twitter / X"
-              >
-                <Twitter className="w-4 h-4" />
               </a>
             </div>
           </div>
