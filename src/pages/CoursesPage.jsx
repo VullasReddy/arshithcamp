@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { Search, Filter, Star, Clock, Users, ArrowRight, Code, Database, BarChart2, Terminal, CheckCircle } from 'lucide-react';
 import { CATEGORIES } from '../data/coursesData';
 
@@ -8,6 +8,14 @@ export default function CoursesPage({ courses, onSelectCourse, studentUser, onEn
   const [selectedLevel, setSelectedLevel] = useState('All');
   const [selectedPrice, setSelectedPrice] = useState('All');
   const [sortBy, setSortBy] = useState('popular');
+
+  useEffect(() => {
+    setSelectedCategory(initialCategory);
+  }, [initialCategory]);
+
+  useEffect(() => {
+    setSearch(initialSearch);
+  }, [initialSearch]);
 
   const filteredCourses = useMemo(() => {
     return courses.filter((c) => {

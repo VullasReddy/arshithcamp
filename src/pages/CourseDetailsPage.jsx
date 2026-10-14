@@ -247,7 +247,7 @@ export default function CourseDetailsPage({ course, onBack, onStartLearning }) {
                   onClick={() => onStartLearning(course.id, course.modules?.[0]?.id)}
                   className="w-full py-4 text-sm font-black text-white bg-brand-600 hover:bg-brand-700 active:scale-98 rounded-full border-2 border-brand-900 shadow-lg transition-all text-center flex items-center justify-center gap-2"
                 >
-                  <span>{course.progress > 0 ? 'Continue Ignite Course' : 'Start Ignite Course Now'}</span>
+                  <span>{course.progress > 0 ? 'Continue Bootcamp Course' : 'Start Bootcamp Course Now'}</span>
                   <ArrowLeft className="w-4 h-4 rotate-180" />
                 </button>
               </div>
@@ -272,7 +272,7 @@ export default function CourseDetailsPage({ course, onBack, onStartLearning }) {
               <div className="pt-4 border-t border-slate-100 space-y-3 text-xs font-bold text-slate-700">
                 <div className="flex items-center gap-2.5">
                   <Award className="w-4 h-4 text-brand-700" />
-                  <span>Official Arshith Ignite Certificate</span>
+                  <span>Official Arshith Bootcamp Certificate</span>
                 </div>
                 <div className="flex items-center gap-2.5">
                   <BookOpen className="w-4 h-4 text-brand-700" />

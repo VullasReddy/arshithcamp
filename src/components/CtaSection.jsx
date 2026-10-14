@@ -74,7 +74,7 @@ export default function CtaSection({ onExploreClick }) {
                       <GraduationCap className="w-5 h-5" />
                     </div>
                     <div>
-                      <p className="text-xs font-black text-slate-900">Arshith Ignite Credential</p>
+                      <p className="text-xs font-black text-slate-900">Arshith Bootcamp Credential</p>
                       <p className="text-[10px] text-emerald-700 font-mono font-bold">Industry Verified</p>
                     </div>
                   </div>

@@ -51,7 +51,7 @@ export default function StudentDashboard({
                 </h1>
                 <div className="flex flex-wrap items-center gap-2 mt-1">
                   <p className="text-xs sm:text-sm text-emerald-200/90 font-medium">
-                    Arshith Ignite Student Dashboard • Keep building your skills!
+                    Arshith Bootcamp Student Dashboard • Keep building your skills!
                   </p>
                   {studentUser?.regNo && (
                     <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-black bg-emerald-400/20 text-emerald-300 border border-emerald-400/40 font-mono tracking-wide">
@@ -89,7 +89,7 @@ export default function StudentDashboard({
           {/* Key Stats Bar */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 pt-6 border-t border-brand-700/60">
             <div className="space-y-1">
-              <p className="text-[10px] font-black text-emerald-300 uppercase">Enrolled Ignite Courses</p>
+              <p className="text-[10px] font-black text-emerald-300 uppercase">Enrolled Bootcamp Courses</p>
               <p className="text-2xl font-black text-white">{enrolledCourses.length}</p>
             </div>
             <div className="space-y-1">
@@ -160,7 +160,7 @@ export default function StudentDashboard({
             <div className="max-w-md mx-auto space-y-2">
               <h3 className="text-xl font-black text-slate-900">No Courses Enrolled Yet</h3>
               <p className="text-xs font-medium text-slate-500 leading-relaxed">
-                You haven't enrolled in any Ignite courses yet. Explore our high-impact curriculum in Python, Web Development, SQL, AI, and start learning today!
+                You haven't enrolled in any Bootcamp courses yet. Explore our high-impact curriculum in Python, Web Development, SQL, AI, and start learning today!
               </p>
             </div>
             <button
@@ -176,7 +176,7 @@ export default function StudentDashboard({
         {/* Enrolled Courses Grid */}
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <h2 className="text-xl font-black text-slate-900">My Enrolled Ignite Courses</h2>
+            <h2 className="text-xl font-black text-slate-900">My Enrolled Bootcamp Courses</h2>
             {enrolledCourses.length > 0 && (
               <span className="text-xs font-extrabold text-brand-700 bg-brand-50 px-3 py-1 rounded-full border border-brand-200">
                 {enrolledCourses.length} Active
@@ -263,7 +263,7 @@ export default function StudentDashboard({
                 onClick={onExploreCourses}
                 className="text-xs font-black text-brand-700 hover:underline cursor-pointer"
               >
-                Click here to view all available Ignite courses →
+                Click here to view all available Bootcamp courses →
               </button>
             </div>
           )}

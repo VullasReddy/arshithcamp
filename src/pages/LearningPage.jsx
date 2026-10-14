@@ -139,7 +139,7 @@ export default function LearningPage({
             className="p-2 text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 rounded-xl transition-all flex items-center gap-1.5 text-xs font-extrabold border border-slate-700"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span className="hidden sm:inline">Exit Ignite Player</span>
+            <span className="hidden sm:inline">Exit Bootcamp Player</span>
           </button>
 
           <div className="h-4 w-px bg-slate-800 hidden sm:block" />

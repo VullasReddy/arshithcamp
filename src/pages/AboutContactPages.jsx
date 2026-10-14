@@ -12,10 +12,10 @@ export function AboutPage() {
             Our Mission
           </span>
           <h1 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight">
-            About Arshith <span className="text-brand-600">Ignite</span>
+            About Arshith <span className="text-brand-600">Bootcamp</span>
           </h1>
           <p className="text-base text-slate-600 font-semibold leading-relaxed">
-            Learn Today, Build Tomorrow. We are dedicated to bridging the global tech skills gap by delivering practical, project-focused Ignite education to learners worldwide.
+            Learn Today, Build Tomorrow. We are dedicated to bridging the global tech skills gap by delivering practical, project-focused Bootcamp education to learners worldwide.
           </p>
         </div>
 
@@ -23,10 +23,10 @@ export function AboutPage() {
         <div className="bg-white rounded-3xl dark-bezel p-8 sm:p-12 grid md:grid-cols-2 gap-8 items-center">
           <div className="space-y-4">
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900">
-              Why We Founded Arshith Ignite
+              Why We Founded Arshith Bootcamp
             </h2>
             <p className="text-sm text-slate-600 leading-relaxed font-medium">
-              Traditional computer science degrees often lack real-world engineering projects. At Arshith Ignite, we structure every course into complete module reading manuals, code examples, hands-on challenges, and downloadable course manuals.
+              Traditional computer science degrees often lack real-world engineering projects. At Arshith Bootcamp, we structure every course into complete module reading manuals, code examples, hands-on challenges, and downloadable course manuals.
             </p>
             <div className="space-y-2 pt-2">
               <div className="flex items-center gap-2 text-xs font-black text-slate-800">
@@ -47,7 +47,7 @@ export function AboutPage() {
           <div className="relative">
             <img
               src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80"
-              alt="Team collaboration at Arshith Ignite"
+              alt="Team collaboration at Arshith Bootcamp"
               className="rounded-3xl dark-bezel shadow-xl"
             />
           </div>
@@ -78,10 +78,10 @@ export function ContactPage() {
             Get In Touch
           </span>
           <h1 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            Contact Arshith Ignite Support
+            Contact Arshith Bootcamp Support
           </h1>
           <p className="text-sm text-slate-500 font-semibold">
-            Have questions about an Ignite course or certificate verification? We are here to help!
+            Have questions about a Bootcamp course or certificate verification? We are here to help!
           </p>
         </div>
 
@@ -126,7 +126,7 @@ export function ContactPage() {
               <div className="p-8 text-center space-y-3 bg-brand-50 rounded-2xl border border-brand-200">
                 <CheckCircle className="w-12 h-12 text-emerald-600 mx-auto" />
                 <h3 className="text-lg font-black text-slate-900">Message Sent Successfully!</h3>
-                <p className="text-xs text-slate-600 font-semibold">Thank you for reaching out to Arshith Ignite. Our support team will get back to you within 24 hours.</p>
+                <p className="text-xs text-slate-600 font-semibold">Thank you for reaching out to Arshith Bootcamp. Our support team will get back to you within 24 hours.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -161,7 +161,7 @@ export function ContactPage() {
                   <input
                     type="text"
                     required
-                    placeholder="Course query / Ignite guidance"
+                    placeholder="Course query / Bootcamp guidance"
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                     className="w-full px-4 py-2.5 text-xs font-semibold bg-slate-50 border-2 border-slate-200 rounded-xl outline-none focus:border-brand-900"

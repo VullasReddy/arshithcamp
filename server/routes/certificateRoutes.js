@@ -144,10 +144,10 @@ router.post('/admin/certificates/generate', verifyAdminToken, (req, res) => {
     courseTitle: course.title,
     issueDate: issueDateStr,
     createdAt: new Date().toISOString(),
-    instructorName: course.instructor?.name || 'Arshith Ignite Lead',
+    instructorName: course.instructor?.name || 'Arshith Bootcamp Lead',
     grade: grade || '96% Distinction',
     status: 'active',
-    skills: course.skills || ['Core Ignite Mastery']
+    skills: course.skills || ['Core Bootcamp Mastery']
   };
 
   if (!db.certificates) db.certificates = [];

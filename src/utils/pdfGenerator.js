@@ -76,7 +76,7 @@ export function generateCoursePDF(course, studentName = 'Student') {
 
     doc.setFont("helvetica", "bold");
     doc.setFontSize(44);
-    doc.text("ARSHITH IGNITE", centerX, centerY - 6, {
+    doc.text("ARSHITH BOOTCAMP", centerX, centerY - 6, {
       align: "center",
       angle: 35
     });
@@ -108,7 +108,7 @@ export function generateCoursePDF(course, studentName = 'Student') {
     doc.setFont("helvetica", "bold");
     doc.setFontSize(9);
     doc.setTextColor(255, 255, 255);
-    doc.text("ARSHITH IGNITE - Official Course Manual", margin, 8);
+    doc.text("ARSHITH BOOTCAMP - Official Course Manual", margin, 8);
 
     doc.setFontSize(8);
     doc.setFont("helvetica", "normal");
@@ -121,7 +121,7 @@ export function generateCoursePDF(course, studentName = 'Student') {
 
     doc.setFontSize(8);
     doc.setTextColor(100, 116, 139);
-    doc.text("Learn Today, Build Tomorrow * www.arshithignite.com", margin, pageHeight - 6);
+    doc.text("Learn Today, Build Tomorrow * www.arshithbootcamp.com", margin, pageHeight - 6);
     doc.text(`Page ${pNum}`, pageWidth - margin, pageHeight - 6, { align: "right" });
   };
 
@@ -292,7 +292,7 @@ export function generateCoursePDF(course, studentName = 'Student') {
   doc.setFont("helvetica", "bold");
   doc.setFontSize(26);
   doc.setTextColor(255, 255, 255);
-  doc.text("ARSHITH IGNITE", margin + 14, 47);
+  doc.text("ARSHITH BOOTCAMP", margin + 14, 47);
 
   doc.setFontSize(13);
   doc.setFont("helvetica", "normal");
@@ -332,10 +332,10 @@ export function generateCoursePDF(course, studentName = 'Student') {
   doc.setFontSize(9);
   doc.setTextColor(148, 163, 184);
   const authorText = isWebDev
-    ? "Chief Architect: Vikramaditya Rao | Arshith Ignite Technical Curriculum Board"
+    ? "Chief Architect: Vikramaditya Rao | Arshith Bootcamp Technical Curriculum Board"
     : isAIDataScience
-      ? "Chief AI Scientist: Dr. Ananya Sharma | Arshith Ignite Advanced AI Research Board"
-      : "Chief Architect & Lead Educators | Arshith Ignite Technical Curriculum Board";
+      ? "Chief AI Scientist: Dr. Ananya Sharma | Arshith Bootcamp Advanced AI Research Board"
+      : "Chief Architect & Lead Educators | Arshith Bootcamp Technical Curriculum Board";
   doc.text(authorText, margin + 14, coverY);
 
   // Student Enrollment Card Box
@@ -358,7 +358,7 @@ export function generateCoursePDF(course, studentName = 'Student') {
   doc.setFontSize(9);
   doc.setFont("helvetica", "normal");
   doc.setTextColor(226, 232, 240);
-  doc.text(`Platform: Arshith Ignite Learning Systems`, margin + 10, 193);
+  doc.text(`Platform: Arshith Bootcamp Learning Systems`, margin + 10, 193);
   const curriculumSummary = isAIDataScience
     ? "Curriculum: 15 Core Modules + 5 Capstone Projects + 25-Question Certification Exam"
     : "Curriculum: 15 Core Modules + 3 Mini Projects + 1 Capstone + 25-Question Certification Exam";
@@ -1484,7 +1484,7 @@ GET    /api/v1/jobs/:id/applicants -> Review candidate applications [Recruiter P
       : `Practical Portfolio: Practical Capstone Projects Completed`;
   doc.text(portfolioText, margin + 15, y + 88);
   doc.text(`Certification Assessment: Verified Passing Score on 25 Comprehensive Qs`, margin + 15, y + 98);
-  doc.text(`Official Issuer: Arshith Ignite Platform (www.arshithignite.com)`, margin + 15, y + 108);
+  doc.text(`Official Issuer: Arshith Bootcamp Platform (www.arshithbootcamp.com)`, margin + 15, y + 108);
 
   doc.setFontSize(11);
   doc.setFont("helvetica", "bold");
@@ -1493,10 +1493,10 @@ GET    /api/v1/jobs/:id/applicants -> Review candidate applications [Recruiter P
 
   if (typeof doc.save === 'function' && typeof window !== 'undefined') {
     const filename = isWebDev
-      ? 'ArshithIgnite_Web_Development_Complete_Course.pdf'
+      ? 'ArshithBootcamp_Web_Development_Complete_Course.pdf'
       : isAIDataScience
-        ? 'ArshithIgnite_AI_With_Data_Science_Complete_Course.pdf'
-        : `ArshithIgnite_${course.id}_Complete_Course.pdf`;
+        ? 'ArshithBootcamp_AI_With_Data_Science_Complete_Course.pdf'
+        : `ArshithBootcamp_${course.id}_Complete_Course.pdf`;
     doc.save(filename);
   }
 

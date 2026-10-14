@@ -45,7 +45,7 @@ export default function AdminLoginPage({ onLoginSuccess, onGoHome }) {
 
         <h1 className="text-3xl font-black text-brand-950 tracking-tight flex items-center justify-center gap-2">
           <span>Arshith</span>
-          <span className="bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500 bg-clip-text text-transparent font-black">Ignite</span>
+          <span className="bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500 bg-clip-text text-transparent font-black">Bootcamp</span>
         </h1>
         <p className="text-xs font-black text-slate-500 uppercase tracking-widest flex items-center justify-center gap-1.5">
           <Sparkles className="w-3.5 h-3.5 text-brand-600 inline" />

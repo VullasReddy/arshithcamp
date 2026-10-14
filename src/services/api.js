@@ -1,4 +1,4 @@
-// API Service for Arshith Ignite Backend Integration
+// API Service for Arshith Bootcamp Backend Integration
 
 const API_BASE = '/api';
 

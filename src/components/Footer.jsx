@@ -37,7 +37,7 @@ export default function Footer({ setActiveTab }) {
               </div>
               <div className="flex flex-col">
                 <span className="text-2xl font-black text-white tracking-tight flex items-center gap-1.5 leading-none">
-                  Arshith <span className="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">Ignite</span>
+                  Arshith <span className="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">Bootcamp</span>
                 </span>
                 <span className="text-[9px] sm:text-[10px] font-black text-emerald-300/80 tracking-wider uppercase mt-1 flex items-center gap-1">
                   <Sparkles className="w-2.5 h-2.5 text-emerald-400 inline shrink-0" />
@@ -47,7 +47,7 @@ export default function Footer({ setActiveTab }) {
             </div>
 
             <p className="text-sm text-slate-400 font-normal leading-relaxed max-w-sm">
-              Empowering learners worldwide with structured, project-based Ignite courses, complete module reading manuals, and verified credentials.
+              Empowering learners worldwide with structured, project-based Bootcamp courses, complete module reading manuals, and verified credentials.
             </p>
 
             {/* Social Icons (Only Instagram and LinkedIn) */}
@@ -132,7 +132,7 @@ export default function Footer({ setActiveTab }) {
           <div className="lg:col-span-4 space-y-3">
             <h3 className="text-xs font-black text-white uppercase tracking-wider">Newsletter</h3>
             <p className="text-xs text-slate-400 font-medium">
-              Get updates on new Ignite courses, tutorials, and certification offers directly in your inbox.
+              Get updates on new Bootcamp courses, tutorials, and certification offers directly in your inbox.
             </p>
 
             {subscribed ? (
@@ -163,7 +163,7 @@ export default function Footer({ setActiveTab }) {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-3">
-          <p>© 2026 Arshith Ignite. All rights reserved.</p>
+          <p>© 2026 Arshith Bootcamp. All rights reserved.</p>
           <div className="flex items-center gap-1.5 font-bold text-slate-300">
             <span>Learn Today</span>
             <span className="text-emerald-400">•</span>

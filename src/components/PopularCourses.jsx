@@ -20,6 +20,12 @@ export default function PopularCourses({ courses, onSelectCourse, onViewAllCours
             <Database className="w-6 h-6 stroke-[2.2]" />
           </div>
         );
+      case 'code':
+        return (
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-50 to-teal-100 border border-emerald-200/80 flex items-center justify-center text-emerald-700 shadow-2xs">
+            <Code className="w-6 h-6 stroke-[2.2]" />
+          </div>
+        );
       case 'brain':
         return (
           <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-50 to-indigo-100 border border-purple-200/80 flex items-center justify-center text-purple-700 shadow-2xs">

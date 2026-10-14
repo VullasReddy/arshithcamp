@@ -50,7 +50,7 @@ export default function CertificatePage({ certificate, onBack, onVerifyClick, st
       });
 
       pdf.addImage(imgData, 'PNG', 0, 0, 297, 210, undefined, 'FAST');
-      pdf.save(`ArshithIgnite_Certificate_${certificate.id}.pdf`);
+      pdf.save(`ArshithBootcamp_Certificate_${certificate.id}.pdf`);
     } catch (err) {
       console.error('PDF generation error:', err);
     } finally {
@@ -141,7 +141,7 @@ export default function CertificatePage({ certificate, onBack, onVerifyClick, st
                 </div>
                 <div>
                   <h2 className="text-base font-black text-[#013323] tracking-wider uppercase font-sans leading-tight" style={{ color: '#013323', margin: 0, padding: 0 }}>
-                    ARSHITH <span className="text-[#B8860B]" style={{ color: '#B8860B' }}>IGNITE</span>
+                    ARSHITH <span className="text-[#B8860B]" style={{ color: '#B8860B' }}>BOOTCAMP</span>
                   </h2>
                   <p className="text-[9px] font-extrabold uppercase tracking-widest font-sans" style={{ color: '#013323', margin: '2px 0 0 0' }}>
                     OFFICIAL ACADEMIC CERTIFICATION

@@ -500,7 +500,7 @@ export default function AdminDashboard({ admin, onLogout, onCourseDataChanged })
               {/* Courses Snapshot */}
               <div className="bg-white rounded-3xl dark-bezel p-6 space-y-4">
                 <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-                  <h3 className="text-sm font-black text-slate-900">Active Ignite Courses</h3>
+                  <h3 className="text-sm font-black text-slate-900">Active Bootcamp Courses</h3>
                   <button onClick={() => setActiveSection('courses')} className="text-xs font-bold text-brand-700 hover:underline">View All</button>
                 </div>
                 <div className="divide-y divide-slate-100 text-xs font-bold">
@@ -680,7 +680,7 @@ export default function AdminDashboard({ admin, onLogout, onCourseDataChanged })
               /* All Courses Table View */
               <div className="bg-white rounded-3xl dark-bezel p-6 space-y-4">
                 <div className="flex items-center justify-between pb-4 border-b border-slate-100">
-                  <h2 className="text-lg font-black text-slate-900">All Ignite Courses ({courses.length})</h2>
+                  <h2 className="text-lg font-black text-slate-900">All Bootcamp Courses ({courses.length})</h2>
                   <span className="text-xs font-bold text-slate-500">Single Source of Truth Database</span>
                 </div>
 
@@ -972,7 +972,7 @@ export default function AdminDashboard({ admin, onLogout, onCourseDataChanged })
               <div className="bg-white p-6 rounded-3xl dark-bezel space-y-3">
                 <h3 className="text-xs font-black text-slate-400 uppercase tracking-wider">Course Analytics</h3>
                 <p className="text-3xl font-black text-slate-900">{courses.length}</p>
-                <p className="text-xs text-slate-600">Active Ignite Courses in DB</p>
+                <p className="text-xs text-slate-600">Active Bootcamp Courses in DB</p>
               </div>
 
               <div className="bg-white p-6 rounded-3xl dark-bezel space-y-3">
@@ -1054,7 +1054,7 @@ export default function AdminDashboard({ admin, onLogout, onCourseDataChanged })
             </button>
 
             <h2 className="text-xl font-black text-slate-900 mb-4">
-              {editingCourse ? `Edit Course — ${editingCourse.title}` : 'Publish New Ignite Course'}
+              {editingCourse ? `Edit Course — ${editingCourse.title}` : 'Publish New Bootcamp Course'}
             </h2>
 
             <form onSubmit={handleSaveCourseSubmit} className="space-y-4">

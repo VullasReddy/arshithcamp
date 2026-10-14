@@ -175,7 +175,7 @@ export default function LoginModal({ isOpen, onClose, initialMode = 'login', onS
             <GraduationCap className="w-6 h-6" />
           </div>
           <h2 className="text-2xl font-extrabold text-slate-900">
-            {mode === 'login' ? 'Welcome Back 👋' : 'Register for Arshith Ignite 🚀'}
+            {mode === 'login' ? 'Welcome Back 👋' : 'Register for Arshith Bootcamp 🚀'}
           </h2>
           <p className="text-xs text-slate-500 font-medium mt-1">
             {mode === 'login' ? 'Enter your credentials to access your courses' : 'All fields are mandatory to create your student account'}

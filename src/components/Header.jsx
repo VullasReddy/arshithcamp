@@ -38,15 +38,15 @@ export default function Header({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           
-          {/* Logo - Arshith Ignite */}
+          {/* Logo - Arshith Bootcamp */}
           <div 
             onClick={() => handleNavClick('home')}
             className="flex items-center cursor-pointer group select-none py-1 focus:outline-none"
-            title="Arshith Ignite - Home"
+            title="Arshith Bootcamp - Home"
           >
             <img 
-              src="/arshith-ignite-logo.png" 
-              alt="Arshith Ignite" 
+              src="/arshith-bootcamp-logo.png" 
+              alt="Arshith Bootcamp" 
               className="h-12 sm:h-14 md:h-15 lg:h-16 w-auto max-w-[220px] object-contain transition-transform duration-300 group-hover:scale-105" 
             />
           </div>
