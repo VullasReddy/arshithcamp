@@ -3,7 +3,8 @@ import confetti from 'canvas-confetti';
 import { 
   ArrowLeft, CheckCircle, Circle, Award, Download, 
   ChevronRight, ChevronLeft, BookOpen, ExternalLink, 
-  Code, Sparkles, AlertTriangle, CheckSquare, HelpCircle, Clock, Briefcase
+  Code, Sparkles, AlertTriangle, CheckSquare, HelpCircle, Clock, Briefcase,
+  Terminal, Layers, CheckCircle2
 } from 'lucide-react';
 import { generateCoursePDF } from '../utils/pdfGenerator';
 import { cleanText } from '../utils/textUtils';
@@ -26,6 +27,21 @@ export default function LearningPage({
   const [finalTestModalOpen, setFinalTestModalOpen] = useState(false);
   const [projectsModalOpen, setProjectsModalOpen] = useState(false);
   const [requirementsModalOpen, setRequirementsModalOpen] = useState(false);
+  const [expandedLineByLine, setExpandedLineByLine] = useState({});
+  const [revealedPracticeAnswers, setRevealedPracticeAnswers] = useState({});
+  const [revealedInterviewAnswers, setRevealedInterviewAnswers] = useState({});
+
+  const toggleLineByLine = (key) => {
+    setExpandedLineByLine(prev => ({ ...prev, [key]: !prev[key] }));
+  };
+
+  const togglePracticeAnswer = (key) => {
+    setRevealedPracticeAnswers(prev => ({ ...prev, [key]: !prev[key] }));
+  };
+
+  const toggleInterviewAnswer = (key) => {
+    setRevealedInterviewAnswers(prev => ({ ...prev, [key]: !prev[key] }));
+  };
 
   const savedUser = (() => {
     try {
@@ -92,6 +108,9 @@ export default function LearningPage({
     if (currentModuleIndex > 0) {
       setCurrentModule(course.modules[currentModuleIndex - 1]);
       setShowSolution(false);
+      setExpandedLineByLine({});
+      setRevealedPracticeAnswers({});
+      setRevealedInterviewAnswers({});
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
@@ -100,6 +119,9 @@ export default function LearningPage({
     if (currentModuleIndex < course.modules.length - 1) {
       setCurrentModule(course.modules[currentModuleIndex + 1]);
       setShowSolution(false);
+      setExpandedLineByLine({});
+      setRevealedPracticeAnswers({});
+      setRevealedInterviewAnswers({});
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
@@ -216,6 +238,9 @@ export default function LearningPage({
                   onClick={() => {
                     setCurrentModule(mod);
                     setShowSolution(false);
+                    setExpandedLineByLine({});
+                    setRevealedPracticeAnswers({});
+                    setRevealedInterviewAnswers({});
                   }}
                   className={`w-full flex items-center justify-between p-3 rounded-xl text-left transition-all border ${
                     isSelected
@@ -386,79 +411,284 @@ export default function LearningPage({
                 </div>
               )}
 
-              {/* Detailed Sections */}
-              {rm.sections && rm.sections.map((sec, idx) => (
-                <div key={idx} className="space-y-3">
-                  <h4 className="text-base font-bold text-white border-b border-slate-800 pb-1">
-                    {cleanText(sec.heading)}
-                  </h4>
-                  <p className="text-sm leading-relaxed text-slate-300">{cleanText(sec.text)}</p>
-                  
-                  {sec.bulletPoints && (
-                    <ul className="space-y-1.5 text-xs text-slate-300 pl-4 list-disc">
-                      {sec.bulletPoints.map((bp, bIdx) => (
-                        <li key={bIdx}>{cleanText(bp)}</li>
-                      ))}
-                    </ul>
-                  )}
+              {/* 3. Technical Terminology & Definitions */}
+              {rm.terminology && rm.terminology.length > 0 && (
+                <div className="space-y-4">
+                  <h3 className="text-lg font-black text-emerald-400 flex items-center gap-2 border-b border-slate-800 pb-2">
+                    <BookOpen className="w-5 h-5 text-emerald-400" />
+                    <span>3. Technical Terminology & Core Definitions</span>
+                  </h3>
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    {rm.terminology.map((t, tIdx) => (
+                      <div key={tIdx} className="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-2">
+                        <div className="flex items-center justify-between">
+                          <span className="font-bold text-emerald-300 text-sm font-mono">{cleanText(t.term)}</span>
+                          <span className="text-[10px] font-black uppercase tracking-wider text-slate-500 bg-slate-900 px-2 py-0.5 rounded-full border border-slate-800">Concept</span>
+                        </div>
+                        <p className="text-xs text-slate-300 leading-relaxed">{cleanText(t.definition)}</p>
+                        {t.importance && (
+                          <p className="text-[11px] text-cyan-400/90 font-medium pt-1.5 border-t border-slate-900">
+                            <span className="font-bold text-slate-400">Significance: </span>{cleanText(t.importance)}
+                          </p>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
-                  {sec.table && (
-                    <div className="overflow-x-auto my-3">
-                      <table className="w-full text-xs text-left border-collapse border border-slate-800">
-                        <thead>
-                          <tr className="bg-slate-950 text-emerald-400">
-                            {sec.table.headers.map((h, hIdx) => (
-                              <th key={hIdx} className="p-2 border border-slate-800">{cleanText(h)}</th>
-                            ))}
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {sec.table.rows.map((r, rIdx) => (
-                            <tr key={rIdx} className="hover:bg-slate-800/40">
-                              {r.map((c, cIdx) => (
-                                <td key={cIdx} className="p-2 border border-slate-800 text-slate-300">{cleanText(c)}</td>
-                              ))}
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
+              {/* 4. Architecture & Visual Workflow Diagram */}
+              {rm.diagram && (
+                <div className="space-y-3">
+                  <h3 className="text-lg font-black text-emerald-400 flex items-center gap-2 border-b border-slate-800 pb-2">
+                    <Layers className="w-5 h-5 text-emerald-400" />
+                    <span>4. Architecture & Visual Workflow</span>
+                  </h3>
+                  <div className="bg-slate-950 p-5 rounded-2xl border border-slate-800 space-y-3">
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-cyan-300 font-mono">
+                      {cleanText(rm.diagram.title)}
+                    </h4>
+                    <div className="bg-slate-900/90 p-4 rounded-xl font-mono text-xs text-emerald-300 overflow-x-auto border border-slate-800">
+                      <pre>{rm.diagram.ascii}</pre>
                     </div>
-                  )}
-                </div>
-              ))}
-
-              {/* Code Examples */}
-              {rm.codeExamples && rm.codeExamples.map((ex, exIdx) => (
-                <div key={exIdx} className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-emerald-400 flex items-center gap-1.5">
-                      <Code className="w-4 h-4" />
-                      <span>{cleanText(ex.title)}</span>
-                    </span>
-                    <span className="text-[10px] text-slate-400">Python 3 / SQL</span>
+                    {rm.diagram.explanation && (
+                      <p className="text-xs text-slate-300 leading-relaxed font-normal">
+                        {cleanText(rm.diagram.explanation)}
+                      </p>
+                    )}
                   </div>
-
-                  <div className="bg-slate-950 rounded-2xl p-4 border border-slate-800 overflow-x-auto font-mono text-xs text-emerald-300">
-                    <pre>{ex.code}</pre>
-                  </div>
-                  {ex.explanation && (
-                    <p className="text-xs text-slate-400 italic">Note: {cleanText(ex.explanation)}</p>
-                  )}
                 </div>
-              ))}
+              )}
 
-              {/* Practice Exercise */}
+              {/* 5. Detailed Core Topic Explanations */}
+              {rm.sections && (
+                <div className="space-y-6">
+                  <h3 className="text-lg font-black text-emerald-400 flex items-center gap-2 border-b border-slate-800 pb-2">
+                    <BookOpen className="w-5 h-5 text-emerald-400" />
+                    <span>5. Detailed Explanations & Core Theory</span>
+                  </h3>
+                  {rm.sections.map((sec, idx) => (
+                    <div key={idx} className="space-y-3 bg-slate-950/60 p-5 rounded-2xl border border-slate-800/80">
+                      <h4 className="text-base font-bold text-white border-b border-slate-800/80 pb-1.5">
+                        {cleanText(sec.heading)}
+                      </h4>
+                      <p className="text-sm leading-relaxed text-slate-300">{cleanText(sec.text)}</p>
+                      
+                      {sec.bulletPoints && (
+                        <ul className="space-y-1.5 text-xs text-slate-300 pl-4 list-disc">
+                          {sec.bulletPoints.map((bp, bIdx) => (
+                            <li key={bIdx}>{cleanText(bp)}</li>
+                          ))}
+                        </ul>
+                      )}
+
+                      {sec.table && (
+                        <div className="overflow-x-auto my-3">
+                          <table className="w-full text-xs text-left border-collapse border border-slate-800">
+                            <thead>
+                              <tr className="bg-slate-950 text-emerald-400">
+                                {sec.table.headers.map((h, hIdx) => (
+                                  <th key={hIdx} className="p-2 border border-slate-800">{cleanText(h)}</th>
+                                ))}
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {sec.table.rows.map((r, rIdx) => (
+                                <tr key={rIdx} className="hover:bg-slate-800/40">
+                                  {r.map((c, cIdx) => (
+                                    <td key={cIdx} className="p-2 border border-slate-800 text-slate-300">{cleanText(c)}</td>
+                                  ))}
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* 6. Step-by-Step Practical Tutorials */}
+              {rm.tutorials && rm.tutorials.length > 0 && (
+                <div className="space-y-4">
+                  <h3 className="text-lg font-black text-emerald-400 flex items-center gap-2 border-b border-slate-800 pb-2">
+                    <Terminal className="w-5 h-5 text-emerald-400" />
+                    <span>6. Step-by-Step Practical Tutorials</span>
+                  </h3>
+                  {rm.tutorials.map((tut, tIdx) => (
+                    <div key={tIdx} className="bg-slate-950 p-5 rounded-2xl border border-slate-800 space-y-4">
+                      <h4 className="text-sm font-bold text-white flex items-center gap-2">
+                        <span className="w-6 h-6 rounded-lg bg-emerald-500/20 text-emerald-400 text-xs font-black flex items-center justify-center">
+                          {tIdx + 1}
+                        </span>
+                        <span>{cleanText(tut.title)}</span>
+                      </h4>
+                      <div className="space-y-3 pl-2 sm:pl-4 border-l-2 border-emerald-500/30">
+                        {tut.steps && tut.steps.map((st, sIdx) => (
+                          <div key={sIdx} className="space-y-2 pb-2">
+                            <div className="flex items-start gap-2">
+                              <span className="text-[11px] font-black uppercase text-emerald-400 font-mono bg-slate-900 px-2 py-0.5 rounded border border-slate-800">
+                                Step {st.step || sIdx + 1}
+                              </span>
+                              <p className="text-xs font-bold text-slate-200">{cleanText(st.instruction)}</p>
+                            </div>
+                            {st.code && (
+                              <div className="bg-slate-900 p-3 rounded-xl font-mono text-xs text-emerald-300 overflow-x-auto border border-slate-800">
+                                <pre>{st.code}</pre>
+                              </div>
+                            )}
+                            {st.explanation && (
+                              <p className="text-xs text-slate-400 leading-relaxed pl-1">{cleanText(st.explanation)}</p>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* 7. Working Code Examples with Line-by-Line Breakdown */}
+              {rm.codeExamples && (
+                <div className="space-y-4">
+                  <h3 className="text-lg font-black text-emerald-400 flex items-center gap-2 border-b border-slate-800 pb-2">
+                    <Code className="w-5 h-5 text-emerald-400" />
+                    <span>7. Syntax & Complete Working Code Examples</span>
+                  </h3>
+                  {rm.codeExamples.map((ex, exIdx) => (
+                    <div key={exIdx} className="space-y-2.5 bg-slate-950 p-5 rounded-2xl border border-slate-800">
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-bold text-emerald-400 flex items-center gap-1.5">
+                          <Code className="w-4 h-4" />
+                          <span>{cleanText(ex.title)}</span>
+                        </span>
+                        <span className="text-[10px] text-slate-400 font-mono uppercase bg-slate-900 px-2 py-0.5 rounded border border-slate-800">
+                          {cleanText(ex.language) || 'Code'}
+                        </span>
+                      </div>
+
+                      <div className="bg-slate-900/90 rounded-2xl p-4 border border-slate-800 overflow-x-auto font-mono text-xs text-emerald-300">
+                        <pre>{ex.code}</pre>
+                      </div>
+
+                      {ex.explanation && (
+                        <p className="text-xs text-slate-400 italic">Note: {cleanText(ex.explanation)}</p>
+                      )}
+
+                      {/* Line-by-line Annotation Toggle */}
+                      {ex.lineByLine && ex.lineByLine.length > 0 && (
+                        <div className="mt-3 pt-3 border-t border-slate-800/80">
+                          <button
+                            onClick={() => toggleLineByLine(`${currentModule?.id}-${exIdx}`)}
+                            className="text-[11px] font-bold text-cyan-400 hover:text-cyan-300 flex items-center gap-1.5 transition-colors cursor-pointer"
+                          >
+                            <span>{expandedLineByLine[`${currentModule?.id}-${exIdx}`] ? '▲ Hide Line-by-Line Breakdown' : '▼ View Line-by-Line Code Annotation'}</span>
+                          </button>
+
+                          {expandedLineByLine[`${currentModule?.id}-${exIdx}`] && (
+                            <div className="mt-2.5 space-y-1.5 bg-slate-900/80 p-3 rounded-xl border border-slate-800">
+                              {ex.lineByLine.map((lbl, lIdx) => (
+                                <div key={lIdx} className="text-xs grid grid-cols-12 gap-2 py-1.5 border-b border-slate-800/50 last:border-0 items-start">
+                                  <span className="col-span-2 font-mono text-[10px] text-emerald-400 font-bold bg-slate-950 px-1.5 py-0.5 rounded text-center border border-slate-800">
+                                    Line {lbl.line}
+                                  </span>
+                                  <div className="col-span-10 space-y-0.5">
+                                    <div className="font-mono text-[11px] text-slate-200 bg-slate-950/80 px-2 py-0.5 rounded border border-slate-800/50 overflow-x-auto">
+                                      <code>{lbl.code}</code>
+                                    </div>
+                                    <p className="text-[11px] text-slate-400 pl-1">{lbl.explanation}</p>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* 8. Common Errors, Debugging & Solutions */}
+              {course?.id !== 'web-development' && course?.id !== 'data-science-ai' && rm.commonErrors && rm.commonErrors.length > 0 && (
+                <div className="space-y-4">
+                  <h3 className="text-lg font-black text-rose-400 flex items-center gap-2 border-b border-slate-800 pb-2">
+                    <AlertTriangle className="w-5 h-5 text-rose-400" />
+                    <span>8. Common Errors, Debugging Techniques & Solutions</span>
+                  </h3>
+                  <div className="space-y-4">
+                    {rm.commonErrors.map((err, errIdx) => (
+                      <div key={errIdx} className="bg-slate-950 p-5 rounded-2xl border border-rose-500/30 space-y-3">
+                        <div className="flex items-center gap-2">
+                          <span className="w-5 h-5 rounded bg-rose-500/20 text-rose-400 text-xs font-bold flex items-center justify-center">!</span>
+                          <h4 className="text-sm font-bold text-rose-300">{cleanText(err.error)}</h4>
+                        </div>
+                        <p className="text-xs text-slate-300"><span className="font-bold text-slate-400">Root Cause: </span>{cleanText(err.reason)}</p>
+                        <div className="grid sm:grid-cols-2 gap-3">
+                          {err.wrongCode && (
+                            <div className="bg-rose-950/20 p-3 rounded-xl border border-rose-800/40 space-y-1">
+                              <span className="text-[10px] font-black uppercase text-rose-400 tracking-wider">Incorrect / Buggy:</span>
+                              <pre className="font-mono text-xs text-rose-300 overflow-x-auto">{err.wrongCode}</pre>
+                            </div>
+                          )}
+                          {err.fixCode && (
+                            <div className="bg-emerald-950/20 p-3 rounded-xl border border-emerald-800/40 space-y-1">
+                              <span className="text-[10px] font-black uppercase text-emerald-400 tracking-wider">Correct Solution:</span>
+                              <pre className="font-mono text-xs text-emerald-300 overflow-x-auto">{err.fixCode}</pre>
+                            </div>
+                          )}
+                        </div>
+                        {err.explanation && (
+                          <p className="text-xs text-slate-400 leading-relaxed"><span className="font-bold text-slate-300">Debugging Tip: </span>{cleanText(err.explanation)}</p>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* 9. Best Practices & Industry Standards */}
+              {rm.bestPractices && rm.bestPractices.length > 0 && (
+                <div className="space-y-4">
+                  <h3 className="text-lg font-black text-cyan-400 flex items-center gap-2 border-b border-slate-800 pb-2">
+                    <CheckCircle className="w-5 h-5 text-cyan-400" />
+                    <span>9. Best Practices & Industry Standards</span>
+                  </h3>
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    {rm.bestPractices.map((bp, bpIdx) => (
+                      <div key={bpIdx} className="bg-slate-950 p-4 rounded-2xl border border-cyan-500/30 space-y-2">
+                        <h4 className="text-xs font-bold text-cyan-300 flex items-center gap-1.5">
+                          <span className="text-cyan-400 font-bold">#</span>
+                          <span>{cleanText(bp.title)}</span>
+                        </h4>
+                        <p className="text-xs text-slate-200 font-medium">{cleanText(bp.rule)}</p>
+                        {bp.why && (
+                          <p className="text-[11px] text-slate-400"><span className="font-bold text-slate-300">Why: </span>{cleanText(bp.why)}</p>
+                        )}
+                        {bp.example && (
+                          <div className="bg-slate-900 p-2 rounded-lg font-mono text-[11px] text-cyan-300 overflow-x-auto border border-slate-800">
+                            <code>{bp.example}</code>
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* 10. Practice Exercise */}
               {rm.practiceExercise && (
                 <div className="bg-slate-950 p-5 rounded-2xl border border-amber-500/40 space-y-3">
                   <div className="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase">
                     <Sparkles className="w-4 h-4" />
-                    <span>Practice Challenge: {cleanText(rm.practiceExercise.title)}</span>
+                    <span>10. Practice Challenge: {cleanText(rm.practiceExercise.title)}</span>
                   </div>
                   <p className="text-xs text-slate-300 font-medium">{cleanText(rm.practiceExercise.problem)}</p>
 
                   <button
                     onClick={() => setShowSolution(!showSolution)}
-                    className="px-3 py-1.5 text-xs font-bold text-amber-300 bg-amber-950/40 hover:bg-amber-900/60 rounded-lg border border-amber-800"
+                    className="px-3 py-1.5 text-xs font-bold text-amber-300 bg-amber-950/40 hover:bg-amber-900/60 rounded-lg border border-amber-800 cursor-pointer transition-all"
                   >
                     {showSolution ? 'Hide Solution' : 'View Solution Code'}
                   </button>
@@ -471,19 +701,187 @@ export default function LearningPage({
                 </div>
               )}
 
-              {/* Module Self-Assessment MCQs */}
+              {/* 11. Practice Questions with Answers (15 Questions) */}
+              {course?.id !== 'web-development' && course?.id !== 'data-science-ai' && rm.practiceQuestions && rm.practiceQuestions.length > 0 && (
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+                    <h3 className="text-lg font-black text-amber-400 flex items-center gap-2">
+                      <HelpCircle className="w-5 h-5 text-amber-400" />
+                      <span>11. Practice Questions with Detailed Answers</span>
+                    </h3>
+                    <span className="text-xs font-bold text-slate-400 bg-slate-950 px-2.5 py-1 rounded-full border border-slate-800">
+                      {rm.practiceQuestions.length} Practice Qs
+                    </span>
+                  </div>
+                  <div className="space-y-3">
+                    {rm.practiceQuestions.map((pq, pqIdx) => {
+                      const isRevealed = revealedPracticeAnswers[`${currentModule?.id}-${pqIdx}`];
+                      return (
+                        <div key={pqIdx} className="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-2.5">
+                          <div className="flex items-start justify-between gap-3">
+                            <div className="flex items-start gap-2">
+                              <span className="w-5 h-5 rounded-full bg-amber-400/20 text-amber-300 text-xs font-black flex items-center justify-center shrink-0 mt-0.5">
+                                {pqIdx + 1}
+                              </span>
+                              <p className="text-xs font-bold text-slate-200 leading-relaxed">{cleanText(pq.question)}</p>
+                            </div>
+                            <button
+                              onClick={() => togglePracticeAnswer(`${currentModule?.id}-${pqIdx}`)}
+                              className="shrink-0 text-[11px] font-bold text-amber-400 hover:text-amber-300 bg-amber-950/40 hover:bg-amber-900/60 px-2.5 py-1 rounded-lg border border-amber-800/80 transition-all cursor-pointer"
+                            >
+                              {isRevealed ? 'Hide Answer' : 'Show Answer'}
+                            </button>
+                          </div>
+                          {isRevealed && (
+                            <div className="bg-slate-900/90 p-3 rounded-xl border border-slate-800 space-y-1.5">
+                              <p className="text-xs text-emerald-300 font-semibold leading-relaxed">
+                                <span className="font-bold text-white">Answer: </span>{cleanText(pq.answer)}
+                              </p>
+                              {pq.explanation && (
+                                <p className="text-[11px] text-slate-400 leading-relaxed pt-1 border-t border-slate-800">
+                                  <span className="font-bold text-slate-300">Explanation: </span>{cleanText(pq.explanation)}
+                                </p>
+                              )}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+
+              {/* 12. Technical Interview Questions & Answers (10 Questions) */}
+              {course?.id !== 'web-development' && course?.id !== 'data-science-ai' && rm.interviewQuestions && rm.interviewQuestions.length > 0 && (
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+                    <h3 className="text-lg font-black text-purple-400 flex items-center gap-2">
+                      <Sparkles className="w-5 h-5 text-purple-400" />
+                      <span>12. Technical Interview Questions & Model Answers</span>
+                    </h3>
+                    <span className="text-xs font-bold text-slate-400 bg-slate-950 px-2.5 py-1 rounded-full border border-slate-800">
+                      {rm.interviewQuestions.length} Interview Qs
+                    </span>
+                  </div>
+                  <div className="space-y-3">
+                    {rm.interviewQuestions.map((iq, iqIdx) => {
+                      const isRevealed = revealedInterviewAnswers[`${currentModule?.id}-${iqIdx}`];
+                      return (
+                        <div key={iqIdx} className="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-2.5">
+                          <div className="flex items-start justify-between gap-3">
+                            <div className="flex items-start gap-2">
+                              <span className="w-5 h-5 rounded-full bg-purple-500/20 text-purple-300 text-xs font-black flex items-center justify-center shrink-0 mt-0.5">
+                                {iqIdx + 1}
+                              </span>
+                              <p className="text-xs font-bold text-slate-200 leading-relaxed">{cleanText(iq.question)}</p>
+                            </div>
+                            <button
+                              onClick={() => toggleInterviewAnswer(`${currentModule?.id}-${iqIdx}`)}
+                              className="shrink-0 text-[11px] font-bold text-purple-400 hover:text-purple-300 bg-purple-950/40 hover:bg-purple-900/60 px-2.5 py-1 rounded-lg border border-purple-800/80 transition-all cursor-pointer"
+                            >
+                              {isRevealed ? 'Hide Answer' : 'Show Answer'}
+                            </button>
+                          </div>
+                          {isRevealed && (
+                            <div className="bg-slate-900/90 p-3 rounded-xl border border-slate-800 space-y-2">
+                              <p className="text-xs text-slate-200 leading-relaxed">
+                                <span className="font-bold text-purple-300">Model Answer: </span>{cleanText(iq.answer)}
+                              </p>
+                              {iq.keyPoints && iq.keyPoints.length > 0 && (
+                                <div className="pt-1.5 border-t border-slate-800 space-y-1">
+                                  <span className="text-[10px] font-black uppercase text-purple-400 tracking-wider">Key Talking Points:</span>
+                                  <ul className="text-[11px] text-slate-300 space-y-1 pl-4 list-disc">
+                                    {iq.keyPoints.map((kp, kpIdx) => (
+                                      <li key={kpIdx}>{cleanText(kp)}</li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              )}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+
+              {/* 13. Practical Mini-Task / Assignment */}
+              {rm.miniTask && (
+                <div className="bg-slate-950 p-6 rounded-3xl border-2 border-brand-800 space-y-4">
+                  <div className="flex items-center gap-2">
+                    <Briefcase className="w-5 h-5 text-emerald-400" />
+                    <h3 className="text-sm font-black uppercase tracking-wider text-emerald-400">
+                      13. Practical Mini-Task: {cleanText(rm.miniTask.title)}
+                    </h3>
+                  </div>
+                  <p className="text-xs text-slate-200 leading-relaxed"><span className="font-bold text-slate-400">Objective: </span>{cleanText(rm.miniTask.objective)}</p>
+                  {rm.miniTask.requirements && rm.miniTask.requirements.length > 0 && (
+                    <div className="space-y-1.5">
+                      <span className="text-[10px] font-black uppercase text-slate-400 tracking-wider">Assignment Requirements:</span>
+                      <ul className="grid sm:grid-cols-2 gap-2 text-xs">
+                        {rm.miniTask.requirements.map((req, rIdx) => (
+                          <li key={rIdx} className="bg-slate-900 p-2.5 rounded-xl border border-slate-800 flex items-start gap-2 text-slate-300">
+                            <span className="text-emerald-400 font-bold">[x]</span>
+                            <span>{cleanText(req)}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  {rm.miniTask.deliverable && (
+                    <div className="text-xs bg-slate-900/60 p-3 rounded-xl border border-slate-800 text-slate-300">
+                      <span className="font-bold text-emerald-400">Deliverable: </span>{cleanText(rm.miniTask.deliverable)}
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* 14. Module Summary & Key Takeaways */}
+              {course?.id !== 'web-development' && rm.summary && (
+                <div className="bg-gradient-to-br from-brand-950/60 to-slate-900 p-6 rounded-3xl border border-brand-800/80 space-y-4">
+                  <h3 className="text-sm font-black uppercase tracking-wider text-emerald-400 flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+                    <span>14. Module Summary & Key Takeaways</span>
+                  </h3>
+                  {rm.summary.takeaways && rm.summary.takeaways.length > 0 && (
+                    <ul className="space-y-2 text-xs text-slate-200">
+                      {rm.summary.takeaways.map((tk, tIdx) => (
+                        <li key={tIdx} className="flex items-start gap-2 bg-slate-950/70 p-3 rounded-xl border border-slate-800/80">
+                          <span className="text-emerald-400 font-bold">✓</span>
+                          <span className="leading-relaxed">{cleanText(tk)}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  {rm.summary.quickReference && rm.summary.quickReference.length > 0 && (
+                    <div className="pt-2 border-t border-slate-800 space-y-2">
+                      <span className="text-[10px] font-black uppercase text-slate-400 tracking-wider">Quick Reference:</span>
+                      <div className="grid sm:grid-cols-2 gap-2 text-xs">
+                        {rm.summary.quickReference.map((qr, qIdx) => (
+                          <div key={qIdx} className="bg-slate-950 p-2.5 rounded-xl border border-slate-800 font-mono text-[11px] text-cyan-300">
+                            {cleanText(qr)}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* 15. Module Self-Assessment MCQs */}
               {rm.selfAssessment && rm.selfAssessment.questions && (
                 <div className="bg-slate-950 p-6 rounded-3xl border-2 border-emerald-500/30 space-y-4">
                   <div className="flex items-center justify-between border-b border-slate-800 pb-3">
                     <div className="flex items-center gap-2">
                       <HelpCircle className="w-5 h-5 text-emerald-400" />
                       <h4 className="text-sm font-black text-white uppercase tracking-wider">
-                        {rm.selfAssessment.title || "Module Self-Assessment (5 MCQs)"}
+                        {rm.selfAssessment.title || "15. Module Self-Assessment (5 MCQs)"}
                       </h4>
                     </div>
                     <button
                       onClick={() => setQuizModalOpen(true)}
-                      className="px-3.5 py-1.5 text-[11px] font-black text-slate-950 bg-amber-400 hover:bg-amber-300 rounded-full shadow transition-all"
+                      className="px-3.5 py-1.5 text-[11px] font-black text-slate-950 bg-amber-400 hover:bg-amber-300 rounded-full shadow transition-all cursor-pointer"
                     >
                       Take Interactive Quiz
                     </button>
@@ -532,7 +930,7 @@ export default function LearningPage({
               )}
 
               {/* Key Takeaways */}
-              {rm.keyTakeaways && rm.keyTakeaways.length > 0 && (
+              {(course?.id === 'data-science-ai' || course?.id === 'web-development' || !rm.summary) && rm.keyTakeaways && rm.keyTakeaways.length > 0 && (
                 <div className="bg-brand-950/40 p-5 rounded-2xl border border-brand-800/80 space-y-3">
                   <h4 className="text-xs font-black uppercase tracking-wider text-emerald-400">Key Takeaways</h4>
                   <ul className="space-y-1.5 text-xs text-slate-300">
